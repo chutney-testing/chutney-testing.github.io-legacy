@@ -1,7 +1,7 @@
 ---
 layout: main
 title: Chutney testing - Write tests
-permalink: /writetests/
+permalink: /writetests
 withmenu: leftmenu.html
 rightmenu: write tests
 ---

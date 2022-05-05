@@ -1,67 +1,69 @@
 <nav class="flex items-center justify-between flex-wrap bg-grey-darkest p-2 bg-neutral-900 fixed w-full h-16">
-  <div class="flex items-center flex-no-shrink mr-6 z-20">
-    <a class="inline-block text-white py-2 px-2" href="/index/">
-      <span class="text-xl text-white pl-2">Chutney testing</span>
-    </a>
-  </div>
+    <div class="flex items-center flex-no-shrink mr-6 z-20">
+        <a class="inline-block text-white py-2 px-2" href="/">
+            <span class="text-xl text-white pl-2">Chutney testing</span>
+        </a>
+    </div>
 
-  <div class="block lg:hidden">
-    <button id="nav-toggle" class="flex items-center px-3 py-2">
-      <svg class="text-white fill-current h-3 w-3 mr-2" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-      </svg>
-    </button>
-  </div>
+    <div class="block lg:hidden">
+        <button id="nav-toggle" class="flex items-center px-3 py-2">
+            <svg class="text-white fill-current h-3 w-3 mr-2" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
+            </svg>
+        </button>
+    </div>
 
 
-  <div
-    class="fixed bg-neutral-900 w-56 inset-y-0 right-0 top-16 flex-grow pt-6 sm:inset-x-0 sm:top-0 sm:flex sm:items-center sm:w-auto hidden sm:block sm:pt-0 sm:h-16"
-    id="nav-content">
-    <ul class="list-reset lg:flex justify-end flex-1 items-center">
-      <li class="mr-3">
-        <a class="inline-block text-white py-2 px-4 sm:px-0 hover:no-underline" href="/gettingstarted/">Getting
-          started</a>
-      </li>
-      <li class="mr-3">
-        <a class="inline-block text-white py-2 px-4" href="/documentation/">Documentation</a>
-      </li>
-      <li class="mr-3 sm:hidden">
-        <a class="inline-block text-white py-2 px-4 sm:px-0 hover:no-underline" href="/3amigos/">3 amigos</a>
-      </li>
-      <li class="mr-3 sm:hidden">
-        <a class="inline-block text-white py-2 px-4 sm:px-0 hover:no-underline" href="/writetests/">Overview</a>
-      </li>
-      <li class="mr-3 sm:hidden">
-        <a class="inline-block text-white py-2 px-4 sm:px-0 hover:no-underline" href="/writetests/">Running tests</a>
-      </li>
-      <li class="mr-3 sm:hidden">
-        <a class="inline-block text-white py-2 px-4 sm:px-0 hover:no-underline" href="/writetests/">Community</a>
-      </li>
-      <li class="mr-3 sm:hidden">
-        <a class="inline-block text-white py-2 px-4 sm:px-0 hover:no-underline" href="/writetests/">UI</a>
-      </li>
-      <li class="mr-3 sm:hidden">
-        <div
-          class="text-white x-4 py-2 mt-2 text-sm accordion-header cursor-pointer transition flex space-x-5 px-3 items-center">
-          Components
-          <div class="ml-4">
-            <i class="fas fa-angle-down"></i>
-          </div>
-        </div>
-        <div class="mt-4">
-          <div class="accordion-content px-5 pt-0 overflow-hidden max-h-0">
-            <a class="text-sm text-white" href="/tasks">
-              Tasks
-            </a>
-            <a class="block text-sm text-white" href="/functions">
-              Functions
-            </a>
-          </div>
-        </div>
-      </li>
-      <a href="https://github.com/chutney-testing/chutney"><img class="logolink m-auto relative right-1 sm:m-4"
-          src="../img/githubwhite.png"></a>
-      </li>
-    </ul>
-  </div>
+    <div
+            class="fixed bg-neutral-900 w-56 inset-y-0 right-0 top-16 flex-grow pt-6 sm:inset-x-0 sm:top-0 sm:flex sm:items-center sm:w-auto hidden sm:block sm:pt-0 sm:h-16"
+            id="nav-content">
+        <ul class="list-reset lg:flex justify-end flex-1 items-center">
+            <li class="mr-3">
+                <a class="inline-block text-white py-2 px-4 sm:px-0 hover:no-underline" href="/gettingstarted">Getting
+                    started</a>
+            </li>
+            <li class="mr-3">
+                <a class="inline-block text-white py-2 px-4" href="/documentation">Documentation</a>
+            </li>
+            <li class="mr-3 sm:hidden">
+                <a class="inline-block text-white py-2 px-4 sm:px-0 hover:no-underline" href="/3amigos">3 amigos</a>
+            </li>
+            <li class="mr-3 sm:hidden">
+                <a class="inline-block text-white py-2 px-4 sm:px-0 hover:no-underline" href="/writetests">Overview</a>
+            </li>
+            <li class="mr-3 sm:hidden">
+                <a class="inline-block text-white py-2 px-4 sm:px-0 hover:no-underline" href="/writetests">Running
+                    tests</a>
+            </li>
+            <li class="mr-3 sm:hidden">
+                <a class="inline-block text-white py-2 px-4 sm:px-0 hover:no-underline" href="/writetests">Community</a>
+            </li>
+            <li class="mr-3 sm:hidden">
+                <a class="inline-block text-white py-2 px-4 sm:px-0 hover:no-underline" href="/writetests">UI</a>
+            </li>
+            <li class="mr-3 sm:hidden">
+                <div
+                        class="text-white x-4 py-2 mt-2 text-sm accordion-header cursor-pointer transition flex space-x-5 px-3 items-center">
+                    Components
+                    <div class="ml-4">
+                        <i class="fas fa-angle-down"></i>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="accordion-content px-5 pt-0 overflow-hidden max-h-0">
+                        <a class="text-sm text-white" href="/tasks">
+                            Tasks
+                        </a>
+                        <a class="block text-sm text-white" href="/functions">
+                            Functions
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="https://github.com/chutney-testing/chutney">
+                    <img class="logolink m-auto relative right-1 sm:m-4" src="../img/githubwhite.png"></a>
+            </li>
+        </ul>
+    </div>
 </nav>

@@ -1,7 +1,7 @@
 ---
 layout: main
 title: Chutney testing - Functions
-permalink: /functions/
+permalink: /functions
 withmenu: leftmenu.html
 rightmenu: functions
 ---

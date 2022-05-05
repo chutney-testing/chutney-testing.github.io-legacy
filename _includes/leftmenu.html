@@ -1,42 +1,41 @@
 <div class="wrapper mt-24 md:mt-18">
-  <div class="sidebarleft absolute lg:fixed invisible md:visible">
-    <div class="px-8 py-4 flex flex-row items-center justify-between">
-      <a>Menu</a>
+    <div class="sidebarleft absolute lg:fixed invisible md:visible">
+        <div class="px-8 py-4 flex flex-row items-center justify-between">
+            <a>Menu</a>
+        </div>
+        <nav id="leftmenu" :class="{'block': open, 'hidden': !open}"
+             class="bg-transparent flex-grow md:block px-4 pb-4 md:pb-0 md:overflow-y-auto">
+            <a class="block px-4 py-2 mt-2 text-sm hover:text-teal-900 hover:font-semibold text-black"
+               href="/documentation">Overview</a>
+            <a class="block px-4 py-2 mt-2 text-sm hover:text-teal-900 hover:font-semibold text-black"
+               href="/gettingstarted">Getting started</a>
+            <a class="block px-4 py-2 mt-2 text-sm hover:text-teal-900 hover:font-semibold text-black"
+               href="/3amigos/">3 amigos</a>
+            <a class="block px-4 py-2 mt-2 text-sm hover:text-teal-900 hover:font-semibold text-black"
+               href="/writetests">Write tests</a>
+            <a class="block px-4 py-2 mt-2 text-sm hover:text-teal-900 hover:font-semibold text-black"
+               href="/runningtests">Running tests</a>
+            <a class="block px-4 py-2 mt-2 text-sm hover:text-teal-900 hover:font-semibold text-black"
+               href="/community">Community</a>
+            <a class="ml-1 block px-4 py-2 mt-2 text-sm hover:text-teal-900 hover:font-semibold text-black"
+               href="/UI">UI</a>
+
+            <div class=" px-4 py-2 mt-2 text-sm hover:text-teal-900 hover:font-semibold text-black accordion-header cursor-pointer transition flex space-x-5 px-3 items-center">
+                Components
+                <div class="ml-4">
+                    <i class="fas fa-angle-down"></i>
+                </div>
+            </div>
+            <div class="mt-4">
+                <div class="accordion-content px-5 pt-0 overflow-hidden max-h-0">
+                    <a class="text-sm hover:text-teal-900 hover:font-semibold text-black" href="/tasks">
+                        Tasks
+                    </a>
+                    <a class="block text-sm hover:text-teal-900 hover:font-semibold text-black" href="/functions">
+                        Functions
+                    </a>
+                </div>
+            </div>
+        </nav>
     </div>
-    <nav id="leftmenu" :class="{'block': open, 'hidden': !open}"
-      class="bg-transparent flex-grow md:block px-4 pb-4 md:pb-0 md:overflow-y-auto">
-      <a class="block px-4 py-2 mt-2 text-sm hover:text-teal-900 hover:font-semibold text-black"
-        href="/documentation/">Overview</a>
-      <a class="block px-4 py-2 mt-2 text-sm hover:text-teal-900 hover:font-semibold text-black"
-        href="/gettingstarted/">Getting started</a>
-      <a class="block px-4 py-2 mt-2 text-sm hover:text-teal-900 hover:font-semibold text-black" href="/3amigos/">3
-        amigos</a>
-      <a class="block px-4 py-2 mt-2 text-sm hover:text-teal-900 hover:font-semibold text-black"
-        href="/writetests/">Write
-        tests</a>
-      <a class="block px-4 py-2 mt-2 text-sm hover:text-teal-900 hover:font-semibold text-black"
-        href="/runningtests/">Running tests</a>
-      <a class="block px-4 py-2 mt-2 text-sm hover:text-teal-900 hover:font-semibold text-black"
-        href="/community/">Community</a>
-      <a class="ml-1 block px-4 py-2 mt-2 text-sm hover:text-teal-900 hover:font-semibold text-black" href="/UI/">UI</a>
-      <div
-        class=" px-4 py-2 mt-2 text-sm hover:text-teal-900 hover:font-semibold text-black accordion-header cursor-pointer transition flex space-x-5 px-3 items-center">
-        Components
-        <div class="ml-4">
-          <i class="fas fa-angle-down"></i>
-        </div>
-      </div>
-      <div class="mt-4">
-        <div class="accordion-content px-5 pt-0 overflow-hidden max-h-0">
-          <a class="text-sm hover:text-teal-900 hover:font-semibold text-black" href="/tasks">
-            Tasks
-          </a>
-          <a class="block text-sm hover:text-teal-900 hover:font-semibold text-black" href="/functions">
-            Functions
-          </a>
-        </div>
-      </div>
-    </nav>
-  </div>
-</div>
 </div>

@@ -1,7 +1,7 @@
 ---
 layout: main
 title: Chutney testing - Tasks
-permalink: /tasks/
+permalink: /tasks
 scriptjs: ../js/task.js
 withmenu: leftmenutask.html
 ---

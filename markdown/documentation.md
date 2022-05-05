@@ -1,7 +1,7 @@
 ---
 layout: main
 title: Chutney testing - Documentation
-permalink: /documentation/
+permalink: /documentation
 withmenu: leftmenu.html
 rightmenu: overview
 ---

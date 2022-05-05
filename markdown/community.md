@@ -1,7 +1,7 @@
 ---
 layout: main
 title: Chutney testing - Community
-permalink: /community/
+permalink: /community
 withmenu: leftmenu.html
 rightmenu: community
 ---

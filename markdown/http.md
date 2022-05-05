@@ -1,7 +1,7 @@
 ---
 layout: main
 title: Chutney testing - Documentation
-permalink: /http/
+permalink: /http
 withmenu: leftmenutask.html
 rightmenu: http
 ---

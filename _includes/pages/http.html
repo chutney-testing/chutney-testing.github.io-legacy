@@ -1,0 +1,126 @@
+<article>
+    <h2 class="mb-6 text-2xl text-center font-bold border-b-2 border-solid">HTTP tasks</h2>
+    <article id="http_get">
+        <h3 class="mb-4 text-xl text-center font-semibold border-b border-dashed">HTTP Get</h3>
+        <section>
+            <h4 class="mb-2 text-lg font-medium">Presentation</h4>
+            <div class="pl-6">
+                <p>
+                    The HTTP Get task performs a HTTP request with the GET request method
+                </p>
+            </div>
+        </section>
+        <section>
+            <h4 class="mb-2 text-lg font-medium">Inputs</h4>
+            <div class="pl-6">
+                <table class="table-auto w-full text-left">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type - Format</th>
+                        <th>Mandatory</th>
+                        <th>Default value</th>
+                        <th>Validation</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>target</td>
+                        <td>string</td>
+                        <td><input type="checkbox" checked class="pointer-events-none"/></td>
+                        <td></td>
+                        <td><input type="checkbox" checked class="pointer-events-none"/></td>
+                    </tr>
+                    <tr>
+                        <td>uri</td>
+                        <td>string</td>
+                        <td><input type="checkbox" class="pointer-events-none"/></td>
+                        <td></td>
+                        <td><input type="checkbox" class="pointer-events-none"/></td>
+                    </tr>
+                    <tr>
+                        <td>headers</td>
+                        <td>map of strings</td>
+                        <td><input type="checkbox" class="pointer-events-none"/></td>
+                        <td></td>
+                        <td><input type="checkbox" class="pointer-events-none"/></td>
+                    </tr>
+                    <tr>
+                        <td>timeout</td>
+                        <td>duration string</td>
+                        <td><input type="checkbox" checked class="pointer-events-none"/></td>
+                        <td>2000 ms</td>
+                        <td><input type="checkbox" checked class="pointer-events-none"/></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section>
+            <h4 class="mb-2 text-lg font-medium">Outputs</h4>
+            <div class="pl-6">
+                <table class="table-auto w-full text-left">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type - Format</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>status</td>
+                        <td>int</td>
+                    </tr>
+                    <tr>
+                        <td>body</td>
+                        <td>string</td>
+                    </tr>
+                    <tr>
+                        <td>headers</td>
+                        <td>org.springframework.http.HttpHeaders (extends map)</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section>
+            <h4 class="mb-2 text-lg font-medium">Examples</h4>
+            <div class="pl-6">
+                <section>
+                    <table>
+                        <tbody>
+                        <tr><td>Koltin</td></tr>
+                        <tr><td>
+                            <pre>
+                                <code class="kotlin">
+HttpGetTask(
+    target = "HTTP_TARGET",
+    uri = "https://github.com/search?q=chutney",
+    headers = mapOf(
+    ),
+)
+                                </code>
+                            </pre>
+                        </td></tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section>
+                    <h5>YAML</h5>
+                    <pre>
+                        <code class="yaml">
+description: Github research
+  implementation:
+    type: http-get
+    target: HTTP_TARGET
+    inputs:
+      uri: "https://github.com/search?q=chutney"
+      headers: {}
+      timeout: 2 sec
+                        </code>
+                    </pre>
+                </section>
+            </div>
+        </section>
+    </article>
+</article>

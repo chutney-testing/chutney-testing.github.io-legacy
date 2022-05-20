@@ -12,7 +12,7 @@ The HTTP Get task performs an HTTP request with the GET request method.
 | headers | string          |           |         |            |
 | timeout | duration string |           | 2000 ms |            |
 
-### Ouputs
+### Outputs
 
 | Name    | Type - Format                               |
 |:--------|:--------------------------------------------|

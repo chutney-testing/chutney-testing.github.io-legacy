@@ -1,33 +1,34 @@
-<div class="wrapper mt-24 md:mt-18">
-    <div class="sidebarleft absolute lg:fixed invisible md:visible">
+<div class="mx-auto px-30 mt-24 md:mt-18">
+    <div class="bottom-6 top-20 left-0 w-56 h-full pt-5 pl-0 absolute lg:fixed invisible md:visible">
         <div class="px-8 py-4 flex flex-row items-center justify-between">
             <a>Menu</a>
         </div>
         <nav id="leftmenu" :class="{'block': open, 'hidden': !open}"
-             class="bg-transparent flex-grow md:block px-4 pb-4 md:pb-0 md:overflow-y-auto">
+            class="bg-transparent flex-grow md:block px-4 pb-4 md:pb-0 md:overflow-y-auto">
             <a class="block px-4 py-2 mt-2 text-sm hover:text-teal-900 hover:font-semibold text-black"
-               href="/documentation">Overview</a>
+                href="/documentation">Overview</a>
             <a class="block px-4 py-2 mt-2 text-sm hover:text-teal-900 hover:font-semibold text-black"
-               href="/gettingstarted">Getting started</a>
+                href="/gettingstarted">Getting started</a>
             <a class="block px-4 py-2 mt-2 text-sm hover:text-teal-900 hover:font-semibold text-black"
-               href="/3amigos/">3 amigos</a>
+                href="/3amigos/">3 amigos</a>
             <a class="block px-4 py-2 mt-2 text-sm hover:text-teal-900 hover:font-semibold text-black"
-               href="/writetests">Write tests</a>
+                href="/writetests">Write tests</a>
             <a class="block px-4 py-2 mt-2 text-sm hover:text-teal-900 hover:font-semibold text-black"
-               href="/runningtests">Running tests</a>
+                href="/runningtests">Running tests</a>
             <a class="block px-4 py-2 mt-2 text-sm hover:text-teal-900 hover:font-semibold text-black"
-               href="/community">Community</a>
+                href="/community">Community</a>
             <a class="ml-1 block px-4 py-2 mt-2 text-sm hover:text-teal-900 hover:font-semibold text-black"
-               href="/UI">UI</a>
+                href="/UI">UI</a>
 
-            <div class=" px-4 py-2 mt-2 text-sm hover:text-teal-900 hover:font-semibold text-black accordion-header cursor-pointer transition flex space-x-5 px-3 items-center">
+            <div
+                class=" px-4 py-2 mt-2 text-sm hover:text-teal-900 hover:font-semibold text-black accordion-header cursor-pointer transition flex space-x-5 px-3 items-center">
                 Components
                 <div class="ml-4">
                     <i class="fas fa-angle-down"></i>
                 </div>
             </div>
             <div class="mt-4">
-                <div class="accordion-content px-5 pt-0 overflow-hidden max-h-0">
+                <div class="accordion-content ease-in duration-300 px-5 pt-0 overflow-hidden max-h-0">
                     <a class="text-sm hover:text-teal-900 hover:font-semibold text-black" href="/tasks">
                         Tasks
                     </a>

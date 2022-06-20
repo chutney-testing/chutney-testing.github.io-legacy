@@ -1,27 +1,7 @@
-// script for the tabs
-const tabs = document.querySelectorAll('[data-tab-target]')
-const tabContents = document.querySelectorAll('[data-tab-content]')
-
-tabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    const target = document.querySelector(tab.dataset.tabTarget)
-    tabContents.forEach(tabContent => {
-      tabContent.classList.remove('active')
-    })
-    tabs.forEach(tab => {
-      tab.classList.remove('active')
-    })
-    tab.classList.add('active')
-    target.classList.add('active')
-  })
-})
-
 // toggle the menu in responsive mode
 document.getElementById('nav-toggle').onclick = function () {
   document.getElementById("nav-content").classList.toggle("hidden");
 }
-
-
 
 mybutton = document.getElementById("myBtn");
 
@@ -47,12 +27,12 @@ const accordionHeader = document.querySelectorAll(".accordion-header");
 accordionHeader.forEach((header) => {
   header.addEventListener("click", function () {
     const accordionContent = header.parentElement.querySelector(".accordion-content");
-    let accordionMaxHeight= accordionContent.style.maxHeight;
+    let accordionMaxHeight = accordionContent.style.maxHeight;
 
-    if (accordionMaxHeight== "0px" || accordionMaxHeight.length == 0) {
-      accordionContent.style.maxHeight= `${accordionContent.scrollHeight+ 0}px`;
+    if (accordionMaxHeight == "0px" || accordionMaxHeight.length == 0) {
+      accordionContent.style.maxHeight = `${accordionContent.scrollHeight + 0}px`;
     } else {
-      accordionContent.style.maxHeight= `0px`;
+      accordionContent.style.maxHeight = `0px`;
     }
   });
 });

@@ -3,11 +3,21 @@
     <section>
         {% capture myInclude %}{% include tasks/http-global.md %}{% endcapture %}
         {{ myInclude | markdownify }}
-<span></span> <!-- span necessary, don't know why ... -->
     </section>
-    <article id="http_get" class="p-2">
+    <section id="http_get" class="p-2">
         {% capture myInclude %}{% include tasks/http-get.md %}{% endcapture %}
         {{ myInclude | markdownify }}
-<span></span> <!-- span necessary, don't know why ... -->
-    </article>
+    </section>
+    <section id="http_post" class="p-2">
+        {% capture myInclude %}{% include tasks/http-post.md %}{% endcapture %}
+        {{ myInclude | markdownify }}
+    </section>
+    <section id="http_delete" class="p-2">
+        {% capture myInclude %}{% include tasks/http-delete.md %}{% endcapture %}
+        {{ myInclude | markdownify }}
+    </section>
+    <section id="http_put" class="p-2">
+        {% capture myInclude %}{% include tasks/http-put.md %}{% endcapture %}
+        {{ myInclude | markdownify }}
+    </section>
 </article>

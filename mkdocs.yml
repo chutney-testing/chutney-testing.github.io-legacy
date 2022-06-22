@@ -3,6 +3,7 @@ site_name: Chutney Testing
 site_url: https://www.chutney-testing.com/
 theme:
   name: material
+  favicon: img/favicon.ico
 nav:
   - Home: index.md
   - About: about.md

@@ -11,4 +11,16 @@
     Simple properties **keystore**, **keystorePassword**, **keyPassword**, **truststore** and **truststorePassword** could be alternatively used.
 
 ### Proxy
-  By default, if **http.proxyHost** system property is set, he HTTP client will use this as the default route planner.
+  By default, if **http.proxyHost** system property is set, the HTTP client will use this as the default route planner.
+
+### Outputs
+
+All of the HTTP tasks depicted below do have the same outputs.
+
+### Outputs
+
+| Name    | Type - Format                               |
+|:--------|:--------------------------------------------|
+| status  | int                                         |
+| body    | string                                      |
+| headers | map (org.springframework.http.HttpHeaders)  |

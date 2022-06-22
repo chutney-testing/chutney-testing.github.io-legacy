@@ -84,3 +84,27 @@ http:
 
   - href: http_post
     content: Http Post
+    
+  - href: http_delete
+    content: Http Delete
+
+  - href: http_put
+    content: Http Put
+
+  - href: http_patch
+    content: Http Patch
+
+  - href: http_soap
+    content: Http Soap
+
+  - href: http_task_helper
+    content: Http Task Helper
+
+  - href: http_listener
+    content: Http Listener
+
+  - href: http_server_start
+    content: Http Server Start
+
+  - href: http_server_stop
+    content: Http Server Stop

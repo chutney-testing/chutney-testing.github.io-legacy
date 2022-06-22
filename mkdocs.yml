@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
+site_name: Chutney Testing
+site_url: https://www.chutney-testing.com/
+theme:
+  name: material
+nav:
+  - Home: index.md
+  - About: about.md

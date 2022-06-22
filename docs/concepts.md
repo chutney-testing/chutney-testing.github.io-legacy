@@ -1,31 +1,4 @@
-# Welcome to Chutney
-
-## Overview
-[![Build](https://github.com/chutney-testing/chutney/workflows/Build/badge.svg?branch=master)](https://github.com/chutney-testing/chutney/actions)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.chutneytesting/server/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.chutneytesting/server)
-[![Zulip chat](https://img.shields.io/badge/zulip-join_chat-brightgreen.svg)](https://chutney-testing.zulipchat.com/)
-
-**Spice up your spec , Better `taste` your app !**
-
-You Use Chutney to test deployed software and validate your functional requirements.
-
-Learn more about 
-
-## Encontra los 3 amigos
-Chutney s'adresse aux 3 amis
-
-3 lignes
-
-3 lignes
-
-## Capabilities
-We refer to caps as "Tasks" or "Actions".
-De nombreuses tâches, évites le boiler plate.
-
-2 lignes
-
-## Get started !
-Installer, configurer et écrire un premier scénario !
+# Concepts
 
 ## Why another test tool ?
 
@@ -41,11 +14,11 @@ testers and developers to co-create, share and execute acceptance tests.
 
 Moreover, we needed to :
 
-  * Promote and support Specification by Example across multiple teams and offices
-  * Ease collaboration and shared understanding in a "not so agile" environment
-  * Provide a single source of truth without hiding details in tests _glue code_
-  * Ease the automation of thousands of manual tests without writing and maintaining specific code
-  * Automate end-to-end tests of distributed software across secured networks, including hardware over telco networks
+* Promote and support Specification by Example across multiple teams and offices
+* Ease collaboration and shared understanding in a "not so agile" environment
+* Provide a single source of truth without hiding details in tests _glue code_
+* Ease the automation of thousands of manual tests without writing and maintaining specific code
+* Automate end-to-end tests of distributed software across secured networks, including hardware over telco networks
 
 ## What is it not ?
 
@@ -70,4 +43,3 @@ All of which, however you call it, define the same practices and share the same 
 
 Global understanding of Test Driven Development and knowledge about Ubiquitous Language (from Domain Driven Design, by Eric Evans)
 is also valuable.
-

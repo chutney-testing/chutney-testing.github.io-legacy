@@ -5,5 +5,16 @@ theme:
   name: material
   favicon: img/favicon.ico
 nav:
-  - Home: index.md
+  - Getting Started: getting_started.md
+  - Documentation:
+    - Installation: install.md
+    - Configuration:
+      - environment: configuration/env.md
+      - agent: configuration/agent.md
+      - roles: configuration/roles.md
+    - 'Write a scenario': write.md
+    - Actions:
+        - http: actions/http.md
+        - amqp: actions/amqp.md
+  - Concepts: concepts.md
   - About: about.md

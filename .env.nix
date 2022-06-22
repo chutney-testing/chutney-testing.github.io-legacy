@@ -2,8 +2,8 @@
 with nixpkgs;
 mkShell {
   buildInputs = [
-    ruby
-    jekyll
-    bundler
+    python310
+    python310Packages.mkdocs
+    python310Packages.mkdocs-material
   ];
 }

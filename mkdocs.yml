@@ -21,6 +21,7 @@ nav:
         - amqp: actions/amqp.md
   - Concepts: concepts.md
   - About: about.md
+  #- Toolbox: toolbox.md # hidden page
 
 theme:
   name: material
@@ -31,6 +32,8 @@ theme:
     text: Ubuntu
     #text: Montserrat
     code: Source Code Pro
+  features:
+    - content.code.annotate
 
 # Material theme specific
 extra:
@@ -49,3 +52,10 @@ markdown_extensions:
   - toc:
       permalink: "🔗"
       baselevel: 2
+  - footnotes
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences

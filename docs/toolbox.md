@@ -53,6 +53,11 @@
     }
     ```
 
+=== "file import"
+    ``` md
+    --8<-- "docs/index.md"
+    ```
+
 ### Admonitions
 
 !!! note

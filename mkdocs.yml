@@ -51,6 +51,7 @@ theme:
         name: Switch to light mode
   features:
     - content.code.annotate
+    - navigation.tracking
 #    - header.autohide
 #    - navigation.tabs
 

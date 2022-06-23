@@ -1,6 +1,11 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
 site_name: Chutney Testing
 site_url: https://www.chutney-testing.com/
+site_description: Opinionated test tool for Specification by Example
+site_author: Chutney Testing Team
+repo_name:
+repo_url: https://github.com/chutney-testing/chutney/
+edit_uri: ""
 
 nav:
   - Getting Started: getting_started.md
@@ -27,6 +32,7 @@ theme:
     #text: Montserrat
     code: Source Code Pro
 
+# Material theme specific
 extra:
   alternate:
     - name: English

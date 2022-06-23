@@ -1,13 +1,7 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
 site_name: Chutney Testing
 site_url: https://www.chutney-testing.com/
-theme:
-  name: material
-  favicon: img/favicon.ico
-  font:
-    text: Ubuntu
-    #text: Montserrat
-    code: Source Code Pro
+
 nav:
   - Getting Started: getting_started.md
   - Documentation:
@@ -22,3 +16,24 @@ nav:
         - amqp: actions/amqp.md
   - Concepts: concepts.md
   - About: about.md
+
+theme:
+  name: material
+  favicon: img/favicon.ico
+  language: en
+  font:
+    text: Ubuntu
+    #text: Montserrat
+    code: Source Code Pro
+
+extra:
+  alternate:
+    - name: English
+      link: /en/
+      lang: en
+    - name: Français
+      link: /fr/
+      lang: fr
+    - name: 中文
+      link: /zh/
+      lang: zh

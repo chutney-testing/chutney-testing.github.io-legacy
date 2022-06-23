@@ -5,7 +5,7 @@ site_description: Opinionated test tool for Specification by Example
 site_author: Chutney Testing Team
 repo_name:
 repo_url: https://github.com/chutney-testing/chutney/
-edit_uri: ""
+edit_uri: https://github.com/chutney-testing/chutney-testing.github.io/docs
 
 nav:
   - Getting Started: getting_started.md

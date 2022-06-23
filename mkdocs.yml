@@ -24,6 +24,9 @@ nav:
   - Concepts: concepts.md
   #- Toolbox: toolbox.md # hidden page
 
+extra_css:
+  - stylesheets/extra.css
+
 theme:
   name: material
   favicon: img/favicon.ico

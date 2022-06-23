@@ -8,8 +8,8 @@ nav:
     - Installation: install.md
     - Configuration:
       - environment: configuration/env.md
-      - agent: configuration/agent.md
       - roles: configuration/roles.md
+      - agent: configuration/agent.md
     - 'Write a scenario': write.md
     - Actions:
         - http: actions/http.md
@@ -38,3 +38,8 @@ extra:
     - name: 中文
       link: /zh/
       lang: zh
+
+markdown_extensions:
+  - toc:
+      permalink: "🔗"
+      baselevel: 2

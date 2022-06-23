@@ -71,6 +71,15 @@
 !!! warning
     `warning`
 
+### Diagrams
+
+``` mermaid
+erDiagram
+  CUSTOMER ||--o{ ORDER : places
+  ORDER ||--|{ LINE-ITEM : contains
+  CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
+```
+
 ### Footnotes
 
 [^1]: This is a footnote content.

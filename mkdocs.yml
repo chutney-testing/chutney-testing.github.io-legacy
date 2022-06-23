@@ -4,6 +4,10 @@ site_url: https://www.chutney-testing.com/
 theme:
   name: material
   favicon: img/favicon.ico
+  font:
+    text: Ubuntu
+    #text: Montserrat
+    code: Source Code Pro
 nav:
   - Getting Started: getting_started.md
   - Documentation:

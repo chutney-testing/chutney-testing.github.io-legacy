@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
-site_name: Chutney Testing
+site_name: ''
 site_url: https://www.chutney-testing.com/
 site_description: Opinionated test tool for Specification by Example
 site_author: Chutney Testing Team
@@ -8,6 +8,7 @@ repo_url: https://github.com/chutney-testing/chutney/
 edit_uri: https://github.com/chutney-testing/chutney-testing.github.io/docs
 
 nav:
+  - Home: index.md
   - Getting Started: getting_started.md
   - Documentation:
     - Installation: install.md
@@ -20,7 +21,6 @@ nav:
         - http: actions/http.md
         - amqp: actions/amqp.md
   - Concepts: concepts.md
-  - About: about.md
   #- Toolbox: toolbox.md # hidden page
 
 theme:
@@ -34,6 +34,7 @@ theme:
     code: Source Code Pro
   features:
     - content.code.annotate
+#    - navigation.tabs
 
 # Material theme specific
 extra:
@@ -59,3 +60,5 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true

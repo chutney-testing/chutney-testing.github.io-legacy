@@ -20,6 +20,7 @@ nav:
 theme:
   name: material
   favicon: img/favicon.ico
+  logo: img/logo.svg
   language: en
   font:
     text: Ubuntu

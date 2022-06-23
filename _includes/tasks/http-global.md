@@ -15,9 +15,14 @@
 
 ### Outputs
 
-All of the HTTP tasks depicted below do have the same outputs.
+The following HTTP tasks do have the same outputs :
+- HTTP Get
+- HTTP Post
+- HTTP Delete
+- HTTP Put
+- HTTP Patch
+- HTTP Soap
 
-### Outputs
 
 | Name    | Type - Format                               |
 |:--------|:--------------------------------------------|

@@ -9,12 +9,11 @@ The HTTP Post task performs an HTTP request with the POST request method.
 |:--------|:----------------|:----------|:--------|:-----------|
 | target  | string          | &#9745;   |         | &#9745;    |
 | uri     | string          |           |         |            |
+| body    | string          |           |         |            |
 | headers | string          |           |         |            |
 | timeout | duration string |           | 2000 ms |            |
-| body    | string          |           |         |            |
 
-
-### Examples
+### Example
 
 * Kotlin
     ``` kotlin

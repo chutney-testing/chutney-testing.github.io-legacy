@@ -80,31 +80,28 @@ functions:
 
 http:
   - href: http_get
-    content: Http Get
+    content: HTTP Get
 
   - href: http_post
-    content: Http Post
+    content: HTTP Post
     
   - href: http_delete
-    content: Http Delete
+    content: HTTP Delete
 
   - href: http_put
-    content: Http Put
+    content: HTTP Put
 
   - href: http_patch
-    content: Http Patch
+    content: HTTP Patch
 
   - href: http_soap
-    content: Http Soap
-
-  - href: http_task_helper
-    content: Http Task Helper
+    content: HTTP Soap
 
   - href: http_listener
-    content: Http Listener
+    content: HTTP Listener
 
   - href: http_server_start
-    content: Http Server Start
+    content: HTTP Server Start
 
   - href: http_server_stop
-    content: Http Server Stop
+    content: HTTP Server Stop

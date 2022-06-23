@@ -13,7 +13,7 @@ The HTTP Get task performs an HTTP request with the GET request method.
 | timeout | duration string |           | 2000 ms |            |
 
 
-### Examples
+### Example
 
 * Kotlin
     ``` kotlin

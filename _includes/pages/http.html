@@ -20,4 +20,25 @@
         {% capture myInclude %}{% include tasks/http-put.md %}{% endcapture %}
         {{ myInclude | markdownify }}
     </section>
+    <section id="http_patch" class="p-2">
+        {% capture myInclude %}{% include tasks/http-patch.md %}{% endcapture %}
+        {{ myInclude | markdownify }}
+    </section>
+    <section id="http_soap" class="p-2">
+        {% capture myInclude %}{% include tasks/http-soap.md %}{% endcapture %}
+        {{ myInclude | markdownify }}
+    </section><hr>
+    <h1 class="mb-6 text-center">HTTP Special Tasks</h1>
+    <section id="http_listener" class="p-2">
+        {% capture myInclude %}{% include tasks/http-listener.md %}{% endcapture %}
+        {{ myInclude | markdownify }}
+    </section>
+    <section id="http_server_start" class="p-2">
+        {% capture myInclude %}{% include tasks/http-server-start.md %}{% endcapture %}
+        {{ myInclude | markdownify }}
+    </section>
+    <section id="http_server_stop" class="p-2">
+        {% capture myInclude %}{% include tasks/http-server-stop.md %}{% endcapture %}
+        {{ myInclude | markdownify }}
+    </section>
 </article>

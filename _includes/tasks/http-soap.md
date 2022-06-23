@@ -1,7 +1,4 @@
-
-## HTTP Delete
-
-The HTTP Delete task performs an HTTP request with the DELETE request method.
+## HTTP Soap
 
 ### Inputs
 
@@ -9,17 +6,21 @@ The HTTP Delete task performs an HTTP request with the DELETE request method.
 |:--------|:----------------|:----------|:--------|:-----------|
 | target  | string          | &#9745;   |         | &#9745;    |
 | uri     | string          |           |         |            |
-| headers | string          |           |         |            |
+| body    | string          |           |         |            |
+| username| string          |           |         |            |
+| password| string          |           |         |            |
 | timeout | duration string |           | 2000 ms |            |
-
+| headers | string          |           |         |            |
 
 ### Example
 
 * Kotlin
     ``` kotlin
-    HttpDeleteTask(
+    HttpSoapTask(
         target = "HTTP_TARGET",
         uri = "https://github.com/search?q=chutney",
+        username = "userprivate",
+        password = "userpassword",
         headers = mapOf(
           "Content-Type" to "application/json"
         ),

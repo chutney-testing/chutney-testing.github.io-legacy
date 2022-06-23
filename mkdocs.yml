@@ -9,8 +9,15 @@ edit_uri: https://github.com/chutney-testing/chutney-testing.github.io/docs
 # copyright: © Chutney Testing 2017 | under the Apache License, Version 2.0
 
 nav:
-  - Home: index.md
-  - Getting Started: getting_started.md
+  - Overview: index.md
+  - Getting Started:
+    - Install: quickstart/setup.md
+    - Configure: quickstart/config.md
+    - Specify: quickstart/specify.md
+    - Run: quickstart/run.md
+    - Philosophy: philosophy.md
+    - Alternatives: alternatives.md
+    - License: license.md
   - Documentation:
     - Installation: install.md
     - Configuration:
@@ -21,7 +28,6 @@ nav:
     - Actions:
         - http: actions/http.md
         - amqp: actions/amqp.md
-  - Concepts: concepts.md
   #- Toolbox: toolbox.md # hidden page
 
 extra_css:
@@ -52,8 +58,8 @@ theme:
   features:
     - content.code.annotate
     - navigation.tracking
+    - navigation.tabs
 #    - header.autohide
-#    - navigation.tabs
 
 # Material theme specific
 extra:

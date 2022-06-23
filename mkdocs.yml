@@ -53,6 +53,9 @@ theme:
 
 # Material theme specific
 extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/chutney-testing
   alternate:
     - name: English
       link: /en/

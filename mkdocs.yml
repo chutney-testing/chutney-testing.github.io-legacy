@@ -43,17 +43,17 @@ theme:
     #text: Montserrat
     code: Source Code Pro
   palette:
-    - media: "(prefers-color-scheme: dark)"
+    - media: "(prefers-color-scheme: light)"
       scheme: default
       toggle:
-#        icon: material/toggle-switch
-        icon: material/weather-night
+        icon: material/toggle-switch
+#        icon: material/weather-night
         name: Switch to dark mode
-    - media: "(prefers-color-scheme: light)"
+    - media: "(prefers-color-scheme: dark)"
       scheme: slate
       toggle:
-#        icon: material/toggle-switch-off-outline
-        icon: material/weather-sunny
+        icon: material/toggle-switch-off-outline
+#        icon: material/weather-sunny
         name: Switch to light mode
   features:
     - content.code.annotate

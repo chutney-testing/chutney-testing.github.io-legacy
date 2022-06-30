@@ -11,13 +11,15 @@ edit_uri: https://github.com/chutney-testing/chutney-testing.github.io/docs
 nav:
   - Overview: index.md
   - Getting Started:
-    - Install: quickstart/setup.md
-    - Configure: quickstart/config.md
-    - Specify: quickstart/specify.md
-    - Run: quickstart/run.md
-    - Philosophy: philosophy.md
-    - Alternatives: alternatives.md
-    - License: license.md
+     - Write & Run your first scenario: getting_started_1.md
+     - Install Chutney server: getting_started_2.md
+#    - Install: quickstart/setup.md
+#    - Configure: quickstart/config.md
+#    - Specify: quickstart/specify.md
+#    - Run: quickstart/run.md
+#    - Philosophy: philosophy.md
+#    - Alternatives: alternatives.md
+#    - License: license.md
   - Documentation:
     - Installation: install.md
     - Configuration:
@@ -94,3 +96,7 @@ markdown_extensions:
            format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg

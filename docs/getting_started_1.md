@@ -11,21 +11,21 @@ and run them with JUnit5. **This is enough to use Chutney**.
 [Part 2](getting_started_2.md) will cover how to install and configure a Chutney server
 in order to schedule test runs, keep execution history and browse your execution reports.
 
-# Project Setup
-
 !!! important "Requirements"
 
     * `java` 11 or later
     * your preferred build tool (ex. `maven`, `graddle`, etc.)
+    * your preferred test engine (ex. `Junit 5.x`, `TestNG`, etc.)
+
+# Minimal Setup
 
 ## Dependencies
 
 Create a Kotlin project with the following dependencies :
 
 * [com.chutneytesting:chutney-kotlin-dsl](https://search.maven.org/artifact/com.chutneytesting/chutney-kotlin-dsl)
-* [org.junit.jupiter:junit-jupiter-api](https://search.maven.org/artifact/org.junit.jupiter/junit-jupiter-api)
 * [org.jetbrains.kotlin:kotlin-stdlib](https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-stdlib)
-
+* [org.junit.jupiter:junit-jupiter-api](https://search.maven.org/artifact/org.junit.jupiter/junit-jupiter-api)
 
 === "maven"
 
@@ -33,8 +33,13 @@ Create a Kotlin project with the following dependencies :
     <dependencies>
         <dependency>
             <groupId>com.chutneytesting</groupId>
-            <artifactId>chutney-kotlin-dsl</artifactId>
+            <artifactId>chutney-kotlin-dsl</artifactId> <!--(1)-->
             <version>0.1.18</version>
+        </dependency>
+       <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib</artifactId> <!--(2)-->
+            <version>1.6.10</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -42,68 +47,73 @@ Create a Kotlin project with the following dependencies :
             <version>5.8.2</version>
             <scope>test</scope>
         </dependency>
-       <dependency>
-            <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-stdlib</artifactId>
-            <version>1.6.10</version>
-        </dependency>
-        <!-- Optional (1) --> 
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
+            <artifactId>junit-jupiter-engine</artifactId> <!-- Optional (3) -->
             <version>5.8.2</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     ```
 
-    1. Only required if you want to run your test within IntelliJ with the [gutter icon](https://www.jetbrains.com/help/idea/settings-gutter-icons.html) :fontawesome-regular-circle-play:
+    1. Required for using the Chutney Kotlin DSL
+    2. Required for compiling Kotlin project
+    3. Only required if you want to run your test within IntelliJ with the [gutter icon](https://www.jetbrains.com/help/idea/settings-gutter-icons.html) :fontawesome-regular-circle-play:
 
 === "graddle"
 
     ``` kotlin
     dependencies {
-        
+        implementation("com.chutneytesting:chutney-kotlin-dsl:0.1.18")
+
+        testImplementation(kotlin("test"))
+        testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
+        testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.2")
     }
     ```
 
-## Kotlin compilation
+## Kotlin
+
+In order to build your Kotlin project, you may need to add the following configuration with maven :
 
 === "maven"
 
     ``` xml
-    <plugin>
-        <groupId>org.jetbrains.kotlin</groupId>
-        <artifactId>kotlin-maven-plugin</artifactId>
-        <version>1.6.10</version>
-        <executions>
-            <execution>
-                <id>compile</id>
-                <phase>compile</phase>
-                <goals>
-                    <goal>compile</goal>
-                </goals>
-            </execution>
-            <execution>
-                <id>test-compile</id>
-                <goals>
-                    <goal>test-compile</goal>
-                </goals>
-            </execution>
-        </executions>
-    </plugin>
+    <build>
+        <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
+        <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
+
+        <plugins>
+            <plugin>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-maven-plugin</artifactId>
+                <version>1.6.10</version>
+                <executions>
+                    <execution>
+                        <id>compile</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>test-compile</id>
+                        <goals>
+                            <goal>test-compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
     ```
 
-=== "graddle"
+----
+# Write your first scenario
 
-    ``` kotlin
-    // TODO
-    ```
+## Define your test environment
 
-
-
-# Define your test environment
-
-## Declare a target
+### Declare a target
 
 Under `src/main/kotlin` create a package (ex. `com.chutneytesting.getstart`) and create a Kotlin file (ex. `Environments.kt`) with the following content :
 
@@ -118,11 +128,11 @@ val google = ChutneyTarget(
 )
 ```
 
-* Here we use the Chutney Kotlin DSL to declare `target`.
-* You will add `google` to an `environment` in the next step
-* You will reference the target in a scenario by using its name `search_engine` 
+* Here we use the Chutney Kotlin DSL to declare a `target`.
+* The target name `search_engine` is used as a reference in your scenarios 
+* The `google` variable is a reference to set a target in an `environment`
 
-## Declare an environment
+### Declare an environment
 
 Now you can declare an `environment` within the same file, add the following content :
 
@@ -137,11 +147,11 @@ val www = ChutneyEnvironment(
 ```
 
 * Here we use the Chutney Kotlin DSL to declare an `environment`.
-* We reference the target `google`.
-* The environment `name` and `description` can be anything meaningful to you
-* You will reference the environment in an executable test by using its variable name `www`
+* As you can see, we reference the target `google` using the variable name.
+* The environment `name` and `description` can be anything meaningful to you. The name will be shown in the execution report.
+* The variable name `www` is a reference to set the environment on running tests
 
-# Write a Chutney scenario
+## Write a scenario
 
 Under `src/main/kotlin`, in the same package or another, create a Kotlin file (ex. `Scenarios.kt`) with the following content :
 
@@ -158,7 +168,7 @@ val search_scenario = Scenario(title = "Search documents") {
         HttpGetTask(
                 target = "search_engine",
                 uri = "/",
-                validations = mapOf("http 200" to "status == 200".spEL())
+                validations = mapOf("request accepted" to "status == 200".spEL())
         )
     }
     Then("I am on the front page") {
@@ -168,15 +178,58 @@ val search_scenario = Scenario(title = "Search documents") {
 ```
 
 * Here we use the Chutney Kotlin DSL to declare a `Scenario`.
+* The scenario title `Search documents` will be shown in the execution report.
+* As you can see, there are 2 steps `When I visit a search engine` and `Then I am on the front page`
+* The first step will execute an HTTP GET call on the target name `search_engine` on the uri `/`
+* The first step has one validation named `request accepted` which verify the response code status to be 200.
+* The validation syntax is a [Spring Core SpEL expression](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions)
 
-# Run it !
+!!! tip "Et voilà !"
+    You have succesfully written your first scenario using Chutney.  
+    Now, you will see how to run it ! :material-rocket-launch:
 
-## Configure your integration test phase
+----
+# Run your scenario :material-rocket-launch:
 
-Now, in order to run your first scenario, you need to configure your project and build tool according to your preference.  
-You should note that Chutney scenarios are run as integration tests.
+Now, in order to run your first scenario, you need to configure your project and build tool according to your preference.
 
-Here is a configuration example :
+Chutney Kotlin DSL comes with a `Launcher` class you can use the way you want. You are free to run your scenarios _when_ and
+_anywhere_ you want (be it in a `main` if you wish).
+
+Chutney Kotlin DSL provides also a JUnit 5 Runner with annotations.
+
+In the following sections :
+
+* you will see how to use the `Launcher` in a standard test, attached to the `integration` phase and run using the maven failsafe plugin.
+* you will see how to use the JUnit 5 Runner and annotations.
+
+
+## Run with Launcher class
+
+### Write a test
+
+Under `src/test/kotlin` create a package (ex. `com.chutneytesting.getstart`) and create a Kotlin file (ex. `SearchFeat.kt`) with the following content :
+
+``` kotlin title="SearchFeat.kt"
+package com.chutneytesting.getstart
+
+import com.chutneytesting.kotlin.launcher.Launcher
+import org.junit.jupiter.api.Test
+
+class SearchFeat {
+    @Test
+    fun `search on the world wide web`() {
+        Launcher().run(search_scenario, www)
+    }
+}
+```
+
+* As you can see, this is a simple JUnit test.
+* We use the `Launcher` to run the scenario `search_engine` on the environment `www`
+
+### Configure your build tool
+
+In your build tool configuration, add the following content :
 
 === "maven"
 
@@ -186,7 +239,7 @@ Here is a configuration example :
         <artifactId>maven-failsafe-plugin</artifactId>
         <configuration>
             <includes>
-                <include>**/*Test.*</include>
+                <include>**/*Feat.*</include>
             </includes>
         </configuration>
         <executions>
@@ -210,35 +263,20 @@ Here is a configuration example :
 === "graddle"
 
     ``` kotlin
-    // TODO
+    tasks.test {
+        filter {
+            includeTestsMatching("*Feat")
+        }
+        useJUnitPlatform()
+    }
     ```
 
-## Write a test for running your Chutney scenario
+----
+### Run it !
 
-Under `src/test/kotlin` create a package (ex. `com.chutneytesting.getstart`) and create a Kotlin file (ex. `FirstTest.kt`) with the following content :
+Now you can simply run `mvn verify` or `./gradlew test`. 
 
-``` kotlin title="FirstTest.kt"
-package com.chutneytesting.getstart
-
-import com.chutneytesting.kotlin.launcher.Launcher
-import org.junit.jupiter.api.Test
-
-class FirstTest {
-
-    @Test
-    fun `search on the world wide web`() {
-        Launcher().run(search_scenario, www)
-    }
-}
-```
-
-* Here, this is a simple JUnit test in which we use the Chutney Launcher to run the scenario `search_engine` on the environment `www`
-
-## Run it !
-
-Now you can simply run `mvn verify`. 
-
-In the console output you will see the resulting execution :
+If you are using Maven, the console will output the resulting execution :
 
 ``` sh
 [SUCCESS] scenario: "Search documents" on environment The World Wide Web # (1)
@@ -256,13 +294,48 @@ success { }
 4. Information about which action was performed and with which parameters
 5. Information about the target on which the action was performed
 
-!!! info "IntelliJ integration"
+## Run with Chutney JUnit5 Engine
 
-    If you want to be able to run your test directly within IntelliJ with the [gutter icon](https://www.jetbrains.com/help/idea/settings-gutter-icons.html) :fontawesome-regular-circle-play:,  
-    don't forget to add direct dependency on `junit-jupiter-engine` like mention in the [dependencies section](#dependencies)
+In order to use the JUnit5 engine, we have to make some changes.
 
-## With Chutney JUnit Engine
+### Declare environment
 
-## With Chutney Launcher
+The JUnit5 engine does not take environment definition from Kotlin but instead from JSON files.
+
+If it doesn't exist yet, create a folder `.chutney` in your project root folder.  
+Then, create a file `www.env.json` with the following content :
+
+``` json
+{
+    "name" = "WWW",
+    "description" = "The World Wide Web",
+    "targets": [
+        {
+            "name" = "search_engine",
+            "url" = "https://www.google.fr"
+        }
+    ]
+}
+```
+
+### Write a test
+
+Create a Kotlin file (ex. `Junit5SearchFeat.kt`) with the following content :
+
+``` kotlin title="SearchFeat.kt"
+package com.chutneytesting.getstart
+
+import com.chutneytesting.kotlin.dsl.ChutneyScenario
+import com.chutneytesting.kotlin.junit.api.ChutneyTest
+
+class Junit5SearchFeat {
+
+    @ChutneyTest(environment = "WWW")
+    fun testMethod(): ChutneyScenario {
+        return search_scenario
+    }
+}
+```
+
 
 

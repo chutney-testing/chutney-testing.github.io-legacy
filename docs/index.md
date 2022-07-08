@@ -1,33 +1,19 @@
-# Welcome to Chutney
-
-## Overview
 [![Build](https://github.com/chutney-testing/chutney/workflows/Build/badge.svg?branch=master)](https://github.com/chutney-testing/chutney/actions)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.chutneytesting/server/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.chutneytesting/server)
 [![Zulip chat](https://img.shields.io/badge/zulip-join_chat-brightgreen.svg)](https://chutney-testing.zulipchat.com/)
 
+----
 **Spice up your spec , Better `taste` your app !**
 
-You Use Chutney to test deployed software and validate your functional requirements.
+Chutney helps you test deployed applications and validate functional requirements.  
+Chutney provides you a set of capabilities for executing your scenario without having to write and maintain glue code.  
 
-Learn more about 
+You can find out a comprehensive list of what Chutney can do in the documentation.
 
-## Encontra los 3 amigos
-Chutney s'adresse aux 3 amis
+# [Get started !](getting_started.md)
+Install, configure, write and run your first scenario [here](getting_started.md) ! :material-rocket-launch:
 
-3 lignes
-
-3 lignes
-
-## Capabilities
-We refer to caps as "Tasks" or "Actions".
-De nombreuses tâches, évites le boiler plate.
-
-2 lignes
-
-## Get started !
-Installer, configurer et écrire un premier scénario !
-
-## Why another test tool ?
+# Why another test tool ?
 
 Chutney is an opinionated test tool based upon the practice of Specification by Example.
 
@@ -47,7 +33,7 @@ Moreover, we needed to :
   * Ease the automation of thousands of manual tests without writing and maintaining specific code
   * Automate end-to-end tests of distributed software across secured networks, including hardware over telco networks
 
-## What is it not ?
+# What is it not ?
 
 __Chutney is not a replacement for tools like Cucumber, etc.__
 

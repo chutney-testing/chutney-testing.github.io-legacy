@@ -1,15 +1,13 @@
 # Introduction
 
 With Chutney you can write and run functional scenarios.  
-Those scenarios validate high level requirements and are not coupled to your application code.
+Those scenarios validate high level requirements and are not tied to your application code.
 
 Instead, you will target I/O interfaces of your application (i.e. HTTP endpoints, Kafka topics, AMQP queues, etc.) 
 without writing the same boilerplate code for respective clients, consumers, or even mock clients or producers.
 
-[Part 1](getting_started_1.md) will cover how to write scenarios with the [Chutney Kotlin DSL](https://github.com/chutney-testing/chutney-kotlin-dsl)
-and run them with JUnit5. **This is enough to use Chutney**.  
-[Part 2](getting_started_2.md) will cover how to install and configure a Chutney server
-in order to schedule test runs, keep execution history and browse your execution reports.
+To get you started, we will cover how to write scenarios with the [Chutney Kotlin DSL](https://github.com/chutney-testing/chutney-kotlin-dsl)
+and run them with JUnit5.
 
 !!! important "Requirements"
 
@@ -189,7 +187,7 @@ val search_scenario = Scenario(title = "Search documents") {
     Now, you will see how to run it ! :material-rocket-launch:
 
 ----
-# Run your scenario :material-rocket-launch:
+# Run your scenario
 
 Now, in order to run your first scenario, you need to configure your project and build tool according to your preference.
 

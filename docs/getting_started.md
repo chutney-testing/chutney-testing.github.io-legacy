@@ -12,7 +12,7 @@ and run them with JUnit5.
 !!! important "Requirements"
 
     * `java` 11 or later
-    * your preferred build tool (ex. `maven`, `graddle`, etc.)
+    * your preferred build tool (ex. `maven`, `gradle`, etc.)
     * your preferred test engine (ex. `Junit 5.x`, `TestNG`, etc.)
 
 # Minimal Setup
@@ -58,7 +58,7 @@ Create a Kotlin project with the following dependencies :
     2. Required for compiling Kotlin project
     3. Only required if you want to run your test within IntelliJ with the [gutter icon](https://www.jetbrains.com/help/idea/settings-gutter-icons.html) :fontawesome-regular-circle-play:
 
-=== "graddle"
+=== "gradle"
 
     ``` kotlin
     dependencies {
@@ -258,7 +258,7 @@ In your build tool configuration, add the following content :
     </plugin>
     ```
 
-=== "graddle"
+=== "gradle"
 
     ``` kotlin
     tasks.test {
@@ -301,11 +301,11 @@ In order to use the JUnit5 engine, we have to make some changes.
 The JUnit5 engine does not take environment definition from Kotlin but instead from JSON files.
 
 If it doesn't exist yet, create a folder `.chutney` in your project root folder.  
-Then, create a file `www.env.json` with the following content :
+Then, create a file `WWW.json` with the following content :
 
 ``` json
 {
-    "name" = "WWW",
+    "name" = "World Wide Web",
     "description" = "The World Wide Web",
     "targets": [
         {

@@ -10,8 +10,7 @@ copyright: © Chutney Testing 2017 | under the Apache License, Version 2.0
 
 nav:
   - Overview: index.md
-  - Getting Started:
-     - Write & Run your first scenario: getting_started.md
+  - Getting Started: getting_started.md
 #    - Install: quickstart/setup.md
 #    - Configure: quickstart/config.md
 #    - Specify: quickstart/specify.md

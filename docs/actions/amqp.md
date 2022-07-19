@@ -28,10 +28,12 @@
     ``` kotlin
     AmqpBasicPublishTask(
         target: "AMQP_TARGET",
-        exchange-name:,
-        routing-key:,
-        payload:,
-        headers:,
+        exchange-name:"amqpexchange",
+        routing-key:"amqpkeyroute",
+        payload:"my payload",
+        headers = mapOf(
+          "Content-Type" to "application/json"
+        ),
         properties:
     )
     ```
@@ -64,7 +66,7 @@
         target:"AMQP_TARGET",
         queue-name: "queuename",
         nb-messages: "5",
-        selector:,
+        selector:"second selector",
         timeout: "2000ms",
         ack: true
     )
@@ -94,7 +96,9 @@
         target:"AMQP_TARGET",
         message: "quick message",
         body: "some body",
-        headers:
+        headers = mapOf(
+          "Content-Type" to "application/json"
+        )
     )
     ```
 
@@ -159,8 +163,6 @@
 
 ## CREATE BOUND TEMPORARY QUEUE
 
-The AMQP Create Boundary Queue Task ...
-
 ### Outputs
 
 | Name         | Type - Format                               |
@@ -172,9 +174,19 @@ The AMQP Create Boundary Queue Task ...
 
 | Name         | Type - Format   | Mandatory | Default    | Validation |
 |:-------------|:----------------|:----------|:-----------|:-----------|
-| exchange-name| string          |  &#9745;  | queue-name |  &#9745;   |
-| routing-key  | string          |           |            |            |
+| exchange-name| string          |  &#9745;  |            |  &#9745;   |
+| routing-key  | string          |           | queue-name |            |
 | queue-name   | string          |  &#9745;  |            |  &#9745;   |
+
+### Teardown
+
+If there is a teardown for a task just like this one, the queue will be unbind and then deleted.
+
+| Name                 | Arguments                                   |
+|:---------------------|:--------------------------------------------|
+| amqp unbind queue    | queue-exchange, exchange-name, routing-key  |
+| amqp delete queue    | queue-exchange, exchange-name, routing-key  |
+
 
 ### Example
 
@@ -182,16 +194,14 @@ The AMQP Create Boundary Queue Task ...
     ``` kotlin
     AmqpCreateBoundTemporaryQueueTask(
         target:"AMQP_TARGET",
-        exchange-name:,
-        routing-key:,
+        exchange-name:"amqpexchange",
+        routing-key:"amqpkeyroute",
         queue-name:"a queue"
     )
     ```
 
 
 ## DELETE QUEUE
-
-The AMQP Delete Task ...
 
 ### Outputs
 
@@ -218,15 +228,11 @@ The AMQP Delete Task ...
 
 ## UNBIND QUEUE
 
-The AMQP Unbind Queue Task ...
-
-### Outputs
-
 ### Inputs
 
 | Name         | Type - Format   | Mandatory | Default | Validation |
 |:-------------|:----------------|:----------|:--------|:-----------|
-| queue-name   | string          |           |         |  &#9745;   |
+| queue-name   | string          |  &#9745;  |         |  &#9745;   |
 | exchange-name| string          |           |         |            |
 | routing-key  | string          |           |         |            |
 
@@ -237,7 +243,7 @@ The AMQP Unbind Queue Task ...
         AmqpUnbindQueueTask(
         target:"AMQP_TARGET",
         queue-name:"a queue",
-        exchange-name:,
-        routing-key:
+        exchange-name:"amqpexchange",
+        routing-key:"amqpkeyroute"
     )
     ```

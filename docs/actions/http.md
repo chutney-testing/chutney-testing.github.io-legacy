@@ -22,12 +22,12 @@
 
 The following HTTP tasks do have the same outputs :
 
-- HTTP Get
-- HTTP Post
-- HTTP Put
-- HTTP Delete
-- HTTP Soap
-- HTTP Patch
+- HTTP `GET`
+- HTTP `POST`
+- HTTP `PUT`
+- HTTP `DELETE`
+- HTTP `SOAP`
+- HTTP `PATCH`
 
 
 | Name    | Type - Format                               |
@@ -38,16 +38,16 @@ The following HTTP tasks do have the same outputs :
 
 ## GET
 
-The HTTP Get task performs an HTTP request with the GET request method.
+The HTTP Get task performs an HTTP request with the `GET` request method.
 
 ### Inputs
 
-| Name    | Type - Format   | Mandatory | Default | Validation |
-|:--------|:----------------|:----------|:--------|:-----------|
-| target  | string          | &#9745;   |         | &#9745;    |
-| uri     | string          |           |         |            |
-| headers | string          |           |         |            |
-| timeout | duration string |           | 2000 ms |            |
+| Name    | Type - Format   | Mandatory        | Default | Validation       |
+|:--------|:----------------|:-----------------|:--------|:-----------------|
+| target  | string          | :material-check: |         | :material-check: |
+| uri     | string          |                  |         |                  |
+| headers | string          |                  |         |                  |
+| timeout | duration string |                  | 2000 ms |                  |
 
 
 ### Example
@@ -65,17 +65,17 @@ The HTTP Get task performs an HTTP request with the GET request method.
 
 ## POST
 
-The HTTP Post task performs an HTTP request with the POST request method.
+The HTTP Post task performs an HTTP request with the `POST` request method.
 
 ### Inputs
 
-| Name    | Type - Format   | Mandatory | Default | Validation |
-|:--------|:----------------|:----------|:--------|:-----------|
-| target  | string          | &#9745;   |         | &#9745;    |
-| uri     | string          |           |         |            |
-| body    | string          |           |         |            |
-| headers | string          |           |         |            |
-| timeout | duration string |           | 2000 ms |            |
+| Name    | Type - Format   | Mandatory        | Default | Validation       |
+|:--------|:----------------|:-----------------|:--------|:-----------------|
+| target  | string          | :material-check: |         | :material-check: |
+| uri     | string          |                  |         |                  |
+| body    | string          |                  |         |                  |
+| headers | string          |                  |         |                  |
+| timeout | duration string |                  | 2000 ms |                  |
 
 ### Example
 
@@ -93,17 +93,17 @@ The HTTP Post task performs an HTTP request with the POST request method.
 
 ## PUT
 
-The HTTP Put task performs an HTTP request with the PUT request method.
+The HTTP Put task performs an HTTP request with the `PUT` request method.
 
 ### Inputs
 
-| Name    | Type - Format   | Mandatory | Default | Validation |
-|:--------|:----------------|:----------|:--------|:-----------|
-| target  | string          | &#9745;   |         | &#9745;    |
-| uri     | string          |           |         |            |
-| body    | string          |           |         |            |
-| headers | string          |           |         |            |
-| timeout | duration string |           | 2000 ms |            |
+| Name    | Type - Format   | Mandatory        | Default | Validation         |
+|:--------|:----------------|:-----------------|:--------|:-------------------|
+| target  | string          | :material-check: |         | :material-check:   |
+| uri     | string          |                  |         |                    |
+| body    | string          |                  |         |                    |
+| headers | string          |                  |         |                    |
+| timeout | duration string |                  | 2000 ms |                    |
 
 ### Example
 
@@ -121,16 +121,16 @@ The HTTP Put task performs an HTTP request with the PUT request method.
 
 ## DELETE
 
-The HTTP Delete task performs an HTTP request with the DELETE request method.
+The HTTP Delete task performs an HTTP request with the `DELETE` request method.
 
 ### Inputs
 
-| Name    | Type - Format   | Mandatory | Default | Validation |
-|:--------|:----------------|:----------|:--------|:-----------|
-| target  | string          | &#9745;   |         | &#9745;    |
-| uri     | string          |           |         |            |
-| headers | string          |           |         |            |
-| timeout | duration string |           | 2000 ms |            |
+| Name    | Type - Format   | Mandatory          | Default | Validation       |
+|:--------|:----------------|:-------------------|:--------|:-----------------|
+| target  | string          | :material-check:   |         | :material-check: |
+| uri     | string          |                    |         |                  |
+| headers | string          |                    |         |                  |
+| timeout | duration string |                    | 2000 ms |                  |
 
 
 ### Example
@@ -150,15 +150,15 @@ The HTTP Delete task performs an HTTP request with the DELETE request method.
 
 ### Inputs
 
-| Name    | Type - Format   | Mandatory | Default | Validation |
-|:--------|:----------------|:----------|:--------|:-----------|
-| target  | string          | &#9745;   |         | &#9745;    |
-| uri     | string          |           |         |            |
-| body    | string          |           |         |            |
-| username| string          |           |         |            |
-| password| string          |           |         |            |
-| timeout | duration string |           | 2000 ms |            |
-| headers | string          |           |         |            |
+| Name    | Type - Format   | Mandatory        | Default | Validation       |
+|:--------|:----------------|:-----------------|:--------|:-----------------|
+| target  | string          | :material-check: |         | :material-check: |
+| uri     | string          |                  |         |                  |
+| body    | string          |                  |         |                  |
+| username| string          |                  |         |                  |
+| password| string          |                  |         |                  |
+| timeout | duration string |                  | 2000 ms |                  |
+| headers | string          |                  |         |                  |
 
 ### Example
 
@@ -177,17 +177,17 @@ The HTTP Delete task performs an HTTP request with the DELETE request method.
 
 ## PATCH
 
-The HTTP Patch task performs an HTTP request with the PATCH request method.
+The HTTP Patch task performs an HTTP request with the `PATCH` request method.
 
 ### Inputs
 
-| Name    | Type - Format   | Mandatory | Default | Validation |
-|:--------|:----------------|:----------|:--------|:-----------|
-| target  | string          | &#9745;   |         | &#9745;    |
-| uri     | string          |           |         |            |
-| body    | string          |           |         |            |
-| headers | string          |           |         |            |
-| timeout | duration string |           | 2000 ms |            |
+| Name    | Type - Format   | Mandatory        | Default | Validation       |
+|:--------|:----------------|:-----------------|:--------|:-----------------|
+| target  | string          | :material-check: |         | :material-check: |
+| uri     | string          |                  |         |                  |
+| body    | string          |                  |         |                  |
+| headers | string          |                  |         |                  |
+| timeout | duration string |                  | 2000 ms |                  |
 
 ### Example
 
@@ -241,11 +241,13 @@ The HTTP Patch task performs an HTTP request with the PATCH request method.
 ## LISTENER
 
 The HTTP Listener task performs an HTTP request with any requested method you give as verb that can be :
-- GET
-- POST
-- DELETE
-- PUT
-- PATCH
+
+- `GET`
+- `POST`
+- `PUT`
+- `DELETE`
+- `SOAP`
+- `PATCH`
 
 ### Outputs
  
@@ -278,9 +280,9 @@ The HTTP Listener task performs an HTTP request with any requested method you gi
 
 ### Inputs
 
-| Name          | Type - Format   | Mandatory | Default | Validation |
-|:--------------|:----------------|:----------|:--------|:-----------|
-| https-server  | WireMockServer  |           |         | &#9745;    |
+| Name          | Type - Format   | Mandatory | Default | Validation       |
+|:--------------|:----------------|:----------|:--------|:-----------------|
+| https-server  | WireMockServer  |           |         | :material-check: |
 
 ### Example
 

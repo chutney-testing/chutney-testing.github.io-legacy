@@ -14,13 +14,13 @@
 
 ### Inputs
 
-| Name         | Type - Format   | Mandatory | Default | Validation |
-|:-------------|:----------------|:----------|:--------|:-----------|
-| exchange-name| string          |           |         |  &#9745;   |
-| routing-key  | string          |           |         |            |
-| headers      | map             |           |         |            |
-| properties   | map             |           |         |            |
-| payload      | string          |           |         |  &#9745;   |
+| Name         | Type - Format   | Mandatory       | Default | Validation       |
+|:-------------|:----------------|:----------------|:--------|:-----------------| 
+| exchange-name| string          | :material-check:|         | :material-check: |
+| routing-key  | string          |                 |         |                  |
+| headers      | map             |                 |         |                  |
+| properties   | map             |                 |         |                  |
+| payload      | string          | :material-check:|         | :material-check: |
 
 ### Example
 
@@ -34,7 +34,10 @@
         headers = mapOf(
           "Content-Type" to "application/json"
         ),
-        properties:
+        properties: mapOf(
+            "properties-1",
+            "properties-2"
+        ),
     )
     ```
 
@@ -50,13 +53,13 @@
 
 ### Inputs
 
-| Name         | Type - Format   | Mandatory | Default | Validation |
-|:-------------|:----------------|:----------|:--------|:-----------|
-| queue-name   | string          |           |         |  &#9745;   |
-| nb-messages  | integer         |           |         |            |
-| selector     | string          |           |         |            |
-| timeout      | string          |           |         |  &#9745;   |
-| ack          | boolean         |           |         |            |
+| Name         | Type - Format   | Mandatory       | Default | Validation         |
+|:-------------|:----------------|:----------------|:--------|:-------------------|
+| queue-name   | string          | :material-check:|         |  :material-check:  |
+| nb-messages  | integer         |                 |         |                    |
+| selector     | string          |                 |         |                    |
+| timeout      | string          |                 |         |  :material-check:  |
+| ack          | boolean         |                 |         |                    | 
 
 ### Example
 
@@ -64,9 +67,9 @@
     ``` kotlin
     AmqpBasicConsumeTask(
         target:"AMQP_TARGET",
-        queue-name: "queuename",
+        queue-name: "waitingqueue",
         nb-messages: "5",
-        selector:"second selector",
+        selector:"amqp selector",
         timeout: "2000ms",
         ack: true
     )
@@ -84,9 +87,9 @@
 
 ### Inputs
 
-| Name         | Type - Format   | Mandatory | Default | Validation |
-|:-------------|:----------------|:----------|:--------|:-----------|
-| queue-name   | string          |           |         |  &#9745;   |
+| Name         | Type - Format   | Mandatory       | Default | Validation         |
+|:-------------|:----------------|:----------------|:--------|:-------------------|
+| queue-name   | string          | :material-check:|         |  :material-check:  |
 
 ### Example
 
@@ -94,11 +97,7 @@
     ``` kotlin
     AmqpBasicGetTask(
         target:"AMQP_TARGET",
-        message: "quick message",
-        body: "some body",
-        headers = mapOf(
-          "Content-Type" to "application/json"
-        )
+        queue-name: "waitingqueue"
     )
     ```
 
@@ -112,9 +111,9 @@
 
 ### Inputs
 
-| Name         | Type - Format   | Mandatory | Default | Validation |
-|:-------------|:----------------|:----------|:--------|:-----------|
-| init-config  | string          |           |         |  &#9745;   |
+| Name         | Type - Format   | Mandatory | Default | Validation         |
+|:-------------|:----------------|:----------|:--------|:-------------------|
+| init-config  | string          |           |         |  :material-check:  |
 
 ### Example
 
@@ -129,9 +128,9 @@
 
 ### Inputs
 
-| Name          | Type - Format   | Mandatory | Default | Validation |
-|:--------------|:----------------|:----------|:--------|:-----------|
-| qpid-launcher | string          |           |         |  &#9745;   |
+| Name          | Type - Format   | Mandatory | Default | Validation         |
+|:--------------|:----------------|:----------|:--------|:-------------------|
+| qpid-launcher | string          |           |         |  :material-check:  |
 
 ### Example
 
@@ -146,9 +145,9 @@
 
 ### Inputs
 
-| Name         | Type - Format   | Mandatory | Default | Validation |
-|:-------------|:----------------|:----------|:--------|:-----------|
-| queue-names  | string          |           |         |  &#9745;   |
+| Name         | Type - Format   | Mandatory | Default | Validation         |
+|:-------------|:----------------|:----------|:--------|:-------------------|
+| queue-names  | string          |           |         |  :material-check:  |
 
 ### Example
 
@@ -172,15 +171,15 @@
 
 ### Inputs
 
-| Name         | Type - Format   | Mandatory | Default    | Validation |
-|:-------------|:----------------|:----------|:-----------|:-----------|
-| exchange-name| string          |  &#9745;  |            |  &#9745;   |
-| routing-key  | string          |           | queue-name |            |
-| queue-name   | string          |  &#9745;  |            |  &#9745;   |
+| Name         | Type - Format   | Mandatory         | Default    | Validation          |
+|:-------------|:----------------|:------------------|:-----------|:--------------------|
+| exchange-name| string          |  :material-check: |            |  :material-check:   |
+| routing-key  | string          |                   | queue-name |                     |
+| queue-name   | string          |  :material-check: |            |  :material-check:   |
 
 ### Teardown
 
-If there is a teardown for a task just like this one, the queue will be unbind and then deleted.
+Some tasks might have a teardown just like this one. If it is the case, the queue will be unbind and then deleted.
 
 | Name                 | Arguments                                   |
 |:---------------------|:--------------------------------------------|
@@ -196,7 +195,7 @@ If there is a teardown for a task just like this one, the queue will be unbind a
         target:"AMQP_TARGET",
         exchange-name:"amqpexchange",
         routing-key:"amqpkeyroute",
-        queue-name:"a queue"
+        queue-name:"waitingqueue"
     )
     ```
 
@@ -212,9 +211,9 @@ If there is a teardown for a task just like this one, the queue will be unbind a
 
 ### Inputs
 
-| Name         | Type - Format   | Mandatory | Default | Validation |
-|:-------------|:----------------|:----------|:--------|:-----------|
-| queue-name   | string          |           |         |  &#9745;   |
+| Name         | Type - Format   | Mandatory       | Default | Validation         |
+|:-------------|:----------------|:----------------|:--------|:-------------------|
+| queue-name   | string          | :material-check:|         |  :material-check:  |
 
 ### Example
 
@@ -222,7 +221,7 @@ If there is a teardown for a task just like this one, the queue will be unbind a
     ``` kotlin
     AmqpDeleteQueueTask(
         target:"AMQP_TARGET",
-        queue-name: "a queue"
+        queue-name: "waitingqueue"
     )
     ```
 
@@ -230,11 +229,11 @@ If there is a teardown for a task just like this one, the queue will be unbind a
 
 ### Inputs
 
-| Name         | Type - Format   | Mandatory | Default | Validation |
-|:-------------|:----------------|:----------|:--------|:-----------|
-| queue-name   | string          |  &#9745;  |         |  &#9745;   |
-| exchange-name| string          |           |         |            |
-| routing-key  | string          |           |         |            |
+| Name         | Type - Format   | Mandatory         | Default         | Validation          |
+|:-------------|:----------------|:------------------|:----------------|:--------------------|
+| queue-name   | string          |  :material-check: |                 |  :material-check:   |
+| exchange-name| string          |                   |                 |                     |
+| routing-key  | string          |                   |                 |                     |
 
 ### Example
 
@@ -242,7 +241,7 @@ If there is a teardown for a task just like this one, the queue will be unbind a
     ``` kotlin
         AmqpUnbindQueueTask(
         target:"AMQP_TARGET",
-        queue-name:"a queue",
+        queue-name:"waitingqueue",
         exchange-name:"amqpexchange",
         routing-key:"amqpkeyroute"
     )

@@ -1,7 +1,5 @@
 # AMQP
 
-## Global Notes
-
 ## BASIC PUBLISH
 
 ### Outputs
@@ -120,7 +118,7 @@
 * Kotlin
     ``` kotlin
     AmqpQpidServerStartTask(
-        init-config:
+        init-config: "amqpinitconfig"
     )
     ```
 
@@ -137,7 +135,7 @@
 * Kotlin
     ``` kotlin
     AmqpQpidServerStopTask(
-        qpid-launcher:
+        qpid-launcher: "amqpqpidlaunch"
     )
     ```
 

@@ -28,6 +28,7 @@ nav:
     - Actions:
         - http: actions/http.md
         - amqp: actions/amqp.md
+        - function: actions/function.md
   #- Toolbox: toolbox.md # hidden page
 
 extra_css:

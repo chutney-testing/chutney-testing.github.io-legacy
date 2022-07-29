@@ -1,6 +1,4 @@
-# FUNCTION
-
-## Global Notes
+# Global Notes
 
 Spel Function annotated @SpelFunction is a way to write functions in a more simple method.
 
@@ -15,26 +13,49 @@ Everything that will be stated after a **$** and between two braces, will be int
 * Example : ${#jsonSerialize(myObject)}
 
 
-## DATE TIME FUNCTION
+# DATE TIME FUNCTION
 
-## Temporal date
+The following functions help you use ... :
 
-### Return
+* [\#date](#date)
+* [\#currentTimeMillis](#currenttimemillis)
+* [\#now](#now)
+* [\#dateFormatter](#dateformatter)
+* [\#dateFormatterWithLocale](#dateformatterwithlocale)
+* [\#isoDateFormatter](#isodateformatter)
+* [\#timeAmount](#timeamount)
+* [\#timeUnit](#timeunit)
 
-Framework-level interface defining read-write access to a temporal object, such as a date, time, offset or some combination of these.
+## date
 
-* More at (https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/temporal/Temporal.html).
-* Type of return : java.time.temporal.Temporal
+!!! note "date(String date, String... format)"
 
-### Arguments
+    ce que ça fait  
+    Framework-level interface defining read-write access to a temporal object, such as a date, time, offset or some combination of these.
 
-* String Date, is mandatory (:material-check:)
-* String format (is optional), if no format is assigned, the default value for this argument will be the ISO format.
+    See [docs.oracle.com](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/temporal/Temporal.html) for further details
 
-### Examples
+    **Parameters** :
 
-* Date : 27 July 2022
-* Format : 2022-07-27 (ISO format by default)
+    * String Date
+        * The date you want to get a Temporal from
+        * Mandatory (:material-check:)
+        * ex. "27 July 2022"
+    * String format (is optional), if no format is assigned, the default value for this argument will be the ISO format.
+        * The format used for the date
+        * ex. "dd MMMM yyyy"
+
+    **Returns** :
+
+    `java.time.temporal.Temporal`  
+
+
+!!! tip "Examples"
+
+    SpEL without : `${T(java.time.format.DateTimeFormatter).ofPattern(T(java.time.format.DateTimeFormatter).ISO_INSTANT).parseBest("27 July 2022", ZonedDateTime::from, LocalDateTime::from, LocalDate::from, Instant::from)}`
+
+    SpEL with    : `${#date("27 July 2022")}`
+
 
 ## currentTimeMillis
 

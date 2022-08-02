@@ -30,7 +30,6 @@ The following functions help you use ... :
 
 !!! note "date(String date, String... format)"
 
-    ce que ça fait  
     Framework-level interface defining read-write access to a temporal object, such as a date, time, offset or some combination of these.
 
     See [docs.oracle.com](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/temporal/Temporal.html) for further details
@@ -72,15 +71,16 @@ The following functions help you use ... :
     * Type of return : string
 
     **Returns** :
-    The difference, measured in milliseconds, between the current time and midnight, January 1, 1970 UTC.
-    ``  
+
+    * The difference, measured in milliseconds, between the current time and midnight, January 1, 1970 UTC.
+    * `java.time.ZonedDateTime`
 
 
 !!! tip "Examples"
 
     SpEL without : `${}`
 
-    SpEL with    : `${}`
+    SpEL with    : `${#currentTimeMillis}`
     
 ## now
 
@@ -88,22 +88,21 @@ The following functions help you use ... :
 
     Obtains the current date-time from the system clock in the default time-zone.
 
-    See [docs.oracle.com]() for further details
+    See [docs.oracle.com](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/ZonedDateTime.html) for further details
 
     **Parameters** :
 
     **Returns** :
 
     * Returns the current date-time using the system clock, not null
-    * Clock (systemDefaultZone)
-    ``  
-
+    * Clock (systemDefaultZone)  
+    * `java.time.ZonedDateTime`
 
 !!! tip "Examples"
 
-    SpEL without : `${}`
+    SpEL without : `${#dateFormatter(#dateTimeFormat).format(#now().plusSeconds(5))}`
 
-    SpEL with    : `${}`
+    SpEL with    : `${#now}`
 
 ## dateFormatter
 
@@ -113,21 +112,21 @@ The following functions help you use ... :
 
     **Parameters** :
 
-    * String pattern : is mandatory (:material-check:)
+    * String pattern
+    * Mandatory (:material-check:)
     * If the pattern you give is invalid, you will get an IllegalArgumentException as a throw.
 
     **Returns** :
 
     * This method will create a formatter based on a simple pattern of letters and symbols as described in the class documentation.
-    * The formatter based on the pattern, not null
-    ``  
-
+    * The formatter based on the pattern, not null  
+    * `java.time.format.DateTimeFormatter`
 
 !!! tip "Examples"
 
     SpEL without : `${#dateFormatter(#dateTimeFormat).format(#now().plusSeconds(5))}`
 
-    SpEL with    : `${}`
+    SpEL with    : `${#dateFormatter}`
 
 
 ## dateFormatterWithLocale
@@ -140,29 +139,27 @@ The following functions help you use ... :
 
     **Parameters** :
 
-    * String pattern : is mandatory (:material-check:)
+    * String pattern
+    * Mandatory (:material-check:)
     * String locale
     * If the pattern you give is invalid, you will get an IllegalArgumentException as a throw.
 
     **Returns** :
 
     * This method will create a formatter based on a simple pattern of letters and symbols as described in the class documentation.
-    * The formatter based on the pattern can not be null
-    ``  
-
+    * The formatter based on the pattern can not be null  
+    * `java.time.format.DateTimeFormatter`
 
 !!! tip "Examples"
 
     SpEL without : `${}`
 
-    SpEL with    : `${}`
+    SpEL with    : `${#dateFormatterWithLocale}`
 
 
 ## isoDateFormatter
 
 !!! note "isoDateFormatter (String type)"
-
-    
 
     See [docs.oracle.com](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/format/DateTimeFormatter.html) for further details
 
@@ -174,15 +171,14 @@ The following functions help you use ... :
     **Returns** :
 
     * This method will create a formatter based on a simple pattern of letters and symbols as described in the class documentation.
-    * The formatter based on the pattern, not null
-    ``  
+    * `java.time.format.DateTimeFormatter`
 
 
 !!! tip "Examples"
 
     SpEL without : `${#isoDateFormatter('instant')}`
 
-    SpEL with    : `${}`
+    SpEL with    : `${#isoDateFormatter}`
 
 
 ## timeAmount
@@ -200,14 +196,13 @@ The following functions help you use ... :
 
     **Returns** :
     
-    ``  
-
+    * `java.time.temporal.TemporalAmount`
 
 !!! tip "Examples"
 
     SpEL without : `${}`
 
-    SpEL with    : `${}`
+    SpEL with    : `${#timeAmount}`
 
 ## timeUnit
 
@@ -219,17 +214,16 @@ The following functions help you use ... :
 
     **Parameters** :
 
-    * String unit (:material-check:), if unit is equals to "null" you will get ==> IllegalArgumentException error
+    * String unit 
+    * If unit is equals to "null" you will get ==> IllegalArgumentException error
 
     **Returns** :
     
-    * 
-    * 
-    ``  
+    * `java.time.temporal.ChronoUnit` 
 
 
 !!! tip "Examples"
 
     SpEL without : `${}`
 
-    SpEL with    : `${}`
+    SpEL with    : `${#timeUnit}`

@@ -59,91 +59,177 @@ The following functions help you use ... :
 
 ## currentTimeMillis
 
-### Return
+!!! note "currentTimeMillis(String currentTimeMillis)"
 
-Returns the current time in milliseconds. Note that while the unit of time of the return value is a millisecond, the granularity of the value depends on the underlying operating system and may be larger.
+    Returns the current time in milliseconds. Note that while the unit of time of the return value is a millisecond, the granularity of the value depends on the underlying operating system and may be larger.
 
-* The difference, measured in milliseconds, between the current time and midnight, January 1, 1970 UTC.
-* Type of parameter : long
-* Type of return : string
+    See [docs.oracle.com](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Date.html) for further details
 
-### Arguments
+    **Parameters** :
 
-* String currentTimeMillis
+    * String currentTimeMillis
+    * Type of parameter : long
+    * Type of return : string
 
-### Examples
+    **Returns** :
+    The difference, measured in milliseconds, between the current time and midnight, January 1, 1970 UTC.
+    ``  
 
-* currentTimeMillis : 
 
-## ZonedDateTime now
+!!! tip "Examples"
 
-Obtains an instance of ZonedDateTime from a local date and time.
+    SpEL without : `${}`
 
-### Return
+    SpEL with    : `${}`
+    
+## now
 
-* Obtains the current date-time from the system clock in the default time-zone.
-* Returns the current date-time using the system clock, not null
+!!! note "now(String )"
 
-* Clock (systemDefaultZone)
+    Obtains the current date-time from the system clock in the default time-zone.
 
-### Arguments
+    See [docs.oracle.com]() for further details
 
-* 
-### Example
+    **Parameters** :
+
+    **Returns** :
+
+    * Returns the current date-time using the system clock, not null
+    * Clock (systemDefaultZone)
+    ``  
+
+
+!!! tip "Examples"
+
+    SpEL without : `${}`
+
+    SpEL with    : `${}`
 
 ## dateFormatter
 
-### Return
+!!! note "dateFormatter (String pattern)"
 
-* This method will create a formatter based on a simple pattern of letters and symbols as described in the class documentation.
-* The formatter based on the pattern, not null
+    See [docs.oracle.com](https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/javax/swing/text/DateFormatter.html) for further details
 
-### Arguments
+    **Parameters** :
 
-* String pattern : is mandatory (:material-check:)
-* If the pattern you give is invalid, you will get an IllegalArgumentException as a throw.
+    * String pattern : is mandatory (:material-check:)
+    * If the pattern you give is invalid, you will get an IllegalArgumentException as a throw.
 
-### Example
+    **Returns** :
+
+    * This method will create a formatter based on a simple pattern of letters and symbols as described in the class documentation.
+    * The formatter based on the pattern, not null
+    ``  
+
+
+!!! tip "Examples"
+
+    SpEL without : `${#dateFormatter(#dateTimeFormat).format(#now().plusSeconds(5))}`
+
+    SpEL with    : `${}`
+
 
 ## dateFormatterWithLocale
 
-### Return
+!!! note "dateFormatterWithLocale (String pattern, String locale)"
+
+    Obtains an instance of ZonedDateTime from a local date and time.
+
+    See [docs.oracle.com]() for further details
+
+    **Parameters** :
+
+    * String pattern : is mandatory (:material-check:)
+    * String locale
+    * If the pattern you give is invalid, you will get an IllegalArgumentException as a throw.
+
+    **Returns** :
+
+    * This method will create a formatter based on a simple pattern of letters and symbols as described in the class documentation.
+    * The formatter based on the pattern can not be null
+    ``  
 
 
-### Arguments
+!!! tip "Examples"
 
-* String pattern : is mandatory (:material-check:)
-* String locale
-* If the pattern you give is invalid, you will get an IllegalArgumentException as a throw.
+    SpEL without : `${}`
 
-### Example
+    SpEL with    : `${}`
 
 
 ## isoDateFormatter
 
-### Return
+!!! note "isoDateFormatter (String type)"
 
-* 
+    
 
+    See [docs.oracle.com](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/format/DateTimeFormatter.html) for further details
 
-### Arguments
+    **Parameters** :
 
-* String type
-* If no argument type is given or equals to "null", this will throw you an exception => "Unknown date time formatter type"
+    * String type
+    * If no argument type is given or equals to "null", this will throw you an exception => "Unknown date time formatter type"
 
-### Example
+    **Returns** :
 
-* type = "INSTANT"
-    * return DateTimeFormatter.ISO_INSTANT;
-
-
-## TemporalAmount
-
-### Return
+    * This method will create a formatter based on a simple pattern of letters and symbols as described in the class documentation.
+    * The formatter based on the pattern, not null
+    ``  
 
 
-### Arguments
+!!! tip "Examples"
 
-* String text
+    SpEL without : `${#isoDateFormatter('instant')}`
 
-### Example
+    SpEL with    : `${}`
+
+
+## timeAmount
+
+!!! note "timeAmount (String text)"
+
+    
+
+    See [docs.oracle.com](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/TimeUnit.html) for further details
+
+    **Parameters** :
+
+    * String text
+   
+
+    **Returns** :
+    
+    ``  
+
+
+!!! tip "Examples"
+
+    SpEL without : `${}`
+
+    SpEL with    : `${}`
+
+## timeUnit
+
+!!! note "timeUnit (String unit)"
+
+    
+
+    See [docs.oracle.com](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/temporal/ChronoUnit.html) for further details
+
+    **Parameters** :
+
+    * String unit (:material-check:), if unit is equals to "null" you will get ==> IllegalArgumentException error
+
+    **Returns** :
+    
+    * 
+    * 
+    ``  
+
+
+!!! tip "Examples"
+
+    SpEL without : `${}`
+
+    SpEL with    : `${}`

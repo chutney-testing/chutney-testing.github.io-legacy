@@ -32,7 +32,7 @@ The following functions help you use ... :
 
     Framework-level interface defining read-write access to a temporal object, such as a date, time, offset or some combination of these.
 
-    See [Date(String date, String... format)](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/temporal/Temporal.html) for further details
+    See [Date(Temporal)](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/temporal/Temporal.html) & [DateTimeFormatter.parseBest()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/format/DateTimeFormatter.html#parseBest(java.lang.CharSequence,java.time.temporal.TemporalQuery...)) for further details
 
     **Parameters** :
 
@@ -80,9 +80,9 @@ The following functions help you use ... :
 
 !!! note "now()"
 
-    Returns the current date-time using the system clock, not null
+    Returns the current date-time using the system clock, not null.
 
-    See [now()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/ZonedDateTime.html) for further details
+    See [ZonedDateTime.now()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/ZonedDateTime.html#now()) for further details
 
     **Returns** :
 
@@ -96,9 +96,11 @@ The following functions help you use ... :
 
 ## dateFormatter
 
-!!! note "dateFormatter (String pattern)"
+!!! note "dateFormatter(String pattern)"
 
-    See [dateFormatter(String pattern)](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/format/DateTimeFormatter.html) for further details
+    This method will create a formatter based on a simple pattern of letters and symbols as described in the class documentation.
+
+    See [dateFormatter(DateTimeFormatter.ofPattern())](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/format/DateTimeFormatter.html#ofPattern(java.lang.String)) for further details
 
     **Parameters** :
 
@@ -119,11 +121,11 @@ The following functions help you use ... :
 
 ## dateFormatterWithLocale
 
-!!! note "dateFormatterWithLocale (String pattern, String locale)"
+!!! note "dateFormatterWithLocale(String pattern, String locale)"
 
-    Obtains an instance of ZonedDateTime from a local date and time.
+    This method will create a formatter based on a simple pattern of letters and symbols as described in the class documentation.
 
-    See [datteFormatterWithLocale(String pattern, String locale)](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/format/DateTimeFormatter.html) for further details
+    See [dateFormatterWithLocale(DateTimeFormatter.ofPattern())](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/format/DateTimeFormatter.html#ofPattern(java.lang.String)) for further details
 
     **Parameters** :
 
@@ -145,11 +147,11 @@ The following functions help you use ... :
 
 ## isoDateFormatter
 
-!!! note "isoDateFormatter (String type)"
+!!! note "isoDateFormatter(String type)"
 
-    This method will create a formatter based on a simple pattern of letters and symbols as described in the class documentation.
+    Formatter for printing and parsing date-time objects.
 
-    See [isoDateFormatter(String type)](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/format/DateTimeFormatter.html) for further details
+    See [isoDateFormatter(DateTimeFormatter)](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/format/DateTimeFormatter.html) for further details
 
     **Parameters** :
 
@@ -170,9 +172,11 @@ The following functions help you use ... :
 
 ## timeAmount
 
-!!! note "timeAmount (String text)"
+!!! note "timeAmount(String text)"
 
-    See [timeAmount(String unit)](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/temporal/TemporalAmount.html) for further details
+    This is the base interface type for amounts of time. An amount is distinct from a date or time-of-day in that it is not tied to any specific point on the time-line. 
+
+    See [timeAmount(TemporalAmount)](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/temporal/TemporalAmount.html) for further details
 
     **Parameters** :
 
@@ -190,9 +194,11 @@ The following functions help you use ... :
 
 ## timeUnit
 
-!!! note "timeUnit (String unit)"
+!!! note "timeUnit(String unit)"
     
-    See [timeUnit(String unit)](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/temporal/ChronoUnit.html) for further details
+    This set of units provide unit-based access to manipulate a date, time or date-time. The standard set of units can be extended by implementing TemporalUnit. 
+
+    See [timeUnit(ChronoUnit)](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/temporal/ChronoUnit.html) for further details
 
     **Parameters** :
 

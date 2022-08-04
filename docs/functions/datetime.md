@@ -32,7 +32,7 @@ The following functions help you use ... :
 
     Framework-level interface defining read-write access to a temporal object, such as a date, time, offset or some combination of these.
 
-    See [docs.oracle.com](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/temporal/Temporal.html) for further details
+    See [Date(String date, String... format)](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/temporal/Temporal.html) for further details
 
     **Parameters** :
 
@@ -58,57 +58,47 @@ The following functions help you use ... :
 
 ## currentTimeMillis
 
-!!! note "currentTimeMillis(String currentTimeMillis)"
+!!! note "currentTimeMillis()"
 
-    Returns the current time in milliseconds. Note that while the unit of time of the return value is a millisecond, the granularity of the value depends on the underlying operating system and may be larger.
+    Returns the current time in milliseconds as a String.
 
-    See [docs.oracle.com](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Date.html) for further details
-
-    **Parameters** :
-
-    * String currentTimeMillis
-    * Type of parameter : long
-    * Type of return : string
+    See [System.currentTimeMillis()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#currentTimeMillis()) for further details
 
     **Returns** :
-
+    
     * The difference, measured in milliseconds, between the current time and midnight, January 1, 1970 UTC.
     * `java.time.ZonedDateTime`
 
 
 !!! tip "Examples"
 
-    SpEL without : `${}`
+    SpEL without : `${T(java.util.String).valueOf(T(java.lang.System).currentTimeMillis())}`
 
-    SpEL with    : `${#currentTimeMillis}`
+    SpEL with    : `${#currentTimeMillis()}`
     
 ## now
 
-!!! note "now(String )"
+!!! note "now()"
 
-    Obtains the current date-time from the system clock in the default time-zone.
+    Returns the current date-time using the system clock, not null
 
-    See [docs.oracle.com](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/ZonedDateTime.html) for further details
-
-    **Parameters** :
+    See [now()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/ZonedDateTime.html) for further details
 
     **Returns** :
 
-    * Returns the current date-time using the system clock, not null
-    * Clock (systemDefaultZone)  
     * `java.time.ZonedDateTime`
 
 !!! tip "Examples"
 
-    SpEL without : `${#dateFormatter(#dateTimeFormat).format(#now().plusSeconds(5))}`
+    SpEL without : `${T(java.time.ZonedDateTime).now()}`
 
-    SpEL with    : `${#now}`
+    SpEL with    : `${#now()}`
 
 ## dateFormatter
 
 !!! note "dateFormatter (String pattern)"
 
-    See [docs.oracle.com](https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/javax/swing/text/DateFormatter.html) for further details
+    See [dateFormatter(String pattern)](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/format/DateTimeFormatter.html) for further details
 
     **Parameters** :
 
@@ -118,15 +108,13 @@ The following functions help you use ... :
 
     **Returns** :
 
-    * This method will create a formatter based on a simple pattern of letters and symbols as described in the class documentation.
-    * The formatter based on the pattern, not null  
     * `java.time.format.DateTimeFormatter`
 
 !!! tip "Examples"
 
-    SpEL without : `${#dateFormatter(#dateTimeFormat).format(#now().plusSeconds(5))}`
+    SpEL without : `${T(java.time.format.DateTimeFormatter).ofPattern("pattern")}`
 
-    SpEL with    : `${#dateFormatter}`
+    SpEL with    : `${#dateFormatter("pattern")}`
 
 
 ## dateFormatterWithLocale
@@ -135,7 +123,7 @@ The following functions help you use ... :
 
     Obtains an instance of ZonedDateTime from a local date and time.
 
-    See [docs.oracle.com]() for further details
+    See [datteFormatterWithLocale(String pattern, String locale)](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/format/DateTimeFormatter.html) for further details
 
     **Parameters** :
 
@@ -146,22 +134,22 @@ The following functions help you use ... :
 
     **Returns** :
 
-    * This method will create a formatter based on a simple pattern of letters and symbols as described in the class documentation.
-    * The formatter based on the pattern can not be null  
     * `java.time.format.DateTimeFormatter`
 
 !!! tip "Examples"
 
-    SpEL without : `${}`
+    SpEL without : `${T(java.time.format).ofPattern("pattern", "locale")}`
 
-    SpEL with    : `${#dateFormatterWithLocale}`
+    SpEL with    : `${#dateFormatterWithLocale("pattern", "locale")}`
 
 
 ## isoDateFormatter
 
 !!! note "isoDateFormatter (String type)"
 
-    See [docs.oracle.com](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/format/DateTimeFormatter.html) for further details
+    This method will create a formatter based on a simple pattern of letters and symbols as described in the class documentation.
+
+    See [isoDateFormatter(String type)](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/format/DateTimeFormatter.html) for further details
 
     **Parameters** :
 
@@ -170,47 +158,41 @@ The following functions help you use ... :
 
     **Returns** :
 
-    * This method will create a formatter based on a simple pattern of letters and symbols as described in the class documentation.
     * `java.time.format.DateTimeFormatter`
 
 
 !!! tip "Examples"
 
-    SpEL without : `${#isoDateFormatter('instant')}`
+    SpEL without : `${T(java.time.format).DateTimeFormatter()}`
 
-    SpEL with    : `${#isoDateFormatter}`
+    SpEL with    : `${#isoDateFormatter("type")}`
 
 
 ## timeAmount
 
 !!! note "timeAmount (String text)"
 
-    
-
-    See [docs.oracle.com](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/TimeUnit.html) for further details
+    See [timeAmount(String unit)](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/temporal/TemporalAmount.html) for further details
 
     **Parameters** :
 
     * String text
    
-
     **Returns** :
     
     * `java.time.temporal.TemporalAmount`
 
 !!! tip "Examples"
 
-    SpEL without : `${}`
+    SpEL without : `${T(java.time.temporal).timeAmount("text")}`
 
-    SpEL with    : `${#timeAmount}`
+    SpEL with    : `${#timeAmount("text")}`
 
 ## timeUnit
 
 !!! note "timeUnit (String unit)"
-
     
-
-    See [docs.oracle.com](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/temporal/ChronoUnit.html) for further details
+    See [timeUnit(String unit)](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/temporal/ChronoUnit.html) for further details
 
     **Parameters** :
 
@@ -224,6 +206,6 @@ The following functions help you use ... :
 
 !!! tip "Examples"
 
-    SpEL without : `${}`
+    SpEL without : `${T(java.time.temporal).timeUnit("unit")}`
 
-    SpEL with    : `${#timeUnit}`
+    SpEL with    : `${#timeUnit("unit")}`

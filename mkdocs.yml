@@ -30,6 +30,7 @@ nav:
         - amqp: actions/amqp.md
     - Functions:
       - Time & dates: functions/datetime.md
+      - Nullable: functions/nullable.md
   #- Toolbox: toolbox.md # hidden page
 
 extra_css:

@@ -31,6 +31,7 @@ nav:
     - Functions:
       - Time & dates: functions/datetime.md
       - Nullable: functions/nullable.md
+      - String Replace: functions/stringreplace.md
   #- Toolbox: toolbox.md # hidden page
 
 extra_css:

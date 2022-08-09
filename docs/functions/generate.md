@@ -1,34 +1,76 @@
-# GENERATE FUNCTION
+Following functions help you generate values.
 
-The following functions help you use ... :
 
-* [\#uuid](#uuid)
-* [\#randomLong](#randomLong)
-* [\#randomInt](#randomInt)
-* [\#id](#id)
-<!-- * [\#id](#id)
-* [\#id](#id) ? 3 differents methods with the same name ==> looking for a proper way to display that  -->
-* [\#file](#file)
-<!-- * [\#file](#file)
-* [\#file](#file) ? 3 differents methods with the same name ==> looking for a proper way to display that -->
+## file
 
-## uuid
+!!! note "file()"
 
-!!! note "uuid()"
-
-    A class that represents an immutable universally unique identifier (UUID). A UUID represents a 128-bit value.
-
-    See [UUID.uuid()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/UUID.html) for further details
-
-    **Returns** :
-    
-    * `java.util.UUID`
 
 !!! tip "Examples"
 
-    SpEL without : `${T(java.util.String).uuid()}`
+    SpEL without : 
 
-    SpEL with    : `${#uuid()}`
+    SpEL with    : `${#generate.file()}`
+
+!!! note "file(int fileSize)"
+
+
+!!! tip "Examples"
+
+    SpEL without : 
+
+    SpEL with    : `${#generate.file(42)}`
+
+!!! note "file(String destination, int fileSize)"
+
+
+!!! tip "Examples"
+
+    SpEL without : 
+
+    SpEL with    : `${#generate.file("/path/to/dest/file", 42)}`
+
+
+## id
+
+!!! note "id(String prefix, int length)"
+
+
+!!! tip "Examples"
+
+    SpEL without : 
+
+    SpEL with    : `${#generate.id("pre-", 5)}`
+
+!!! note "id(int length, String suffix)"
+
+
+!!! tip "Examples"
+
+    SpEL without : 
+
+    SpEL with    : `${#generate.id(5, "-suf")}`
+
+!!! note "id(String prefix, int length, String suffix)"
+
+
+!!! tip "Examples"
+
+    SpEL without : 
+
+    SpEL with    : `${#generate.id("pre-", 5, "-suf")}`
+
+
+## randomInt
+
+!!! note "randomInt()"
+
+
+!!! tip "Examples"
+
+    SpEL without : 
+
+    SpEL with    : `${#generate.randomInt()}`
 
 ## randomLong
 
@@ -39,11 +81,30 @@ The following functions help you use ... :
     See [Random.randomLong()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Random.html#nextLong()) for further details
 
     **Returns** :
-    
-    * `java.util.Random`
+
+    * `java.util.String`
 
 !!! tip "Examples"
 
     SpEL without : `${T(java.util.String).valueOf(T(java.lang.System).randomLong()}`
 
-    SpEL with    : `${#randomLong()}`
+    SpEL with    : `${#generate.randomLong()}`
+
+
+## uuid
+
+!!! note "uuid()"
+
+    A class that represents an immutable universally unique identifier (UUID). A UUID represents a 128-bit value.
+
+    See [UUID.uuid()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/UUID.html) for further details
+
+    **Returns** :
+
+    * `java.util.String`
+
+!!! tip "Examples"
+
+    SpEL without : `${T(java.util.String).uuid()}`
+
+    SpEL with    : `${#generate.uuid()}`

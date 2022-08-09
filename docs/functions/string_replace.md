@@ -1,5 +1,3 @@
-# STRINGREPLACE FUNCTION
-
 !!! note "str_replace(String input, String regularExpression, String replacement)"
 
     Returns a string resulting from replacing all occurrences of oldChar in this string with newChar.

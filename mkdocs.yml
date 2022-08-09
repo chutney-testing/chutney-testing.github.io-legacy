@@ -26,13 +26,13 @@ nav:
       - agent: configuration/agent.md
     - 'Write a scenario': write.md
     - Actions:
-        - http: actions/http.md
         - amqp: actions/amqp.md
+        - http: actions/http.md
     - Functions:
       - Time & dates: functions/datetime.md
-      - Nullable: functions/nullable.md
-      - String Replace: functions/stringreplace.md
       - Generate: functions/generate.md
+      - Nullable: functions/nullable.md
+      - String Replace: functions/string_replace.md
   #- Toolbox: toolbox.md # hidden page
 
 extra_css:

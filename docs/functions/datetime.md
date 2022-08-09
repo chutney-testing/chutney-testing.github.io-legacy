@@ -1,36 +1,29 @@
-# Global Notes
-
-Spel Function annotated @SpelFunction is a way to write functions in a more simple method.
-
-It allows you to :
-
-* Write java code that will be executed as soon as you read it, just like a script.
-* You made them easier to call them back when you need.
-* When you use a SpelFunction, a **#** is used before the word, meaning that it is checking if the following word is known (function or variable)
-
-Everything that will be stated after a **$** and between two braces, will be interpreted (SpEL expression).
-
-* Example : ${#jsonSerialize(myObject)}
+Following functions help you write and shorten SpEL when you need to handle time or date values.
 
 
-# DATE TIME FUNCTION
+## currentTimeMillis
 
-The following functions help you use ... :
+!!! note "currentTimeMillis()"
 
-* [\#date](#date)
-* [\#currentTimeMillis](#currenttimemillis)
-* [\#now](#now)
-* [\#dateFormatter](#dateformatter)
-* [\#dateFormatterWithLocale](#dateformatterwithlocale)
-* [\#isoDateFormatter](#isodateformatter)
-* [\#timeAmount](#timeamount)
-* [\#timeUnit](#timeunit)
+    Returns a String of the difference, measured in milliseconds, between the current time and midnight, January 1, 1970 UTC.
+
+    See [System.currentTimeMillis()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#currentTimeMillis()) for further details
+
+    **Returns** :
+
+    * A String of the current time in milliseconds
+
+
+!!! tip "Examples"
+
+    SpEL without : `${T(java.util.String).valueOf(T(java.lang.System).currentTimeMillis())}`
+
+    SpEL with    : `${#currentTimeMillis()}`
+
 
 ## date
 
 !!! note "date(String date, String... format)"
-
-    Framework-level interface defining read-write access to a temporal object, such as a date, time, offset or some combination of these.
 
     See [Date(Temporal)](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/temporal/Temporal.html) & [DateTimeFormatter.parseBest()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/format/DateTimeFormatter.html#parseBest(java.lang.CharSequence,java.time.temporal.TemporalQuery...)) for further details
 
@@ -44,10 +37,7 @@ The following functions help you use ... :
         * The format used for the date
         * ex. "dd MMMM yyyy"
 
-    **Returns** :
-
-    `java.time.temporal.Temporal`  
-
+    **Returns** : `java.time.temporal.Temporal`
 
 !!! tip "Examples"
 
@@ -55,44 +45,6 @@ The following functions help you use ... :
 
     SpEL with    : `${#date("27 July 2022")}`
 
-
-## currentTimeMillis
-
-!!! note "currentTimeMillis()"
-
-    Returns the current time in milliseconds as a String.
-
-    See [System.currentTimeMillis()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#currentTimeMillis()) for further details
-
-    **Returns** :
-    
-    * The difference, measured in milliseconds, between the current time and midnight, January 1, 1970 UTC.
-    * `java.time.ZonedDateTime`
-
-
-!!! tip "Examples"
-
-    SpEL without : `${T(java.util.String).valueOf(T(java.lang.System).currentTimeMillis())}`
-
-    SpEL with    : `${#currentTimeMillis()}`
-    
-## now
-
-!!! note "now()"
-
-    Returns the current date-time using the system clock, not null.
-
-    See [ZonedDateTime.now()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/ZonedDateTime.html#now()) for further details
-
-    **Returns** :
-
-    * `java.time.ZonedDateTime`
-
-!!! tip "Examples"
-
-    SpEL without : `${T(java.time.ZonedDateTime).now()}`
-
-    SpEL with    : `${#now()}`
 
 ## dateFormatter
 
@@ -170,11 +122,28 @@ The following functions help you use ... :
     SpEL with    : `${#isoDateFormatter("type")}`
 
 
+## now
+
+!!! note "now()"
+
+    Returns the current date-time using the system clock.
+
+    See [ZonedDateTime.now()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/ZonedDateTime.html#now()) for further details
+
+    **Returns** :
+
+    * `java.time.ZonedDateTime`
+
+!!! tip "Examples"
+
+    SpEL without : `${T(java.time.ZonedDateTime).now()}`
+
+    SpEL with    : `${#now()}`
+
+
 ## timeAmount
 
 !!! note "timeAmount(String text)"
-
-    This is the base interface type for amounts of time. An amount is distinct from a date or time-of-day in that it is not tied to any specific point on the time-line. 
 
     See [timeAmount(TemporalAmount)](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/temporal/TemporalAmount.html) for further details
 
@@ -192,11 +161,10 @@ The following functions help you use ... :
 
     SpEL with    : `${#timeAmount("text")}`
 
+
 ## timeUnit
 
 !!! note "timeUnit(String unit)"
-    
-    This set of units provide unit-based access to manipulate a date, time or date-time. The standard set of units can be extended by implementing TemporalUnit. 
 
     See [timeUnit(ChronoUnit)](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/temporal/ChronoUnit.html) for further details
 

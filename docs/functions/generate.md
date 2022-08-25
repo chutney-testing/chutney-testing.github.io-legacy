@@ -1,151 +1,127 @@
 Following functions help you generate random values.
 
 
-## file
+# File
 
-!!! note "file()"
+!!! note "String file()"
 
     Generate a file with a default size of 1kB, in the default OS temp directory.
     File name is prefixed with _chutney_
 
     **Returns** :
 
-    * The canonical path of the file as a [String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html)
+    * The canonical path of the file
 
-!!! tip "Examples"
+    **Examples** :
 
     SpEL : `${#generate.file()}`
 
-!!! note "file(int fileSize)"
+
+!!! note "String file(int fileSize)"
 
     Generate a file with a size of _n_ bytes, in the default OS temp directory.
     File name is prefix with _chutney_ and maximum file size is 100MB (104857600 bytes).
 
-    **Parameters** :
-    
-    * A given file size in bytes as an [int](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html)
-
     **Returns** :
 
-    * The canonical path of the file as a [String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html)
+    * The canonical path of the file
 
-!!! tip "Examples"
+    **Examples** :
 
     SpEL : `${#generate.file(42)}`
 
-!!! note "file(String destination, int fileSize)"
+
+!!! note "String file(String destination, int fileSize)"
 
     Generate a file with a size of _n_ bytes, with a specific path and filename.
     Maximum file size is 100MB (104857600 bytes).
 
-    **Parameters** :
-    
-    * A destination file path as a [String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html)
-    * A given file size in bytes as an [int](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html)
-
     **Returns** :
 
-    * The canonical path of the file as a [String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html)
+    * The canonical path of the file
 
-!!! tip "Examples"
+    **Examples** :
 
     SpEL : `${#generate.file("/path/to/dest/file", 42)}`
 
 
-## id
+# Identifier
 
-!!! note "id(String prefix, int length)"
+!!! note "String id(String prefix, int length)"
 
-    Generate a [String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html) with a prefix and _n_ random characters.
-
-    **Parameters** :
-    
-    * A prefix as a [String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html)
-    * The length of random characters as an [int](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html)
+    Generate a String with a given prefix and _n_ random characters.
 
     **Returns** :
 
-    * The generated [String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html)
+    * The generated String
+
+    **Examples** :
+
+    SpEL : `${#generate.id("prefix-", 6)}` -> ex. output `prefix-r4nd0m`
 
 
-!!! tip "Examples"
+!!! note "String id(int length, String suffix)"
 
-    SpEL : `${#generate.id("prefix-", 6)}`  
-            -> may produce "prefix-r4nd0m" 
-
-!!! note "id(int length, String suffix)"
-
-    Generate a [String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html) with _n_ random characters and a given suffix.
-
-    **Parameters** :
-    
-    * The length of random characters as an [int](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html)
-    * A suffix as a [String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html)
+    Generate a String with _n_ random characters and a given suffix.
 
     **Returns** :
 
-    * The generated [String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html)
+    * The generated String
+
+    **Examples** :
+
+    SpEL : `${#generate.id(6, "-suffix")}` -> ex. output `r4nd0m-suffix`
 
 
-!!! tip "Examples"
+!!! note "String id(String prefix, int length, String suffix)"
 
-    SpEL : `${#generate.id(6, "-suffix")}`  
-            -> may produce "r4nd0m-suffix"
-
-!!! note "id(String prefix, int length, String suffix)"
-
-    Generate a [String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html) with a given prefix, _n_ random characters and a given suffix.
-
-    **Parameters** :
-    
-    * A prefix as a [String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html)
-    * The length of random characters as an [int](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html)
-    * A suffix as a [String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html)
+    Generate a String with a given prefix, _n_ random characters and a given suffix.
 
     **Returns** :
 
-    * The generated [String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html)
+    * The generated String
+
+    **Examples** :
+
+    SpEL : `${#generate.id("pre-", 6, "-suf")}` -> ex. output `pre-r4nd0m-suf`
 
 
-!!! tip "Examples"
+# Int
 
-    SpEL : `${#generate.id("pre-", 6, "-suf")}`  
-            -> may produce "pre-r4nd0m-suf"
+!!! note "String randomInt(int bound)"
 
+    Generate a random int value between 0 (included) and a given bound value (excluded) (i.e `[0, bound[`).
 
-## randomInt
+    See [Random.nextInt(int)](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Random.html#nextInt(int)) for further details
 
-!!! note "randomInt()"
+    **Returns** : 
 
+    * The random int value as a String
 
-!!! tip "Examples"
+    **Examples** :
 
-    SpEL without : 
+    SpEL : `${#generate.randomInt(42)}`
 
-    SpEL with    : `${#generate.randomInt()}`
+# Long
 
-## randomLong
+!!! note "String randomLong()"
 
-!!! note "randomLong()"
+    Generate a random long value.
 
-    Returns the next pseudorandom, uniformly distributed long value from this random number generator's sequence. The general contract of nextLong is that one long value is pseudorandomly generated and returned.
-
-    See [Random.randomLong()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Random.html#nextLong()) for further details
+    See [Random.nextLong()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Random.html#nextLong()) for further details
 
     **Returns** :
 
-    * `java.util.String`
+    * The generated long value as a String
 
-!!! tip "Examples"
+    **Examples** :
 
-    SpEL without : `${T(java.util.String).valueOf(T(java.lang.System).randomLong()}`
-
-    SpEL with    : `${#generate.randomLong()}`
+    SpEL : `${#generate.randomLong()}`
 
 
-## uuid
+# UUID
 
-!!! note "uuid()"
+!!! note "String uuid()"
 
     Generates a unique identifier (UUID). 
 
@@ -153,10 +129,10 @@ Following functions help you generate random values.
 
     **Returns** :
 
-    * `java.util.String`
+    * The UUID as a String
 
-!!! tip "Examples"
+    **Examples** :
 
-    SpEL without : `${T(java.util.String).uuid()}`
+    SpEL without : `${T(java.util.UUID).randomUUID().toString()}`
 
     SpEL with    : `${#generate.uuid()}`

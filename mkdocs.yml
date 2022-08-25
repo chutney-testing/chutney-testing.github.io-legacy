@@ -22,6 +22,7 @@ nav:
       - agent: configuration/agent.md
     - 'Write a scenario': write.md
     - Actions:
+        - Introduction: actions/introduction.md
         - amqp: actions/amqp.md
         - http: actions/http.md
     - Functions:

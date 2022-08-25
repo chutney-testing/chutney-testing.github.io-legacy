@@ -8,8 +8,8 @@
 Chutney helps you test deployed applications and validate functional requirements.  
 Chutney provides you a set of capabilities for executing your scenario without having to write and maintain glue code.  
 
+You can find out a comprehensive list of what Chutney can do in the [documentation](actions/introduction.md).  
 You can learn more about the [concepts](concepts.md) behind.
 
-# [Get started !](getting_started/setup)
-Install, configure, write and run your first scenario [here](getting_started/setup) ! :material-rocket-launch:
-
+# [Get started !](getting_started.md)
+Install, configure, write and run your first scenario [here](getting_started.md) ! :material-rocket-launch:

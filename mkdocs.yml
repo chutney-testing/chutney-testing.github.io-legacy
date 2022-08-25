@@ -10,14 +10,10 @@ copyright: © Chutney Testing 2017 | under the Apache License, Version 2.0
 
 nav:
   - Overview: index.md
-  - Getting Started: getting_started.md
-#    - Install: quickstart/setup.md
-#    - Configure: quickstart/config.md
-#    - Specify: quickstart/specify.md
-#    - Run: quickstart/run.md
-#    - Philosophy: philosophy.md
-#    - Alternatives: alternatives.md
-#    - License: license.md
+  - Getting Started:
+    - Install: getting_started/setup.md
+    - Write your first scenario: getting_started/write.md
+    - Run your scenario: getting_started/run.md
   - Documentation:
     - Installation: install.md
     - Configuration:
@@ -26,8 +22,8 @@ nav:
       - agent: configuration/agent.md
     - 'Write a scenario': write.md
     - Actions:
-        - http: actions/http.md
         - amqp: actions/amqp.md
+        - http: actions/http.md
     - Functions:
       - Time & dates: functions/datetime.md
   #- Toolbox: toolbox.md # hidden page
@@ -90,6 +86,7 @@ markdown_extensions:
       anchor_linenums: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
+  - pymdownx.details
   - pymdownx.superfences:
       custom_fences:
          - name: mermaid

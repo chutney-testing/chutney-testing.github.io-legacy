@@ -3,7 +3,7 @@ Following functions help you write and shorten SpEL when you need to handle time
 
 ## currentTimeMillis
 
-!!! note "currentTimeMillis()"
+!!! note "String currentTimeMillis()"
 
     Returns a String of the difference, measured in milliseconds, between the current time and midnight, January 1, 1970 UTC.
 
@@ -13,8 +13,7 @@ Following functions help you write and shorten SpEL when you need to handle time
 
     * A String of the current time in milliseconds
 
-
-!!! tip "Examples"
+    **Examples** :
 
     SpEL without : `${T(java.util.String).valueOf(T(java.lang.System).currentTimeMillis())}`
 
@@ -23,23 +22,21 @@ Following functions help you write and shorten SpEL when you need to handle time
 
 ## date
 
-!!! note "date(String date, String... format)"
+!!! note "Temporal date(String date, String... format)"
 
-    See [Date(Temporal)](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/temporal/Temporal.html) & [DateTimeFormatter.parseBest()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/format/DateTimeFormatter.html#parseBest(java.lang.CharSequence,java.time.temporal.TemporalQuery...)) for further details
+    See [Date(Temporal)](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/temporal/Temporal.html)
+    & [DateTimeFormatter.parseBest()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/format/DateTimeFormatter.html#parseBest(java.lang.CharSequence,java.time.temporal.TemporalQuery...)) for further details
 
     **Parameters** :
 
-    * String Date
-        * The date you want to get a Temporal from
-        * Mandatory (:material-check:)
+    * `String date` : The date you want to get a Temporal from
         * ex. "27 July 2022"
-    * String format (is optional), if no format is assigned, the default value for this argument will be the ISO format.
-        * The format used for the date
+    * `String format` : The format used for the date (optional, default to ISO)
         * ex. "dd MMMM yyyy"
 
-    **Returns** : `java.time.temporal.Temporal`
+    **Returns** : The given date as a `Temporal`
 
-!!! tip "Examples"
+    **Examples** :
 
     SpEL without : `${T(java.time.format.DateTimeFormatter).ofPattern(T(java.time.format.DateTimeFormatter).ISO_INSTANT).parseBest("27 July 2022", ZonedDateTime::from, LocalDateTime::from, LocalDate::from, Instant::from)}`
 
@@ -48,93 +45,95 @@ Following functions help you write and shorten SpEL when you need to handle time
 
 ## dateFormatter
 
-!!! note "dateFormatter(String pattern)"
+!!! note "DateTimeFormatter dateFormatter(String pattern)"
 
-    This method will create a formatter based on a simple pattern of letters and symbols as described in the class documentation.
+    Creates a formatter from a given pattern.  
+    ex. Pattern `d MMM uuuu` will format date `2011-12-03` to `3 Dec 2011`.
 
-    See [dateFormatter(DateTimeFormatter.ofPattern())](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/format/DateTimeFormatter.html#ofPattern(java.lang.String)) for further details
-
-    **Parameters** :
-
-    * String pattern
-    * Mandatory (:material-check:)
-    * If the pattern you give is invalid, you will get an IllegalArgumentException as a throw.
+    See [DateTimeFormatter.ofPattern()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/format/DateTimeFormatter.html#ofPattern(java.lang.String)) for further details
 
     **Returns** :
 
-    * `java.time.format.DateTimeFormatter`
+    * A `DateTimeFormatter`
+    * Or throws an IllegalArgumentException if the pattern is not valid.
 
-!!! tip "Examples"
+    **Examples** :
 
-    SpEL without : `${T(java.time.format.DateTimeFormatter).ofPattern("pattern")}`
+    SpEL without : `${T(java.time.format.DateTimeFormatter).ofPattern("d MMM uuuu")}`
 
-    SpEL with    : `${#dateFormatter("pattern")}`
+    SpEL with    : `${#dateFormatter("d MMM uuuu")}`
 
 
 ## dateFormatterWithLocale
 
-!!! note "dateFormatterWithLocale(String pattern, String locale)"
+!!! note "DateTimeFormatter dateFormatterWithLocale(String pattern, String locale)"
 
-    This method will create a formatter based on a simple pattern of letters and symbols as described in the class documentation.
+    Creates a formatter from a given pattern and given locale.
 
-    See [dateFormatterWithLocale(DateTimeFormatter.ofPattern())](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/format/DateTimeFormatter.html#ofPattern(java.lang.String)) for further details
-
-    **Parameters** :
-
-    * String pattern
-    * Mandatory (:material-check:)
-    * String locale
-    * If the pattern you give is invalid, you will get an IllegalArgumentException as a throw.
+    See [DateTimeFormatter.ofPattern()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/format/DateTimeFormatter.html#ofPattern(java.lang.String)) for further details
 
     **Returns** :
 
-    * `java.time.format.DateTimeFormatter`
+    * A `DateTimeFormatter`
+    * Or throws an IllegalArgumentException if the pattern is not valid.
 
-!!! tip "Examples"
+    **Examples** :
 
-    SpEL without : `${T(java.time.format).ofPattern("pattern", "locale")}`
+    SpEL without : `${T(java.time.format.DateTimeFormatter).ofPattern("d MMM uuuu", new java.util.Locale("en"))}`
 
-    SpEL with    : `${#dateFormatterWithLocale("pattern", "locale")}`
+    SpEL with    : `${#dateFormatterWithLocale("d MMM uuuu", "en")}`
 
 
 ## isoDateFormatter
 
-!!! note "isoDateFormatter(String type)"
-
-    Formatter for printing and parsing date-time objects.
+!!! note "DateTimeFormatter isoDateFormatter(String type)"
 
     See [isoDateFormatter(DateTimeFormatter)](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/format/DateTimeFormatter.html) for further details
 
     **Parameters** :
 
-    * String type
-    * If no argument type is given or equals to "null", this will throw you an exception => "Unknown date time formatter type"
+    * Possible values are :
+        * "INSTANT"
+        * "ZONED_DATE_TIME"
+        * "DATE_TIME"
+        * "DATE"
+        * "TIME"
+        * "LOCAL_DATE_TIME"
+        * "LOCAL_DATE"
+        * "LOCAL_TIME"
+        * "OFFSET_DATE_TIME"
+        * "OFFSET_DATE"
+        * "OFFSET_TIME"
+        * "ORDINAL_DATE"
+        * "ISO_WEEK_DATE"
+        * "BASIC_DATE"
+        * "RFC_DATE_TIME"
 
     **Returns** :
 
-    * `java.time.format.DateTimeFormatter`
+    * A `DateTimeFormatter`
+    * Or throws an IllegalArgumentException if the value is unknown.
 
+    **Examples** :
 
-!!! tip "Examples"
+    SpEL without : `${T(java.time.format.DateTimeFormatter).ISO_INSTANT}`
 
-    SpEL without : `${T(java.time.format).DateTimeFormatter()}`
-
-    SpEL with    : `${#isoDateFormatter("type")}`
+    SpEL with    : `${#isoDateFormatter("INSTANT")}`
 
 
 ## now
 
-!!! note "now()"
+!!! note "ZonedDateTime now()"
 
-    Returns the current date-time using the system clock.
+    Returns the current date-time from the system clock.
 
     See [ZonedDateTime.now()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/ZonedDateTime.html#now()) for further details
 
     **Returns** :
 
-    * `java.time.ZonedDateTime`
+    * The current date-time as a `ZonedDateTime`
 
-!!! tip "Examples"
+    **Examples** :
 
     SpEL without : `${T(java.time.ZonedDateTime).now()}`
 
@@ -143,43 +142,55 @@ Following functions help you write and shorten SpEL when you need to handle time
 
 ## timeAmount
 
-!!! note "timeAmount(String text)"
+!!! note "TemporalAmount timeAmount(String text)"
+
+    Create a TemporalAmount from a given string.  
+    This is usefull when combine with other methods or functions.
 
     See [timeAmount(TemporalAmount)](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/temporal/TemporalAmount.html) for further details
 
-    **Parameters** :
-
-    * String text
-   
     **Returns** :
     
-    * `java.time.temporal.TemporalAmount`
+    * A `TemporalAmount`
 
-!!! tip "Examples"
+    **Examples** :
 
-    SpEL without : `${T(java.time.temporal).timeAmount("text")}`
+    SpEL without : `${#now().plus(T(java.time.Duration).parse("6 hours"))}`
 
-    SpEL with    : `${#timeAmount("text")}`
+    SpEL with    : `${#now().plus(#timeAmount("6 hours"))}`
 
 
 ## timeUnit
 
-!!! note "timeUnit(String unit)"
+!!! note "ChronoUnit timeUnit(String unit)"
 
     See [timeUnit(ChronoUnit)](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/temporal/ChronoUnit.html) for further details
 
     **Parameters** :
 
-    * String unit 
-    * If unit is equals to "null" you will get ==> IllegalArgumentException error
+    * Possible values are :
+        * "nanos", "ns"
+        * "micros", "µs"
+        * "millis", "ms"
+        * "seconds", "s", "sec"
+        * "minutes", "m", "min"
+        * "hours", "h", "hour", "hours", "hour(s)"
+        * "days", "d", "day", "days", "day(s)"
+        * "weeks"
+        * "months"
+        * "years"
+        * "decades"
+        * "centuries"
+        * "millennia"
+        * "eras"
+        * "forever"
 
     **Returns** :
     
-    * `java.time.temporal.ChronoUnit` 
+    * A `ChronoUnit`
 
+    **Examples** :
 
-!!! tip "Examples"
+    SpEL without : `${T(java.time.temporal.ChronoUnit).valueOf("hours".toUpperCase())}`
 
-    SpEL without : `${T(java.time.temporal).timeUnit("unit")}`
-
-    SpEL with    : `${#timeUnit("unit")}`
+    SpEL with    : `${#timeUnit("h")}`

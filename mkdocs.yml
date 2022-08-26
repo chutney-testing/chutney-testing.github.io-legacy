@@ -30,8 +30,8 @@ nav:
         - http: actions/http.md
     - Functions:
       - Time & dates: functions/datetime.md
-      - Generate: functions/generate.md
-      - Nullable: functions/nullable.md
+      - Random values: functions/generate.md
+      - Handling null: functions/nullable.md
       - String Replace: functions/string_replace.md
   #- Toolbox: toolbox.md # hidden page
 

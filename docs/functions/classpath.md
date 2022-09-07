@@ -40,31 +40,3 @@
     **Examples** :
 
     SpEL : `${#resourceContent("name")}`
-
-<!-- # resourceToPath
-
-!!! note "String resourceToPath(String name)"
-
-    See [()]()) for further details
-    
-    **Returns** :
-
-    * Returns a reference to the currently executing thread object.
-
-    **Examples** :
-
-    SpEL : `${#resourceToPath("name")}`
-
-# uriToPath
-
-!!! note "Path uriToPath(URI uri)"
-
-    See [()]()) for further details
-    
-    **Returns** :
-
-    * 
-
-    **Examples** :
-
-    SpEL : `${#uriToPath("https://github.com/search?q=chutney")}` -->

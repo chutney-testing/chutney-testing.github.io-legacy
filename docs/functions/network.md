@@ -66,7 +66,7 @@
 
     **Examples** :
 
-    SpEL : `${#tcpPortMinMax(1400, 62335)}`
+    SpEL : `${#tcpPortsMinMax(1400, 62335)}`
 
 # tcpPortRandomRange
 
@@ -80,7 +80,7 @@
 
     **Examples** :
 
-    SpEL : `${#tcpPortMinMax(1420)}`
+    SpEL : `${#tcpPortRandomRange(1420)}`
 
 # udpPort
 
@@ -108,7 +108,7 @@
 
     **Examples** :
 
-    SpEL : `${#udpPort(25)}`
+    SpEL : `${#udpPorts(25)}`
 
 # udpPortMin
 
@@ -122,7 +122,7 @@
 
     **Examples** :
 
-    SpEL : `${#udpPort(25)}`
+    SpEL : `${#udpPortMin(25)}`
 
 # udpPortMinMax
 
@@ -136,11 +136,11 @@
 
     **Examples** :
 
-    SpEL : `${#udpPort(250, 1544)}`
+    SpEL : `${#udpPortMinMax(250, 1544)}`
 
 # udpPortsMinMax
 
-!!! note "int udpPortsMinMax(int num, int minPort, int maxPort)"
+!!! note "Integer udpPortsMinMax(int num, int minPort, int maxPort)"
 
     Find the requested number of available UDP ports, each randomly selected from the range [minPort, maxPort].
 
@@ -150,4 +150,46 @@
 
     **Examples** :
 
-    SpEL : `${#udpPort(12, 250, 1544)}`
+    SpEL : `${#udpPortsMinMax(12, 250, 1544)}`
+
+# udpPortRandomRange
+
+!!! note "int udpPortRandomRange(int range)"
+
+    Find an available UDP port randomly selected from the range [minPort, maxPort].
+
+    **Returns** :
+
+    * Returns an available UDP port number
+
+    **Examples** :
+
+    SpEL : `${#udpPortRandomRange(152)}`
+
+# udpPortsRandomRange
+
+!!! note "int udpPortsRandomRange(int num, int range)"
+
+    Find the requested number of available UDP ports, each randomly selected from the range [minPort, maxPort].s
+
+    **Returns** :
+
+    * Returns a sorted set of available UDP port numbers
+
+    **Examples** :
+
+    SpEL : `${#udpPortRandomRange(152)}`
+
+# randomNetworkMask
+
+!!! note "String randomNetworkMask()"
+
+    
+
+    **Returns** :
+
+    * 
+
+    **Examples** :
+
+    SpEL : `${#randomNetworkMask()}`

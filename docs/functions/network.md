@@ -1,4 +1,4 @@
-# tcpPort
+# TcpPort
 
 !!! note "int tcpPort()"
 
@@ -12,7 +12,7 @@
 
     SpEL : `${#tcpPort()}
 
-# tcpPorts
+
 
 !!! note "int tcpPorts(int num)"
 
@@ -26,7 +26,7 @@
 
     SpEL : `${#tcpPorts(62335)}`
 
-# tcpPortMin
+
 
 !!! note "int tcpPortMin(int minPort)"
 
@@ -40,7 +40,7 @@
 
     SpEL : `${#tcpPortMin(62335)}`
 
-# tcpPortMinMax
+
 
 !!! note "int tcpPortMinMax(int minPort, int maxPort)"
 
@@ -54,7 +54,7 @@
 
     SpEL : `${#tcpPortMinMax(1400, 62335)}`
 
-# tcpPortsMinMax
+
 
 !!! note "int tcpPort(int num, int minPort, int maxPort)"
 
@@ -68,7 +68,7 @@
 
     SpEL : `${#tcpPortsMinMax(1400, 62335)}`
 
-# tcpPortRandomRange
+
 
 !!! note "int tcpPortRandomRange(int range)"
 
@@ -82,7 +82,7 @@
 
     SpEL : `${#tcpPortRandomRange(1420)}`
 
-# udpPort
+# UdpPort
 
 !!! note "int udpPort()"
 
@@ -96,7 +96,6 @@
 
     SpEL : `${#udpPort()}`
 
-# udpPorts
 
 !!! note "int udpPorts(int num)"
 
@@ -110,7 +109,7 @@
 
     SpEL : `${#udpPorts(25)}`
 
-# udpPortMin
+
 
 !!! note "int udpPortMin(int minPort)"
 
@@ -124,7 +123,7 @@
 
     SpEL : `${#udpPortMin(25)}`
 
-# udpPortMinMax
+
 
 !!! note "int udpPortMinMax(int minPort, int maxPort)"
 
@@ -138,7 +137,7 @@
 
     SpEL : `${#udpPortMinMax(250, 1544)}`
 
-# udpPortsMinMax
+
 
 !!! note "Integer udpPortsMinMax(int num, int minPort, int maxPort)"
 
@@ -152,7 +151,7 @@
 
     SpEL : `${#udpPortsMinMax(12, 250, 1544)}`
 
-# udpPortRandomRange
+
 
 !!! note "int udpPortRandomRange(int range)"
 
@@ -166,7 +165,7 @@
 
     SpEL : `${#udpPortRandomRange(152)}`
 
-# udpPortsRandomRange
+
 
 !!! note "int udpPortsRandomRange(int num, int range)"
 

@@ -29,6 +29,7 @@ nav:
       - Random values: functions/generate.md
       - Handling null: functions/nullable.md
       - String Replace: functions/string_replace.md
+      - Network: functions/network.md
   #- Toolbox: toolbox.md # hidden page
 
 extra_css:

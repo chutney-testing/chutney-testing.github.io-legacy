@@ -11,5 +11,6 @@ Chutney provides you a set of capabilities for executing your scenario without h
 You can find out a comprehensive list of what Chutney can do in the [documentation](actions/introduction.md).  
 You can learn more about the [concepts](concepts.md) behind.
 
-# [Get started !](getting_started.md)
-Install, configure, write and run your first scenario [here](getting_started.md) ! :material-rocket-launch:
+# [Get started !](getting_started/requirements)
+Install, configure, write and run your first scenario [here](getting_started/requirements) ! :material-rocket-launch:
+

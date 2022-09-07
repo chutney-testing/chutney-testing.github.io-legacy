@@ -26,7 +26,7 @@ Obviously, you should be familiar with the technology behind each action you use
 
 ## Outputs
 
-Outputs contain the data collected after performing an action.
+Outputs contain the data collected after performing an action, and only if it succeeded.
 These data are set in the execution context and can be accessed and used later in another action.  
 Each action provide a set of default outputs. But they are generic and may contain much more information than what you actually need.
 
@@ -88,7 +88,7 @@ Now that you know what this cryptic expression is and does, let's see the full H
         target = "ghibli_movie_service",
         uri = "/all?offset=0&limit=3",
         outputs = mapOf(
-            "bestMovies" to "${#json(#body, '$.movies[?(@.rating > 85)].title')}"
+            "bestMovies" to "jsonPath(#body, '$.movies[?(@.rating > 85)].title')".spEL()
         )
     )
     ```
@@ -138,11 +138,11 @@ Each validation has a name and evaluates to a boolean, using [expressions](/todo
         target = "ghibli_movie_service",
         uri = "/all?offset=0&limit=3",
         outputs = mapOf(
-            "bestMovies" to "${#json(#body, '$.movies[?(@.rating > 85)].title')}"
+            "bestMovies" to "jsonPath(#body, '$.movies[?(@.rating > 85)].title')".spEL()
         ),
         validations = mapOf(
-            "request_succeed" to "${#status == 200}",
-            "found_2_movies" to "${#bestMovies.size() == 2}"
+            "request_succeed" to "status == 200".spEL(),
+            "found_2_movies" to "bestMovies.size() == 2".spEL()
         )
     )
     ```
@@ -157,9 +157,9 @@ Each validation has a name and evaluates to a boolean, using [expressions](/todo
             "uri": "/all?offset=0&limit=3"
         },
         "outputs": {
-            "bestMovies": ${#json(#body, '$.movies[?(@.rating > 85)].title')}
+            "bestMovies": "${#jsonPath(#body, '$.movies[?(@.rating > 85)].title')}"
         },
-        validations = {
+        "validations": {
             "request_succeed": "${#status == 200}",
             "found_2_movies": "${#bestMovies.size() == 2}"
         }

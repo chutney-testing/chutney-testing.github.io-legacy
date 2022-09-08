@@ -189,10 +189,6 @@ However, we suggest you the following tips:
     Since you register your final actions before anything, you still don't want to run them all when it does not make sense.  
     To avoid that, the best practice is to wrap it in a step with the corresponding action it cleans.
 
-!!! note "They run in reverse order"
-    Final actions are executed with a LIFO strategy, so in reverse order of registration.  
-    i.e. The last final action registered will be the first to run at the end.
-
 **Example**
 
 ``` kotlin

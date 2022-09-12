@@ -168,4 +168,52 @@ Each validation has a name and evaluates to a boolean, using [expressions](/todo
 
 ## Teardown
 
-// TODO
+Sometimes you may need to clean data or come back to a stable state after executing a scenario.  
+Chutney provides a way to do it by _registering_ a `final action`.
+
+!!! note
+    Some actions will, by default, register a final action.  
+    Most often, it is for closing resources. For example, when starting a mock SSH server, we automatically register an action to stop it at the end of the scenario.
+
+    But we cannot provide more than that, since a teardown depends on _your_ specification and needs.
+
+If you need to add your own final action to your scenario, it is not different than a regular action since it **is** just an action by itself !
+
+However, we suggest you the following tips:
+
+!!! important "Register your final action first !"
+    Since a scenario execution stops at the first failure, if your final action is in a step _after_ the failure, it will never be registered nor run.  
+    So you must register them before.
+
+!!! important "Wrap your final action with its corresponding step !"
+    Since you register your final actions before anything, you still don't want to run them all when it does not make sense.  
+    To avoid that, the best practice is to wrap it in a step with the corresponding action it cleans.
+
+**Example**
+
+``` kotlin
+Step("Insert data in a table") { // (1)
+    Step("Final task : delete data at the end") { // (2)
+        FinalTask(
+            name = "Delete data",
+            type = "sql",
+            target = "my_database",
+            inputs = mapOf(
+                "statements" to listOf("DELETE FROM MY_TABLE WHERE id=1")
+            )
+        )
+    }
+    Step("Insert data in MY_TABLE") { // (3)
+        SqlTask(
+            target = "my_database",
+            statements = listOf(
+                "insert into MY_TABLE (ID, NAME) values(1, 'my_name')"
+            )
+        )
+    }
+}
+```
+
+1. This is a wrapper step
+2. We declare our final action **first** !
+3. We declare our real action after

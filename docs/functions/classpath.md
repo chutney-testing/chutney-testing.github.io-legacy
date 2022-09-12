@@ -16,11 +16,13 @@
 
 !!! note "String resourcesPath(String name)"
 
-    See [URL.toURI()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/net/URL.html#toURI()) for further details
+    Finds all the resources with the given name. A resource is some data (images, audio, text, etc) that can be accessed by class code in a way that is independent of the location of the code.
+
+    See [ClassLoader.getResources()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/ClassLoader.html#getResources(java.lang.String)) for further details
 
     **Returns** :
 
-    * Returns a URI equivalent to this URL. This method functions in the same way as new URI
+    * Returns an enumeration of URL objects for the resource. If no resources could be found, the enumeration will be empty.
 
     **Examples** :
 
@@ -30,11 +32,11 @@
 
 !!! note "String resourceContent(String name, String charset)"
     
-    See [Files.readString()](https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/SQLInput.html#readString()) for further details
+    See [Charset.forName()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/charset/Charset.html#forName(java.lang.String)) for further details
 
     **Returns** :
 
-    * Reads all characters from a file into a string, decoding from bytes to characters using the specified charset.
+    * Returns a charset object for the named charset.
 
     **Examples** :
 

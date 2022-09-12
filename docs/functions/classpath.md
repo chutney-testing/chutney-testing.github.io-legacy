@@ -1,7 +1,6 @@
 # resourcePath
 
 !!! note "String resourcePath(String name)"
-
     
     See [Path.toString()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/Path.html#toString()) for further details
 
@@ -21,7 +20,7 @@
 
     **Returns** :
 
-    * Returns a URI equivalent to this URL. This method functions in the same way as new URI (this.toString())
+    * Returns a URI equivalent to this URL. This method functions in the same way as new URI
 
     **Examples** :
 
@@ -31,12 +30,12 @@
 
 !!! note "String resourceContent(String name, String charset)"
     
-    
-    
+    See [Files.readString()](https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/SQLInput.html#readString()) for further details
+
     **Returns** :
 
     * Reads all characters from a file into a string, decoding from bytes to characters using the specified charset.
 
     **Examples** :
 
-    SpEL : `${#resourceContent("name")}`
+    SpEL : `${#resourceContent("name", UTF-8)}`

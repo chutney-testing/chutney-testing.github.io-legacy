@@ -40,4 +40,4 @@
 
     **Examples** :
 
-    SpEL : `${#resourceContent("name", UTF-8)}`
+    SpEL : `${#resourceContent("name", "UTF-8")}`

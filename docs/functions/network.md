@@ -14,7 +14,7 @@
 
 
 
-!!! note "Integer tcpPorts(int num)"
+!!! note "SortedSet<Integer> tcpPorts(int num)"
 
     Find the requested number of available TCP ports, each randomly selected from the range [1024, 65535].
 
@@ -56,7 +56,7 @@
 
 
 
-!!! note "Integer tcpPortsMinMax(int num, int minPort, int maxPort)"
+!!! note "SortedSet<Integer> tcpPortsMinMax(int num, int minPort, int maxPort)"
 
     Find the requested number of available TCP ports, each randomly selected from the range [minPort, maxPort].
 
@@ -82,7 +82,7 @@
 
     SpEL : `${#tcpPortRandomRange(120)}`
 
-!!! note "Integer tcpPortsRandomRange(int num, int range)"
+!!! note "SortedSet<Integer> tcpPortsRandomRange(int num, int range)"
 
     Find the requested number of available TCP ports, each randomly selected from the range [minPort, maxPort].
 
@@ -109,7 +109,7 @@
     SpEL : `${#udpPort()}`
 
 
-!!! note "Integer udpPorts(int num)"
+!!! note "SortedSet<Integer> udpPorts(int num)"
 
     Find the requested number of available UDP ports, each randomly selected from the range [1024, 65535].
 
@@ -151,7 +151,7 @@
 
 
 
-!!! note "Integer udpPortsMinMax(int num, int minPort, int maxPort)"
+!!! note "SortedSet<Integer> udpPortsMinMax(int num, int minPort, int maxPort)"
 
     Find the requested number of available UDP ports, each randomly selected from the range [minPort, maxPort].
 
@@ -179,7 +179,7 @@
 
 
 
-!!! note "Integer udpPortsRandomRange(int num, int range)"
+!!! note "SortedSet<Integer> udpPortsRandomRange(int num, int range)"
 
     Find the requested number of available UDP ports, each randomly selected from the range [minPort, maxPort].
 
@@ -195,11 +195,11 @@
 
 !!! note "String randomNetworkMask()"
 
-    Constructs a string builder with no characters in it and an initial capacity of 16 characters.
+    Constructs a random network mask matching regex `^\d{1,3}\.\d{1,3}\.\d{1,3}$`.
 
     **Returns** :
 
-    * Returns a string containing the characters in this sequence in the same order as this sequence.
+    * Returns a String representing a network mask. For example `"145.242.119"`
 
     **Examples** :
 
@@ -209,12 +209,12 @@
 
 !!! note "String hostIpMatching(String regex)"
 
-    Represents a Network Interface made up of a name, and a list of IP addresses assigned to this interface.
+    Return a local ip matching `regex` input or else `InetAddress.getLocalHost().getHostAddress()` if no ip matching the regex found
 
     **Returns** :
 
-    * Returns the IP address string in textual presentation.
+    * Return a String representing an IP address matching the `regex`. For example `"127.0.0.1"`
 
     **Examples** :
 
-    SpEL : `${#hostIpMatching(127.0.*)}`
+    SpEL : `${#hostIpMatching("127.0.*")}`

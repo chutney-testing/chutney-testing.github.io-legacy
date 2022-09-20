@@ -32,6 +32,7 @@ nav:
       - String Replace: functions/string_replace.md
       - Network: functions/network.md
       - Escape: functions/escape.md
+      - Classpath: functions/classpath.md
   #- Toolbox: toolbox.md # hidden page
 
 extra_css:

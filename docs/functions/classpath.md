@@ -32,11 +32,11 @@
 
 !!! note "String resourceContent(String name, String charset)"
     
-    See [Charset.forName()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/charset/Charset.html#forName(java.lang.String)) for further details
+    See [Files.readString()](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/nio/file/Files.html#readString(java.nio.file.Path,java.nio.charset.Charset)) for further details
 
     **Returns** :
 
-    * Returns a charset object for the named charset.
+    * Returns the content of the resource.
 
     **Examples** :
 

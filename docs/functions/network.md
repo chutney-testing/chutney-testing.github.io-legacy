@@ -1,3 +1,37 @@
+Following functions help you to :
+
+* Generate IP
+* Generate network mask
+* Find available UDP and TCP ports
+
+# HostIpMatching
+
+!!! note "String hostIpMatching(String regex)"
+
+    Return a local ip matching `regex` input or else `InetAddress.getLocalHost().getHostAddress()` if no ip matching the regex found
+
+    **Returns** :
+
+    * Return a String representing an IP address matching the `regex`. For example `"127.0.0.1"`
+
+    **Examples** :
+
+    SpEL : `${#hostIpMatching("127.0.*")}`
+
+# RandomNetworkMask
+
+!!! note "String randomNetworkMask()"
+
+    Constructs a random network mask matching regex `^\d{1,3}\.\d{1,3}\.\d{1,3}$`.
+
+    **Returns** :
+
+    * Returns a String representing a network mask. For example `"145.242.119"`
+
+    **Examples** :
+
+    SpEL : `${#randomNetworkMask()}`
+
 # TcpPort
 
 !!! note "int tcpPort()"
@@ -12,8 +46,6 @@
 
     SpEL : `${#tcpPort()}`
 
-
-
 !!! note "SortedSet<Integer> tcpPorts(int num)"
 
     Find the requested number of available TCP ports, each randomly selected from the range [1024, 65535].
@@ -25,8 +57,6 @@
     **Examples** :
 
     SpEL : `${#tcpPorts(2000)}`
-
-
 
 !!! note "int tcpPortMin(int minPort)"
 
@@ -40,8 +70,6 @@
 
     SpEL : `${#tcpPortMin(4455)}`
 
-
-
 !!! note "int tcpPortMinMax(int minPort, int maxPort)"
 
     Find an available TCP port randomly selected from the range [minPort, maxPort].
@@ -54,8 +82,6 @@
 
     SpEL : `${#tcpPortMinMax(1400, 62335)}`
 
-
-
 !!! note "SortedSet<Integer> tcpPortsMinMax(int num, int minPort, int maxPort)"
 
     Find the requested number of available TCP ports, each randomly selected from the range [minPort, maxPort].
@@ -67,8 +93,6 @@
     **Examples** :
 
     SpEL : `${#tcpPortsMinMax(420, 500, 1000)}`
-
-
 
 !!! note "int tcpPortRandomRange(int range)"
 
@@ -108,7 +132,6 @@
 
     SpEL : `${#udpPort()}`
 
-
 !!! note "SortedSet<Integer> udpPorts(int num)"
 
     Find the requested number of available UDP ports, each randomly selected from the range [1024, 65535].
@@ -120,8 +143,6 @@
     **Examples** :
 
     SpEL : `${#udpPorts(2500)}`
-
-
 
 !!! note "int udpPortMin(int minPort)"
 
@@ -135,8 +156,6 @@
 
     SpEL : `${#udpPortMin(2331)}`
 
-
-
 !!! note "int udpPortMinMax(int minPort, int maxPort)"
 
     Find an available UDP port randomly selected from the range [minPort, maxPort].
@@ -148,8 +167,6 @@
     **Examples** :
 
     SpEL : `${#udpPortMinMax(250, 1544)}`
-
-
 
 !!! note "SortedSet<Integer> udpPortsMinMax(int num, int minPort, int maxPort)"
 
@@ -163,8 +180,6 @@
 
     SpEL : `${#udpPortsMinMax(342, 250, 1544)}`
 
-
-
 !!! note "int udpPortRandomRange(int range)"
 
     Find an available UDP port randomly selected from the range [minPort, maxPort].
@@ -177,8 +192,6 @@
 
     SpEL : `${#udpPortRandomRange(152)}`
 
-
-
 !!! note "SortedSet<Integer> udpPortsRandomRange(int num, int range)"
 
     Find the requested number of available UDP ports, each randomly selected from the range [minPort, maxPort].
@@ -190,31 +203,3 @@
     **Examples** :
 
     SpEL : `${#udpPortsRandomRange(152, 12)}`
-
-# RandomNetworkMask
-
-!!! note "String randomNetworkMask()"
-
-    Constructs a random network mask matching regex `^\d{1,3}\.\d{1,3}\.\d{1,3}$`.
-
-    **Returns** :
-
-    * Returns a String representing a network mask. For example `"145.242.119"`
-
-    **Examples** :
-
-    SpEL : `${#randomNetworkMask()}`
-
-# HostIpMatching
-
-!!! note "String hostIpMatching(String regex)"
-
-    Return a local ip matching `regex` input or else `InetAddress.getLocalHost().getHostAddress()` if no ip matching the regex found
-
-    **Returns** :
-
-    * Return a String representing an IP address matching the `regex`. For example `"127.0.0.1"`
-
-    **Examples** :
-
-    SpEL : `${#hostIpMatching("127.0.*")}`

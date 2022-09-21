@@ -1,3 +1,5 @@
+This function helps you modify strings.
+
 !!! note "str_replace(String input, String regularExpression, String replacement)"
 
     Returns a string resulting from replacing all occurrences of oldChar in this string with newChar.
@@ -14,8 +16,7 @@
     
     * `java.lang.String`
 
-
-!!! tip "Examples"
+    **Examples** :
 
     SpEL without : `${T(java.lang.String).str_replace("input", "regularExpression", "replacement")}`
 

@@ -26,13 +26,13 @@ nav:
         - amqp: actions/amqp.md
         - http: actions/http.md
     - Functions:
-      - Time & dates: functions/datetime.md
-      - Random values: functions/generate.md
-      - Handling null: functions/nullable.md
-      - String Replace: functions/string_replace.md
-      - Network: functions/network.md
-      - Escape: functions/escape.md
       - Classpath: functions/classpath.md
+      - Escape: functions/escape.md
+      - Dates & Time: functions/datetime.md
+      - Handling null: functions/nullable.md
+      - Network: functions/network.md
+      - Random values: functions/generate.md
+      - String Replace: functions/string_replace.md
   #- Toolbox: toolbox.md # hidden page
 
 extra_css:

@@ -30,6 +30,7 @@ nav:
       - Escape: functions/escape.md
       - Dates & Time: functions/datetime.md
       - Handling null: functions/nullable.md
+      - JSON: functions/json.md
       - Network: functions/network.md
       - Random values: functions/generate.md
       - String Replace: functions/string_replace.md

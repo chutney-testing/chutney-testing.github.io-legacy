@@ -22,7 +22,8 @@ Obviously, you should be familiar with the technology behind each action you use
     Some input values are required and checked for correctness. While other values might not be required, or we provide a default value.
 
 !!! note
-    All actions performing a request on a remote service need to know the `Target`. While other action, like validating XML data, don't need a target.
+    All actions performing a request on a remote service need to know the `Target`. While other action, like validating XML data, don't need a target.  
+    Please, refer to [target configuration](/configuration/env/#target-configuration) for further details.
 
 ## Outputs
 

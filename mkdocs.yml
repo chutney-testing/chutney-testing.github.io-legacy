@@ -27,8 +27,8 @@ nav:
         - http: actions/http.md
     - Functions:
       - Classpath: functions/classpath.md
-      - Escape: functions/escape.md
       - Dates & Time: functions/datetime.md
+      - Escape: functions/escape.md
       - Handling null: functions/nullable.md
       - JSON: functions/json.md
       - Micrometer: functions/micrometer.md

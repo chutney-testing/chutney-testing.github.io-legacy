@@ -1,6 +1,6 @@
 This function helps you handle values which may be null.
 
-!!! note "nullable(Object input)"
+!!! note "Object nullable(Object input)"
 
     See [Optional.ofNullable()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Optional.html#ofNullable(T)) for further details
 

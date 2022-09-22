@@ -1,6 +1,4 @@
-# AMQP
-
-## BASIC PUBLISH
+# BASIC PUBLISH
 
 ### Outputs
 
@@ -39,7 +37,7 @@
     )
     ```
 
-## BASIC CONSUME
+# BASIC CONSUME
 
 ### Outputs
 
@@ -73,7 +71,7 @@
     )
     ```
 
-## BASIC GET
+# BASIC GET
 
 ### Outputs
 
@@ -99,7 +97,7 @@
     )
     ```
 
-## QPID SERVER START
+# QPID SERVER START
 
 ### Outputs
 
@@ -122,7 +120,7 @@
     )
     ```
 
-## QPID SERVER STOP
+# QPID SERVER STOP
 
 ### Inputs
 
@@ -139,7 +137,7 @@
     )
     ```
 
-## CLEAN QUEUES
+# CLEAN QUEUES
 
 ### Inputs
 
@@ -158,7 +156,7 @@
     ```
 
 
-## CREATE BOUND TEMPORARY QUEUE
+# CREATE BOUND TEMPORARY QUEUE
 
 ### Outputs
 
@@ -198,7 +196,7 @@ Some tasks might have a teardown just like this one. If it is the case, the queu
     ```
 
 
-## DELETE QUEUE
+# DELETE QUEUE
 
 ### Outputs
 
@@ -223,7 +221,7 @@ Some tasks might have a teardown just like this one. If it is the case, the queu
     )
     ```
 
-## UNBIND QUEUE
+# UNBIND QUEUE
 
 ### Inputs
 

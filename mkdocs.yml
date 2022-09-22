@@ -91,6 +91,7 @@ markdown_extensions:
   - toc:
       permalink: "🔗"
       baselevel: 2
+      toc_depth: 3
   - footnotes
   - admonition
   - pymdownx.highlight:

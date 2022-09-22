@@ -23,8 +23,9 @@ nav:
     - Write a scenario: getting_started/write
     - Actions:
         - Introduction: actions/introduction.md
-        - amqp: actions/amqp.md
-        - http: actions/http.md
+        - AMQP: actions/amqp.md
+        - HTTP: actions/http.md
+        - SOAP: actions/soap.md
     - Functions:
       - Classpath: functions/classpath.md
       - Dates & Time: functions/datetime.md

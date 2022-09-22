@@ -31,6 +31,7 @@ nav:
       - Dates & Time: functions/datetime.md
       - Handling null: functions/nullable.md
       - JSON: functions/json.md
+      - Micrometer: functions/micrometer.md
       - Network: functions/network.md
       - Random values: functions/generate.md
       - String Replace: functions/string_replace.md

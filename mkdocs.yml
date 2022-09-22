@@ -34,6 +34,7 @@ nav:
       - Micrometer: functions/micrometer.md
       - Network: functions/network.md
       - Random values: functions/generate.md
+      - SOAP: functions/soap.md
       - String Replace: functions/string_replace.md
       - Wiremock: functions/wiremock.md
       - XPath: functions/xpath.md

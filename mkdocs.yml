@@ -34,6 +34,7 @@ nav:
       - Network: functions/network.md
       - Random values: functions/generate.md
       - String Replace: functions/string_replace.md
+      - Wiremock: functions/wiremock.md
       - XPath: functions/xpath.md
   #- Toolbox: toolbox.md # hidden page
 

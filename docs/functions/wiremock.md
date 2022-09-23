@@ -1,21 +1,21 @@
 Following functions help you work with a Wiremock [LoggedRequest](https://www.javadoc.io/static/com.github.tomakehurst/wiremock/2.27.2/com/github/tomakehurst/wiremock/verification/LoggedRequest.html).
 
-!!! note "Map<String, String> extractHeadersAsMap(LoggedRequest request)"
+!!! note "Map<String, String> wiremockHeaders(LoggedRequest request)"
 
     Extract headers from a given Wiremock logged request.
 
     **Parameters** :
 
-    * `request` : The loged request
+    * `request` : The logged request
 
     **Returns** : The request's headers as a map
 
     **Examples** :
 
-    SpEL : `${#extractHeadersAsMap(#request)}`
+    SpEL : `${#wiremockHeaders(#request)}`
 
 
-!!! note "Map<String, String> extractParameters(LoggedRequest request)"
+!!! note "Map<String, String> wiremockQueryParams(LoggedRequest request)"
 
     Extract query parameters from a given Wiremock logged request.
 
@@ -27,4 +27,4 @@ Following functions help you work with a Wiremock [LoggedRequest](https://www.ja
 
     **Examples** :
 
-    SpEL : `${#extractParameters(#request)}`
+    SpEL : `${#wiremockQueryParams(#request)}`

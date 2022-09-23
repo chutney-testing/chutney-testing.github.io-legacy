@@ -1,17 +1,17 @@
 Following functions help you work with SOAP.
 
-!!! note "String getSoapBody(final String login, final String password, final String body)"
+!!! note "String soapInsertWSUsernameToken(String user, String password, String envelope)"
 
     Creates WS username token, build an associated security header and inserts it as child into the given SOAP Envelope.
 
     **Parameters** :
 
-    * `login` : The username to use
+    * `user` : The username to use
     * `password` : The password to use
-    * `body` : The soap envelope to update
+    * `envelope` : The soap envelope to update
 
     **Returns** : The soap envelope with the security header
 
     **Examples** :
 
-    SpEL : `${#getSoapBody('username', 'password', #soapEnvelope)}`
+    SpEL : `${#soapInsertWSUsernameToken('username', 'password', #soapEnvelope)}`

@@ -12,6 +12,8 @@ Following functions help you execute XPath request on XML document.
     * [Element](http://www.jdom.org/docs/apidocs/org/jdom2/Element.html)
     * Generic type of the xpath expression
 
+# xpath
+
 !!! note "Object xpath(String documentAsString, String xpath)"
 
     Execute an XML path on a given document.
@@ -27,6 +29,7 @@ Following functions help you execute XPath request on XML document.
 
     SpEL : `${#xpath(#xmlString, '//element[@attribute='value']')}`
 
+# xpathNs
 
 !!! note "Object xpathNs(String documentAsString, String xpath, Map<String, String> nsPrefixes)"
 

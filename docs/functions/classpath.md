@@ -1,3 +1,17 @@
+# resourceContent
+
+!!! note "String resourceContent(String name, String charset)"
+
+    See [Files.readString()](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/nio/file/Files.html#readString(java.nio.file.Path,java.nio.charset.Charset)) for further details
+
+    **Returns** :
+
+    * Returns the content of the resource.
+
+    **Examples** :
+
+    SpEL : `${#resourceContent("name", "UTF-8")}`
+
 # resourcePath
 
 !!! note "String resourcePath(String name)"
@@ -27,17 +41,3 @@
     **Examples** :
 
     SpEL : `${#resourcesPath("name")}`
-
-# resourceContent
-
-!!! note "String resourceContent(String name, String charset)"
-
-    See [Files.readString()](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/nio/file/Files.html#readString(java.nio.file.Path,java.nio.charset.Charset)) for further details
-
-    **Returns** :
-
-    * Returns the content of the resource.
-
-    **Examples** :
-
-    SpEL : `${#resourceContent("name", "UTF-8")}`

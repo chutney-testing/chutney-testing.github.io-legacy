@@ -1,7 +1,6 @@
 Following functions help you escape and unescape strings from JSON, HTML, XML and SQL.
 
-The
-class [StringEscapeUtils](https://commons.apache.org/proper/commons-text/javadocs/api-release/org/apache/commons/text/StringEscapeUtils.html)
+The class [StringEscapeUtils](https://commons.apache.org/proper/commons-text/javadocs/api-release/org/apache/commons/text/StringEscapeUtils.html)
 from **Apache commons text** library is used under the hood.
 
 # JSON

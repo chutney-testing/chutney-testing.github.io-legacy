@@ -1,6 +1,5 @@
 Following functions help you generate random values.
 
-
 # File
 
 !!! note "String file()"
@@ -16,7 +15,6 @@ Following functions help you generate random values.
 
     SpEL : `${#generate.file()}`
 
-
 !!! note "String file(int fileSize)"
 
     Generate a file with a size of _n_ bytes, in the default OS temp directory.
@@ -30,7 +28,6 @@ Following functions help you generate random values.
 
     SpEL : `${#generate.file(42)}`
 
-
 !!! note "String file(String destination, int fileSize)"
 
     Generate a file with a size of _n_ bytes, with a specific path and filename.
@@ -43,7 +40,6 @@ Following functions help you generate random values.
     **Examples** :
 
     SpEL : `${#generate.file("/path/to/dest/file", 42)}`
-
 
 # Identifier
 
@@ -59,7 +55,6 @@ Following functions help you generate random values.
 
     SpEL : `${#generate.id("prefix-", 6)}` -> ex. output `prefix-r4nd0m`
 
-
 !!! note "String id(int length, String suffix)"
 
     Generate a String with _n_ random characters and a given suffix.
@@ -72,7 +67,6 @@ Following functions help you generate random values.
 
     SpEL : `${#generate.id(6, "-suffix")}` -> ex. output `r4nd0m-suffix`
 
-
 !!! note "String id(String prefix, int length, String suffix)"
 
     Generate a String with a given prefix, _n_ random characters and a given suffix.
@@ -84,7 +78,6 @@ Following functions help you generate random values.
     **Examples** :
 
     SpEL : `${#generate.id("pre-", 6, "-suf")}` -> ex. output `pre-r4nd0m-suf`
-
 
 # Int
 
@@ -118,7 +111,6 @@ Following functions help you generate random values.
 
     SpEL : `${#generate.randomLong()}`
 
-
 # UUID
 
 !!! note "String uuid()"
@@ -136,3 +128,4 @@ Following functions help you generate random values.
     SpEL without : `${T(java.util.UUID).randomUUID().toString()}`
 
     SpEL with    : `${#generate.uuid()}`
+

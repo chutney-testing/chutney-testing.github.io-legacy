@@ -1,6 +1,5 @@
 Following functions help you write and shorten SpEL when you need to handle time or date values.
 
-
 ## currentTimeMillis
 
 !!! note "String currentTimeMillis()"
@@ -18,7 +17,6 @@ Following functions help you write and shorten SpEL when you need to handle time
     SpEL without : `${T(java.util.String).valueOf(T(java.lang.System).currentTimeMillis())}`
 
     SpEL with    : `${#currentTimeMillis()}`
-
 
 ## date
 
@@ -42,7 +40,6 @@ Following functions help you write and shorten SpEL when you need to handle time
 
     SpEL with    : `${#date("27 July 2022")}`
 
-
 ## dateFormatter
 
 !!! note "DateTimeFormatter dateFormatter(String pattern)"
@@ -63,7 +60,6 @@ Following functions help you write and shorten SpEL when you need to handle time
 
     SpEL with    : `${#dateFormatter("d MMM uuuu")}`
 
-
 ## dateFormatterWithLocale
 
 !!! note "DateTimeFormatter dateFormatterWithLocale(String pattern, String locale)"
@@ -82,7 +78,6 @@ Following functions help you write and shorten SpEL when you need to handle time
     SpEL without : `${T(java.time.format.DateTimeFormatter).ofPattern("d MMM uuuu", new java.util.Locale("en"))}`
 
     SpEL with    : `${#dateFormatterWithLocale("d MMM uuuu", "en")}`
-
 
 ## isoDateFormatter
 
@@ -120,7 +115,6 @@ Following functions help you write and shorten SpEL when you need to handle time
 
     SpEL with    : `${#isoDateFormatter("INSTANT")}`
 
-
 ## now
 
 !!! note "ZonedDateTime now()"
@@ -138,7 +132,6 @@ Following functions help you write and shorten SpEL when you need to handle time
     SpEL without : `${T(java.time.ZonedDateTime).now()}`
 
     SpEL with    : `${#now()}`
-
 
 ## timeAmount
 
@@ -158,7 +151,6 @@ Following functions help you write and shorten SpEL when you need to handle time
     SpEL without : `${#now().plus(T(java.time.Duration).parse("6 hours"))}`
 
     SpEL with    : `${#now().plus(#timeAmount("6 hours"))}`
-
 
 ## timeUnit
 
@@ -194,3 +186,4 @@ Following functions help you write and shorten SpEL when you need to handle time
     SpEL without : `${T(java.time.temporal.ChronoUnit).valueOf("hours".toUpperCase())}`
 
     SpEL with    : `${#timeUnit("h")}`
+

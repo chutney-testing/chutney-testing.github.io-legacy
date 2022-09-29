@@ -1,6 +1,6 @@
 Following functions help you handle JSON documents.
 
-!!! important "The document object given to those functions could be of any type as it is always serialize as JSON string first"
+!!! important "All functions accept an input parameter `document` of any type"
 
 
 # JsonPath
@@ -11,14 +11,14 @@ Following functions help you handle JSON documents.
 
     **Parameters** :
 
-    * `document` : The context document in which the path will be used.
+    * `document` : The document in which the path will be executed
     * `jsonPath` : The JSON path to read
 
     **Returns** : The read result
 
     **Examples** :
 
-    SpEL : `${#jsonPath(#anyObj, '$.key[0]')}`
+    SpEL : `${#jsonPath(#json, '$.key[0]')}`
 
 
 # JsonSerialize
@@ -42,7 +42,7 @@ Following functions help you handle JSON documents.
 
 !!! note "String jsonSet(Object document, String path, String value)"
 
-    Set an existing key value into a given document.
+    Set an existing key value into a given JSON document.
 
     **Parameters** :
 
@@ -54,14 +54,14 @@ Following functions help you handle JSON documents.
 
     **Examples** :
 
-    SpEL : `${#jsonSet(#anyObj, '$.keyToSet', 'new value')}`
+    SpEL : `${#jsonSet(#json, '$.keyToSet', 'new value')}`
 
 
 # JsonSetMany
 
 !!! note "String jsonSetMany(Object document, Map<String, Object> map)"
 
-    Set existing keys values into a given document.
+    Set existing keys values into a given JSON document.
 
     **Parameters** :
 
@@ -72,14 +72,14 @@ Following functions help you handle JSON documents.
 
     **Examples** :
 
-    SpEL : `${#jsonSetMany(#anyObj, {'$.path1': 'new value1', '$.path2': 'new value2'})}`
+    SpEL : `${#jsonSetMany(#json, {'$.path1': 'new value1', '$.path2': 'new value2'})}`
 
 
 # JsonMerge
 
 !!! note "String jsonMerge(Object documentA, Object documentB)"
 
-    Merge a given document into another.
+    Merge a given JSON document into another.
 
     **Parameters** :
 
@@ -90,4 +90,4 @@ Following functions help you handle JSON documents.
 
     **Examples** :
 
-    SpEL : `${#jsonMerge(#anyBaseObj, #anySetObj)}`
+    SpEL : `${#jsonMerge(#jsonBase, #jsonToAdd)}`

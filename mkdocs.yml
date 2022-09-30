@@ -16,16 +16,17 @@ nav:
     - Run your scenario: getting_started/run.md
   - Documentation:
     - Server installation: install.md
-    #- Configuration:
-    #  - environment: configuration/env.md
-    #  - roles: configuration/roles.md
-    #  - agent: configuration/agent.md
+    # - Configuration:
+    #  - Environment: configuration/env.md
+    #  - Roles: configuration/roles.md
+    #  - Agent: configuration/agent.md
     - Write a scenario: getting_started/write
     - Actions:
         - Introduction: actions/introduction.md
         - AMQP: actions/amqp.md
         - HTTP: actions/http.md
         - SOAP: actions/soap.md
+        - Other: actions/other.md
     - Functions:
       - Classpath: functions/classpath.md
       - Dates & Time: functions/datetime.md

@@ -1,4 +1,4 @@
-# BASIC PUBLISH
+# Basic publish
 
 === "Inputs"
 
@@ -36,7 +36,7 @@
     )
     ```
 
-# BASIC CONSUME
+# Basic consume
 
 === "Inputs"
 
@@ -70,7 +70,7 @@
     )
     ```
 
-# BASIC GET
+# Basic get
 
 === "Inputs"
 
@@ -98,7 +98,7 @@
     )
     ```
 
-# QPID SERVER START
+# Qpid server start
 
 === "Inputs"
 
@@ -121,7 +121,7 @@
     )
     ```
 
-# QPID SERVER STOP
+# Qpid server stop
 
 === "Inputs"
 
@@ -138,7 +138,7 @@
     )
     ```
 
-# CLEAN QUEUES
+# Clean queues
 
 === "Inputs"
 
@@ -157,15 +157,15 @@
     ```
 
 
-# CREATE BOUND TEMPORARY QUEUE
+# Create bound temporary queue
 
 === "Inputs"
 
-    | Required | Name            | Type   | Default |
-    |:--------:|:----------------|:-------|:-------:|
-    |          | `exchange-name` | String |         |
-    |          | `routing-key`   | String |         |
-    |          | `queue-name`    | String |         |
+    | Required | Name            | Type   |   Default    |
+    |:--------:|:----------------|:-------|:------------:|
+    |    *     | `exchange-name` | String |              |
+    |          | `routing-key`   | String | "queue-name" |
+    |    *     | `queue-name`    | String |              |
 
 === "Outputs"
 
@@ -198,7 +198,7 @@ Some tasks might have a teardown just like this one. If it is the case, the queu
     ```
 
 
-# DELETE QUEUE
+# Delete queue
 
 === "Inputs"
 
@@ -222,7 +222,7 @@ Some tasks might have a teardown just like this one. If it is the case, the queu
     )
     ```
 
-# UNBIND QUEUE
+# Unbind queue
 
 === "Inputs"
 

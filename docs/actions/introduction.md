@@ -44,7 +44,7 @@ Each action provide a set of default outputs. But they are generic and may conta
 
 Let's say you are doing an HTTP GET request. By default, this action has 3 outputs: `status`, `body`, `headers`, but you want to capture a specific value from the response body.
 
-In order to do so, you need to use an [expression](/todo) and Chutney [functions](/todo), so we recommend you to read about them for further details.
+In order to do so, you need to use an [expression](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions) and Chutney [functions](/functions/classpath/), so we recommend you to read about them for further details.
 
 Let's see a simple example where you want to get a list of movie titles rated above 85/100.
 
@@ -74,11 +74,11 @@ The best way to filter and extract the relevant data from a JSON document is to 
 Here is the one for our example : `$.movies[?(@.rating > 85)].title`
 
 In order to process it, you would need to write code using a JSONPath library and then tell Chutney to run your custom code.  
-Chutney provides a way to run custom code during scenario execution using [Spring Expression](/todo).
+Chutney provides a way to run custom code during scenario execution using [Spring Expression](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions).
 
 Here is a raw expression you could write : `${T(com.jayway.jsonpath.JsonPath).parse(#body).read("$.movies[?(@.rating > 85)].title")}`  
 Fortunately, Chutney also provides [Functions](/todo) for common tasks, which helps you write SpEL.  
-In this case you can use the `json` function and the resulting SpEL would become : `${#json(#body, '$.movies[?(@.rating > 85)].title')}`
+In this case you can use the `json` function and the resulting SpEL would become : `${#jsonPath(#body, '$.movies[?(@.rating > 85)].title')}`
 
 Now that you know what this cryptic expression is and does, let's see the full HTTP GET action with outputs :
 
@@ -104,7 +104,7 @@ Now that you know what this cryptic expression is and does, let's see the full H
             "uri": "/all?offset=0&limit=3"
         },
         "outputs": {
-            "bestMovies": "${#json(#body, '$.movies[?(@.rating > 85)].title')}"
+            "bestMovies": "${#jsonPath(#body, '$.movies[?(@.rating > 85)].title')}"
         }
     }
     ```

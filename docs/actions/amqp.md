@@ -1,28 +1,25 @@
-# AMQP
+# Basic publish
 
-## BASIC PUBLISH
+=== "Inputs"
 
-### Outputs
+    | Required | Name            | Type   |     Default     |
+    |:--------:|:----------------|:-------|:---------------:|
+    |    *     | `exchange-name` | String |                 |
+    |          | `routing-key`   | String |                 |
+    |          | `headers`       | Map    |                 |
+    |          | `properties`    | Map    |                 |
+    |    *     | `payload`       | String |                 |
 
-| Name    | Type - Format                               |
-|:--------|:--------------------------------------------|
-| payload | string                                      |
-| headers | string                                      |
+=== "Outputs"
 
-
-### Inputs
-
-| Name         | Type - Format   | Mandatory       | Default | Validation       |
-|:-------------|:----------------|:----------------|:--------|:-----------------| 
-| exchange-name| string          | :material-check:|         | :material-check: |
-| routing-key  | string          |                 |         |                  |
-| headers      | map             |                 |         |                  |
-| properties   | map             |                 |         |                  |
-| payload      | string          | :material-check:|         | :material-check: |
+    |      Name | Type   |
+    |----------:|:-------|
+    | `payload` | String |
+    | `headers` | String |
 
 ### Example
 
-* Kotlin
+=== "Kotlin"
     ``` kotlin
     AmqpBasicPublishTask(
         target: "AMQP_TARGET",
@@ -39,29 +36,29 @@
     )
     ```
 
-## BASIC CONSUME
+# Basic consume
 
-### Outputs
+=== "Inputs"
 
-| Name     | Type - Format                               |
-|:---------|:--------------------------------------------|
-| body     | string                                      |
-| payloads | string                                      |
-| headers  | string                                      |
+    | Required | Name          | Type        | Default |
+    |:--------:|:--------------|:------------|:-------:|
+    |    *     | `queue-name`  | string      |         |
+    |          | `nb-messages` | integer     |         |
+    |          | `selector`    | string      |         |
+    |          | `timeout`     | string      |         |
+    |          | `ack`         | boolean     |         |
 
-### Inputs
+=== "Outputs"
 
-| Name         | Type - Format   | Mandatory       | Default | Validation         |
-|:-------------|:----------------|:----------------|:--------|:-------------------|
-| queue-name   | string          | :material-check:|         |  :material-check:  |
-| nb-messages  | integer         |                 |         |                    |
-| selector     | string          |                 |         |                    |
-| timeout      | string          |                 |         |  :material-check:  |
-| ack          | boolean         |                 |         |                    | 
+    |       Name | Type  |
+    |-----------:|:------|
+    | `body`     | String |
+    | `payloads` | String |
+    | `headers`  | String |
 
 ### Example
 
-* Kotlin
+=== "Kotlin"
     ``` kotlin
     AmqpBasicConsumeTask(
         target:"AMQP_TARGET",
@@ -73,25 +70,27 @@
     )
     ```
 
-## BASIC GET
+# Basic get
 
-### Outputs
+=== "Inputs"
 
-| Name    | Type - Format                               |
-|:--------|:--------------------------------------------|
-| message | string com.rabbitmq.client.GetResponse      |
-| body    | string                                      |
-| headers | string                                      |
+    | Required | Name         | Type   | Default |
+    |:--------:|:-------------|:-------|:-------:|
+    |    *     | `queue-name` | String |         |
 
-### Inputs
+=== "Outputs"
 
-| Name         | Type - Format   | Mandatory       | Default | Validation         |
-|:-------------|:----------------|:----------------|:--------|:-------------------|
-| queue-name   | string          | :material-check:|         |  :material-check:  |
+    |      Name | Type                                   |
+    |----------:|:---------------------------------------|
+    | `message` | String com.rabbitmq.client.GetResponse |
+    | `body`    | String                                 |
+    | `headers` | String                                 |
+
+
 
 ### Example
 
-* Kotlin
+=== "Kotlin"
     ``` kotlin
     AmqpBasicGetTask(
         target:"AMQP_TARGET",
@@ -99,57 +98,57 @@
     )
     ```
 
-## QPID SERVER START
+# Qpid server start
 
-### Outputs
+=== "Inputs"
 
-| Name         | Type - Format                               |
-|:-------------|:--------------------------------------------|
-| qpidLauncher | string                                      |
+    | Required | Name          | Type   | Default |
+    |:--------:|:--------------|:-------|:-------:|
+    |          | `init-config` | String |         |
 
-### Inputs
+=== "Outputs"
 
-| Name         | Type - Format   | Mandatory | Default | Validation         |
-|:-------------|:----------------|:----------|:--------|:-------------------|
-| init-config  | string          |           |         |  :material-check:  |
+    |           Name | Type   |
+    |---------------:|:-------|
+    | `qpidLauncher` | String |
+
 
 ### Example
-
-* Kotlin
+=== "Kotlin"
     ``` kotlin
     AmqpQpidServerStartTask(
         init-config: "amqpinitconfig"
     )
     ```
 
-## QPID SERVER STOP
+# Qpid server stop
 
-### Inputs
+=== "Inputs"
 
-| Name          | Type - Format   | Mandatory | Default | Validation         |
-|:--------------|:----------------|:----------|:--------|:-------------------|
-| qpid-launcher | string          |           |         |  :material-check:  |
+    | Required | Name            | Type   | Default |
+    |:--------:|:----------------|:-------|:-------:|
+    |          | `qpid-launcher` | String |         |
 
 ### Example
 
-* Kotlin
+=== "Kotlin"
     ``` kotlin
     AmqpQpidServerStopTask(
         qpid-launcher: "amqpqpidlaunch"
     )
     ```
 
-## CLEAN QUEUES
+# Clean queues
 
-### Inputs
+=== "Inputs"
 
-| Name         | Type - Format   | Mandatory | Default | Validation         |
-|:-------------|:----------------|:----------|:--------|:-------------------|
-| queue-names  | string          |           |         |  :material-check:  |
+    | Required | Name          | Type   | Default |
+    |:--------:|:--------------|:-------|:-------:|
+    |          | `queue-names` | String |         |
 
 ### Example
 
-* Kotlin
+=== "Kotlin"
     ``` kotlin
     AmqpCleanQueuesTask(
         target:"AMQP_TARGET",
@@ -158,36 +157,37 @@
     ```
 
 
-## CREATE BOUND TEMPORARY QUEUE
+# Create bound temporary queue
 
-### Outputs
+=== "Inputs"
 
-| Name         | Type - Format                               |
-|:-------------|:--------------------------------------------|
-| queueName    | string                                      |
-| finally      |                                             |
+    | Required | Name            | Type   |   Default    |
+    |:--------:|:----------------|:-------|:------------:|
+    |    *     | `exchange-name` | String |              |
+    |          | `routing-key`   | String | "queue-name" |
+    |    *     | `queue-name`    | String |              |
 
-### Inputs
+=== "Outputs"
 
-| Name         | Type - Format   | Mandatory         | Default    | Validation          |
-|:-------------|:----------------|:------------------|:-----------|:--------------------|
-| exchange-name| string          |  :material-check: |            |  :material-check:   |
-| routing-key  | string          |                   | queue-name |                     |
-| queue-name   | string          |  :material-check: |            |  :material-check:   |
+    |    Name     | Type   |
+    |------------:|:-------|
+    | `queueName` | String |
+
+
 
 ### Teardown
 
 Some tasks might have a teardown just like this one. If it is the case, the queue will be unbind and then deleted.
 
-| Name                 | Arguments                                   |
-|:---------------------|:--------------------------------------------|
-| amqp unbind queue    | queue-exchange, exchange-name, routing-key  |
-| amqp delete queue    | queue-exchange, exchange-name, routing-key  |
+|                 Name | Arguments                                   |
+|---------------------:|:--------------------------------------------|
+|    amqp unbind queue | queue-exchange, exchange-name, routing-key  |
+|    amqp delete queue | queue-exchange, exchange-name, routing-key  |
 
 
 ### Example
 
-* Kotlin
+=== "Kotlin"
     ``` kotlin
     AmqpCreateBoundTemporaryQueueTask(
         target:"AMQP_TARGET",
@@ -198,24 +198,23 @@ Some tasks might have a teardown just like this one. If it is the case, the queu
     ```
 
 
-## DELETE QUEUE
+# Delete queue
 
-### Outputs
+=== "Inputs"
 
-| Name         | Type - Format                               |
-|:-------------|:--------------------------------------------|
-| queueName    | string                                      |
-| finally      |                                             |
+    | Required | Name       | Type   | Default |
+    |:--------:|:-----------|:-------|:-------:|
+    |    *     | queue-name | String |         |
 
-### Inputs
+=== "Outputs"
 
-| Name         | Type - Format   | Mandatory       | Default | Validation         |
-|:-------------|:----------------|:----------------|:--------|:-------------------|
-| queue-name   | string          | :material-check:|         |  :material-check:  |
+    |          Name | Type   |
+    |--------------:|:-------|
+    |   `queueName` | String |
 
 ### Example
 
-* Kotlin
+=== "Kotlin"
     ``` kotlin
     AmqpDeleteQueueTask(
         target:"AMQP_TARGET",
@@ -223,19 +222,19 @@ Some tasks might have a teardown just like this one. If it is the case, the queu
     )
     ```
 
-## UNBIND QUEUE
+# Unbind queue
 
-### Inputs
+=== "Inputs"
 
-| Name         | Type - Format   | Mandatory         | Default         | Validation          |
-|:-------------|:----------------|:------------------|:----------------|:--------------------|
-| queue-name   | string          |  :material-check: |                 |  :material-check:   |
-| exchange-name| string          |                   |                 |                     |
-| routing-key  | string          |                   |                 |                     |
+    | Required | Name            | Type   | Default  |
+    |:--------:|:----------------|:-------|:--------:|
+    |    *     | `queue-name`    | String |          |
+    |          | `exchange-name` | String |          |
+    |          | `routing-key`   | String |          |
 
 ### Example
 
-* Kotlin
+=== "Kotlin"
     ``` kotlin
         AmqpUnbindQueueTask(
         target:"AMQP_TARGET",

@@ -186,4 +186,3 @@ Following functions help you write and shorten SpEL when you need to handle time
     SpEL without : `${T(java.time.temporal.ChronoUnit).valueOf("hours".toUpperCase())}`
 
     SpEL with    : `${#timeUnit("h")}`
-

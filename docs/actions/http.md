@@ -1,58 +1,40 @@
-# HTTP
+!!! note "How to request a secured service"
 
-## Global Notes
+    For all HTTP actions, authentication or secured connexion to a service is configured by setting properties on the **target**.
 
-### Security
-  All the HTTP tasks uses the same security logic.
-  It is defined via the **target** input properties :
+    * Basic Authentication :
+        * To use a basic authorization header, set properties `username` and `password` on the target.
 
-  * Basic Authentication
-  
-    A basic authorization header will be included in request if **username** and associated **password** target security properties are set.
-    
-  * SSL
+    * SSL :
+        * To use an SSL context, set a `keystore` or `truststore` one the target.  
+        Properties `keystore`, `keystorePassword`, `keyPassword`, `truststore` and `truststorePassword` could be alternatively used.
 
-    A SSL context will be set if **keystore** or **truststore** target security properties are set.
-    Simple properties **keystore**, **keystorePassword**, **keyPassword**, **truststore** and **truststorePassword** could be alternatively used.
-
-### Proxy
-  By default, if **http.proxyHost** system property is set, the HTTP client will use this as the default route planner.
-
-### Outputs
-
-The following HTTP tasks do have the same outputs :
-
-- HTTP `GET`
-- HTTP `POST`
-- HTTP `PUT`
-- HTTP `DELETE`
-- HTTP `SOAP`
-- HTTP `PATCH`
+    * Proxy :
+        * If you set a system property **http.proxyHost** or **https.proxyHost**, the HTTP client will use this as the default route planner.
 
 
-| Name    | Type - Format                               |
-|:--------|:--------------------------------------------|
-| status  | int                                         |
-| body    | string                                      |
-| headers | map (org.springframework.http.HttpHeaders)  |
+# Get
 
-## GET
+=== "Inputs"
 
-The HTTP Get task performs an HTTP request with the `GET` request method.
+    | Required | Name      | Type                                               |  Default   |
+    |:--------:|:----------|:---------------------------------------------------|:----------:|
+    |    *     | `target`  | String                                             |            |
+    |    *     | `uri`     | String                                             |            |
+    |          | `headers` | Map<String, String\>                               |            |
+    |          | `timeout` | [Duration](/actions/other/#duration-type) (String) | "2000 ms"  |
 
-### Inputs
+=== "Outputs"
 
-| Name    | Type - Format   | Mandatory        | Default | Validation       |
-|:--------|:----------------|:-----------------|:--------|:-----------------|
-| target  | string          | :material-check: |         | :material-check: |
-| uri     | string          |                  |         |                  |
-| headers | string          |                  |         |                  |
-| timeout | duration string |                  | 2000 ms |                  |
-
+    |      Name | Type                                                                                                                      |
+    |----------:|:--------------------------------------------------------------------------------------------------------------------------|
+    |  `status` | int                                                                                                                       |
+    |    `body` | String                                                                                                                    |
+    | `headers` | [HttpHeaders](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/HttpHeaders.html) |
 
 ### Example
 
-* Kotlin
+=== "Kotlin"
     ``` kotlin
     HttpGetTask(
         target = "HTTP_TARGET",
@@ -60,26 +42,33 @@ The HTTP Get task performs an HTTP request with the `GET` request method.
         headers = mapOf(
           "Content-Type" to "application/json"
         ),
+        timeout = "1 sec"
     )
     ```
 
-## POST
+# Post
 
-The HTTP Post task performs an HTTP request with the `POST` request method.
+=== "Inputs"
 
-### Inputs
+    | Required | Name      | Type                                               |  Default   |
+    |:--------:|:----------|:---------------------------------------------------|:----------:|
+    |    *     | `target`  | String                                             |            |
+    |    *     | `uri`     | String                                             |            |
+    |          | `body`    | String                                             | `{}`       |
+    |          | `headers` | Map<String, String\>                               |            |
+    |          | `timeout` | [Duration](/actions/other/#duration-type) (String) | "2000 ms"  |
 
-| Name    | Type - Format   | Mandatory        | Default | Validation       |
-|:--------|:----------------|:-----------------|:--------|:-----------------|
-| target  | string          | :material-check: |         | :material-check: |
-| uri     | string          |                  |         |                  |
-| body    | string          |                  |         |                  |
-| headers | string          |                  |         |                  |
-| timeout | duration string |                  | 2000 ms |                  |
+=== "Outputs"
+
+    |      Name | Type                                                                                                                      |
+    |----------:|:--------------------------------------------------------------------------------------------------------------------------|
+    |  `status` | int                                                                                                                       |
+    |    `body` | String                                                                                                                    |
+    | `headers` | [HttpHeaders](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/HttpHeaders.html) |
 
 ### Example
 
-* Kotlin
+=== "Kotlin"
     ``` kotlin
     HttpPostTask(
         target = "HTTP_TARGET",
@@ -91,23 +80,29 @@ The HTTP Post task performs an HTTP request with the `POST` request method.
     )
     ```
 
-## PUT
+# Put
 
-The HTTP Put task performs an HTTP request with the `PUT` request method.
+=== "Inputs"
 
-### Inputs
+    | Required | Name      | Type                                               |  Default   |
+    |:--------:|:----------|:---------------------------------------------------|:----------:|
+    |    *     | `target`  | String                                             |            |
+    |    *     | `uri`     | String                                             |            |
+    |          | `body`    | String                                             | `{}`       |
+    |          | `headers` | Map<String, String\>                               |            |
+    |          | `timeout` | [Duration](/actions/other/#duration-type) (String) | "2000 ms"  |
 
-| Name    | Type - Format   | Mandatory        | Default | Validation         |
-|:--------|:----------------|:-----------------|:--------|:-------------------|
-| target  | string          | :material-check: |         | :material-check:   |
-| uri     | string          |                  |         |                    |
-| body    | string          |                  |         |                    |
-| headers | string          |                  |         |                    |
-| timeout | duration string |                  | 2000 ms |                    |
+=== "Outputs"
+
+    |      Name | Type                                                                                                                      |
+    |----------:|:--------------------------------------------------------------------------------------------------------------------------|
+    |  `status` | int                                                                                                                       |
+    |    `body` | String                                                                                                                    |
+    | `headers` | [HttpHeaders](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/HttpHeaders.html) |
 
 ### Example
 
-* Kotlin
+=== "Kotlin"
     ``` kotlin
     HttpPutTask(
         target = "HTTP_TARGET",
@@ -119,23 +114,29 @@ The HTTP Put task performs an HTTP request with the `PUT` request method.
     )
     ```
 
-## DELETE
+# Delete
 
-The HTTP Delete task performs an HTTP request with the `DELETE` request method.
+=== "Inputs"
 
-### Inputs
+    | Required | Name      | Type                                               |  Default   |
+    |:--------:|:----------|:---------------------------------------------------|:----------:|
+    |    *     | `target`  | String                                             |            |
+    |    *     | `uri`     | String                                             |            |
+    |          | `headers` | Map<String, String\>                               |            |
+    |          | `timeout` | [Duration](/actions/other/#duration-type) (String) | "2000 ms"  |
 
-| Name    | Type - Format   | Mandatory          | Default | Validation       |
-|:--------|:----------------|:-------------------|:--------|:-----------------|
-| target  | string          | :material-check:   |         | :material-check: |
-| uri     | string          |                    |         |                  |
-| headers | string          |                    |         |                  |
-| timeout | duration string |                    | 2000 ms |                  |
+=== "Outputs"
+
+    |      Name | Type                                                                                                                      |
+    |----------:|:--------------------------------------------------------------------------------------------------------------------------|
+    |  `status` | int                                                                                                                       |
+    |    `body` | String                                                                                                                    |
+    | `headers` | [HttpHeaders](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/HttpHeaders.html) |
 
 
 ### Example
 
-* Kotlin
+=== "Kotlin"
     ``` kotlin
     HttpDeleteTask(
         target = "HTTP_TARGET",
@@ -146,52 +147,29 @@ The HTTP Delete task performs an HTTP request with the `DELETE` request method.
     )
     ```
 
-## SOAP
+# Patch
 
-### Inputs
+=== "Inputs"
 
-| Name    | Type - Format   | Mandatory        | Default | Validation       |
-|:--------|:----------------|:-----------------|:--------|:-----------------|
-| target  | string          | :material-check: |         | :material-check: |
-| uri     | string          |                  |         |                  |
-| body    | string          |                  |         |                  |
-| username| string          |                  |         |                  |
-| password| string          |                  |         |                  |
-| timeout | duration string |                  | 2000 ms |                  |
-| headers | string          |                  |         |                  |
+    | Required | Name      | Type                                               |  Default   |
+    |:--------:|:----------|:---------------------------------------------------|:----------:|
+    |    *     | `target`  | String                                             |            |
+    |    *     | `uri`     | String                                             |            |
+    |          | `body`    | String                                             | `{}`       |
+    |          | `headers` | Map<String, String\>                               |            |
+    |          | `timeout` | [Duration](/actions/other/#duration-type) (String) | "2000 ms"  |
 
-### Example
+=== "Outputs"
 
-* Kotlin
-    ``` kotlin
-    HttpSoapTask(
-        target = "HTTP_TARGET",
-        uri = "https://github.com/search?q=chutney",
-        username = "userprivate",
-        password = "userpassword",
-        headers = mapOf(
-          "Content-Type" to "application/json"
-        ),
-    )
-    ```
-
-## PATCH
-
-The HTTP Patch task performs an HTTP request with the `PATCH` request method.
-
-### Inputs
-
-| Name    | Type - Format   | Mandatory        | Default | Validation       |
-|:--------|:----------------|:-----------------|:--------|:-----------------|
-| target  | string          | :material-check: |         | :material-check: |
-| uri     | string          |                  |         |                  |
-| body    | string          |                  |         |                  |
-| headers | string          |                  |         |                  |
-| timeout | duration string |                  | 2000 ms |                  |
+    |      Name | Type                                                                                                                      |
+    |----------:|:--------------------------------------------------------------------------------------------------------------------------|
+    |  `status` | int                                                                                                                       |
+    |    `body` | String                                                                                                                    |
+    | `headers` | [HttpHeaders](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/HttpHeaders.html) |
 
 ### Example
 
-* Kotlin
+=== "Kotlin"
     ``` kotlin
     HttpPatchTask(
         target = "HTTP_TARGET",
@@ -202,30 +180,31 @@ The HTTP Patch task performs an HTTP request with the `PATCH` request method.
         ),
     )
     ```
+# Mocking an HTTP Server
 
-## SERVER START
+## Start
 
-### Outputs
+This action automatically registers a teardown to stop the server at the end of the scenario.
 
-| Name         | Type - Format                               |
-|:-------------|:--------------------------------------------|
-| httpsServer  | WireMockServer                              |
-| finally      | https-server-stop                           |
+=== "Inputs"
 
-### Inputs
+    | Required | Name                  | Type   | Default |
+    |:--------:|:----------------------|:-------|:-------:|
+    |          | `port`                | String | "8443"  |
+    |          | `truststore-path`     | String |         |
+    |          | `truststore-password` | String |         |
+    |          | `keystore-path`       | String |         |
+    |          | `keystore-password`   | String |         |
 
-| Name                      | Type - Format   | Mandatory | Default | Validation |
-|:--------------------------|:----------------|:----------|:--------|:-----------|
-| port                      | string          |           |  8443   |            |
-| truststore-path           | string          |           |         |            |
-| truststore-password       | string          |           |         |            |
-| keystore-path             | string          |           |         |            |
-| keystore-password         | string          |           |         |            |
-| key-password              | string          |           |         |            |
+=== "Outputs"
+
+    |         Name | Type                                                                                                                                 |
+    |-------------:|:-------------------------------------------------------------------------------------------------------------------------------------|
+    | httpsServer  | [WireMockServer](https://github.com/wiremock/wiremock/blob/master/src/main/java/com/github/tomakehurst/wiremock/WireMockServer.java) |
 
 ### Example
 
-* Kotlin
+=== "Kotlin"
     ``` kotlin
     HttpServerStartTask(
         port = "8443",
@@ -237,58 +216,51 @@ The HTTP Patch task performs an HTTP request with the `PATCH` request method.
         ),
     )
     ```
+## Stop
 
-## LISTENER
+=== "Inputs"
 
-The HTTP Listener task performs an HTTP request with any requested method you give as verb that can be :
-
-- `GET`
-- `POST`
-- `PUT`
-- `DELETE`
-- `SOAP`
-- `PATCH`
-
-### Outputs
- 
-| Name    | Type - Format                                                   | 
-|:--------|:----------------------------------------------------------------|
-| requests| list com.github.tomakehurst.wiremock.verification.LoggedRequest |    
-
-### Inputs
- 
-| Name                      | Type - Format   | Mandatory | Default | Validation |
-|:--------------------------|:----------------|:----------|:--------|:-----------|
-| https-server              | WireMockServer  |           |         |            |
-| uri                       | string          |           |         |            |
-| verb                      | string          |           |         |            |
-| expected-message-count    | string          |           |  1      |            |
+    | Required | Name         | Type                                                                                                                                 | Default |
+    |:--------:|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------|:-------:|
+    |   *      | https-server | [WireMockServer](https://github.com/wiremock/wiremock/blob/master/src/main/java/com/github/tomakehurst/wiremock/WireMockServer.java) |         |
 
 ### Example
 
-* Kotlin
+=== "Kotlin"
+    ``` kotlin
+    HttpServerStopTask(
+        https-server = "${#httpsServer}",
+    )
+    ```
+
+## Listen routes
+
+This actions allows you to check wich requests have been received by a wiremock server.  
+Available verbs are : `GET`, `POST`, `PUT`, `DELETE`, `PATCH`, `OPTIONS`, `HEAD`, `TRACE`, `ANY`
+
+=== "Inputs"
+
+    | Required | Name                     | Type                                                                                                                                    | Default |
+    |:--------:|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------|:-------:|
+    |    *     | `https-server`           | [WireMockServer](https://www.javadoc.io/doc/com.github.tomakehurst/wiremock/latest/com/github/tomakehurst/wiremock/WireMockServer.html) |         |
+    |    *     | `uri`                    | String (regex)                                                                                                                          |         |
+    |    *     | `verb`                   | String                                                                                                                                  |         |
+    |          | `expected-message-count` | String                                                                                                                                  |    1    |
+
+=== "Outputs"
+
+    |      Name | Type                                                                                                                                                      |
+    |----------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | requests  | List<[LoggedRequest](https://www.javadoc.io/doc/com.github.tomakehurst/wiremock/latest/com/github/tomakehurst/wiremock/verification/LoggedRequest.html)\> |    
+
+### Example
+
+=== "Kotlin"
     ``` kotlin
     HttpListenerTask(
         https-server = "${#httpsServer}",
         uri = "https://github.com/search?q=chutney",
         verb = "GET",
         expected-message-count = "1",
-    )
-    ```
-
-## SERVER STOP
-
-### Inputs
-
-| Name          | Type - Format   | Mandatory | Default | Validation       |
-|:--------------|:----------------|:----------|:--------|:-----------------|
-| https-server  | WireMockServer  |           |         | :material-check: |
-
-### Example
-
-* Kotlin
-    ``` kotlin
-    HttpServerStopTask(
-        https-server = "${#httpsServer}",
     )
     ```

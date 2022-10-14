@@ -76,10 +76,10 @@ Records provides the following attributes and methods which you can use in SpEL 
 * `count()`: Returns the number of results from a **SELECT** statement.  
 -> `${#records.count()}`
 
-* `headers`: Returns the list of columns names (i.e. List<String\>)  
+* `headers`: Returns the list of columns names (List< String >)  
 -> `${#records.headers}`
 
-* `columns`: Returns a list of [Columns](#column) ((i.e. List<Column\>).  
+* `columns`: Returns a list of [Columns](#column) (List< Column >).  
     A `Column` represents  the request result headers, with a name and an index.
 -> `${#records.columns}`
 

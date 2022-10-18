@@ -1,25 +1,33 @@
-This action enables you to send SQL requests to a database.
+!!! note "Configuration"
+    Most of the configuration is done on the target database.
 
-# Configuration
-
-!!! important "Database URL"
+    * Database URL:  
     You should configure your target with the property `jdbcUrl` to provide the JDBC URL of your database.
-
-!!! note "Authentication"
+    
+    * Authentication:  
     You can set target properties `username` and `password` if required.
-
-!!! note "Max fetch size"
+    
+    * Max fetch size:  
     You can set the maximum fetch size using target property `maxFetchSize` (default to 1000).
-
-!!! important "Other configuration"
+    
+    * Other configuration:  
     In order to provide more configuration you should prefix all other target properties with `dataSource.`
 
-!!! note "Logging results"
-    You can configure the maximum number of results to print in the execution report for all actions by using
-    configuration property `chutney.tasks.sql.nbLoggedRow` in your project.  
-    Input value `nbLoggedRow` will override the value set by configuration.
-
-# Usage
+    ??? note "Example"
+        ``` json
+        {
+            "name": "ghibli_movies_database",
+            "url": "tcp://myoracle.db.server:1531/",
+            "properties": {
+                "jdbcUrl": "jdbc:oracle:thin:@myoracle.db.server:1531/ghibli_movies_service",
+                "username": "myUsername",
+                "password": "myPassword",
+                "maxFetchSize": "100",
+                "dataSource.driverClassName": "oracle.jdbc.OracleDriver",
+                "dataSource.maximumPoolSize": "5"
+            }
+        }
+        ```
 
 === "Inputs"
 
@@ -28,6 +36,11 @@ This action enables you to send SQL requests to a database.
     |    *     | `target`      | String        |         |                                                   |
     |    *     | `statements`  | List<String\> |         |                                                   |
     |          | `nbLoggedRow` | Integer       |   30    | Maximum number of rows to log in execution report |
+
+    !!! note "Logging results"
+        You can configure the maximum number of results to print in the execution report for all actions by using
+        configuration property `chutney.tasks.sql.nbLoggedRow` in your project.  
+        Input value `nbLoggedRow` will override the value set by configuration.
 
 === "Outputs"
 
@@ -79,11 +92,10 @@ Records provides the following attributes and methods which you can use in SpEL 
 * `headers`: Returns the list of columns names (List< String >)  
 -> `${#records.headers}`
 
-* `columns`: Returns a list of [Columns](#column) (List< Column >).  
-    A `Column` represents  the request result headers, with a name and an index.
+* `columns`: Returns a list of [Columns](#column) (List< Column >). A `Column` represents  the request result headers, with a name and an index.  
 -> `${#records.columns}`
 
-* `records`: The list of [rows](#row)
+* `records`: The list of [rows](#row)  
   -> `${#records.records}`
 
 ## Column
@@ -117,5 +129,5 @@ The following attributes can be uses in SpEL :
 
 * `column`: Get the column of a cell.  
 * -> `${#cell.column}`  
-* `value`: Get the actual value of a cell (Object)
+* `value`: Get the actual value of a cell (Object)  
 * -> `${#cell.value}`  

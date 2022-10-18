@@ -13,21 +13,20 @@
     * Other configuration:  
     In order to provide more configuration you should prefix all other target properties with `dataSource.`
 
-    ??? note "Example"
-        ``` json
-        {
-            "name": "ghibli_movies_database",
-            "url": "tcp://myoracle.db.server:1531/",
-            "properties": {
-                "jdbcUrl": "jdbc:oracle:thin:@myoracle.db.server:1531/ghibli_movies_service",
-                "username": "myUsername",
-                "password": "myPassword",
-                "maxFetchSize": "100",
-                "dataSource.driverClassName": "oracle.jdbc.OracleDriver",
-                "dataSource.maximumPoolSize": "5"
-            }
+    ```json title="Example"
+    {
+        "name": "ghibli_movies_database",
+        "url": "tcp://myoracle.db.server:1531/",
+        "properties": {
+            "jdbcUrl": "jdbc:oracle:thin:@myoracle.db.server:1531/ghibli_movies_service",
+            "username": "myUsername",
+            "password": "myPassword",
+            "maxFetchSize": "100",
+            "dataSource.driverClassName": "oracle.jdbc.OracleDriver",
+            "dataSource.maximumPoolSize": "5"
         }
-        ```
+    }
+    ```
 
 === "Inputs"
 
@@ -37,16 +36,17 @@
     |    *     | `statements`  | List<String\> |         |                                                   |
     |          | `nbLoggedRow` | Integer       |   30    | Maximum number of rows to log in execution report |
 
-    !!! note "Logging results"
-        You can configure the maximum number of results to print in the execution report for all actions by using
-        configuration property `chutney.tasks.sql.nbLoggedRow` in your project.  
-        Input value `nbLoggedRow` will override the value set by configuration.
-
 === "Outputs"
 
     |          Name  | Type                       | Note                                                                   |
     |---------------:|:---------------------------|:-----------------------------------------------------------------------|
     | `recordResult` | List<[Records](#records)\> | Each item in this list contains the resulting records of one statement |
+
+
+!!! note "Logging results"
+    You can configure the maximum number of results to print in the execution report for all actions by using
+    configuration property `chutney.tasks.sql.nbLoggedRow` in your project.  
+    Input value `nbLoggedRow` will override the value set by configuration.
 
 ### Example
 

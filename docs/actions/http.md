@@ -2,16 +2,45 @@
 
     For all HTTP actions, authentication or secured connexion to a service is configured by setting properties on the **target**.
 
-    * Basic Authentication :
+    * Basic Authentication:
         * To use a basic authorization header, set properties `username` and `password` on the target.
 
-    * SSL :
+    * SSL:
         * To use an SSL context, set a `keystore` or `truststore` one the target.  
         Properties `keystore`, `keystorePassword`, `keyPassword`, `truststore` and `truststorePassword` could be alternatively used.
 
-    * Proxy :
-        * If you set a system property **http.proxyHost** or **https.proxyHost**, the HTTP client will use this as the default route planner.
+    * Proxy, 2 solutions: 
+        * You can set a system property **http.proxyHost** or **https.proxyHost**, the HTTP client will use this as the default route planner.
+        * You can set a target property `proxy`
+            * Default port value is 3128.
+            * Target property `proxy` override system property if set
 
+
+```json title="Http target example"
+{
+    "name": "ghibli_movies_http_service",
+    "url": "https://my.http.service:443/",
+    "properties": {
+        "username": "myUsername",
+        "user": "myUsername", // (1)
+        "userPassword": "myPassword",
+        "password": "myPassword", // (2)
+        "trustStore": "/home/APP/security/mytruststore.jks",
+        "trustStorePassword": "myTrustStorePassword",
+        "keyStore": "/home/APP/security/mykeyStore.jks",
+        "keyStorePassword": "mykeyStorePassword",
+        "privateKey": "/home/APP/security/myprivateKey.pem",
+        "keyPassword": "mykeyPassword",
+        "privateKeyPassword": "myprivateKeyPassword", 
+        "privateKeyPassphrase": "myprivateKeyPassphrase", // (3)
+        "proxy": "https://myproxy:3128"
+    }
+}
+```
+
+1. `username` or `user` to define user for basic authentification 
+2. `userPassword` or `password` to define password for basic authentification
+3. `privateKeyPassword` or `privateKeyPassphrase` to define password to read the private key
 
 # Get
 

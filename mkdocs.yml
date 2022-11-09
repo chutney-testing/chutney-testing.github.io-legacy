@@ -73,6 +73,7 @@ theme:
     - content.tabs.link
     - navigation.tracking
     - navigation.tabs
+    - navigation.expand
 #    - header.autohide
 
 # Material theme specific

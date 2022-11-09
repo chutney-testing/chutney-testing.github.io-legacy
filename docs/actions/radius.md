@@ -55,6 +55,8 @@
 
 # Radius authenticate
 
+Protocol `mschapv2` and `eap` not supported by our client. See [AccessRequest.encodeRequestAttributes(...)](https://github.com/ctran/TinyRadius/blob/master/src/main/java/org/tinyradius/packet/AccessRequest.java)
+
 === "Inputs"
 
     | Required | Name            | Type                                               |  Default   |
@@ -62,7 +64,7 @@
     |    *     | `target`        | String                                             |            |
     |    *     | `userName`      | String                                             |            |
     |    *     | `userPassword`  | String                                             |            |
-    |          | `protocol`      | String (["pap", "chap", "mschapv2", "eap"](https://github.com/ctran/TinyRadius/blob/master/src/main/java/org/tinyradius/packet/AccessRequest.java))  |     pap       |
+    |          | `protocol`      | String ("pap" or "chap")                           |    pap    |
     |          | `attributes`    | Map<String, String\>                               |            |
 
 === "Outputs"

@@ -29,10 +29,7 @@
         "trustStorePassword": "myTrustStorePassword",
         "keyStore": "/home/APP/security/mykeyStore.jks",
         "keyStorePassword": "mykeyStorePassword",
-        "privateKey": "/home/APP/security/myprivateKey.pem",
-        "keyPassword": "mykeyPassword",
-        "privateKeyPassword": "myprivateKeyPassword", 
-        "privateKeyPassphrase": "myprivateKeyPassphrase", // (3)
+        "keyPassword": "myKeyStoreKeyPassword",
         "proxy": "https://myproxy:3128"
     }
 }
@@ -40,7 +37,6 @@
 
 1. `username` or `user` to define user for basic authentification 
 2. `userPassword` or `password` to define password for basic authentification
-3. `privateKeyPassword` or `privateKeyPassphrase` to define password to read the private key
 
 # Get
 

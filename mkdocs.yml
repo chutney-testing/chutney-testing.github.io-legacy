@@ -24,8 +24,8 @@ nav:
     - Actions:
         - Introduction: actions/introduction.md
         - AMQP: actions/amqp.md
-        - JMS: actions/jms.md
         - HTTP: actions/http.md
+        - JMS: actions/jms.md
         - Radius: actions/radius.md
         - SOAP: actions/soap.md
         - SQL: actions/sql.md

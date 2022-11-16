@@ -101,7 +101,7 @@ Records provides the following attributes and methods which you can use in SpEL 
 ## Column
 
 A `Column` represents the request result headers, with a name and an index.  
-The following attributes can be uses in SpEL :
+The following attributes can be used in SpEL :
 
 * `name`: Get a header's name (String)  
 -> `${#column.name}`
@@ -125,9 +125,9 @@ A `Row` provides you access to a record values.
 ## Cell
 
 A `Cell` represents a value in a row, for a given column.  
-The following attributes can be uses in SpEL :
+The following attributes can be used in SpEL :
 
 * `column`: Get the column of a cell.  
-* -> `${#cell.column}`  
+-> `${#cell.column}`
 * `value`: Get the actual value of a cell (Object)  
-* -> `${#cell.value}`  
+-> `${#cell.value}`

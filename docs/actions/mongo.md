@@ -1,6 +1,20 @@
 !!! important "Target Configuration"
     For all actions, the target should have a property `databaseName`
 
+```json title="Mongo target example"
+{
+    "name": "mongo_target",
+    "url": "mongo://my.mongo.base:27017",
+    "properties": {
+        "databaseName": "myDatabaseName",
+        "username": "myUsername", // (1)
+        "password": "myPassword" // (2)
+    }
+}
+```
+
+1. Valid properties are `username` or `user`. Set this for basic authentication
+2. Valid properties are `userPassword` or `password`. Set this for basic authentication
 
 # Count
 

@@ -16,9 +16,7 @@
         "connectionFactoryName": "MyConnectionFactory"
         "java.naming.factory.initial": "org.apache.activemq.jndi.ActiveMQInitialContextFactory",
         
-        "username": "myUsername",
-        "user": "myUsername", // (1)
-        "userPassword": "myPassword",
+        "username": "myUsername", // (1)
         "password": "myPassword", // (2)
         "trustStore": "/home/APP/security/mytruststore.jks",
         "trustStorePassword": "myTrustStorePassword",
@@ -29,8 +27,8 @@
 }
 ```
 
-1. `username` or `user` to define user for basic authentification
-2. `userPassword` or `password` to define password for basic authentification
+1. Valid properties are `username` or `user`. Set this for basic authentication
+2. Valid properties are `userPassword` or `password`. Set this for basic authentication
 
 # Jms Sender
 

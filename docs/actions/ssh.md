@@ -41,14 +41,14 @@ SCP download has no outputs
 ``` kotlin
 ScpDownloadTask(
     target = "myTarget",
-    source = "/path/to/the/source/file", // (1)
-    destination = "/path/to/the/destination/file", // (2)
+    source = "/absolute/path/to/the/source/file", // (1)
+    destination = "/absolute/path/to/the/destination/file", // (2)
     timeout = "42 ms"
 )
 ```
 
-1. The file to download from the target machine
-2. The path on the machine running Chutney
+1. The absolute path of the file to download from the target machine
+2. The absolute path of the destination file on the machine running Chutney
 
 ## Upload
 
@@ -66,18 +66,18 @@ SCP upload has no outputs
 ### Example
 
 === "Kotlin"
-``` kotlin
+
 ``` kotlin
 ScpUploadTask(
     target = "myTarget",
-    source = "/path/to/the/source/file", // (1)
-    destination = "/path/to/the/destination/file", // (2)
+    source = "/absolute/path/to/the/source/file", // (1)
+    destination = "/absolute/path/to/the/destination/file", // (2)
     timeout = "42 ms"
 )
 ```
 
-1. The source file path on the machine running Chutney
-2. The destination path on the target machine
+1. The absolute path of the source file on the machine running Chutney
+2. The absolute path of the destination file on the target machine
 
 
 # SFTP
@@ -102,14 +102,14 @@ SFTP download has no outputs
 ``` kotlin
 SftpDownloadTask(
     target = "myTarget",
-    source = "/path/to/the/source/file", // (1)
-    destination = "/path/to/the/destination/file", // (2)
+    source = "/absolute/path/to/the/source/file", // (1)
+    destination = "/absolute/path/to/the/destination/file", // (2)
     timeout = "42 ms"
 )
 ```
 
-1. The file to download from the target machine
-2. The path on the machine running Chutney
+1. The absolute path of the file to download from the target machine
+2. The absolute path of the destination file on the machine running Chutney
 
 ## FileInfo
 
@@ -195,14 +195,14 @@ SCP upload has no outputs
 ``` kotlin
 SftpUploadTask(
     target = "myTarget",
-    source = "/path/to/the/source/file", // (1)
-    destination = "/path/to/the/destination/file", // (2)
+    source = "/absolute/path/to/the/source/file", // (1)
+    destination = "/absolute/path/to/the/destination/file", // (2)
     timeout = "42 ms"
 )
 ```
 
-1. The source file path on the machine running Chutney
-2. The destination path on the target machine
+1. The absolute path of the source file on the machine running Chutney
+2. The absolute path of the destination file on the target machine
 
 # SSH
 
@@ -229,8 +229,8 @@ SftpUploadTask(
 ``` kotlin
 SshClientTask(
     target = "myTarget",
-    commands = "[{command: "whoami", timeout:"10 s"}]", // (1)
-    channel = "COMMAND"
+    commands = listOf("{\"command: \"whoami\", timeout:\"10 s\"\"}"),
+    channel = SSH_CLIENT_CHANNEL.COMMAND
 )
 ```
 

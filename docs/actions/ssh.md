@@ -38,6 +38,7 @@ SCP download has no outputs
 ### Example
 
 === "Kotlin"
+
 ``` kotlin
 ScpDownloadTask(
     target = "myTarget",
@@ -98,7 +99,7 @@ SFTP download has no outputs
 ### Example
 
 === "Kotlin"
-``` kotlin
+
 ``` kotlin
 SftpDownloadTask(
     target = "myTarget",
@@ -134,7 +135,7 @@ SftpDownloadTask(
 ### Example
 
 === "Kotlin"
-``` kotlin
+
 ``` kotlin
 SftpFileInfoTask(
     target = "myTarget",
@@ -164,7 +165,7 @@ SftpFileInfoTask(
 ### Example
 
 === "Kotlin"
-``` kotlin
+
 ``` kotlin
 SftpListDirTask(
     target = "myTarget",
@@ -191,7 +192,7 @@ SCP upload has no outputs
 ### Example
 
 === "Kotlin"
-``` kotlin
+
 ``` kotlin
 SftpUploadTask(
     target = "myTarget",
@@ -225,7 +226,7 @@ SftpUploadTask(
 ### Example
 
 === "Kotlin"
-``` kotlin
+
 ``` kotlin
 SshClientTask(
     target = "myTarget",

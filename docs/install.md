@@ -1,4 +1,3 @@
-# Install
 
 You can run scenarios without installing a Chutney server. This fits well within a CI or for a developer local setup.
 

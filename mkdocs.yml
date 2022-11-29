@@ -15,11 +15,8 @@ nav:
     - Write your first scenario: getting_started/write.md
     - Run your scenario: getting_started/run.md
   - Documentation:
-    - Server installation: install.md
-    # - Configuration:
-    #  - Environment: configuration/env.md
-    #  - Roles: configuration/roles.md
-    #  - Agent: configuration/agent.md
+    - Installation: install.md
+    - Integration: integration.md
     - Write a scenario: getting_started/write
     - Actions:
         - Introduction: actions/introduction.md

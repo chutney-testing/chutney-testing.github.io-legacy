@@ -31,6 +31,7 @@ nav:
         - SOAP: actions/soap.md
         - SQL: actions/sql.md
         - SCP / FTP / SSH: actions/ssh.md
+        - Assertions: actions/assertions.md
         - Other: actions/other.md
     - Functions:
       - Classpath: functions/classpath.md

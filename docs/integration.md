@@ -138,25 +138,27 @@ Finally, add your own [Actions](/actions/introduction) and [Functions](/function
 
 # Configuration
 
-Beside java dependencies, we have to package configuration files in the project to be able to start properly the application. Configuration set some [Spring Boot](https://docs.spring.io/spring-boot/docs/2.7.x/reference/html/application-properties.html#appendix.application-properties) and [Chutney](#chutney-specifics) properties as well as logging setup.
+In addition to java dependencies,
+you may have to provide your own configuration for your database, authentication system, user roles and permissions, logs etc.
 
-Below YAML examples should then be viewed as included in the default Spring Boot configuration file **application.yml**.
+Configuration is done by setting [Spring Boot](https://docs.spring.io/spring-boot/docs/2.7.x/reference/html/application-properties.html#appendix.application-properties) or [Chutney](#chutney-specifics) properties.
+
+In order to do this, you have to edit the default Spring Boot configuration file **application.yml**.
 
 !!! warning "Handling secrets"
-    We do not discuss here how one could handle secrets present in configuration files because this could vary extensively on the deployment process applied.
-    
-    For example, if [Ansible](https://docs.ansible.com/ansible/latest/index.html) is used, one could package a subset of configuration files to let them be filtered at deployment time and be included in the runtime classpath of the application. 
+    How to handle secrets in configuration files varies a lot and depends on your CI/CD so this documentation does not cover this topic.  
+    One example, if you use [Ansible](https://docs.ansible.com/ansible/latest/index.html), you can package a subset of configuration files, select and filter them during deployment, so they will be included in the runtime classpath of the application.
 
 ## Database
 
-Chutney relies internally on a relational database schema embedded and abstracted by [Liquidbase](https://www.liquibase.org/).
-
-Associated changelog could be found [here](https://github.com/chutney-testing/chutney/blob/master/server/src/main/resources/changelog/db.changelog-master.xml).
+[Liquidbase](https://www.liquibase.org/) is used to manage Chutney RDBMS schema.  
+You can find corresponding changelog [here](https://github.com/chutney-testing/chutney/blob/master/server/src/main/resources/changelog/db.changelog-master.xml).
 
 !!! note
-    **Chutney has been tested with H2 and PostgreSQL databases.**
+    Chutney has been tested with H2 and PostgreSQL databases.
 
-The configuration of the associated datasource is done by setting **spring.datasource** properties:
+To configure your datasource, use the property `spring.datasource`
+
 === "H2 (memory)"
     ``` yaml
     spring:
@@ -164,7 +166,7 @@ The configuration of the associated datasource is done by setting **spring.datas
             url: jdbc:h2:mem:dbName
     ```
     !!! note
-        The module [local-dev](https://github.com/chutney-testing/chutney/tree/master/packaging/local-dev) is an example of an H2 embedded configuration with filesystem persistence.
+        You can find an example in maven module [local-dev](https://github.com/chutney-testing/chutney/tree/master/packaging/local-dev), which uses an embedded H2 with filesystem persistence.
 
 === "PostgreSQL (SSL two way)"
     ``` yaml
@@ -174,22 +176,22 @@ The configuration of the associated datasource is done by setting **spring.datas
             username: user
     ```
 
-## Authentication & Authorization
+## Authentication & Permissions
 
 !!! important
-    The module [local-dev](https://github.com/chutney-testing/chutney/tree/master/packaging/local-dev) presents an example including :
+    Maven module [local-dev](https://github.com/chutney-testing/chutney/tree/master/packaging/local-dev) shows :
+    
+    * How to use in memory authentication and roles, see the **mem-auth** profile.
+    * How to use a custom LDAP authentication (for example purpose, it uses an embedded LDAP server).
 
-    * Use of the **mem-auth** profile.
-    * An example of a custom LDAP authentication (the LDAP server is an embedded one).
+Chutney uses Spring Security for :
 
-Chutney server includes Spring Security configuration which includes :
+* Basic authentication
+* Enforce authentication and check authorization on API (ex. admin rights Spring Boot [Actuator](#spring-boot-actuator) endpoints)
+* Configuring in memory users and roles with a Spring profile [mem-auth](link) if needed
 
-* Form based and HTTP Basic authentication.
-* A **mem-auth** Sping profile to include embedded user declaration.
-* Authentication obligation on API calls.
-* **ADMIN_ACCESS** authority obligation on Spring Boot [Actuator](#spring-boot-actuator) calls.
 
-??? note "Using **mem-auth** Spring profile"
+??? note "How to use in memory Spring profile **mem-auth** "
     * Activate the profile
 
     ``` yaml
@@ -199,7 +201,7 @@ Chutney server includes Spring Security configuration which includes :
               - mem-auth
     ```
 
-    * Add the users declaration
+    * Declare users and roles
 
     ``` yaml
     chutney:
@@ -216,19 +218,24 @@ Chutney server includes Spring Security configuration which includes :
               - role-with-admin-in-it
     ```
     
-    1. Optional, if the role include the characters 'admin', ignoring case, all authorizations will be granted to the user.
+    1. Optional, if the role include the characters 'admin', ignoring case, all permissions will be granted to that user.
 
-To add an alternate authentication mechanism, one must follow the [Spring security architecture](https://spring.io/guides/topicals/spring-security-architecture).
+!!! warning
+    If you create a role name including characters 'admin' (ignoring case), all permissions will be granted to users with this role.
+
+If you want to add another authentication mechanism, you should follow the [Spring security architecture](https://spring.io/guides/topicals/spring-security-architecture).
 
 !!! important "Authentication requirements"
     The principal build by the authentication mechanism must be an instance of the Chutney [UserDto](https://github.com/chutney-testing/chutney/blob/master/server/src/main/java/com/chutneytesting/security/api/UserDto.java).
+    // I don't understand what you meant
 
-Chutney user role and associated authorities could be defined directly in the application.
-One could use the existing [AuthenticationService](https://github.com/chutney-testing/chutney/blob/master/server/src/main/java/com/chutneytesting/security/domain/AuthenticationService.java) Chutney Spring Bean to retrieve Chutney roles by user id and grant associated authorities.
+User roles and permissions are configured either with Web app form or by editing the file.
 
-!!! note "Authorization notes"
-    * A unique role could be assigned to a user id.
-    * Chutney authorities are defined in the [Authorization](https://github.com/chutney-testing/chutney/blob/master/server-core/src/main/java/com/chutneytesting/server/core/domain/security/Authorization.java) class.
+One could use the existing [AuthenticationService](https://github.com/chutney-testing/chutney/blob/master/server/src/main/java/com/chutneytesting/security/domain/AuthenticationService.java) Chutney Spring Bean to retrieve Chutney roles by user id and grant associated authorities. // I don't understand what you mean, is it useful ? provide a real use case for showing why and how it could be done
+
+!!! note "How to manage permissions"
+    * A user can only have one role
+    * Chutney permissions are defined in the [Authorization](https://github.com/chutney-testing/chutney/blob/master/server-core/src/main/java/com/chutneytesting/server/core/domain/security/Authorization.java) class.
     * The static **grantAuthoritiesFromUserRole** method of [UserDetailsServiceHelper](https://github.com/chutney-testing/chutney/blob/master/server/src/main/java/com/chutneytesting/security/infra/UserDetailsServiceHelper.java) class could be used to have the same authentication process than **mem-auth** profile, i.e. if the user has a role name containing the characters 'admin', ignoring case, user will be given all authorities available, else he will be given the authorities associated by the role retrieved by the AuthenticationService.
 
 ## Logs

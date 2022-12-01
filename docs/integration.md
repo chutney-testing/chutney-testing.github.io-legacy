@@ -1,49 +1,62 @@
+When using Chutney to test your applications, you may need proprietary drivers, clients or use an obscure protocol not implemented by Chutney.
 
-This page explains how to package Chutney for use in real Development or QA environments.
+**In order to do this, you have to make your own custom package.**
 
-As Chutney server is a [Spring Boot](https://docs.spring.io/spring-boot/docs/2.7.x/reference/html/index.html) application, only an all-in-one Chutney [Spring Boot executable jar](https://docs.spring.io/spring-boot/docs/2.7.x/reference/html/executable-jar.html#appendix.executable-jar) will be discussed here.
+For example, if you use JMS with Oracle WebLogic, you have to package Chutney with the Oracle WebLogic client as a runtime dependency.  
+Another use case is when you need an Action for something we don't provide, we are open to requests but if it's proprietary and cannot be open, then you have to implement your own Action and package Chutney with it.
 
-!!! important "Chutney rapid technical description"
-    Chutney server is a Spring Boot application running with [Undertow](https://undertow.io/) using existing Spring stack (mvc, webflux, security).
+Moreover,  
+If you intend to use a shared Chutney server, you may need to integrate to an external database or authentication system.  
+In order to do this, some configurations require to be done with Spring, so you have to make your own Chutney package.
 
-    Chutney UI is an [Angular](https://angular.io/) web application.
+This page will guide you on how to :
 
-    **Chutney follows Angular and Spring Boot last versions and associated dependencies.**
+- Use Chutney with proprietary drivers or clients
+- Use Chutney with an external database and authentication system
+- Configure logs, SSL/TLS, sessions, metrics, etc.
+
+!!! important "Quick technical insight"
+
+    * Chutney server is a [Spring Boot](https://docs.spring.io/spring-boot/docs/2.7.x/reference/html/index.html) application running with [Undertow](https://undertow.io/) and based on a standard Spring stack (mvc, webflux, security)
+    * Chutney UI is an [Angular](https://angular.io/) web application
+    * Chutney is packaged as a [Spring Boot executable jar](https://docs.spring.io/spring-boot/docs/2.7.x/reference/html/executable-jar.html#appendix.executable-jar)
+    * Chutney follows Angular and Spring Boot lastest versions and corresponding dependencies
 
 !!! note "Packaging example"
-    The module [local-dev](https://github.com/chutney-testing/chutney/tree/master/packaging/local-dev) is such a packaging.
+    Maven module [local-dev](https://github.com/chutney-testing/chutney/tree/master/packaging/local-dev) shows one way of packaging Chutney.  
+    Use it as an example to make your own package, custom to your needs.
 
-# Packaging project
+# How to make your own Chutney package
 
 Use [Spring Boot Build Tool Plugins](https://docs.spring.io/spring-boot/docs/2.7.x/reference/html/build-tool-plugins.html#build-tool-plugins) to package Chutney as an executable jar.
 
 === "maven"
-``` xml
-<plugin>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-maven-plugin</artifactId>
-    <version>2.7.5</version>
-    <configuration>
-        <executable>true</executable>
-        <layout>ZIP</layout>
-        <mainClass>com.chutneytesting.ServerBootstrap</mainClass>
-        <finalName>chutney-${project.artifactId}-${chutney.version}</finalName>
-    </configuration>
-    <executions>
-        <execution>
-            <goals>
-                <goal>repackage</goal>
-            </goals>
-        </execution>
-    </executions>
-</plugin>
-```
+    ``` xml
+    <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>2.7.5</version>
+        <configuration>
+            <executable>true</executable>
+            <layout>ZIP</layout>
+            <mainClass>com.chutneytesting.ServerBootstrap</mainClass>
+            <finalName>chutney-${project.artifactId}-${chutney.version}</finalName>
+        </configuration>
+        <executions>
+            <execution>
+                <goals>
+                    <goal>repackage</goal>
+                </goals>
+            </execution>
+        </executions>
+    </plugin>
+    ```
 
 Declare a BOM dependency on Chutney parent.
 
 === "maven"
-``` xml
-<dependencyManagement>
+    ``` xml
+    <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>com.chutneytesting</groupId>
@@ -53,10 +66,10 @@ Declare a BOM dependency on Chutney parent.
                 <scope>import</scope>
             </dependency>
         </dependencies>
-</dependencyManagement>
-```
+    </dependencyManagement>
+    ```
 
-Then, add Chutney server and UI as dependencies.
+Add Chutney server and UI as dependencies.
 
 === "maven"
     ``` xml
@@ -70,47 +83,58 @@ Then, add Chutney server and UI as dependencies.
         <artifactId>ui</artifactId>
         <scope>runtime</scope>
     </dependency>
-    <dependency> <!-- (1)! -->
+    ```
+
+Then, add dependency for your chosen database.
+
+=== "maven"
+    ``` xml
+    <dependency> <!-- (1) -->
         <groupId>com.h2database</groupId>
         <artifactId>h2</artifactId>
     </dependency>
-    <dependency> <!-- (2)! -->
+    <dependency> <!-- (2) -->
         <groupId>org.postgresql</groupId>
         <artifactId>postgresql</artifactId>
     </dependency>
     ```
 
-    1. Required if using a H2 as Chutney main database.
-    2. Required if using a PostgreSQL as Chutney main database.
+    1. If you want to use H2 as Chutney main database
+    2. If you want to use PostgreSQL as Chutney main database
 
-Finally, add required dependencies depending on your scenarios use cases. For example,
+Also, you should add any dependencies you would need to run your scenarios.  
+This may depend on the underlying Chutney actions you are using.  
 
 === "maven"
     ``` xml
-    <dependency> <!-- (1)! -->
+    <dependency> <!-- (1) -->
         <groupId>com.oracle</groupId>
         <artifactId>ojdbc6</artifactId>
         <version>x.x.x</version>
         <scope>runtime</scope>
     </dependency>
-    <dependency> <!-- (2)! -->
+    <dependency> <!-- (2) -->
         <groupId>weblogic</groupId>
         <artifactId>wlthinclient</artifactId>
         <version>x.x.x</version>
         <scope>runtime</scope>
     </dependency>
-    <dependency> <!-- (3)! -->
+    ```
+
+    1. Example for using [SQL actions](/actions/sql) and query an Oracle database
+    2. Example for using [JMS actions](/actions/jms) with a WebLogic server
+
+Finally, add your own [Actions](/actions/introduction) and [Functions](/functions/classpath)
+
+=== "maven"
+    ``` xml
+    <dependency>
         <groupId>com.my.company</groupId>
         <artifactId>chutney-extensions</artifactId>
         <version>x.x.x</version>
         <scope>runtime</scope>
     </dependency>
     ```
-
-    1. Required if using SQL actions in scenarios which execute requests against an Oracle database.
-    2. Required if using JMS actions in scenarios which read JMS messages from a weblogic server.
-    3. Some external artifact with Chutney actions or functions extensions to be used in scenarios.
-
 
 # Configuration
 

@@ -26,7 +26,7 @@ This page will guide you on how to :
     Maven module [local-dev](https://github.com/chutney-testing/chutney/tree/master/packaging/local-dev) shows one way of packaging Chutney.  
     Use it as an example to make your own package, custom to your needs.
 
-# How to make your own Chutney package
+# Make your own Chutney package
 
 Use [Spring Boot Build Tool Plugins](https://docs.spring.io/spring-boot/docs/2.7.x/reference/html/build-tool-plugins.html#build-tool-plugins) to package Chutney as an executable jar.
 
@@ -143,7 +143,7 @@ you may have to provide your own configuration for your database, authentication
 
 Configuration is done by setting [Spring Boot](https://docs.spring.io/spring-boot/docs/2.7.x/reference/html/application-properties.html#appendix.application-properties) or [Chutney](#chutney-specifics) properties.
 
-In order to do this, you have to edit the default Spring Boot configuration file **application.yml**.
+In order to do this, you have to edit the default Spring Boot configuration file `application.yml`.
 
 !!! warning "Handling secrets"
     How to handle secrets in configuration files varies a lot and depends on your CI/CD so this documentation does not cover this topic.  
@@ -181,7 +181,7 @@ To configure your datasource, use the property `spring.datasource`
 !!! important
     Maven module [local-dev](https://github.com/chutney-testing/chutney/tree/master/packaging/local-dev) shows :
     
-    * How to use in memory authentication and roles, see the **mem-auth** profile.
+    * How to use in memory authentication and roles, see the `mem-auth` profile.
     * How to use a custom LDAP authentication (for example purpose, it uses an embedded LDAP server).
 
 Chutney uses Spring Security for :
@@ -191,7 +191,7 @@ Chutney uses Spring Security for :
 * Configuring in memory users and roles with a Spring profile [mem-auth](link) if needed
 
 
-??? note "How to use in memory Spring profile **mem-auth** "
+??? note "How to use in memory Spring profile `mem-auth`"
     * Activate the profile
 
     ``` yaml
@@ -236,22 +236,23 @@ One could use the existing [AuthenticationService](https://github.com/chutney-te
 !!! note "How to manage permissions"
     * A user can only have one role
     * Chutney permissions are defined in the [Authorization](https://github.com/chutney-testing/chutney/blob/master/server-core/src/main/java/com/chutneytesting/server/core/domain/security/Authorization.java) class.
-    * The static **grantAuthoritiesFromUserRole** method of [UserDetailsServiceHelper](https://github.com/chutney-testing/chutney/blob/master/server/src/main/java/com/chutneytesting/security/infra/UserDetailsServiceHelper.java) class could be used to have the same authentication process than **mem-auth** profile, i.e. if the user has a role name containing the characters 'admin', ignoring case, user will be given all authorities available, else he will be given the authorities associated by the role retrieved by the AuthenticationService.
+    * The static `grantAuthoritiesFromUserRole` method of [UserDetailsServiceHelper](https://github.com/chutney-testing/chutney/blob/master/server/src/main/java/com/chutneytesting/security/infra/UserDetailsServiceHelper.java) class could be used to have the same authentication process than `mem-auth` profile,  
+    i.e. if the user has a role name containing the characters 'admin', ignoring case, user will be given all authorities available, else he will be given the authorities associated by the role retrieved by the AuthenticationService.
 
 ## Logs
 
-Chutney is dependent on [SLF4J](https://www.slf4j.org/) API logging library.
+Chutney depends on [SLF4J](https://www.slf4j.org/) API logging library.
 
-At runtime, the Chutney server use the [Logback](https://logback.qos.ch/) SLF4J implementation and bridges all legacy API (JCL, LOG4J and JUL).
+At runtime, the Chutney server use the [Logback](https://logback.qos.ch/) SLF4J implementation and bridges all legacy APIs (JCL, LOG4J and JUL).
 
-!!! important "Attention point"
-    As the server bridges all legacy apis, one must be careful to not include one of libraries redirecting SLF4J logging calls to legacy API :
+!!! warning
+    Since the server bridges all legacy APIs, you must be careful to not include any of the following libraries :
 
     * jcl-over-slf4j
     * log4j-over-slf4j and slf4j-reload4j
     * jul-to-slf4j
 
-    Read [Bridging legacy APIs](https://logback.qos.ch/manual/configuration.html) for detail description.
+    Read [Bridging legacy APIs](https://logback.qos.ch/manual/configuration.html) for further details.
 
 A [Logback configuration](https://logback.qos.ch/manual/configuration.html) must be package in the packaging project, in classpath root.
 
@@ -298,7 +299,7 @@ A [Logback configuration](https://logback.qos.ch/manual/configuration.html) must
 
 ## Spring Boot Server
 
-We discuss here some [Spring Boot server configuration](https://docs.spring.io/spring-boot/docs/2.7.x/reference/html/application-properties.html#appendix.application-properties.server).
+Following section shows how to configure the [Spring Boot server](https://docs.spring.io/spring-boot/docs/2.7.x/reference/html/application-properties.html#appendix.application-properties.server).
 
 ### TLS / SSL
 
@@ -316,9 +317,9 @@ Chutney server enforces the use of secure calls on any incoming requests.
             trust-store-password: # truststore password
     ```
 
-Chutney Server provides the **undertow-https-redirect** Spring profile to redirect unsecured request to the right secured port.
+Chutney Server provides `undertow-https-redirect` Spring profile to redirect unsecured request to the right secured port.
 
-??? note "Using **undertow-https-redirect** Spring profile"
+??? note "Using `undertow-https-redirect` Spring profile"
 
     * Activate the profile
 
@@ -334,56 +335,55 @@ Chutney Server provides the **undertow-https-redirect** Spring profile to redire
     ``` yaml
     server:
         http:
-            port: 80 # (1)!
-            interface: 0.0.0.0 # (2)!
+            port: 80 # (1)
+            interface: 0.0.0.0 # (2)
     ```
 
-    1. HTTP port to use.
-    2. Interface to bind to.
+    1. HTTP port to use
+    2. Interface to bind to
 
 ### Compression
 
 Spring Boot allows to configure compression on HTTP responses payloads.
 
-Chutney Server stores scenarios executions reports and send them over the network, therefore it could be useful to use this configuration.
+Chutney Server stores scenarios executions reports and send them over the network, so it could be useful to use this configuration.
 
 !!! note "Server compression configuration"
     ``` yaml
     server:
         compression:
             enabled: true
-            mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json # (1)!
-            min-response-size: 1024 # (2)!
+            mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json # (1)
+            min-response-size: 1024 # (2)
     ```
 
-    1. The mime-types that should be compressed.
-    2. The minimum content length required for compression.
+    1. The mime-types you want to compresse
+    2. The minimum content length required for compression
 
 ### Session management
 
 Spring Boot allows to configure session management.
 
-!!! note "Server session configuration (via cookie)"
+!!! note "Server session configuration (with cookie)"
     ``` yaml
     server:
         servlet:
             session:
-                timeout: 240m # (1)!
+                timeout: 240m # (1)
                 tracking-modes: cookie
             cookie:
-                http-only: true # (2)!
-                secure: true # (3)!
+                http-only: true # (2)
+                secure: true # (3)
     ```
     
-    1. The session timeout. Here, 4 hours.
-    2. Forbids Javascript to access the cookie.
-    3. Only for HTTPS requests.
+    1. The session timeout in minutes (example is 4 hours)
+    2. Forbids Javascript to access the cookie
+    3. Only for HTTPS requests
 
 ## Spring Boot Actuator
 
-Spring Boot, with the Actuator module, provides some [production-ready features](https://docs.spring.io/spring-boot/docs/2.7.x/reference/html/actuator.html#actuator).
-
-Chutney Server includes the Actuator module which then could be configured in the packaging.
+Spring Boot provides [production-ready features](https://docs.spring.io/spring-boot/docs/2.7.x/reference/html/actuator.html#actuator) with the Actuator module.
+Since Chutney includes this module, you can also configure it.
 
 !!! note "Actuator configuration examples"
 
@@ -415,11 +415,11 @@ Chutney Server includes the Actuator module which then could be configured in th
         ```
 
 !!! warning
-    Chutney enforces **ADMIN_ACCESS** authority on all default web base path Actuator endpoints.
+    Chutney enforces `ADMIN_ACCESS` permissions on all default Actuator endpoints.
 
 ## Chutney specifics
 
-Below are the properties which can be specified to configure Chutney.
+Following table shows all properties you can set to configure Chutney.
 
 | Name                                                    | Description                                                                                                       | Default value               |
 |:--------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------|:----------------------------|
@@ -447,20 +447,20 @@ Below are the properties which can be specified to configure Chutney.
 
 # Metrics
 
-Chutney leans on Spring Boot [Actuator](#spring-boot-actuator) [Micrometer](https://micrometer.io/) auto-configuration and includes by default a dependency on [Prometheus](https://micrometer.io/docs/registry/prometheus).
+Since Chutney relies on Spring Boot [Actuator](#spring-boot-actuator) and [Micrometer](https://micrometer.io/) auto-configuration, it includes [Prometheus](https://micrometer.io/docs/registry/prometheus) by default.  
+So you can find and use [default metrics](https://docs.spring.io/spring-boot/docs/2.7.x/reference/html/actuator.html#actuator.metrics.supported) : JVM, System, Datasource, Loggers, Executors and Spring MVC metrics.
 
-Therefore, one could find in the associated registry some [default metrics](https://docs.spring.io/spring-boot/docs/2.7.x/reference/html/actuator.html#actuator.metrics.supported) : JVM, System, Datasource, Loggers, Executors and Spring MVC metrics.
+Moreover, Chutney provides following metrics and corresponding Micrometer tags :
 
-Moreover, Chutney server populates following metrics and associated Micrometer tags :
+* `scenario_execution_count` counter (execution status, scenario id, scenario tags) is incremented after a scenario execution.
+* `scenario_execution_timer` timer (execution status, scenario id, scenario tags) is recorded after a scenario execution.
+* `scenario_in_campaign_gauge` gauge (campaign id, execution status) counts the scenario execution status after a campaign execution.
+* `campaign_execution_count` counter (campaign id, campaign title, execution status) is incremented after a campaign execution..
+* `campaign_execution_timer` timer (campaign id) is recorded after a campaign execution.
 
-* **scenario_execution_count** counter (execution status, scenario id, scenario tags) is incremented after a scenario execution.
-* **scenario_execution_timer** timer (execution status, scenario id, scenario tags) is recorded after a scenario execution.
-* **scenario_in_campaign_gauge** gauge (campaign id, execution status) counts the scenario execution status after a campaign execution.
-* **campaign_execution_count** counter (campaign id, campaign title, execution status) is incremented after a campaign execution..
-* **campaign_execution_timer** timer (campaign id) is recorded after a campaign execution.
-
-!!! warning
-    How the metrics are collected outside Chutney server will not be discussed here. One could think of :
+!!! important
+    We won't document how to collect and manage your metrics outside Chutney.  
+    Some hints could be :
     
-    * Use the Actuator Prometheus endpoint to get the metrics with the appropriate format.
-    * Use push solution (Prometheus Pushgateway or custom).
+    * Use the Actuator Prometheus endpoint to get the metrics with the appropriate format
+    * Use push solution (Prometheus Pushgateway or custom)

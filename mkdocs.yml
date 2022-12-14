@@ -11,40 +11,40 @@ copyright: © Chutney Testing 2017 | under the Apache License, Version 2.0
 nav:
   - Overview: index.md
   - Getting Started:
-    - Requirements: getting_started/requirements.md
-    - Write your first scenario: getting_started/write.md
-    - Run your scenario: getting_started/run.md
+      - Requirements: getting_started/requirements.md
+      - Write your first scenario: getting_started/write.md
+      - Run your scenario: getting_started/run.md
   - Documentation:
-    - Installation: install.md
-    - Integration: integration.md
-    - Write a scenario: getting_started/write
-    - Actions:
-        - Introduction: actions/introduction.md
-        - AMQP: actions/amqp.md
-        - HTTP: actions/http.md
-        - JMS: actions/jms.md
-        - MongoDB: actions/mongo.md
-        - Radius: actions/radius.md
-        - SOAP: actions/soap.md
-        - SQL: actions/sql.md
-        - SCP / FTP / SSH: actions/ssh.md
-        - Assertions: actions/assertions.md
-        - Other: actions/other.md
-        - Custom Action: actions/customAction.md
-    - Functions:
-      - Classpath: functions/classpath.md
-      - Dates & Time: functions/datetime.md
-      - Escape: functions/escape.md
-      - Handling null: functions/nullable.md
-      - JSON: functions/json.md
-      - Micrometer: functions/micrometer.md
-      - Network: functions/network.md
-      - Random values: functions/generate.md
-      - SOAP: functions/soap.md
-      - String: functions/string.md
-      - Wiremock: functions/wiremock.md
-      - XPath: functions/xpath.md
-  #- Toolbox: toolbox.md # hidden page
+      - Installation: install.md
+      - Integration: integration.md
+      - Write a scenario: getting_started/write
+      - Actions:
+          - Introduction: actions/introduction.md
+          - AMQP: actions/amqp.md
+          - HTTP: actions/http.md
+          - JMS: actions/jms.md
+          - MongoDB: actions/mongo.md
+          - Radius: actions/radius.md
+          - SOAP: actions/soap.md
+          - SQL: actions/sql.md
+          - SCP / FTP / SSH: actions/ssh.md
+          - Assertions: actions/assertions.md
+          - Other: actions/other.md
+          - Custom Action: actions/customAction.md
+      - Functions:
+          - Classpath: functions/classpath.md
+          - Dates & Time: functions/datetime.md
+          - Escape: functions/escape.md
+          - Handling null: functions/nullable.md
+          - JSON: functions/json.md
+          - Micrometer: functions/micrometer.md
+          - Network: functions/network.md
+          - Random values: functions/generate.md
+          - SOAP: functions/soap.md
+          - String: functions/string.md
+          - Wiremock: functions/wiremock.md
+          - XPath: functions/xpath.md
+#  - Toolbox: toolbox.md # hidden page
 
 extra_css:
   - stylesheets/extra.css
@@ -63,13 +63,13 @@ theme:
       scheme: default
       toggle:
         icon: material/toggle-switch
-#        icon: material/weather-night
+        # icon: material/weather-night
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       toggle:
         icon: material/toggle-switch-off-outline
-#        icon: material/weather-sunny
+        # icon: material/weather-sunny
         name: Switch to light mode
   features:
     - content.code.annotate
@@ -110,9 +110,9 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences:
       custom_fences:
-         - name: mermaid
-           class: mermaid
-           format: !!python/name:pymdownx.superfences.fence_code_format
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
   - attr_list

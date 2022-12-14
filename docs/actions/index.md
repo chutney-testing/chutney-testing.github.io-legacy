@@ -12,6 +12,10 @@ and give it the minimum amount of information as inputs (i.e. targeted service, 
 
 All actions are structured the same way with **inputs**, **outputs**, **validations** and **teardown**.
 
+!!! note "Extending Chutney actions"
+    Actions are extensible and you can provide your own.  
+    For further details, see [how to implement your own action](/actions/extension/) and then [how to package Chutney with it](/todo).
+
 ## Inputs
 
 Inputs are the minimum information needed to run the action.  

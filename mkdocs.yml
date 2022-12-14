@@ -30,7 +30,7 @@ nav:
           - SCP / FTP / SSH: actions/ssh.md
           - Assertions: actions/assertions.md
           - Other: actions/other.md
-          - Custom Action: actions/customAction.md
+          - Extension: actions/extension.md
       - Functions:
           - Classpath: functions/classpath.md
           - Dates & Time: functions/datetime.md

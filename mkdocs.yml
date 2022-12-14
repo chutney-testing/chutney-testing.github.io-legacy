@@ -19,7 +19,7 @@ nav:
       - Integration: integration.md
       - Write a scenario: getting_started/write
       - Actions:
-          - Introduction: actions/introduction.md
+          - actions/index.md
           - AMQP: actions/amqp.md
           - HTTP: actions/http.md
           - JMS: actions/jms.md
@@ -77,6 +77,7 @@ theme:
     - navigation.tracking
     - navigation.tabs
     - navigation.expand
+    - navigation.indexes
 #    - header.autohide
 
 # Material theme specific

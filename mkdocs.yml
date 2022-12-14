@@ -17,7 +17,7 @@ nav:
   - Documentation:
       - Installation: install.md
       - Integration: integration.md
-      - Write a scenario: getting_started/write
+      - Write a scenario: getting_started/write.md
       - Actions:
           - actions/index.md
           - AMQP: actions/amqp.md

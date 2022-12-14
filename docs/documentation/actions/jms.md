@@ -34,12 +34,12 @@
 
 === "Inputs"
 
-    | Required | Name      | Type                                               |  Default   |
-    |:--------:|:----------|:---------------------------------------------------|:----------:|
-    |    *     | `target`        | String                                       |            |
-    |    *     | `destination`   | String                                       |            |
-    |    *     | `body`| String                                                 |            |
-    |          | `headers`    | Map<String, String\>                            |            |
+    | Required | Name          | Type                              |  Default   |
+    |:--------:|:--------------|:----------------------------------|:----------:|
+    |    *     | `target`      | String                            |            |
+    |    *     | `destination` | String                            |            |
+    |    *     | `body`        | String                            |            |
+    |          | `headers`     | Map<String, String\>              |            |
 
 No output. Only a log in report if message was successfully sent
 
@@ -66,21 +66,21 @@ JmsSenderAction(
 
 === "Inputs"
 
-    | Required | Name      | Type                                               |  Default   |
-    |:--------:|:----------|:---------------------------------------------------|:----------:|
-    |    *     | `target`          | String                                     |            |
-    |    *     | `destination`     | String                                     |            |
-    |          | `selector`        | String                                     |            |
-    |          | `bodySelector`    | String                                     |            |
-    |          | `browserMaxDepth` | Integer                                    |            |
-    |          | `timeOut`         | String                                     |   500 ms   |
+    | Required | Name              | Type    |  Default   |
+    |:--------:|:------------------|:--------|:----------:|
+    |    *     | `target`          | String  |            |
+    |    *     | `destination`     | String  |            |
+    |          | `selector`        | String  |            |
+    |          | `bodySelector`    | String  |            |
+    |          | `browserMaxDepth` | Integer |            |
+    |          | `timeOut`         | String  |   500 ms   |
 
 === "Outputs"
 
-    |      Name | Type                                                          |
-    |-----------------:|:-------------------------------------------------------|
-    |  `textMessage`   | String                                                 |
-    |  `jmsProperties` | Map<String, Object>                                    |
+    |            Name | Type                |
+    |----------------:|:--------------------|
+    |   `textMessage` | String              |
+    | `jmsProperties` | Map<String, Object> |
 
 ### Example
 
@@ -104,14 +104,14 @@ JmsListenerAction(
 
 === "Inputs"
 
-    | Required | Name      | Type                                               |  Default   |
-    |:--------:|:----------|:---------------------------------------------------|:----------:|
-    |    *     | `target`          | String                                     |            |
-    |    *     | `destination`     | String                                     |            |
-    |          | `selector`        | String                                     |            |
-    |          | `bodySelector`    | String                                     |            |
-    |          | `browserMaxDepth` | Integer                                    |            |
-    |          | `timeOut`         | String                                     |   500 ms   |
+    | Required | Name              | Type         |  Default   |
+    |:--------:|:------------------|:-------------|:----------:|
+    |    *     | `target`          | String       |            |
+    |    *     | `destination`     | String       |            |
+    |          | `selector`        | String       |            |
+    |          | `bodySelector`    | String       |            |
+    |          | `browserMaxDepth` | Integer      |            |
+    |          | `timeOut`         | String       |   500 ms   |
 
 No output. Only a log in report with number of messages removed
 

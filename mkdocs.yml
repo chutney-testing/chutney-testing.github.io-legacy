@@ -22,31 +22,31 @@ nav:
   - Documentation:
       - Write a scenario: getting_started/write.md
       - Actions:
-          - actions/index.md
-          - AMQP: actions/amqp.md
-          - HTTP: actions/http.md
-          - JMS: actions/jms.md
-          - MongoDB: actions/mongo.md
-          - Radius: actions/radius.md
-          - SOAP: actions/soap.md
-          - SQL: actions/sql.md
-          - SCP / FTP / SSH: actions/ssh.md
-          - Assertions: actions/assertions.md
-          - Other: actions/other.md
-          - Extension: actions/extension.md
+          - documentation/actions/index.md
+          - AMQP: documentation/actions/amqp.md
+          - HTTP: documentation/actions/http.md
+          - JMS: documentation/actions/jms.md
+          - MongoDB: documentation/actions/mongo.md
+          - Radius: documentation/actions/radius.md
+          - SOAP: documentation/actions/soap.md
+          - SQL: documentation/actions/sql.md
+          - SCP / FTP / SSH: documentation/actions/ssh.md
+          - Assertions: documentation/actions/assertions.md
+          - Other: documentation/actions/other.md
+          - Extension: documentation/actions/extension.md
       - Functions:
-          - Classpath: functions/classpath.md
-          - Dates & Time: functions/datetime.md
-          - Escape: functions/escape.md
-          - Handling null: functions/nullable.md
-          - JSON: functions/json.md
-          - Micrometer: functions/micrometer.md
-          - Network: functions/network.md
-          - Random values: functions/generate.md
-          - SOAP: functions/soap.md
-          - String: functions/string.md
-          - Wiremock: functions/wiremock.md
-          - XPath: functions/xpath.md
+          - Classpath: documentation/functions/classpath.md
+          - Dates & Time: documentation/functions/datetime.md
+          - Escape: documentation/functions/escape.md
+          - Handling null: documentation/functions/nullable.md
+          - JSON: documentation/functions/json.md
+          - Micrometer: documentation/functions/micrometer.md
+          - Network: documentation/functions/network.md
+          - Random values: documentation/functions/generate.md
+          - SOAP: documentation/functions/soap.md
+          - String: documentation/functions/string.md
+          - Wiremock: documentation/functions/wiremock.md
+          - XPath: documentation/functions/xpath.md
 #  - Toolbox: toolbox.md # hidden page
 
 extra_css:

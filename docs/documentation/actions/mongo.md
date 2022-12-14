@@ -122,11 +122,11 @@ MongoFindAction(
 
 === "Inputs"
 
-| Required | Name         | Type    | Default |
-|:--------:|:-------------|:--------|:-------:|
-|    *     | `target`     | String  |         |
-|    *     | `collection` | String  |         |
-|    *     | `document`   | String  |         |
+    | Required | Name         | Type    | Default |
+    |:--------:|:-------------|:--------|:-------:|
+    |    *     | `target`     | String  |         |
+    |    *     | `collection` | String  |         |
+    |    *     | `document`   | String  |         |
 
 *Insert action does not have output.*
 

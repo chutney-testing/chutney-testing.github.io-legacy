@@ -58,19 +58,19 @@ Protocols `mschapv2` and `eap` are not yet supported by our client. See [AccessR
 
 === "Inputs"
 
-    | Required | Name            | Type                         |  Default   |     Comment     |
-    |:--------:|:----------------|:-----------------------------|:----------:|:---------------:|
-    |    *     | `target`        | String                       |            |                 |
-    |    *     | `userName`      | String                       |            |                 |
-    |    *     | `userPassword`  | String                       |            |                 |
-    |          | `protocol`      | String                       |    `pap`   | `pap` or `chap` |
-    |          | `attributes`    | Map<String, String\>         |            |                 |
+    | Required | Name           | Type                 | Default   |   Comment       |
+    |:--------:|:---------------|:---------------------|:---------:|:---------------:|
+    |    *     | `target`       | String               |           |                 |
+    |    *     | `userName`     | String               |           |                 |
+    |    *     | `userPassword` | String               |           |                 |
+    |          | `protocol`     | String               |   `pap`   | `pap` or `chap` |
+    |          | `attributes`   | Map<String, String\> |           |                 |
 
 === "Outputs"
 
-    |      Name | Type                                                                                                                      |
-    |----------:|:--------------------------------------------------------------------------------------------------------------------------|
-    |  `radiusResponse` | [RadiusPacket](https://github.com/ctran/TinyRadius/blob/master/src/main/java/org/tinyradius/packet/RadiusPacket.java)               |
+    |             Name | Type                                                                                                                  |
+    |-----------------:|:----------------------------------------------------------------------------------------------------------------------|
+    | `radiusResponse` | [RadiusPacket](https://github.com/ctran/TinyRadius/blob/master/src/main/java/org/tinyradius/packet/RadiusPacket.java) |
 
 ### Example
 

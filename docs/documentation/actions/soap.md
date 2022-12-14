@@ -1,14 +1,14 @@
 === "Inputs"
 
-    | Required | Name       | Type                                                |  Default  |
-    |:--------:|:-----------|:----------------------------------------------------|:---------:|
-    |    *     | `target`   | String                                              |           |
-    |    *     | `uri`      | String                                              |           |
-    |    *     | `body`     | String                                              |    {}     |
-    |          | `username` | String                                              |           |
-    |          | `password` | String                                              |           |
-    |          | `timeout`  | String ([Duration](/actions/other/#duration-type))  | "2000 ms" |
-    |          | `headers`  | String                                              |           |
+    | Required | Name       | Type                                                             |  Default  |
+    |:--------:|:-----------|:-----------------------------------------------------------------|:---------:|
+    |    *     | `target`   | String                                                           |           |
+    |    *     | `uri`      | String                                                           |           |
+    |    *     | `body`     | String                                                           |    {}     |
+    |          | `username` | String                                                           |           |
+    |          | `password` | String                                                           |           |
+    |          | `timeout`  | String ([Duration](/documentation/actions/other/#duration-type)) | "2000 ms" |
+    |          | `headers`  | String                                                           |           |
 
 === "Outputs"
 

@@ -42,12 +42,12 @@
 
 === "Inputs"
 
-    | Required | Name      | Type                                               |  Default   |
-    |:--------:|:----------|:---------------------------------------------------|:----------:|
-    |    *     | `target`  | String                                             |            |
-    |    *     | `uri`     | String                                             |            |
-    |          | `headers` | Map<String, String\>                               |            |
-    |          | `timeout` | [Duration](/actions/other/#duration-type) (String) | "2000 ms"  |
+    | Required | Name      | Type                                                             | Default   |
+    |:--------:|:----------|:-----------------------------------------------------------------|:---------:|
+    |    *     | `target`  | String                                                           |           |
+    |    *     | `uri`     | String                                                           |           |
+    |          | `headers` | Map<String, String\>                                             |           |
+    |          | `timeout` | [Duration](/documentation/actions/other/#duration-type) (String) | "2000 ms" |
 
 === "Outputs"
 
@@ -75,13 +75,13 @@
 
 === "Inputs"
 
-    | Required | Name      | Type                                               |  Default   |
-    |:--------:|:----------|:---------------------------------------------------|:----------:|
-    |    *     | `target`  | String                                             |            |
-    |    *     | `uri`     | String                                             |            |
-    |          | `body`    | String                                             | `{}`       |
-    |          | `headers` | Map<String, String\>                               |            |
-    |          | `timeout` | [Duration](/actions/other/#duration-type) (String) | "2000 ms"  |
+    | Required | Name      | Type                                                             |  Default   |
+    |:--------:|:----------|:-----------------------------------------------------------------|:----------:|
+    |    *     | `target`  | String                                                           |            |
+    |    *     | `uri`     | String                                                           |            |
+    |          | `body`    | String                                                           | `{}`       |
+    |          | `headers` | Map<String, String\>                                             |            |
+    |          | `timeout` | [Duration](/documentation/actions/other/#duration-type) (String) | "2000 ms"  |
 
 === "Outputs"
 
@@ -109,13 +109,13 @@
 
 === "Inputs"
 
-    | Required | Name      | Type                                               |  Default   |
-    |:--------:|:----------|:---------------------------------------------------|:----------:|
-    |    *     | `target`  | String                                             |            |
-    |    *     | `uri`     | String                                             |            |
-    |          | `body`    | String                                             | `{}`       |
-    |          | `headers` | Map<String, String\>                               |            |
-    |          | `timeout` | [Duration](/actions/other/#duration-type) (String) | "2000 ms"  |
+    | Required | Name      | Type                                                             |  Default   |
+    |:--------:|:----------|:-----------------------------------------------------------------|:----------:|
+    |    *     | `target`  | String                                                           |            |
+    |    *     | `uri`     | String                                                           |            |
+    |          | `body`    | String                                                           | `{}`       |
+    |          | `headers` | Map<String, String\>                                             |            |
+    |          | `timeout` | [Duration](/documentation/actions/other/#duration-type) (String) | "2000 ms"  |
 
 === "Outputs"
 
@@ -143,12 +143,12 @@
 
 === "Inputs"
 
-    | Required | Name      | Type                                               |  Default   |
-    |:--------:|:----------|:---------------------------------------------------|:----------:|
-    |    *     | `target`  | String                                             |            |
-    |    *     | `uri`     | String                                             |            |
-    |          | `headers` | Map<String, String\>                               |            |
-    |          | `timeout` | [Duration](/actions/other/#duration-type) (String) | "2000 ms"  |
+    | Required | Name      | Type                                                             |  Default   |
+    |:--------:|:----------|:-----------------------------------------------------------------|:----------:|
+    |    *     | `target`  | String                                                           |            |
+    |    *     | `uri`     | String                                                           |            |
+    |          | `headers` | Map<String, String\>                                             |            |
+    |          | `timeout` | [Duration](/documentation/actions/other/#duration-type) (String) | "2000 ms"  |
 
 === "Outputs"
 
@@ -176,13 +176,13 @@
 
 === "Inputs"
 
-    | Required | Name      | Type                                               |  Default   |
-    |:--------:|:----------|:---------------------------------------------------|:----------:|
-    |    *     | `target`  | String                                             |            |
-    |    *     | `uri`     | String                                             |            |
-    |          | `body`    | String                                             | `{}`       |
-    |          | `headers` | Map<String, String\>                               |            |
-    |          | `timeout` | [Duration](/actions/other/#duration-type) (String) | "2000 ms"  |
+    | Required | Name      | Type                                                             |  Default   |
+    |:--------:|:----------|:-----------------------------------------------------------------|:----------:|
+    |    *     | `target`  | String                                                           |            |
+    |    *     | `uri`     | String                                                           |            |
+    |          | `body`    | String                                                           | `{}`       |
+    |          | `headers` | Map<String, String\>                                             |            |
+    |          | `timeout` | [Duration](/documentation/actions/other/#duration-type) (String) | "2000 ms"  |
 
 === "Outputs"
 

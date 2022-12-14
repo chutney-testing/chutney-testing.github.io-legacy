@@ -121,10 +121,10 @@ This may depend on the underlying Chutney actions you are using.
     </dependency>
     ```
 
-    1. Example for using [SQL actions](/actions/sql) and query an Oracle database
-    2. Example for using [JMS actions](/actions/jms) with a WebLogic server
+    1. Example for using [SQL actions](/documentation/actions/sql) and query an Oracle database
+    2. Example for using [JMS actions](/documentation/actions/jms) with a WebLogic server
 
-Finally, add your own [Actions](/actions/introduction) and [Functions](/functions/classpath)
+Finally, add your own [Actions](/documentation/actions/introduction) and [Functions](/documentation/functions/classpath)
 
 === "maven"
     ``` xml

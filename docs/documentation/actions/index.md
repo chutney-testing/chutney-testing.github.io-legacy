@@ -7,14 +7,14 @@ Chutney provides a set of capabilities, or `Actions`, you can use in your scenar
 They replace all the boilerplate code you would have to write and maintain for executing your scenarios.
 You can see them as a set of small generic clients. [^1]
 
-For example, instead of writing your own HTTP client for doing a POST request, you just have to use the [HttpPost](/actions/http/#post) action
+For example, instead of writing your own HTTP client for doing a POST request, you just have to use the [HttpPost](/documentation/actions/http/#post) action
 and give it the minimum amount of information as inputs (i.e. targeted service, URI, body and headers).
 
 All actions are structured the same way with **inputs**, **outputs**, **validations** and **teardown**.
 
 !!! note "Extending Chutney actions"
     Actions are extensible and you can provide your own.  
-    For further details, see [how to implement your own action](/actions/extension/) and then [how to package Chutney with it](/todo).
+    For further details, see [how to implement your own action](/documentation/actions/extension/) and then [how to package Chutney with it](/todo).
 
 ## Inputs
 
@@ -48,7 +48,7 @@ Each action provide a set of default outputs. But they are generic and may conta
 
 Let's say you are doing an HTTP GET request. By default, this action has 3 outputs: `status`, `body`, `headers`, but you want to capture a specific value from the response body.
 
-In order to do so, you need to use an [expression](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions) and Chutney [functions](/functions/classpath/), so we recommend you to read about them for further details.
+In order to do so, you need to use an [expression](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions) and Chutney [functions](/documentation/functions/classpath/), so we recommend you to read about them for further details.
 
 Let's see a simple example where you want to get a list of movie titles rated above 85/100.
 

@@ -26,10 +26,10 @@ assert that json nodes have expected values.
 
 === "Inputs"
 
-    | Required | Name            | Type                |     Default     |                        Description                           |
-    |:--------:|:----------------|:--------------------|:----------------|:-------------------------------------------------------------|
-    |    *     | `document`      | String              |                 | json's string representation                                 |
-    |    *     | `expected`      | Map<String, Object> |                 | Keys contain [json paths](https://github.com/json-path/JsonPath){:target="_blank"} used to extract json node's data. <br/> Values contain expected nodes values or [assertions functions](/actions/assertions/#assertions-functions). |
+    | Required | Name            | Type                |     Default     | Description                                                                                                                                                                                                                                         |
+    |:--------:|:----------------|:--------------------|:----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    |    *     | `document`      | String              |                 | json's string representation                                                                                                                                                                                                                        |
+    |    *     | `expected`      | Map<String, Object> |                 | Keys contain [json paths](https://github.com/json-path/JsonPath){:target="_blank"} used to extract json node's data. <br/> Values contain expected nodes values or [assertions functions](/documentation/actions/assertions/#assertions-functions). |
 
 === "Outputs"
     No outputs
@@ -56,10 +56,10 @@ assert that xml nodes have expected values.
 
 === "Inputs"
 
-    | Required | Name            | Type        |     Default     |                        Description                           |
-    |:--------:|:----------------|:------------|:----------------|:-------------------------------------------------------------|
-    |    *     | `document`      | String      |                 | xml's string representation                                  |
-    |    *     | `expected`      | Map         |                 | keys contain [xml paths](https://www.w3schools.com/xml/xml_xpath.asp){:target="_blank"} used to extract xml node's data.<br/> Values contain expected nodes values or [assertions functions](/actions/assertions/#assertions-functions).|
+    | Required | Name            | Type        |     Default     | Description                                                                                                                                                                                                                                            |
+    |:--------:|:----------------|:------------|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    |    *     | `document`      | String      |                 | xml's string representation                                                                                                                                                                                                                            |
+    |    *     | `expected`      | Map         |                 | keys contain [xml paths](https://www.w3schools.com/xml/xml_xpath.asp){:target="_blank"} used to extract xml node's data.<br/> Values contain expected nodes values or [assertions functions](/documentation/actions/assertions/#assertions-functions). |
 
 === "Outputs"
     No outputs
@@ -86,7 +86,7 @@ assert that xml nodes have expected values.
     )
     ```
 ## Assertions functions
-placeholders used by [xml-assert](/actions/assertions/#xml-assert) and [json-assert](/actions/assertions/#json-assert) actions to assert actual values.
+placeholders used by [xml-assert](/documentation/actions/assertions/#xml-assert) and [json-assert](/documentation/actions/assertions/#json-assert) actions to assert actual values.
 
 | Placeholder      | Description                                            | Example                                             |
 |:-----------------|:-------------------------------------------------------|:----------------------------------------------------|
@@ -108,7 +108,7 @@ placeholders used by [xml-assert](/actions/assertions/#xml-assert) and [json-ass
 # Validations
 !!! Step validation 
     For functional validations, it's recommended to use above actions.
-    For technical validations, it's possible to do them on scenario step [validation](/actions/introduction/#validation).
+    For technical validations, it's possible to do them on scenario step [validation](/documentation/actions/introduction/#validation).
 
 ## Json validation
 validate json structure using a given schema.

@@ -15,7 +15,12 @@ nav:
       - Write your first scenario: getting_started/write.md
       - Run your scenario: getting_started/run.md
   - Documentation:
-      - Installation: install.md
+      - Installation:
+          - Local Development: installation/install.md
+          - CI/CD integration:
+              - synchronize: installation/scenario_sync.md
+          - Integration: installation/integration.md
+
       - Integration: integration.md
       - Write a scenario: getting_started/write.md
       - Actions:

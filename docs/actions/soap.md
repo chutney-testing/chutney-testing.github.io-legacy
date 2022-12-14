@@ -22,7 +22,7 @@
 
 === "Kotlin"
     ``` kotlin
-    HttpSoapTask(
+    HttpSoapAction(
         target = "HTTP_TARGET",
         uri = "https://github.com/search?q=chutney",
         username = "userprivate",

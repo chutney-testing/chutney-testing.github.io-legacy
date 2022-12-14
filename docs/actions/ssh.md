@@ -40,7 +40,7 @@ SCP download has no outputs
 === "Kotlin"
 
 ``` kotlin
-ScpDownloadTask(
+ScpDownloadAction(
     target = "myTarget",
     source = "/absolute/path/to/the/source/file", // (1)
     destination = "/absolute/path/to/the/destination/file", // (2)
@@ -69,7 +69,7 @@ SCP upload has no outputs
 === "Kotlin"
 
 ``` kotlin
-ScpUploadTask(
+ScpUploadAction(
     target = "myTarget",
     source = "/absolute/path/to/the/source/file", // (1)
     destination = "/absolute/path/to/the/destination/file", // (2)
@@ -101,7 +101,7 @@ SFTP download has no outputs
 === "Kotlin"
 
 ``` kotlin
-SftpDownloadTask(
+SftpDownloadAction(
     target = "myTarget",
     source = "/absolute/path/to/the/source/file", // (1)
     destination = "/absolute/path/to/the/destination/file", // (2)
@@ -137,7 +137,7 @@ SftpDownloadTask(
 === "Kotlin"
 
 ``` kotlin
-SftpFileInfoTask(
+SftpFileInfoAction(
     target = "myTarget",
     file = "/path/to/file", // (1)
     timeout = "42 ms"
@@ -167,7 +167,7 @@ SftpFileInfoTask(
 === "Kotlin"
 
 ``` kotlin
-SftpListDirTask(
+SftpListDirAction(
     target = "myTarget",
     directory = "/path/to/directory", // (1)
     timeout = "42 ms"
@@ -194,7 +194,7 @@ SCP upload has no outputs
 === "Kotlin"
 
 ``` kotlin
-SftpUploadTask(
+SftpUploadAction(
     target = "myTarget",
     source = "/absolute/path/to/the/source/file", // (1)
     destination = "/absolute/path/to/the/destination/file", // (2)
@@ -228,7 +228,7 @@ SftpUploadTask(
 === "Kotlin"
 
 ``` kotlin
-SshClientTask(
+SshClientAction(
     target = "myTarget",
     commands = listOf("{\"command: \"whoami\", timeout:\"10 s\"\"}"),
     channel = SSH_CLIENT_CHANNEL.COMMAND

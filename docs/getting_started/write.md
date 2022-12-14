@@ -65,21 +65,21 @@ Under `src/main/kotlin`, in the same package or another, create a Kotlin file (e
 ``` kotlin title="Scenarios.kt"
 package com.chutneytesting.getstart
 
-import com.chutneytesting.kotlin.dsl.HttpGetTask
+import com.chutneytesting.kotlin.dsl.HttpGetAction
 import com.chutneytesting.kotlin.dsl.Scenario
-import com.chutneytesting.kotlin.dsl.SuccessTask
+import com.chutneytesting.kotlin.dsl.SuccessAction
 import com.chutneytesting.kotlin.dsl.spEL
 
 val search_scenario = Scenario(title = "Search documents") {
     When("I visit a search engine") {
-        HttpGetTask(
+        HttpGetAction(
                 target = "search_engine",
                 uri = "/",
                 validations = mapOf("request accepted" to "status == 200".spEL())
         )
     }
     Then("I am on the front page") {
-        SuccessTask()
+        SuccessAction()
     }
 }
 ```

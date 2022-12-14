@@ -48,13 +48,13 @@ We check that everything works fine, and we will obtain a scenario ID.
 ``` kotlin 
 val first_scenario = Scenario(id = 123456, title = "Search documents") { // (1)
     When("I visit a search engine") {
-        HttpGetTask(
+        HttpGetAction(
                 target = "search_engine",
                 uri = "/"
         )
     }
     Then("I am on the front page") {
-        SuccessTask()
+        SuccessAction()
     }
 }
 ```

@@ -61,7 +61,7 @@
 
 === "Kotlin"
     ``` kotlin
-    HttpGetTask(
+    HttpGetAction(
         target = "HTTP_TARGET",
         uri = "https://github.com/search?q=chutney",
         headers = mapOf(
@@ -95,7 +95,7 @@
 
 === "Kotlin"
     ``` kotlin
-    HttpPostTask(
+    HttpPostAction(
         target = "HTTP_TARGET",
         uri = "https://github.com/search?q=chutney",
         body = "some content",
@@ -129,7 +129,7 @@
 
 === "Kotlin"
     ``` kotlin
-    HttpPutTask(
+    HttpPutAction(
         target = "HTTP_TARGET",
         uri = "https://github.com/search?q=chutney",
         body = "some content",
@@ -163,7 +163,7 @@
 
 === "Kotlin"
     ``` kotlin
-    HttpDeleteTask(
+    HttpDeleteAction(
         target = "HTTP_TARGET",
         uri = "https://github.com/search?q=chutney",
         headers = mapOf(
@@ -196,7 +196,7 @@
 
 === "Kotlin"
     ``` kotlin
-    HttpPatchTask(
+    HttpPatchAction(
         target = "HTTP_TARGET",
         uri = "https://github.com/search?q=chutney",
         body = "some content",
@@ -231,7 +231,7 @@ This action automatically registers a teardown to stop the server at the end of 
 
 === "Kotlin"
     ``` kotlin
-    HttpServerStartTask(
+    HttpServerStartAction(
         port = "8443",
         truststore-path = "/tmp/trustore.jks",
         truststore-password = "password",
@@ -253,7 +253,7 @@ This action automatically registers a teardown to stop the server at the end of 
 
 === "Kotlin"
     ``` kotlin
-    HttpServerStopTask(
+    HttpServerStopAction(
         https-server = "${#httpsServer}",
     )
     ```
@@ -282,7 +282,7 @@ Available verbs are : `GET`, `POST`, `PUT`, `DELETE`, `PATCH`, `OPTIONS`, `HEAD`
 
 === "Kotlin"
     ``` kotlin
-    HttpListenerTask(
+    HttpListenerAction(
         https-server = "${#httpsServer}",
         uri = "https://github.com/search?q=chutney",
         verb = "GET",

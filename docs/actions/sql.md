@@ -67,7 +67,7 @@ Here is an example based one the following table :
 
 === "Kotlin"
 ``` kotlin
-SqlTask(
+SqlAction(
     target = "ghibli_movies_database",
     statements = listOf(
         "SELECT * FROM movies WHERE rating > 85" // (1)

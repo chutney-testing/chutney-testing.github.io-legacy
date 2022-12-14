@@ -1,6 +1,6 @@
 # Actions
 
-[^1]: [Here, you can see the code for all actions.](https://github.com/chutney-testing/chutney/tree/master/task-impl/src/main/java/com/chutneytesting/task)
+[^1]: [Here, you can see the code for all actions.](https://github.com/chutney-testing/chutney/tree/master/action-impl/src/main/java/com/chutneytesting/action)
 
 
 Chutney provides a set of capabilities, or `Actions`, you can use in your scenarios.
@@ -77,7 +77,7 @@ In order to process it, you would need to write code using a JSONPath library an
 Chutney provides a way to run custom code during scenario execution using [Spring Expression](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions).
 
 Here is a raw expression you could write : `${T(com.jayway.jsonpath.JsonPath).parse(#body).read("$.movies[?(@.rating > 85)].title")}`  
-Fortunately, Chutney also provides [Functions](/todo) for common tasks, which helps you write SpEL.  
+Fortunately, Chutney also provides [Functions](/todo) for common needs, which helps you write SpEL.  
 In this case you can use the `json` function and the resulting SpEL would become : `${#jsonPath(#body, '$.movies[?(@.rating > 85)].title')}`
 
 Now that you know what this cryptic expression is and does, let's see the full HTTP GET action with outputs :
@@ -85,7 +85,7 @@ Now that you know what this cryptic expression is and does, let's see the full H
 === "Kotlin"
 
     ``` kotlin
-    HttpGetTask(
+    HttpGetAction(
         target = "ghibli_movie_service",
         uri = "/all?offset=0&limit=3",
         outputs = mapOf(
@@ -135,7 +135,7 @@ Each validation has a name and evaluates to a boolean, using [expressions](/todo
 === "Kotlin"
 
     ``` kotlin
-    HttpGetTask(
+    HttpGetAction(
         target = "ghibli_movie_service",
         uri = "/all?offset=0&limit=3",
         outputs = mapOf(
@@ -194,8 +194,8 @@ However, we suggest you the following tips:
 
 ``` kotlin
 Step("Insert data in a table") { // (1)
-    Step("Final task : delete data at the end") { // (2)
-        FinalTask(
+    Step("Final action : delete data at the end") { // (2)
+        FinalAction(
             name = "Delete data",
             type = "sql",
             target = "my_database",
@@ -205,7 +205,7 @@ Step("Insert data in a table") { // (1)
         )
     }
     Step("Insert data in MY_TABLE") { // (3)
-        SqlTask(
+        SqlAction(
             target = "my_database",
             statements = listOf(
                 "insert into MY_TABLE (ID, NAME) values(1, 'my_name')"

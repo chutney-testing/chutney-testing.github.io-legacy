@@ -41,7 +41,7 @@
 
 === "Kotlin"
     ``` kotlin
-    RadiusAccountingTask(
+    RadiusAccountingAction(
         target = "RADIUS_TARGET",
         userName = "iotUsername",
         attributes = mapOf(
@@ -76,7 +76,7 @@ Protocols `mschapv2` and `eap` are not yet supported by our client. See [AccessR
 
 === "Kotlin"
     ``` kotlin
-    RadiusAuthenticateTask(
+    RadiusAuthenticateAction(
         target = "RADIUS_TARGET",
         userName = "https://github.com/search?q=chutney",
         userPassword = "some content",

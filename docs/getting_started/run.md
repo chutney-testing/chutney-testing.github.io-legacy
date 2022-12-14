@@ -86,7 +86,7 @@ class SearchFeat {
     === "gradle"
 
         ``` kotlin
-        tasks.test {
+        actions.test {
             filter {
                 includeTestsMatching("*Feat")
             }

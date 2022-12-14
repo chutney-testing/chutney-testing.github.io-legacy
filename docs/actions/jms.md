@@ -48,7 +48,7 @@ No output. Only a log in report if message was successfully sent
 
 === "Kotlin"
 ``` kotlin
-JmsSenderTask(
+JmsSenderAction(
     target = "JMS_TARGET",
     destination = "jms/domain/my/queue",
     body = "my text body"
@@ -86,7 +86,7 @@ JmsSenderTask(
 
 === "Kotlin"
 ``` kotlin
-JmsListenerTask(
+JmsListenerAction(
     target = "JMS_TARGET",
     destination = "jms/domain/my/queue",
     selector = "type = 'boat' AND color = 'red'",
@@ -119,7 +119,7 @@ No output. Only a log in report with number of messages removed
 
 === "Kotlin"
 ``` kotlin
-JmsCleanQueueTask(
+JmsCleanQueueAction(
     target = "JMS_TARGET",
     destination = "jms/domain/my/queue",
     selector = "type = 'boat' AND color = 'red'",

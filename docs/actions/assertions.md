@@ -14,7 +14,7 @@ This action takes a list of assertions written using [SpEL](https://docs.spring.
 ### Example
 === "Kotlin"
     ``` kotlin
-    AssertTask(
+    AssertAction(
         asserts = listOf(
             "\${#status==200}"
         )
@@ -37,7 +37,7 @@ assert that json nodes have expected values.
 ### Example
 === "Kotlin"
     ``` kotlin
-    JsonAssertTask(
+    JsonAssertAction(
         document = """
                     {
                         "something": {
@@ -67,7 +67,7 @@ assert that xml nodes have expected values.
 ### Example
 === "Kotlin"
     ``` kotlin
-    XmlAssertTask(
+    XmlAssertAction(
         document =  """
                     <root>
                        <node1 at1=\"val3\">
@@ -86,7 +86,7 @@ assert that xml nodes have expected values.
     )
     ```
 ## Assertions functions
-placeholders used by [xml-assert](/actions/assertions/#xml-assert) and [json-assert](/actions/assertions/#json-assert) tasks to assert actual values.
+placeholders used by [xml-assert](/actions/assertions/#xml-assert) and [json-assert](/actions/assertions/#json-assert) actions to assert actual values.
 
 | Placeholder      | Description                                            | Example                                             |
 |:-----------------|:-------------------------------------------------------|:----------------------------------------------------|
@@ -125,7 +125,7 @@ validate json structure using a given schema.
 ### Example
 === "Kotlin"
     ``` kotlin
-    JsonValidationTask(
+    JsonValidationAction(
         json = """
                {
                    "id": 1,
@@ -176,7 +176,7 @@ validate xml structure using a given schema.
 ### Example
 === "Kotlin"
     ``` kotlin
-    XsdValidationTask(
+    XsdValidationAction(
         xml = """
               <?xml version=\"1.0\"?>
               <Employee xmlns=\"https://www.chutneytesting.com/Employee\">
@@ -261,7 +261,7 @@ compare two strings using a comparison mode.
 ### Example
 === "Kotlin"
     ``` kotlin
-    CompareTask(
+    CompareAction(
         actual = "chutney",
         expected = "chutney",
         mode = "EQUALS" // case insensitive
@@ -297,7 +297,7 @@ compare two json inputs(the whole content or only some nodes) using a comparison
 ### Example
 === "Kotlin"
     ``` kotlin
-        JsonCompareTask(
+        JsonCompareAction(
             document1 = """
                     {
                         "something": {

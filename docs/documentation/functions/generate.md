@@ -85,7 +85,7 @@ Following functions help you generate random values.
 
     Generate a random int value between 0 (included) and a given bound value (excluded) (i.e `[0, bound[`).
 
-    See [Random.nextInt(int)](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Random.html#nextInt(int)) for further details
+    See [Random.nextInt(int)](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Random.html#nextInt(int)){:target="_blank"} for further details
 
     **Returns** : 
 
@@ -101,7 +101,7 @@ Following functions help you generate random values.
 
     Generate a random long value.
 
-    See [Random.nextLong()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Random.html#nextLong()) for further details
+    See [Random.nextLong()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Random.html#nextLong()){:target="_blank"} for further details
 
     **Returns** :
 
@@ -117,7 +117,7 @@ Following functions help you generate random values.
 
     Generates a unique identifier (UUID). 
 
-    See [UUID.uuid()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/UUID.html) for further details
+    See [UUID.uuid()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/UUID.html){:target="_blank"} for further details
 
     **Returns** :
 

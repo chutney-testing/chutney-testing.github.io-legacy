@@ -2,7 +2,7 @@
 
 !!! note "String resourceContent(String name, String charset)"
 
-    See [Files.readString()](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/nio/file/Files.html#readString(java.nio.file.Path,java.nio.charset.Charset)) for further details
+    See [Files.readString()](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/nio/file/Files.html#readString(java.nio.file.Path,java.nio.charset.Charset)){:target="_blank"} for further details
 
     **Returns** :
 
@@ -16,7 +16,7 @@
 
 !!! note "String resourcePath(String name)"
 
-    See [Path.toString()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/Path.html#toString()) for further details
+    See [Path.toString()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/Path.html#toString()){:target="_blank"} for further details
 
     **Returns** :
 
@@ -32,7 +32,7 @@
 
     Finds all the resources with the given name. A resource is some data (images, audio, text, etc) that can be accessed by class code in a way that is independent of the location of the code.
 
-    See [ClassLoader.getResources()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/ClassLoader.html#getResources(java.lang.String)) for further details
+    See [ClassLoader.getResources()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/ClassLoader.html#getResources(java.lang.String)){:target="_blank"} for further details
 
     **Returns** :
 

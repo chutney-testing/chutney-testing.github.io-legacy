@@ -12,11 +12,11 @@
 
 === "Outputs"
 
-    |      Name | Type                                                                                                                      |
-    |----------:|:--------------------------------------------------------------------------------------------------------------------------|
-    |  `status` | int                                                                                                                       |
-    |    `body` | String                                                                                                                    |
-    | `headers` | [HttpHeaders](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/HttpHeaders.html) |
+    |      Name | Type                                                                                                                                        |
+    |----------:|:--------------------------------------------------------------------------------------------------------------------------------------------|
+    |  `status` | int                                                                                                                                         |
+    |    `body` | String                                                                                                                                      |
+    | `headers` | [HttpHeaders](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/HttpHeaders.html){:target="_blank"} |
 
 ### Example
 

@@ -1,6 +1,6 @@
-[![Build](https://github.com/chutney-testing/chutney/workflows/Build/badge.svg?branch=master)](https://github.com/chutney-testing/chutney/actions)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.chutneytesting/server/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.chutneytesting/server)
-[![Zulip chat](https://img.shields.io/badge/zulip-join_chat-brightgreen.svg)](https://chutney-testing.zulipchat.com/)
+[![Build](https://github.com/chutney-testing/chutney/workflows/Build/badge.svg?branch=master)](https://github.com/chutney-testing/chutney/actions){:target="_blank"}
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.chutneytesting/server/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.chutneytesting/server){:target="_blank"}
+[![Zulip chat](https://img.shields.io/badge/zulip-join_chat-brightgreen.svg)](https://chutney-testing.zulipchat.com/){:target="_blank"}
 
 ----
 **Spice up your spec , Better `taste` your app !**

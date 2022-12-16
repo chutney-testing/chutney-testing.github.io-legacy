@@ -51,11 +51,11 @@
 
 === "Outputs"
 
-    |      Name | Type                                                                                                                      |
-    |----------:|:--------------------------------------------------------------------------------------------------------------------------|
-    |  `status` | int                                                                                                                       |
-    |    `body` | String                                                                                                                    |
-    | `headers` | [HttpHeaders](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/HttpHeaders.html) |
+    |      Name | Type                                                                                                                                        |
+    |----------:|:--------------------------------------------------------------------------------------------------------------------------------------------|
+    |  `status` | int                                                                                                                                         |
+    |    `body` | String                                                                                                                                      |
+    | `headers` | [HttpHeaders](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/HttpHeaders.html){:target="_blank"} |
 
 ### Example
 
@@ -85,11 +85,11 @@
 
 === "Outputs"
 
-    |      Name | Type                                                                                                                      |
-    |----------:|:--------------------------------------------------------------------------------------------------------------------------|
-    |  `status` | int                                                                                                                       |
-    |    `body` | String                                                                                                                    |
-    | `headers` | [HttpHeaders](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/HttpHeaders.html) |
+    |      Name | Type                                                                                                                                        |
+    |----------:|:--------------------------------------------------------------------------------------------------------------------------------------------|
+    |  `status` | int                                                                                                                                         |
+    |    `body` | String                                                                                                                                      |
+    | `headers` | [HttpHeaders](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/HttpHeaders.html){:target="_blank"} |
 
 ### Example
 
@@ -119,11 +119,11 @@
 
 === "Outputs"
 
-    |      Name | Type                                                                                                                      |
-    |----------:|:--------------------------------------------------------------------------------------------------------------------------|
-    |  `status` | int                                                                                                                       |
-    |    `body` | String                                                                                                                    |
-    | `headers` | [HttpHeaders](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/HttpHeaders.html) |
+    |      Name | Type                                                                                                                                        |
+    |----------:|:--------------------------------------------------------------------------------------------------------------------------------------------|
+    |  `status` | int                                                                                                                                         |
+    |    `body` | String                                                                                                                                      |
+    | `headers` | [HttpHeaders](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/HttpHeaders.html){:target="_blank"} |
 
 ### Example
 
@@ -152,11 +152,11 @@
 
 === "Outputs"
 
-    |      Name | Type                                                                                                                      |
-    |----------:|:--------------------------------------------------------------------------------------------------------------------------|
-    |  `status` | int                                                                                                                       |
-    |    `body` | String                                                                                                                    |
-    | `headers` | [HttpHeaders](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/HttpHeaders.html) |
+    |      Name | Type                                                                                                                                        |
+    |----------:|:--------------------------------------------------------------------------------------------------------------------------------------------|
+    |  `status` | int                                                                                                                                         |
+    |    `body` | String                                                                                                                                      |
+    | `headers` | [HttpHeaders](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/HttpHeaders.html){:target="_blank"} |
 
 
 ### Example
@@ -186,11 +186,11 @@
 
 === "Outputs"
 
-    |      Name | Type                                                                                                                      |
-    |----------:|:--------------------------------------------------------------------------------------------------------------------------|
-    |  `status` | int                                                                                                                       |
-    |    `body` | String                                                                                                                    |
-    | `headers` | [HttpHeaders](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/HttpHeaders.html) |
+    |      Name | Type                                                                                                                                        |
+    |----------:|:--------------------------------------------------------------------------------------------------------------------------------------------|
+    |  `status` | int                                                                                                                                         |
+    |    `body` | String                                                                                                                                      |
+    | `headers` | [HttpHeaders](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/HttpHeaders.html){:target="_blank"} |
 
 ### Example
 
@@ -223,9 +223,9 @@ This action automatically registers a teardown to stop the server at the end of 
 
 === "Outputs"
 
-    |         Name | Type                                                                                                                                 |
-    |-------------:|:-------------------------------------------------------------------------------------------------------------------------------------|
-    | httpsServer  | [WireMockServer](https://github.com/wiremock/wiremock/blob/master/src/main/java/com/github/tomakehurst/wiremock/WireMockServer.java) |
+    |         Name | Type                                                                                                                                                   |
+    |-------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | httpsServer  | [WireMockServer](https://github.com/wiremock/wiremock/blob/master/src/main/java/com/github/tomakehurst/wiremock/WireMockServer.java){:target="_blank"} |
 
 ### Example
 
@@ -245,9 +245,9 @@ This action automatically registers a teardown to stop the server at the end of 
 
 === "Inputs"
 
-    | Required | Name         | Type                                                                                                                                 | Default |
-    |:--------:|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------|:-------:|
-    |   *      | https-server | [WireMockServer](https://github.com/wiremock/wiremock/blob/master/src/main/java/com/github/tomakehurst/wiremock/WireMockServer.java) |         |
+    | Required | Name         | Type                                                                                                                                                   | Default |
+    |:--------:|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|:-------:|
+    |   *      | https-server | [WireMockServer](https://github.com/wiremock/wiremock/blob/master/src/main/java/com/github/tomakehurst/wiremock/WireMockServer.java){:target="_blank"} |         |
 
 ### Example
 

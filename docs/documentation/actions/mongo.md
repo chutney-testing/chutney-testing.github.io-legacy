@@ -177,7 +177,7 @@ MongoListAction(
     |          | `arrayFilters` | List<String\> |         |
 
     !!! note
-        ArrayFilters are supported since MongoDB v3.5.12+ ([https://jira.mongodb.org/browse/SERVER-831](https://jira.mongodb.org/browse/SERVER-831))
+        ArrayFilters are supported since MongoDB v3.5.12+ ([https://jira.mongodb.org/browse/SERVER-831](https://jira.mongodb.org/browse/SERVER-831){:target="_blank"})
 === "Outputs"
 
     |        Name     | Type |

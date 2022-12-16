@@ -124,13 +124,13 @@ SftpDownloadAction(
 
 === "Outputs"
 
-    |               Name | Type                                                                                                       |
-    |-------------------:|:-----------------------------------------------------------------------------------------------------------|
-    |     `CreationDate` | [LocalDateTime](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/LocalDateTime.html) |
-    |       `lastAccess` | [LocalDateTime](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/LocalDateTime.html) |
-    | `lastModification` | [LocalDateTime](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/LocalDateTime.html) |
-    |             `type` | String                                                                                                     |
-    |      `owner:group` | String                                                                                                     |
+    |               Name | Type                                                                                                                         |
+    |-------------------:|:-----------------------------------------------------------------------------------------------------------------------------|
+    |     `CreationDate` | [LocalDateTime](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/LocalDateTime.html){:target="_blank"} |
+    |       `lastAccess` | [LocalDateTime](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/LocalDateTime.html){:target="_blank"} |
+    | `lastModification` | [LocalDateTime](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/LocalDateTime.html){:target="_blank"} |
+    |             `type` | String                                                                                                                       |
+    |      `owner:group` | String                                                                                                                       |
 
 ### Example
 

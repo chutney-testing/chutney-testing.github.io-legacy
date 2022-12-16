@@ -1,11 +1,11 @@
 !!! note "Packaging example"
-    Maven module [local-dev](https://github.com/chutney-testing/chutney/tree/master/packaging/local-dev) shows one way of packaging Chutney.  
+    Maven module [local-dev](https://github.com/chutney-testing/chutney/tree/master/packaging/local-dev){:target="_blank"} shows one way of packaging Chutney.  
     Use it as an example to make your own package, custom to your needs.
 
 
 # Maven configuration
 
-Use [Spring Boot Build Tool Plugins](https://docs.spring.io/spring-boot/docs/2.7.x/reference/html/build-tool-plugins.html#build-tool-plugins) to package Chutney as an executable jar.
+Use [Spring Boot Build Tool Plugins](https://docs.spring.io/spring-boot/docs/2.7.x/reference/html/build-tool-plugins.html#build-tool-plugins){:target="_blank"} to package Chutney as an executable jar.
 
 === "maven"
     ``` xml
@@ -115,7 +115,7 @@ Finally, add your own [Actions](/documentation/actions/) and [Functions](/docume
 
 # Logback
 
-A [Logback configuration](https://logback.qos.ch/manual/configuration.html) must be package in the packaging project, in classpath root.
+A [Logback configuration](https://logback.qos.ch/manual/configuration.html){:target="_blank"} must be package in the packaging project, in classpath root.
 
 !!! note "Logback configuration examples"
 

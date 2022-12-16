@@ -1,7 +1,7 @@
 # Database
 
-[Liquidbase](https://www.liquibase.org/) is used to manage Chutney RDBMS schema.  
-You can find corresponding changelog [here](https://github.com/chutney-testing/chutney/blob/master/server/src/main/resources/changelog/db.changelog-master.xml).
+[Liquidbase](https://www.liquibase.org/){:target="_blank"} is used to manage Chutney RDBMS schema.  
+You can find corresponding changelog [here](https://github.com/chutney-testing/chutney/blob/master/server/src/main/resources/changelog/db.changelog-master.xml){:target="_blank"}.
 
 !!! note
     Chutney has been tested with H2 and PostgreSQL databases.
@@ -15,7 +15,7 @@ To configure your datasource, use the property `spring.datasource`
             url: jdbc:h2:mem:dbName
     ```
     !!! note
-        You can find an example in maven module [local-dev](https://github.com/chutney-testing/chutney/tree/master/packaging/local-dev), which uses an embedded H2 with filesystem persistence.
+        You can find an example in maven module [local-dev](https://github.com/chutney-testing/chutney/tree/master/packaging/local-dev){:target="_blank"}, which uses an embedded H2 with filesystem persistence.
 
 === "PostgreSQL (SSL two way)"
     ``` yaml
@@ -27,9 +27,9 @@ To configure your datasource, use the property `spring.datasource`
 
 # Logs
 
-Chutney depends on [SLF4J](https://www.slf4j.org/) API logging library.
+Chutney depends on [SLF4J](https://www.slf4j.org/){:target="_blank"} API logging library.
 
-At runtime, the Chutney server use the [Logback](https://logback.qos.ch/) SLF4J implementation and bridges all legacy APIs (JCL, LOG4J and JUL).
+At runtime, the Chutney server use the [Logback](https://logback.qos.ch/){:target="_blank"} SLF4J implementation and bridges all legacy APIs (JCL, LOG4J and JUL).
 
 !!! warning
 Since the server bridges all legacy APIs, you must be careful to not include any of the following libraries :
@@ -38,9 +38,9 @@ Since the server bridges all legacy APIs, you must be careful to not include any
     * log4j-over-slf4j and slf4j-reload4j
     * jul-to-slf4j
 
-    Read [Bridging legacy APIs](https://logback.qos.ch/manual/configuration.html) for further details.
+    Read [Bridging legacy APIs](https://logback.qos.ch/manual/configuration.html){:target="_blank"} for further details.
 
-A [Logback configuration](https://logback.qos.ch/manual/configuration.html) must be package in the packaging project, in classpath root.
+A [Logback configuration](https://logback.qos.ch/manual/configuration.html){:target="_blank"} must be package in the packaging project, in classpath root.
 
 ??? note "Logback configuration examples"
 

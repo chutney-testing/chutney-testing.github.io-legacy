@@ -1,7 +1,7 @@
 
 !!! note "Define a radius target"
 
-    For all radius actions, target must defined these three properties (See [RadiusClient](https://github.com/ctran/TinyRadius/blob/master/src/main/java/org/tinyradius/util/RadiusClient.java) for more details)
+    For all radius actions, target must defined these three properties (See [RadiusClient](https://github.com/ctran/TinyRadius/blob/master/src/main/java/org/tinyradius/util/RadiusClient.java){:target="_blank"} for more details)
 
     * sharedSecret
     * authenticatePort
@@ -23,18 +23,18 @@
 
 === "Inputs"
 
-    | Required  | Name             | Type                 | Default |                                Comment                                 |
-    |:---------:|:-----------------|:---------------------|:-------:|:----------------------------------------------------------------------:|
-    |     *     | `target`         | String               |         |                                                                        |
-    |     *     | `userName`       | String               |         |                                                                        |
-    |     *     | `accountingType` | Integer              |         | [between 1 and 15](https://www.rfc-editor.org/rfc/rfc2866#section-5.1) |
-    |           | `attributes`     | Map<String, String\> |         |                                                                        |
+    | Required  | Name             | Type                 | Default |                             Comment                                                      |
+    |:---------:|:-----------------|:---------------------|:-------:|:----------------------------------------------------------------------------------------:|
+    |     *     | `target`         | String               |         |                                                                                          |
+    |     *     | `userName`       | String               |         |                                                                                          |
+    |     *     | `accountingType` | Integer              |         | [between 1 and 15](https://www.rfc-editor.org/rfc/rfc2866#section-5.1){:target="_blank"} |
+    |           | `attributes`     | Map<String, String\> |         |                                                                                          |
 
 === "Outputs"
 
-    |             Name | Type                                                                                                                  |
-    |-----------------:|:----------------------------------------------------------------------------------------------------------------------|
-    | `radiusResponse` | [RadiusPacket](https://github.com/ctran/TinyRadius/blob/master/src/main/java/org/tinyradius/packet/RadiusPacket.java) |
+    |             Name | Type                                                                                                                                    |
+    |-----------------:|:----------------------------------------------------------------------------------------------------------------------------------------|
+    | `radiusResponse` | [RadiusPacket](https://github.com/ctran/TinyRadius/blob/master/src/main/java/org/tinyradius/packet/RadiusPacket.java){:target="_blank"} |
 
 
 ### Example
@@ -54,7 +54,7 @@
 
 # Radius authenticate
 
-Protocols `mschapv2` and `eap` are not yet supported by our client. See [AccessRequest.encodeRequestAttributes(...)](https://github.com/ctran/TinyRadius/blob/master/src/main/java/org/tinyradius/packet/AccessRequest.java)
+Protocols `mschapv2` and `eap` are not yet supported by our client. See [AccessRequest.encodeRequestAttributes(...)](https://github.com/ctran/TinyRadius/blob/master/src/main/java/org/tinyradius/packet/AccessRequest.java){:target="_blank"}
 
 === "Inputs"
 
@@ -68,9 +68,9 @@ Protocols `mschapv2` and `eap` are not yet supported by our client. See [AccessR
 
 === "Outputs"
 
-    |             Name | Type                                                                                                                  |
-    |-----------------:|:----------------------------------------------------------------------------------------------------------------------|
-    | `radiusResponse` | [RadiusPacket](https://github.com/ctran/TinyRadius/blob/master/src/main/java/org/tinyradius/packet/RadiusPacket.java) |
+    |             Name | Type                                                                                                                                    |
+    |-----------------:|:----------------------------------------------------------------------------------------------------------------------------------------|
+    | `radiusResponse` | [RadiusPacket](https://github.com/ctran/TinyRadius/blob/master/src/main/java/org/tinyradius/packet/RadiusPacket.java){:target="_blank"} |
 
 ### Example
 

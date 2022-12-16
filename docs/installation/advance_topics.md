@@ -1,6 +1,6 @@
 # Spring Boot Server
 
-Following section shows how to configure the [Spring Boot server](https://docs.spring.io/spring-boot/docs/2.7.x/reference/html/application-properties.html#appendix.application-properties.server).
+Following section shows how to configure the [Spring Boot server](https://docs.spring.io/spring-boot/docs/2.7.x/reference/html/application-properties.html#appendix.application-properties.server){:target="_blank"}.
 
 # Liquibase
 
@@ -8,7 +8,7 @@ Following section shows how to configure the [Spring Boot server](https://docs.s
 
 # Metrics
 
-Since Chutney relies on Spring Boot [Actuator](#spring-boot-actuator) and [Micrometer](https://micrometer.io/) auto-configuration, it includes [Prometheus](https://micrometer.io/docs/registry/prometheus) by default.  
+Since Chutney relies on Spring Boot [Actuator](#spring-boot-actuator) and [Micrometer](https://micrometer.io/){:target="_blank"} auto-configuration, it includes [Prometheus](https://micrometer.io/docs/registry/prometheus) by default.  
 So you can find and use [default metrics](https://docs.spring.io/spring-boot/docs/2.7.x/reference/html/actuator.html#actuator.metrics.supported) : JVM, System, Datasource, Loggers, Executors and Spring MVC metrics.
 
 Moreover, Chutney provides following metrics and corresponding Micrometer tags :

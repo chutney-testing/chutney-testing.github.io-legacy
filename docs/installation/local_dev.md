@@ -7,7 +7,7 @@ and allow functional and business analyst to review and be involved in testing t
 
 That's why we provide a server and web UI to help us do all these things.
 
-You can find all code and configuration below in this [example project](https://github.com/chutney-testing/chutney-project-template)
+You can find all code and configuration below in this [example project](https://github.com/chutney-testing/chutney-project-template){:target="_blank"}
 
 # Start a server
 

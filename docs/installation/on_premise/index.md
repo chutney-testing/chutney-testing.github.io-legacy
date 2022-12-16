@@ -17,9 +17,9 @@ This page will guide you on how to :
 
 !!! important "Quick technical insight"
 
-    * Chutney server is a [Spring Boot](https://docs.spring.io/spring-boot/docs/2.7.x/reference/html/index.html) application running with [Undertow](https://undertow.io/) and based on a standard Spring stack (mvc, webflux, security)
-    * Chutney UI is an [Angular](https://angular.io/) web application
-    * Chutney is packaged as a [Spring Boot executable jar](https://docs.spring.io/spring-boot/docs/2.7.x/reference/html/executable-jar.html#appendix.executable-jar)
+    * Chutney server is a [Spring Boot](https://docs.spring.io/spring-boot/docs/2.7.x/reference/html/index.html){:target="_blank"} application running with [Undertow](https://undertow.io/) and based on a standard Spring stack (mvc, webflux, security){:target="_blank"}
+    * Chutney UI is an [Angular](https://angular.io/){:target="_blank"} web application
+    * Chutney is packaged as a [Spring Boot executable jar](https://docs.spring.io/spring-boot/docs/2.7.x/reference/html/executable-jar.html#appendix.executable-jar){:target="_blank"}
     * Chutney follows Angular and Spring Boot lastest versions and corresponding dependencies
 
 # Configuration

@@ -101,7 +101,7 @@ This may depend on the underlying Chutney actions you are using.
     1. Example for using [SQL actions](/documentation/actions/sql) and query an Oracle database
     2. Example for using [JMS actions](/documentation/actions/jms) with a WebLogic server
 
-Finally, add your own [Actions](/documentation/actions/introduction) and [Functions](/documentation/functions/classpath)
+Finally, add your own [Actions](/documentation/actions/) and [Functions](/documentation/functions/classpath) (see [extending Chutney](/documentation/actions/extension) for further details)
 
 === "maven"
     ``` xml

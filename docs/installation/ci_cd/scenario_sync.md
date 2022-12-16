@@ -1,16 +1,5 @@
 # Synchronize *your* kotlin scenario with a server
 
-## Create a 'dumb' scenario from the UI
-
-We check that everything works fine, and we will obtain a scenario ID.
-
-1. Access the UI at : [https://localhost:8443/](https://localhost:8443/)
-2. Log in using default credentials `admin` / `admin`
-3. Go to [scenarios list page](https://localhost:8443/#/scenario) and create a scenario (click on the pencil icon :fontawesome-solid-pencil:)
-4. Save it as is without editing
-5. Check everything works fine by running it
-6. Go back to [scenarios list page](https://localhost:8443/#/scenario) and note the scenario ID. **We will need it later for synchronization.**
-
 ## Create or update your Kotlin scenario
 
 1. First, follow how to [write your first scenario](/getting_started/write/#write-a-scenario) to create your own scenario with Kotlin.

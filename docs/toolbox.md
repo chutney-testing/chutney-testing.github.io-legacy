@@ -1,5 +1,5 @@
-* [mkdocs.org](https://www.mkdocs.org/user-guide/)
-* [mkdocs-material](https://squidfunk.github.io/mkdocs-material/reference/)
+* [mkdocs.org](https://www.mkdocs.org/user-guide/){:target="_blank"}
+* [mkdocs-material](https://squidfunk.github.io/mkdocs-material/reference/){:target="_blank"}
 
 # Main Section
 
@@ -38,7 +38,7 @@
       contains: markdown # (2)
     ```
 
-    1. Everywhere a comment is possible in the target language (thanksfully [pygment supports it for json](https://github.com/pygments/pygments/pull/2049))
+    1. Everywhere a comment is possible in the target language (thanksfully [pygment supports it for json](https://github.com/pygments/pygments/pull/2049){:target="_blank"})
     2. Code annotation contain `code`, __formatted
          text__, images, ... basically anything that can be written in Markdown.
 

@@ -21,7 +21,7 @@
 
 === "Kotlin"
     ``` kotlin
-    AmqpBasicPublishTask(
+    AmqpBasicPublishAction(
         target: "AMQP_TARGET",
         exchange-name:"amqpexchange",
         routing-key:"amqpkeyroute",
@@ -60,7 +60,7 @@
 
 === "Kotlin"
     ``` kotlin
-    AmqpBasicConsumeTask(
+    AmqpBasicConsumeAction(
         target:"AMQP_TARGET",
         queue-name: "waitingqueue",
         nb-messages: "5",
@@ -92,7 +92,7 @@
 
 === "Kotlin"
     ``` kotlin
-    AmqpBasicGetTask(
+    AmqpBasicGetAction(
         target:"AMQP_TARGET",
         queue-name: "waitingqueue"
     )
@@ -116,7 +116,7 @@
 ### Example
 === "Kotlin"
     ``` kotlin
-    AmqpQpidServerStartTask(
+    AmqpQpidServerStartAction(
         init-config: "amqpinitconfig"
     )
     ```
@@ -133,7 +133,7 @@
 
 === "Kotlin"
     ``` kotlin
-    AmqpQpidServerStopTask(
+    AmqpQpidServerStopAction(
         qpid-launcher: "amqpqpidlaunch"
     )
     ```
@@ -150,7 +150,7 @@
 
 === "Kotlin"
     ``` kotlin
-    AmqpCleanQueuesTask(
+    AmqpCleanQueuesAction(
         target:"AMQP_TARGET",
         queue-names: ["first queue"], ["second queue"]
     )
@@ -177,7 +177,7 @@
 
 ### Teardown
 
-Some tasks might have a teardown just like this one. If it is the case, the queue will be unbind and then deleted.
+Some Actions might have a teardown just like this one. If it is the case, the queue will be unbind and then deleted.
 
 |                 Name | Arguments                                   |
 |---------------------:|:--------------------------------------------|
@@ -189,7 +189,7 @@ Some tasks might have a teardown just like this one. If it is the case, the queu
 
 === "Kotlin"
     ``` kotlin
-    AmqpCreateBoundTemporaryQueueTask(
+    AmqpCreateBoundTemporaryQueueAction(
         target:"AMQP_TARGET",
         exchange-name:"amqpexchange",
         routing-key:"amqpkeyroute",
@@ -216,7 +216,7 @@ Some tasks might have a teardown just like this one. If it is the case, the queu
 
 === "Kotlin"
     ``` kotlin
-    AmqpDeleteQueueTask(
+    AmqpDeleteQueueAction(
         target:"AMQP_TARGET",
         queue-name: "waitingqueue"
     )
@@ -236,7 +236,7 @@ Some tasks might have a teardown just like this one. If it is the case, the queu
 
 === "Kotlin"
     ``` kotlin
-        AmqpUnbindQueueTask(
+        AmqpUnbindQueueAction(
         target:"AMQP_TARGET",
         queue-name:"waitingqueue",
         exchange-name:"amqpexchange",

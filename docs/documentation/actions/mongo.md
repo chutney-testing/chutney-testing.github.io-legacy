@@ -55,7 +55,7 @@
 
 === "Kotlin"
 ``` kotlin
-MongoCountTask(
+MongoCountAction(
     target = "mongo_target",
     collection = "ghibli_movies",
     query = "{ rating: { \$gt: 85 } }"
@@ -82,7 +82,7 @@ MongoCountTask(
 
 === "Kotlin"
 ``` kotlin
-MongoDeleteTask(
+MongoDeleteAction(
     target = "mongo_target",
     collection = "ghibli_movies",
     query = "{ director: { \"Hayao Miyazaki\" } }"
@@ -110,7 +110,7 @@ MongoDeleteTask(
 
 === "Kotlin"
 ``` kotlin
-MongoFindTask(
+MongoFindAction(
     target = "mongo_target",
     collection = "ghibli_movies",
     query = "{ director: { \"Hayao Miyazaki\" } }",
@@ -122,11 +122,11 @@ MongoFindTask(
 
 === "Inputs"
 
-| Required | Name         | Type    | Default |
-|:--------:|:-------------|:--------|:-------:|
-|    *     | `target`     | String  |         |
-|    *     | `collection` | String  |         |
-|    *     | `document`   | String  |         |
+    | Required | Name         | Type    | Default |
+    |:--------:|:-------------|:--------|:-------:|
+    |    *     | `target`     | String  |         |
+    |    *     | `collection` | String  |         |
+    |    *     | `document`   | String  |         |
 
 *Insert action does not have output.*
 
@@ -134,7 +134,7 @@ MongoFindTask(
 
 === "Kotlin"
 ``` kotlin
-MongoInsertTask(
+MongoInsertAction(
     target = "mongo_target",
     collection = "ghibli_movies",
     document = "{ title: \"Pom Poko\", director: \"Isao Takahata\", rating: 77 }"
@@ -159,7 +159,7 @@ MongoInsertTask(
 
 === "Kotlin"
 ``` kotlin
-MongoListTask(
+MongoListAction(
     target = "mongo_target"
 )
 ```
@@ -177,7 +177,7 @@ MongoListTask(
     |          | `arrayFilters` | List<String\> |         |
 
     !!! note
-        ArrayFilters are supported since MongoDB v3.5.12+ ([https://jira.mongodb.org/browse/SERVER-831](https://jira.mongodb.org/browse/SERVER-831))
+        ArrayFilters are supported since MongoDB v3.5.12+ ([https://jira.mongodb.org/browse/SERVER-831](https://jira.mongodb.org/browse/SERVER-831){:target="_blank"})
 === "Outputs"
 
     |        Name     | Type |
@@ -188,7 +188,7 @@ MongoListTask(
 
 === "Kotlin"
 ``` kotlin
-MongoUpdateTask(
+MongoUpdateAction(
     target = "mongo_target",
     collection = "ghibli_movies",
     filter = "{ director: { \"Hayao Miyazaki\" } }",

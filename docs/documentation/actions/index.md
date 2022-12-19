@@ -1,16 +1,20 @@
 # Actions
 
-[^1]: [Here, you can see the code for all actions.](https://github.com/chutney-testing/chutney/tree/master/task-impl/src/main/java/com/chutneytesting/task)
+[^1]: [Here, you can see the code for all actions.](https://github.com/chutney-testing/chutney/tree/master/action-impl/src/main/java/com/chutneytesting/action)
 
 
 Chutney provides a set of capabilities, or `Actions`, you can use in your scenarios.
 They replace all the boilerplate code you would have to write and maintain for executing your scenarios.
 You can see them as a set of small generic clients. [^1]
 
-For example, instead of writing your own HTTP client for doing a POST request, you just have to use the [HttpPost](/actions/http/#post) action
+For example, instead of writing your own HTTP client for doing a POST request, you just have to use the [HttpPost](/documentation/actions/http/#post) action
 and give it the minimum amount of information as inputs (i.e. targeted service, URI, body and headers).
 
 All actions are structured the same way with **inputs**, **outputs**, **validations** and **teardown**.
+
+!!! note "Extending Chutney actions"
+    Actions are extensible and you can provide your own.  
+    For further details, see [how to implement your own action](/documentation/actions/extension/) and then [how to package Chutney with it](/todo).
 
 ## Inputs
 
@@ -44,7 +48,7 @@ Each action provide a set of default outputs. But they are generic and may conta
 
 Let's say you are doing an HTTP GET request. By default, this action has 3 outputs: `status`, `body`, `headers`, but you want to capture a specific value from the response body.
 
-In order to do so, you need to use an [expression](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions) and Chutney [functions](/functions/classpath/), so we recommend you to read about them for further details.
+In order to do so, you need to use an [expression](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions) and Chutney [functions](/documentation/functions/classpath/), so we recommend you to read about them for further details.
 
 Let's see a simple example where you want to get a list of movie titles rated above 85/100.
 
@@ -77,7 +81,7 @@ In order to process it, you would need to write code using a JSONPath library an
 Chutney provides a way to run custom code during scenario execution using [Spring Expression](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions).
 
 Here is a raw expression you could write : `${T(com.jayway.jsonpath.JsonPath).parse(#body).read("$.movies[?(@.rating > 85)].title")}`  
-Fortunately, Chutney also provides [Functions](/todo) for common tasks, which helps you write SpEL.  
+Fortunately, Chutney also provides [Functions](/todo) for common needs, which helps you write SpEL.  
 In this case you can use the `json` function and the resulting SpEL would become : `${#jsonPath(#body, '$.movies[?(@.rating > 85)].title')}`
 
 Now that you know what this cryptic expression is and does, let's see the full HTTP GET action with outputs :
@@ -85,7 +89,7 @@ Now that you know what this cryptic expression is and does, let's see the full H
 === "Kotlin"
 
     ``` kotlin
-    HttpGetTask(
+    HttpGetAction(
         target = "ghibli_movie_service",
         uri = "/all?offset=0&limit=3",
         outputs = mapOf(
@@ -135,7 +139,7 @@ Each validation has a name and evaluates to a boolean, using [expressions](/todo
 === "Kotlin"
 
     ``` kotlin
-    HttpGetTask(
+    HttpGetAction(
         target = "ghibli_movie_service",
         uri = "/all?offset=0&limit=3",
         outputs = mapOf(
@@ -194,8 +198,8 @@ However, we suggest you the following tips:
 
 ``` kotlin
 Step("Insert data in a table") { // (1)
-    Step("Final task : delete data at the end") { // (2)
-        FinalTask(
+    Step("Final action : delete data at the end") { // (2)
+        FinalAction(
             name = "Delete data",
             type = "sql",
             target = "my_database",
@@ -205,7 +209,7 @@ Step("Insert data in a table") { // (1)
         )
     }
     Step("Insert data in MY_TABLE") { // (3)
-        SqlTask(
+        SqlAction(
             target = "my_database",
             statements = listOf(
                 "insert into MY_TABLE (ID, NAME) values(1, 'my_name')"

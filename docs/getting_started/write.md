@@ -65,21 +65,21 @@ Under `src/main/kotlin`, in the same package or another, create a Kotlin file (e
 ``` kotlin title="Scenarios.kt"
 package com.chutneytesting.getstart
 
-import com.chutneytesting.kotlin.dsl.HttpGetTask
+import com.chutneytesting.kotlin.dsl.HttpGetAction
 import com.chutneytesting.kotlin.dsl.Scenario
-import com.chutneytesting.kotlin.dsl.SuccessTask
+import com.chutneytesting.kotlin.dsl.SuccessAction
 import com.chutneytesting.kotlin.dsl.spEL
 
 val search_scenario = Scenario(title = "Search documents") {
     When("I visit a search engine") {
-        HttpGetTask(
+        HttpGetAction(
                 target = "search_engine",
                 uri = "/",
                 validations = mapOf("request accepted" to "status == 200".spEL())
         )
     }
     Then("I am on the front page") {
-        SuccessTask()
+        SuccessAction()
     }
 }
 ```
@@ -87,7 +87,7 @@ val search_scenario = Scenario(title = "Search documents") {
 * The scenario title `Search documents` will be shown in the execution report.
 * There are 2 steps `When I visit a search engine` and `Then I am on the front page`
 * The first step will execute an HTTP GET call on the target name `search_engine` on the uri `/`
-    * It also has one [validation](/actions/introduction/#validation) `request accepted` to check the response code status is 200.
+    * It also has one [validation](/documentation/actions/introduction/#validation) `request accepted` to check the response code status is 200.
 * The second step does nothing meaningful in this example
 
 !!! tip "Et voilà !"

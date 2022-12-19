@@ -34,12 +34,12 @@
 
 === "Inputs"
 
-    | Required | Name      | Type                                               |  Default   |
-    |:--------:|:----------|:---------------------------------------------------|:----------:|
-    |    *     | `target`        | String                                       |            |
-    |    *     | `destination`   | String                                       |            |
-    |    *     | `body`| String                                                 |            |
-    |          | `headers`    | Map<String, String\>                            |            |
+    | Required | Name          | Type                              |  Default   |
+    |:--------:|:--------------|:----------------------------------|:----------:|
+    |    *     | `target`      | String                            |            |
+    |    *     | `destination` | String                            |            |
+    |    *     | `body`        | String                            |            |
+    |          | `headers`     | Map<String, String\>              |            |
 
 No output. Only a log in report if message was successfully sent
 
@@ -48,7 +48,7 @@ No output. Only a log in report if message was successfully sent
 
 === "Kotlin"
 ``` kotlin
-JmsSenderTask(
+JmsSenderAction(
     target = "JMS_TARGET",
     destination = "jms/domain/my/queue",
     body = "my text body"
@@ -66,27 +66,27 @@ JmsSenderTask(
 
 === "Inputs"
 
-    | Required | Name      | Type                                               |  Default   |
-    |:--------:|:----------|:---------------------------------------------------|:----------:|
-    |    *     | `target`          | String                                     |            |
-    |    *     | `destination`     | String                                     |            |
-    |          | `selector`        | String                                     |            |
-    |          | `bodySelector`    | String                                     |            |
-    |          | `browserMaxDepth` | Integer                                    |            |
-    |          | `timeOut`         | String                                     |   500 ms   |
+    | Required | Name              | Type    |  Default   |
+    |:--------:|:------------------|:--------|:----------:|
+    |    *     | `target`          | String  |            |
+    |    *     | `destination`     | String  |            |
+    |          | `selector`        | String  |            |
+    |          | `bodySelector`    | String  |            |
+    |          | `browserMaxDepth` | Integer |            |
+    |          | `timeOut`         | String  |   500 ms   |
 
 === "Outputs"
 
-    |      Name | Type                                                          |
-    |-----------------:|:-------------------------------------------------------|
-    |  `textMessage`   | String                                                 |
-    |  `jmsProperties` | Map<String, Object>                                    |
+    |            Name | Type                |
+    |----------------:|:--------------------|
+    |   `textMessage` | String              |
+    | `jmsProperties` | Map<String, Object> |
 
 ### Example
 
 === "Kotlin"
 ``` kotlin
-JmsListenerTask(
+JmsListenerAction(
     target = "JMS_TARGET",
     destination = "jms/domain/my/queue",
     selector = "type = 'boat' AND color = 'red'",
@@ -104,14 +104,14 @@ JmsListenerTask(
 
 === "Inputs"
 
-    | Required | Name      | Type                                               |  Default   |
-    |:--------:|:----------|:---------------------------------------------------|:----------:|
-    |    *     | `target`          | String                                     |            |
-    |    *     | `destination`     | String                                     |            |
-    |          | `selector`        | String                                     |            |
-    |          | `bodySelector`    | String                                     |            |
-    |          | `browserMaxDepth` | Integer                                    |            |
-    |          | `timeOut`         | String                                     |   500 ms   |
+    | Required | Name              | Type         |  Default   |
+    |:--------:|:------------------|:-------------|:----------:|
+    |    *     | `target`          | String       |            |
+    |    *     | `destination`     | String       |            |
+    |          | `selector`        | String       |            |
+    |          | `bodySelector`    | String       |            |
+    |          | `browserMaxDepth` | Integer      |            |
+    |          | `timeOut`         | String       |   500 ms   |
 
 No output. Only a log in report with number of messages removed
 
@@ -119,7 +119,7 @@ No output. Only a log in report with number of messages removed
 
 === "Kotlin"
 ``` kotlin
-JmsCleanQueueTask(
+JmsCleanQueueAction(
     target = "JMS_TARGET",
     destination = "jms/domain/my/queue",
     selector = "type = 'boat' AND color = 'red'",

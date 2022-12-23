@@ -42,7 +42,7 @@ val environment = ChutneyEnvironment(
 
 There is another way to declare environments and targets by using JSON files.
 
-Create a folder `.chutney` in your project root folder.  
+Create a folder `.chutney/environments` in your project root folder.  
 Then, create a file `environment.json` with the following content :
 
 ``` json
@@ -57,6 +57,32 @@ Then, create a file `environment.json` with the following content :
     ]
 }
 ```
+!!! tip "An environment is already defined on your Chutney server?"
+    If you have already defined an environment on your Chutney server, you can import it by calling `synchroniseLocal` function of `EnvironmentSynchronizeService`:
+    
+    ``` kotlin
+        import EnvironmentSynchronizeService
+        import com.chutneytesting.kotlin.util.ChutneyServerInfo
+        
+        fun main() {
+            val chutneyLocalServer = ChutneyServerInfo(
+                remoteServerUrl = "http://localhost:8081",
+                remoteUserName = "admin",
+                remoteUserPassword = "admin"
+            )
+
+            val environmentSynchronizeService = EnvironmentSynchronizeService()
+    
+            environmentSynchronizeService.synchroniseLocal(serverInfo = chutneyLocalServer)
+       }
+    ```
+    `synchroniseLocal` function parameters:
+
+    | name               | type                       | Required  | default                 |          description                                     |
+    |:-------------------|:---------------------------|:---------:|:------------------------|:---------------------------------------------------------|
+    | `serverInfo`       | `ChutneyServerInfo`        |     *     |                         | holds needed informations to connect to chutney server   |
+    | `environmentsPath` | `String`                   |           | `.chutney/environments` | where to save the imported environments                  |
+    | `force`            | `Boolean`                  |           | `false`                 | if true, locally existing environments files will be overridden.</br>Else they will be keeped unchanged |
 
 # Write a scenario
 

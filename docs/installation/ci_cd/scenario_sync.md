@@ -80,6 +80,5 @@ Now, the last step before running your scenario from the server is to setup envi
 
     To manage environments on a server, you can :
 
-    * Use the UI forms,
-    * Copy an existing environment file into the server configuration folder (default is `.chutney/conf/environment`),
-    * Import an existing environment file, (// TODO check bug on model compatibilty Kotlin/Server)
+    * Use the UI forms to create or import environments.
+    * Copy an existing environment file into the server configuration folder (default is `.chutney/conf/environment`)

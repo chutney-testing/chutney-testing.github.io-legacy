@@ -29,6 +29,11 @@ Obviously, you should be familiar with the technology behind each action you use
     All actions performing a request on a remote service need to know the `Target`. While other action, like validating XML data, don't need a target.  
     Please, refer to [target configuration](/configuration/env/#target-configuration) for further details.
 
+!!! note
+    All actions must have a [Logger](https://github.com/chutney-testing/chutney/blob/master/action-spi/src/main/java/com/chutneytesting/action/spi/injectable/Logger.java){:target=_blank} class as input.
+    At runtime a [DelagateLogger](https://github.com/chutney-testing/chutney/blob/master/engine/src/main/java/com/chutneytesting/engine/domain/execution/engine/parameterResolver/DelegateLogger.java){:target=_blank} is automatically injected by the execution engine.</br>
+    This logger contains action's logs which be present in the execution report.
+
 ## Outputs
 
 Outputs contain the data collected after performing an action, and only if it succeeded.

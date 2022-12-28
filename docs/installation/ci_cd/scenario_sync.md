@@ -36,7 +36,7 @@ val chutneyLocalServer = ChutneyServerInfo(
     
         | name           | type                       | Required | default                                  |          description                                                                      |
         |:---------------|:---------------------------|:---------|:-----------------------------------------|:------------------------------------------------------------------------------------------|
-        | `serverInfo`   | `ChutneyServerInfo`        |          |  `null`                                  | holds needed informations to connect to chutney server.                                   |
+        | `serverInfo`   | `ChutneyServerInfo`        |          |  `null`                                  | holds needed information to connect to chutney server.                                   |
         | `updateRemote` | `Boolean`                  |          | `false`                                  | if true, the given scenario will be created if it doesn't exist and updated if it does.   |
         | `path`         | `String`                   |          | `src/main/resources/chutney/`            | path to existing scenarios json files.                                                    |
         | `pathCreated`  | `String`                   |          | `src/main/resources/chutney/in_progress` | path to where new scenarios json files will be created.                                   |
@@ -63,14 +63,19 @@ val chutneyLocalServer = ChutneyServerInfo(
 
     Now your scenario is created on the server ! :material-rocket:
 
-## update your scenario on chutney server
+## Update your scenario on chutney server
 
 After editing your scenario kotlin code, jut call synchronize function again.
 
 !!! warning "Don't forget !"
     Don't forget to call synchronize with `updateRemote = true`
 
-Now your scenario is updated on the server ! :material-rocket-launch:
+Now your scenario is updated on Chutney server ! :material-rocket-launch:
+
+!!! tip "Synchronize from your integration server"
+    * Push Kotlin scenarios source code to a centralized repository hosted on SCM server (github, gitlab, bitbucket...).
+    * Call synchronize main from an integration server(jenkins, gitlab CI, github actions...) to update scenarios on your remote Chutney instance.
+    * Synchronize call can be scheduled just before running your test campaigns to have up-to-date scenarios.
 
 ## Configure your environment on the server
 

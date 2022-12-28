@@ -66,7 +66,7 @@ Then, create a file `environment.json` with the following content :
         
         fun main() {
             val chutneyLocalServer = ChutneyServerInfo(
-                remoteServerUrl = "http://localhost:8081",
+                remoteServerUrl = "https://localhost:8081",
                 remoteUserName = "admin",
                 remoteUserPassword = "admin"
             )
@@ -80,9 +80,9 @@ Then, create a file `environment.json` with the following content :
 
     | name               | type                       | Required  | default                 |          description                                     |
     |:-------------------|:---------------------------|:---------:|:------------------------|:---------------------------------------------------------|
-    | `serverInfo`       | `ChutneyServerInfo`        |     *     |                         | holds needed informations to connect to chutney server   |
+    | `serverInfo`       | `ChutneyServerInfo`        |     *     |                         | holds needed information to connect to chutney server   |
     | `environmentsPath` | `String`                   |           | `.chutney/environments` | where to save the imported environments                  |
-    | `force`            | `Boolean`                  |           | `false`                 | if true, locally existing environments files will be overridden.</br>Else they will be keeped unchanged |
+    | `force`            | `Boolean`                  |           | `false`                 | if true, locally existing environments files will be overridden.</br>Else they will be kept unchanged |
 
 # Write a scenario
 

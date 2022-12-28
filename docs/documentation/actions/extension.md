@@ -79,7 +79,7 @@ Extends chutney actions by adding yours:
     ```
 
 # Packaging configuration
-create file chutney.actions in resources/ETA-INF/extension with custom actions full class name
+create file chutney.actions in resources/META-INF/extension with custom actions full class name
 ```
 my.custom.package.CustomAction1
 my.custom.package.CustomAction2

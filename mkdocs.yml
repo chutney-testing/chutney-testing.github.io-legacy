@@ -51,6 +51,7 @@ nav:
           - String: documentation/functions/string.md
           - Wiremock: documentation/functions/wiremock.md
           - XPath: documentation/functions/xpath.md
+          - Extension: documentation/functions/extension.md
 #  - Toolbox: toolbox.md # hidden page
 
 extra_css:

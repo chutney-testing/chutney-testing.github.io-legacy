@@ -36,6 +36,7 @@ nav:
           - SQL: documentation/actions/sql.md
           - SCP / FTP / SSH: documentation/actions/ssh.md
           - Assertions: documentation/actions/assertions.md
+          - Micrometer: documentation/actions/micrometer.md
           - Other: documentation/actions/other.md
           - Extension: documentation/actions/extension.md
       - Functions:

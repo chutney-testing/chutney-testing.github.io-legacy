@@ -31,6 +31,7 @@ nav:
           - Groovy: documentation/actions/groovy.md
           - HTTP: documentation/actions/http.md
           - JMS: documentation/actions/jms.md
+          - Kafka: documentation/actions/kafka.md
           - MongoDB: documentation/actions/mongo.md
           - Radius: documentation/actions/radius.md
           - SOAP: documentation/actions/soap.md

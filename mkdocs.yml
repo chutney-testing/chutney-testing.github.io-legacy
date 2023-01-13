@@ -134,3 +134,6 @@ markdown_extensions:
 
 plugins:
   - git-revision-date-localized
+  - redirects:
+        redirect_maps:
+          'install.md': 'index.md'   # to be removed after fixing in chutney

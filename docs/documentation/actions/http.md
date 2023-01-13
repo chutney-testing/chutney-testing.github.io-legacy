@@ -52,9 +52,9 @@
 === "Outputs"
 
     |      Name | Type                                                                                                                                        |
-    |----------:|:--------------------------------------------------------------------------------------------------------------------------------------------|
+    |:---------:|:--------------------------------------------------------------------------------------------------------------------------------------------|
     |  `status` | int                                                                                                                                         |
-    |    `body` | String                                                                                                                                      |
+    |  `body`   | String                                                                                                                                      |
     | `headers` | [HttpHeaders](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/HttpHeaders.html){:target="_blank"} |
 
 ### Example
@@ -209,8 +209,6 @@
 
 ## Start
 
-This action automatically registers a teardown to stop the server at the end of the scenario.
-
 === "Inputs"
 
     | Required | Name                  | Type   | Default |
@@ -231,44 +229,33 @@ This action automatically registers a teardown to stop the server at the end of 
 
 === "Kotlin"
     ``` kotlin
-    HttpServerStartAction(
+    HttpsServerStartAction(
         port = "8443",
-        truststore-path = "/tmp/trustore.jks",
-        truststore-password = "password",
-        keystore-path = "/user/admin/keystore",
-        keystore-password = "keystorepassword",
-        key-password = "passwordkey",
-        ),
+        trustStorePath = "/tmp/trustore.jks",
+        trustStorePassword = "password",
+        keyStorePath = "/user/admin/keystore",
+        keyStorePassword = "keystorepassword",
+        keyPassword = "passwordkey"
     )
     ```
-## Stop
 
-=== "Inputs"
-
-    | Required | Name         | Type                                                                                                                                                   | Default |
-    |:--------:|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|:-------:|
-    |   *      | https-server | [WireMockServer](https://github.com/wiremock/wiremock/blob/master/src/main/java/com/github/tomakehurst/wiremock/WireMockServer.java){:target="_blank"} |         |
-
-### Example
-
-=== "Kotlin"
-    ``` kotlin
-    HttpServerStopAction(
-        https-server = "${#httpsServer}",
-    )
-    ```
+!!! note
+    This action automatically registers a teardown to stop the server at the end of the scenario.
 
 ## Listen routes
 
-This actions allows you to check wich requests have been received by a wiremock server.  
+This actions allows you to check which requests have been received by a wiremock server.  
 Available verbs are : `GET`, `POST`, `PUT`, `DELETE`, `PATCH`, `OPTIONS`, `HEAD`, `TRACE`, `ANY`
+
+!!! warning
+    If this action succeeds, requests will be removed from the Wiremock server.
 
 === "Inputs"
 
     | Required | Name                     | Type                                                                                                                                    | Default |
     |:--------:|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------|:-------:|
     |    *     | `https-server`           | [WireMockServer](https://www.javadoc.io/doc/com.github.tomakehurst/wiremock/latest/com/github/tomakehurst/wiremock/WireMockServer.html) |         |
-    |    *     | `uri`                    | String (regex)                                                                                                                          |         |
+    |    *     | `uri`                    | String ([regex](https://wiremock.org/docs/request-matching/#:~:text=strategy%20in%20detail.-,URL%20matching,-URLs%20can%20be){:target=_blank})                                                                                                                          |         |
     |    *     | `verb`                   | String                                                                                                                                  |         |
     |          | `expected-message-count` | String                                                                                                                                  |    1    |
 
@@ -282,10 +269,10 @@ Available verbs are : `GET`, `POST`, `PUT`, `DELETE`, `PATCH`, `OPTIONS`, `HEAD`
 
 === "Kotlin"
     ``` kotlin
-    HttpListenerAction(
-        https-server = "${#httpsServer}",
+    HttpsListenerAction(
+        httpServerVarName = "\${#httpsServer}",
         uri = "https://github.com/search?q=chutney",
         verb = "GET",
-        expected-message-count = "1",
+        expectedMessageCount = 1,
     )
     ```

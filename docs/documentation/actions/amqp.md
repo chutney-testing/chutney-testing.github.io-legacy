@@ -75,7 +75,7 @@ Use this action to consume messages from a queue.
         * consume messages without exceeding the remaining timeout ( = timeout - n * 500ms) or the `nb-messages`.
         * stop consumer and unlock the queue.
     
-    :material-lightbulb-on: Don't use long `timeout`. In parallel execution, it makes execution slower and it can fails other executions. 
+    :material-lightbulb-on: Don't use long `timeout`. In parallel execution, it makes execution slower and it can fails other executions. Prefer a retry strategy with short timeOut to allow different execution to access to the queue. For example : instead of 5 min timeout at action level, prefer adding a RetryTimeOutStrategy("5 min" (timeout), "1 s" (delay))) to the step
     
 
 === "Inputs"
@@ -98,7 +98,7 @@ Use this action to consume messages from a queue.
 
 ### Example
 
-=== "Kotlin"
+=== "Consume with short timeout"
     ``` kotlin
     AmqpBasicConsumeAction(
         target = "RABBITMQ_TARGET",
@@ -108,6 +108,18 @@ Use this action to consume messages from a queue.
         timeout = "5 sec",
         ack = true
     )
+    ```
+
+=== "Consume with long timeout"
+    ``` kotlin
+    Step("Long basic consume", RetryTimeOutStrategy("5 min", "1 s")) {
+        AmqpBasicConsumeAction(
+            target = "RABBITMQ_TARGET",
+            queueName = "my.queue",
+            nbMessages = 1,
+            selector = "\$..[?(\$.headers.season=='1')]"
+        )
+    }
     ```
 
 # Basic get

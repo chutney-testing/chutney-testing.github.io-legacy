@@ -1,90 +1,143 @@
+!!! important "Target Configuration"
+    For all actions, a AMQP target should be defined and have a `name` and a valid `url`.
+
+```json title="Rabbitmq target"
+{
+    "name":"RABBITMQ_TARGET",
+    "url":"amqp://localhost:5672",
+    "properties": [
+        {
+            "key":"password",
+            "value":"admin"
+        },
+        {
+            "key":"username",
+            "value":"admin"
+        }
+    ]
+}
+```
 # Basic publish
+Use this action to publish a message to an exchange.
 
 === "Inputs"
 
-    | Required | Name            | Type   |     Default     |
-    |:--------:|:----------------|:-------|:---------------:|
-    |    *     | `exchange-name` | String |                 |
-    |          | `routing-key`   | String |                 |
-    |          | `headers`       | Map    |                 |
-    |          | `properties`    | Map    |                 |
-    |    *     | `payload`       | String |                 |
+    | Required | Name            | Type                     |   Description   |
+    |:--------:|:----------------|:-------------------------|:----------------|
+    |    *     | `exchange-name` | String                   | The exchange to publish the message to. Must exist                  |
+    |          | `routing-key`   | String                   | The routing key. See this [example](https://www.rabbitmq.com/tutorials/tutorial-five-python.html#:~:text=complex%20topic%20exchange.-,Topic%20exchange,-Messages%20sent%20to){:target=_blank} for more details.                                                     |
+    |          | `headers`       | Map<String, Object\>     | Message headers                                                     |
+    |          | `properties`    | Map<String, String\>     | Other message's [properties](https://rabbitmq.github.io/rabbitmq-java-client/api/current/com/rabbitmq/client/AMQP.BasicProperties.html){:target=_blank}. Actually only content_type property is handled. |
+    |    *     | `payload`       | String                   |  Message content                                                    |
 
 === "Outputs"
 
-    |      Name | Type   |
-    |----------:|:-------|
-    | `payload` | String |
-    | `headers` | String |
+    |      Name | Type   | Description     |
+    |----------:|:-------|:----------------|
+    | `payload` | String | Message content |
+    | `headers` | String | Message headers |
 
 ### Example
 
 === "Kotlin"
+    
     ``` kotlin
-    AmqpBasicPublishAction(
-        target: "AMQP_TARGET",
-        exchange-name:"amqpexchange",
-        routing-key:"amqpkeyroute",
-        payload:"my payload",
-        headers = mapOf(
-          "Content-Type" to "application/json"
-        ),
-        properties: mapOf(
-            "properties-1",
-            "properties-2"
-        ),
-    )
+        AmqpBasicPublishAction(
+            target = "RABBITMQ_TARGET",
+            exchangeName = "my.exchange",
+            routingKey = "children.fiction",
+            headers = mapOf(
+                "season" to "1",
+            ),
+            properties = mapOf(
+                "content_type" to "application/json",
+            ),
+            payload = """
+                    {
+                    "title": "Castle in the Sky",
+                    "director": "Hayao Miyazaki",
+                    "rating": 78,
+                    "category": "fiction"
+                    }
+                """.trimIndent(),
+        )
     ```
 
 # Basic consume
+Use this action to consume messages from a queue.
+
+!!! warning "Parallel consume"
+    * Only **one** queue consumer can be started at a given time.
+    * To start a queue consumer, Chutney:
+        * check if an other consumer was started:
+            * if true, it re check the queue availability every `500 ms` without exceeding `timeout` duration. At every iteration, the remaining timeout is reduced by `500 ms`. 
+            * else, it mark the queue as locked and start the current consumer.
+        * consume messages without exceeding the remaining timeout ( = timeout - n * 500ms) or the `nb-messages`.
+        * stop consumer and unlock the queue.
+    
+    :material-lightbulb-on: Don't use long `timeout`. In parallel execution, it makes execution slower and it can fails other executions. Prefer a retry strategy with short timeOut to allow different execution to access to the queue. For example : instead of 5 min timeout at action level, prefer adding a RetryTimeOutStrategy("5 min" (timeout), "1 s" (delay))) to the step
+    
 
 === "Inputs"
 
-    | Required | Name          | Type        | Default |
-    |:--------:|:--------------|:------------|:-------:|
-    |    *     | `queue-name`  | string      |         |
-    |          | `nb-messages` | integer     |         |
-    |          | `selector`    | string      |         |
-    |          | `timeout`     | string      |         |
-    |          | `ack`         | boolean     |         |
+    | Required | Name          | Type        | Default    | Description                         |
+    |:--------:|:--------------|:------------|:-----------|:------------------------------------|
+    |    *     | `queue-name`  | string      |            | Queue name.                         |
+    |          | `nb-messages` | integer     |   1        | How many messages to be consumed. Throw error if got messages number is less than nb-messages.   |
+    |          | `selector`    | string      |            |                                     |
+    |          | `timeout`     | [duration](/documentation/actions/other/#duration-type) | `"10 sec"` |   In how many time a consume connection must be established and messages must be read     |
+    |          | `ack`         | boolean     |    true    | [Basic.ack](https://www.rabbitmq.com/confirms.html#acknowledgement-modes){:target=_blank} acknowledgements mode is used if true.    |
 
 === "Outputs"
 
-    |       Name | Type  |
-    |-----------:|:------|
-    | `body`     | String |
-    | `payloads` | String |
-    | `headers`  | String |
+    |       Name | Type   | Description      |
+    |-----------:|:-------|:-----------------|
+    | `body`     | String | response as Map  |
+    | `payloads` | String | response paylods |
+    | `headers`  | String | response headers |
 
 ### Example
 
-=== "Kotlin"
+=== "Consume with short timeout"
     ``` kotlin
     AmqpBasicConsumeAction(
-        target:"AMQP_TARGET",
-        queue-name: "waitingqueue",
-        nb-messages: "5",
-        selector:"amqp selector",
-        timeout: "2000ms",
-        ack: true
+        target = "RABBITMQ_TARGET",
+        queueName = "my.queue",
+        nbMessages = 1,
+        selector = "\$..[?(\$.headers.season=='1')]",
+        timeout = "5 sec",
+        ack = true
     )
     ```
 
+=== "Consume with long timeout"
+    ``` kotlin
+    Step("Long basic consume", RetryTimeOutStrategy("5 min", "1 s")) {
+        AmqpBasicConsumeAction(
+            target = "RABBITMQ_TARGET",
+            queueName = "my.queue",
+            nbMessages = 1,
+            selector = "\$..[?(\$.headers.season=='1')]"
+        )
+    }
+    ```
+
 # Basic get
+Use this action to have a direct access to available messages in a queue.
 
 === "Inputs"
 
-    | Required | Name         | Type   | Default |
-    |:--------:|:-------------|:-------|:-------:|
-    |    *     | `queue-name` | String |         |
+    | Required | Name         | Type   | Description |
+    |:--------:|:-------------|:-------|:-----------:|
+    |    *     | `queue-name` | String | Queue name. |
 
 === "Outputs"
 
-    |      Name | Type                                   |
-    |----------:|:---------------------------------------|
-    | `message` | String com.rabbitmq.client.GetResponse |
-    | `body`    | String                                 |
-    | `headers` | String                                 |
+    |      Name | Type                                   | Description      |
+    |----------:|:---------------------------------------|:-----------------|
+    | `message` | String                                 | [response](https://rabbitmq.github.io/rabbitmq-java-client/api/4.x.x/com/rabbitmq/client/GetResponse.html){:target=_blank} as Map  |
+    | `body`    | String                                 | response body |
+    | `headers` | String                                 | response headers |
 
 
 
@@ -93,153 +146,114 @@
 === "Kotlin"
     ``` kotlin
     AmqpBasicGetAction(
-        target:"AMQP_TARGET",
-        queue-name: "waitingqueue"
-    )
-    ```
-
-# Qpid server start
-
-=== "Inputs"
-
-    | Required | Name          | Type   | Default |
-    |:--------:|:--------------|:-------|:-------:|
-    |          | `init-config` | String |         |
-
-=== "Outputs"
-
-    |           Name | Type   |
-    |---------------:|:-------|
-    | `qpidLauncher` | String |
-
-
-### Example
-=== "Kotlin"
-    ``` kotlin
-    AmqpQpidServerStartAction(
-        init-config: "amqpinitconfig"
-    )
-    ```
-
-# Qpid server stop
-
-=== "Inputs"
-
-    | Required | Name            | Type   | Default |
-    |:--------:|:----------------|:-------|:-------:|
-    |          | `qpid-launcher` | String |         |
-
-### Example
-
-=== "Kotlin"
-    ``` kotlin
-    AmqpQpidServerStopAction(
-        qpid-launcher: "amqpqpidlaunch"
+        target ="RABBITMQ_TARGET",
+        queueName = "my.queue"
     )
     ```
 
 # Clean queues
+Use this action to purges the content of the given queues.
+For example, it can be used at the beginning of your scenario to ensure that used queues are empty.
+
+!!! warning
+    Be careful when cleaning a queue which is shared between many scenarios.
 
 === "Inputs"
 
-    | Required | Name          | Type   | Default |
-    |:--------:|:--------------|:-------|:-------:|
-    |          | `queue-names` | String |         |
+    | Required | Name          | Type          |Description |
+    |:--------:|:--------------|:--------------|:-----------|
+    |     *    | `queue-names` | List<String\> |  to be burged queues names          |
+
+=== "Output"
+     No output
 
 ### Example
 
 === "Kotlin"
     ``` kotlin
     AmqpCleanQueuesAction(
-        target:"AMQP_TARGET",
-        queue-names: ["first queue"], ["second queue"]
+        target = "RABBITMQ_TARGET",
+        queueNames = listOf(
+            "my.queue",
+            "my.other.queue"
+        )
     )
     ```
 
 
-# Create bound temporary queue
+# Create and bind temporary queue
+Use this action to create a temporary queue and bind it to an existing exchange using a routing key.
 
 === "Inputs"
 
-    | Required | Name            | Type   |   Default    |
-    |:--------:|:----------------|:-------|:------------:|
-    |    *     | `exchange-name` | String |              |
-    |          | `routing-key`   | String | "queue-name" |
-    |    *     | `queue-name`    | String |              |
+    | Required | Name            | Type   |   Default    |   Description    |
+    |:--------:|:----------------|:-------|:------------:|:-----------------|
+    |    *     | `exchange-name` | String |              |  Exchange name   |
+    |          | `routing-key`   | String | "queue-name" |  The routing key to use for the binding. See this [example](https://www.rabbitmq.com/tutorials/tutorial-five-python.html#:~:text=complex%20topic%20exchange.-,Topic%20exchange,-Messages%20sent%20to){:target=_blank} for more details.  |
+    |    *     | `queue-name`    | String |              |  Queue name      |
 
 === "Outputs"
 
-    |    Name     | Type   |
-    |------------:|:-------|
-    | `queueName` | String |
-
-
-
-### Teardown
-
-Some Actions might have a teardown just like this one. If it is the case, the queue will be unbind and then deleted.
-
-|                 Name | Arguments                                   |
-|---------------------:|:--------------------------------------------|
-|    amqp unbind queue | queue-exchange, exchange-name, routing-key  |
-|    amqp delete queue | queue-exchange, exchange-name, routing-key  |
-
+    |    Name     | Type   | Description        |
+    |------------:|:-------|:-------------------|
+    | `queueName` | String | Created queue name |
 
 ### Example
 
 === "Kotlin"
     ``` kotlin
     AmqpCreateBoundTemporaryQueueAction(
-        target:"AMQP_TARGET",
-        exchange-name:"amqpexchange",
-        routing-key:"amqpkeyroute",
-        queue-name:"waitingqueue"
+        target = "RABBITMQ_TARGET",
+        exchangeName = "my.exchange",
+        queueName = "my.queue",
+        routingKey = "children.*"
     )
     ```
 
+!!! info
+    At the end of the scenario execution, the created binding and queue will be automatically deleted respectively by [amqp-unbind-queue](/documentation/actions/amqp/#unbind-queue) and [amqp-delete-queue](/documentation/actions/amqp/#delete-queue) final actions.
 
-# Delete queue
+
+# Unbind queue
+Use this action to delete a binding between exchange and queue.
 
 === "Inputs"
 
-    | Required | Name       | Type   | Default |
-    |:--------:|:-----------|:-------|:-------:|
-    |    *     | queue-name | String |         |
+    | Required | Name            | Type   |   Description    |
+    |:--------:|:----------------|:-------|:-----------------|
+    |    *     | `queue-name`    | String |  Queue name      |
+    |          | `exchange-name` | String |  Exchange name   |
+    |          | `routing-key`   | String |  The routing key used for the binding.  |
+
+### Example
+
+=== "Kotlin"
+``` kotlin
+AmqpUnbindQueueAction(
+target = "RABBITMQ_TARGET",
+queueName = "my.queue",
+exchangeName = "my.exchange",
+routingKey = "children.*"
+)
+```
+
+# Delete queue
+Use this action to delete an existing queue without regard for whether it is in use or has messages on it.
+=== "Inputs"
+
+    | Required | Name       | Type   | Description |
+    |:--------:|:-----------|:-------|:------------|
+    |    *     | queue-name | String | Queue name  |
 
 === "Outputs"
-
-    |          Name | Type   |
-    |--------------:|:-------|
-    |   `queueName` | String |
+    No output
 
 ### Example
 
 === "Kotlin"
     ``` kotlin
     AmqpDeleteQueueAction(
-        target:"AMQP_TARGET",
-        queue-name: "waitingqueue"
-    )
-    ```
-
-# Unbind queue
-
-=== "Inputs"
-
-    | Required | Name            | Type   | Default  |
-    |:--------:|:----------------|:-------|:--------:|
-    |    *     | `queue-name`    | String |          |
-    |          | `exchange-name` | String |          |
-    |          | `routing-key`   | String |          |
-
-### Example
-
-=== "Kotlin"
-    ``` kotlin
-        AmqpUnbindQueueAction(
-        target:"AMQP_TARGET",
-        queue-name:"waitingqueue",
-        exchange-name:"amqpexchange",
-        routing-key:"amqpkeyroute"
+        target = "RABBITMQ_TARGET",
+        queueName = "my.queue"
     )
     ```

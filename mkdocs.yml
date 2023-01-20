@@ -34,6 +34,7 @@ nav:
           - Kafka: documentation/actions/kafka.md
           - MongoDB: documentation/actions/mongo.md
           - Radius: documentation/actions/radius.md
+          - Selenium: documentation/actions/selenium.md
           - SOAP: documentation/actions/soap.md
           - SQL: documentation/actions/sql.md
           - SCP / FTP / SSH: documentation/actions/ssh.md

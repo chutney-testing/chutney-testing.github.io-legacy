@@ -1,4 +1,4 @@
-!!! important "Selector By values"
+!!! important "About `by` input"
 
     Selenium actions selecting an elements require a selector and specifying the selection type.  
     See Selenium [by](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/By.html){:target="_blank"} documentation for further details.  
@@ -19,9 +19,10 @@
         So, Chutney provides it for you.
 
 
-!!! important "About the webdriver"
+!!! important "About `web-driver` input"
 
-    webdriver comes from the one started by the action ...
+    Most actions requires a `web-driver` input. It's value comes from the output off the action [DriverInit](#driverInit).  
+    So the most probable value for it would come from the execution context : `${#webDriver}` (or `"webDriver".spEL()` if using Kotlin DSL)
 
 # Click
 

@@ -221,3 +221,21 @@ See [Actions.moveToElement()](https://www.selenium.dev/selenium/docs/api/java/or
 === "Kotlin"
 ``` kotlin
 ```
+
+# Quit
+
+This action quits the driver, closing every associated window.  
+See [WebDriver.quit()](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/WebDriver.html#quit()){:target="_blank"} for further details.
+
+=== "Inputs"
+
+    | Required | Name         | Type   | Default |
+    |:--------:|:-------------|:-------|:-------:|
+    |    *     | `web-driver` | String |         |
+
+
+### Example
+
+=== "Kotlin"
+``` kotlin
+```

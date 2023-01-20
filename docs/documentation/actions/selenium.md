@@ -64,3 +64,56 @@ See [WebDriver.close()](https://www.selenium.dev/selenium/docs/api/java/org/open
 === "Kotlin"
     ``` kotlin
     ```
+
+# DriverInit
+
+This action instantiate a webdriver
+
+!!! important
+    Firefox is the default browser and `browser` input should be empty, but you should provide `browserPath` input.  
+    For using IE, put "Internet Explorer" as `browser` input, `browserPath` is not required when using IE.
+
+    ??? note "IE running options"
+        IE runs with the following options :
+
+        - "AcceptInsecureCertificates": true
+        - "disable-popup-blocking": true
+        - "enablePersistentHover": true
+        - "ensureCleanSession": true
+        - "ignoreProtectedModeSettings": true
+        - "ignoreZoomSetting": false
+        - "introduceInstabilityByIgnoringProtectedModeSettings": true
+        - "javascriptEnabled": true
+        - "nativeEvents": true
+        - "unexpectedAlertBehaviour": "accept"
+
+=== "Inputs"
+
+    | Required | Name          | Type     | Default |  Accepted Value   |
+    |:--------:|:--------------|:---------|:-------:|:-----------------:|
+    |    *     | `driverPath`  | String   |         |                   |
+    |    *     | `browserPath` | String   |         |                   |
+    |          | `browser`     | String   | Firefox | Internet Explorer |
+
+=== "Outputs"
+
+    |      Name   | Type                                                                                                              |
+    |:-----------:|:------------------------------------------------------------------------------------------------------------------|
+    | `webDriver` | [WebDriver](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/WebDriver.html){:target="_blank"} |
+
+### Finally Action
+
+Performs the action [Quit](#quit) when the scenario ends.
+
+### Example
+
+=== "Init with Firefox"
+
+    ``` kotlin
+    ```
+
+=== "Init with IE"
+    
+    ``` kotlin
+    ```
+

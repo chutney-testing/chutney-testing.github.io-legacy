@@ -381,3 +381,40 @@ See [WebDriver.Window.setSize()](https://www.selenium.dev/selenium/docs/api/java
 === "Kotlin"
 ``` kotlin
 ```
+
+# Switch to
+
+!!! note
+
+    By default it selects either the first frame on the page, or the main document when a page contains iframes.  
+    See [WebDriver.TargetLocator](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/WebDriver.TargetLocator.html){:target="_blank"} for further details.
+
+    `switchType` accepted values :
+
+    - "Frame"
+    - "Popup"
+    - "Window"
+    - "AlertOk" (Switch to alert and click on the OK button)
+    - "AlertCancel" (Switch to alert and click on the Cancel button)
+
+=== "Inputs"
+
+    | Required | Name         | Type    | Default |  Note   |
+    |:--------:|:-------------|:--------|:-------:|:-------:|
+    |    *     | `web-driver` | String  |         |         |
+    |    *     | `selector`   | String  |         |         |
+    |    *     | `by`         | String  |         |         |
+    |          | `wait`       | Integer |    1    | seconds |
+    |          | `switchType` | String  |         |         |
+
+=== "Outputs"
+
+    |        Name      | Type                                                    |
+    |:----------------:|:--------------------------------------------------------|
+    | `outputSwitchTo` | This value can be used to switch to this element later. |
+
+### Example
+
+=== "Kotlin"
+``` kotlin
+```

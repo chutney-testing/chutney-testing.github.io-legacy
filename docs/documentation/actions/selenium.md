@@ -34,12 +34,12 @@ It takes a screenshot in case of error.
 
 === "Inputs"
 
-    | Required | Name         | Type    | Default | Note |
-    |:--------:|:-------------|:--------|:-------:|:----:|
-    |    *     | `web-driver` | String  |         |      |
-    |    *     | `selector`   | String  |         |      |
-    |    *     | `by`         | String  |         |      |
-    |          | `wait`       | Integer |   1s    |  1s  |
+    | Required | Name         | Type    | Default |  Note   |
+    |:--------:|:-------------|:--------|:-------:|:-------:|
+    |    *     | `web-driver` | String  |         |         |
+    |    *     | `selector`   | String  |         |         |
+    |    *     | `by`         | String  |         |         |
+    |          | `wait`       | Integer |   1s    | seconds |
 
 
 ### Example
@@ -149,3 +149,29 @@ See [WebDriver.get(String url)](https://www.selenium.dev/selenium/docs/api/java/
 ``` kotlin
 ```
 
+# GetAttribute
+
+Get the value of the given attribute of the element.  
+See [WebElement.getAttribute()](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/WebElement.html#getAttribute(java.lang.String)){:target="_blank"} for further details.
+
+=== "Inputs"
+
+    | Required | Name         | Type    | Default |  Note   |
+    |:--------:|:-------------|:--------|:-------:|:-------:|
+    |    *     | `web-driver` | String  |         |         |
+    |    *     | `selector`   | String  |         |         |
+    |    *     | `by`         | String  |         |         |
+    |          | `wait`       | Integer |   1s    | seconds |
+    |          | `attribute`  | String  | "value" |         |
+
+=== "Outputs"
+
+    |         Name           | Type   |
+    |:----------------------:|:-------|
+    | `outputAttributeValue` | String |
+
+### Example
+
+=== "Kotlin"
+``` kotlin
+```

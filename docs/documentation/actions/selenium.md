@@ -22,7 +22,9 @@
 !!! important "About `web-driver` input"
 
     Most actions requires a `web-driver` input. It's value comes from the output off the action [DriverInit](#driverInit).  
-    So the most probable value for it would come from the execution context : `${#webDriver}` (or `"webDriver".spEL()` if using Kotlin DSL)
+    So the most probable value for it would come from the execution context : `${#webDriver}`
+
+    **While required in a Chutney scenario, it is set by default using the Chutney Kotlin DSL so you don't need to provide it.**
 
 # Click
 
@@ -46,6 +48,10 @@ It takes a screenshot in case of error.
 
 === "Kotlin"
     ``` kotlin
+    SeleniumClickAction(
+        selector = "//button[text()=\"Some text\"",
+        by = SELENIUM_BY.xpath
+    )
     ```
 
 # Close
@@ -64,6 +70,7 @@ See [WebDriver.close()](https://www.selenium.dev/selenium/docs/api/java/org/open
 
 === "Kotlin"
     ``` kotlin
+    SeleniumCloseAction()
     ```
 
 # DriverInit
@@ -114,22 +121,18 @@ Performs the action [Quit](#quit) when the scenario ends.
 
 ### Example
 
-=== "Init with Firefox"
-
+=== "Kotlin"
     ``` kotlin
+    SeleniumDriverInitAction(
+        browserPath = "/path/to/the/browser/",
+        driverPath = "/path/to/the/webdriver/"
+    )
     ```
-
-=== "Init with IE"
-    
-    ``` kotlin
-    ```
-
 
 # Get
 
 This action load a new web page in the current browser window.  
 See [WebDriver.get(String url)](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/WebDriver.html#get(java.lang.String)){:target="_blank"} for further details.
-
 
 === "Inputs"
     
@@ -148,12 +151,14 @@ See [WebDriver.get(String url)](https://www.selenium.dev/selenium/docs/api/java/
     | `outputGet` | String | This value can be used to switch to this window using action [SwitchTo](#switch-to).<br> See [WebDriver.getWindowHandle()](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/WebDriver.html#getWindowHandle()){:target="_blank"} for further details. |
 
 
-
 ### Example
 
 === "Kotlin"
-``` kotlin
-```
+    ``` kotlin
+    SeleniumGetAction(
+        url = "http://www.chutney-testing.com/" 
+    )
+    ```
 
 # GetAttribute
 
@@ -179,8 +184,13 @@ See [WebElement.getAttribute()](https://www.selenium.dev/selenium/docs/api/java/
 ### Example
 
 === "Kotlin"
-``` kotlin
-```
+    ``` kotlin
+    SeleniumGetAttributeAction(
+        selector = "usernameInput",
+        by = SELENIUM_BY.NAME,
+        attribute = "type"
+    )
+    ```
 
 # GetText
 
@@ -205,8 +215,12 @@ See [WebElement.getText()](https://www.selenium.dev/selenium/docs/api/java/org/o
 ### Example
 
 === "Kotlin"
-``` kotlin
-```
+    ``` kotlin
+    SeleniumGetTextAction(
+        selector = "usernameInput",
+        by = SELENIUM_BY.NAME,
+    )
+    ```
 
 # Hover and click
 
@@ -225,10 +239,17 @@ See [Actions.moveToElement()](https://www.selenium.dev/selenium/docs/api/java/or
 ### Example
 
 === "Kotlin"
-``` kotlin
-```
+    ``` kotlin
+    SeleniumHoverThenClickAction(
+        selector = "myHyperLink",
+        by = SELENIUM_BY.id
+    )
+    ```
 
 # Quit
+
+!!! important 
+    This action is not available with the Kotlin DSL since it is performed by default when the scenario ends.
 
 This action quits the driver, closing every associated window.  
 See [WebDriver.quit()](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/WebDriver.html#quit()){:target="_blank"} for further details.
@@ -239,12 +260,6 @@ See [WebDriver.quit()](https://www.selenium.dev/selenium/docs/api/java/org/openq
     |:--------:|:-------------|:-------|:-------:|
     |    *     | `web-driver` | String |         |
 
-
-### Example
-
-=== "Kotlin"
-``` kotlin
-```
 
 # Remote Driver Init
 
@@ -301,8 +316,12 @@ Performs the action [Quit](#quit) when the scenario ends.
 ### Example
 
 === "Kotlin"
-``` kotlin
-```
+    ``` kotlin
+    SeleniumRemoteDriverInitAction(
+        hub = "http://my.hub.url:4242/",
+        browser = "chrome"
+    )
+    ```
 
 # Screenshot
 
@@ -320,8 +339,9 @@ and [OutputType.BASE64](https://www.selenium.dev/selenium/docs/api/java/org/open
 ### Example
 
 === "Kotlin"
-``` kotlin
-```
+    ``` kotlin
+    SeleniumScreenShotAction()
+    ```
 
 # Scroll to
 
@@ -340,8 +360,12 @@ See [Element.scrollIntoView()](https://developer.mozilla.org/en-US/docs/Web/API/
 ### Example
 
 === "Kotlin"
-``` kotlin
-```
+    ``` kotlin
+    SeleniumScrollToAction(
+        selector = "/html/body/form[1]",
+        by = SELENIUM_BY.xpath
+    )
+    ```
 
 # Send keys
 
@@ -361,8 +385,13 @@ See [WebElement.sendKeys()](https://www.selenium.dev/selenium/docs/api/java/org/
 ### Example
 
 === "Kotlin"
-``` kotlin
-```
+    ``` kotlin
+    SeleniumSendKeysAction(
+        selector = "usernameInput",
+        by = SELENIUM_BY.NAME,
+        value = "the hitchhiker"
+    )
+    ```
 
 # Set browser size
 
@@ -379,8 +408,12 @@ See [WebDriver.Window.setSize()](https://www.selenium.dev/selenium/docs/api/java
 ### Example
 
 === "Kotlin"
-``` kotlin
-```
+    ``` kotlin
+    SeleniumSetBrowserSizeAction(
+        width = 640,
+        height = 480
+    )
+    ```
 
 # Switch to
 
@@ -416,8 +449,13 @@ See [WebDriver.Window.setSize()](https://www.selenium.dev/selenium/docs/api/java
 ### Example
 
 === "Kotlin"
-``` kotlin
-```
+    ``` kotlin
+    SeleniumSwitchToAction(
+        selector = "outputGet".spEL(),
+        by = SELENIUM_BY.id,
+        switchType = SELENIUM_SWITCH.Window
+    )
+    ```
 
 # Wait
 
@@ -452,5 +490,10 @@ This action waits N seconds or until the expected conditions are met.
 ### Example
 
 === "Kotlin"
-``` kotlin
-```
+    ``` kotlin
+    SeleniumWaitAction(
+        selector = "//button[text()=\"Some text\"",
+        by = SELENIUM_BY.xpath,
+        value = "elementToBeClickable"
+    )
+    ```

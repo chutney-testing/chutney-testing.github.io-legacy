@@ -350,13 +350,31 @@ See [WebElement.sendKeys()](https://www.selenium.dev/selenium/docs/api/java/org/
 
 === "Inputs"
 
-    | Required | Name         | Type    | Default |  Note   |
-    |:--------:|:-------------|:--------|:-------:|:-------:|
-    |    *     | `web-driver` | String  |         |         |
-    |    *     | `selector`   | String  |         |         |
-    |    *     | `by`         | String  |         |         |
-    |    *     | `value`      | String  |         |         |
-    |          | `wait`       | Integer |    1    | seconds |
+    | Required | Name         | Type    | Default |       Note        |
+    |:--------:|:-------------|:--------|:-------:|:-----------------:|
+    |    *     | `web-driver` | String  |         |                   |
+    |    *     | `selector`   | String  |         |                   |
+    |    *     | `by`         | String  |         |                   |
+    |    *     | `value`      | String  |         | The value to type |
+    |          | `wait`       | Integer |    1    |      seconds      |
+
+### Example
+
+=== "Kotlin"
+``` kotlin
+```
+
+# Set browser size
+
+This action set the size of the current window.  
+See [WebDriver.Window.setSize()](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/WebDriver.Window.html#setSize(org.openqa.selenium.Dimension)){:target="_blank"} for further details.
+
+=== "Inputs"
+
+| Required | Name      | Type    | Default   |
+|:--------:|:----------|:--------|:---------:|
+|    *     | `width`   | Integer |           |
+|    *     | `height`  | Integer |           |
 
 ### Example
 

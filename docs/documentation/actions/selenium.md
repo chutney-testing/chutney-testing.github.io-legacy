@@ -66,7 +66,7 @@ See [WebDriver.close()](https://www.selenium.dev/selenium/docs/api/java/org/open
     ``` kotlin
     ```
 
-# DriverInit
+# Driver Init
 
 This action instantiate a webdriver
 
@@ -87,6 +87,12 @@ This action instantiate a webdriver
         - "javascriptEnabled": true
         - "nativeEvents": true
         - "unexpectedAlertBehaviour": "accept"
+
+    ??? note "FF running options"
+        FF runs with the following options :
+
+        - Headless: true
+        - Log level: FATAL
 
 === "Inputs"
 
@@ -233,6 +239,64 @@ See [WebDriver.quit()](https://www.selenium.dev/selenium/docs/api/java/org/openq
     |:--------:|:-------------|:-------|:-------:|
     |    *     | `web-driver` | String |         |
 
+
+### Example
+
+=== "Kotlin"
+``` kotlin
+```
+
+# Remote Driver Init
+
+!!! note
+    `browser` input values :
+
+    - "chrome"
+    - "internet explorer"
+    - "firefox"
+
+??? note "Internet Explorer running options"
+    IE runs with the following options :
+
+    - "AcceptInsecureCertificates": true
+    - "disable-popup-blocking": true
+    - "enablePersistentHover": true
+    - "ensureCleanSession": true
+    - "ignoreProtectedModeSettings": true
+    - "ignoreZoomSetting": false
+    - "introduceInstabilityByIgnoringProtectedModeSettings": true
+    - "javascriptEnabled": true
+    - "nativeEvents": true
+    - "unexpectedAlertBehaviour": "accept"
+
+??? note "Firefox running options"
+    Firefox runs with the following options :
+
+    - Headless: false
+    - Log level: FATAL
+
+??? note "Chrome running options"
+    Chrome runs with the following options :
+
+    - start-maximized: true
+
+=== "Inputs"
+
+    | Required | Name      | Type          | Default | Note                               |
+    |:--------:|:----------|:--------------|:-------:|------------------------------------|
+    |    *     | `hub`     | String        |         | The URL of the remote Selenium Hub |
+    |          | `browser` | String        | firefox |                                    |
+
+=== "Outputs"
+
+    |      Name   | Type                                                                                                              |
+    |:-----------:|:------------------------------------------------------------------------------------------------------------------|
+    | `webDriver` | [WebDriver](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/WebDriver.html){:target="_blank"} |
+
+
+### Finally Action
+
+Performs the action [Quit](#quit) when the scenario ends.
 
 ### Example
 

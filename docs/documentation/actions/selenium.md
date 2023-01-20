@@ -303,3 +303,22 @@ Performs the action [Quit](#quit) when the scenario ends.
 === "Kotlin"
 ``` kotlin
 ```
+
+# Screenshot
+
+Takes a screenshot, available in the execution report as a Base64 String.  
+See [TakesScreenshot.getScreenshotAs()](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/TakesScreenshot.html#getScreenshotAs(org.openqa.selenium.OutputType)){:target="_blank"}
+and [OutputType.BASE64](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/OutputType.html#BASE64) for further details.
+
+=== "Inputs"
+
+    | Required | Name         | Type    |
+    |:--------:|:-------------|:--------|
+    |    *     | `web-driver` | String  |
+
+
+### Example
+
+=== "Kotlin"
+``` kotlin
+```

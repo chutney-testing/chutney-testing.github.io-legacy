@@ -308,7 +308,7 @@ Performs the action [Quit](#quit) when the scenario ends.
 
 Takes a screenshot, available in the execution report as a Base64 String.  
 See [TakesScreenshot.getScreenshotAs()](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/TakesScreenshot.html#getScreenshotAs(org.openqa.selenium.OutputType)){:target="_blank"}
-and [OutputType.BASE64](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/OutputType.html#BASE64) for further details.
+and [OutputType.BASE64](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/OutputType.html#BASE64){:target="_blank"} for further details.
 
 === "Inputs"
 
@@ -316,6 +316,26 @@ and [OutputType.BASE64](https://www.selenium.dev/selenium/docs/api/java/org/open
     |:--------:|:-------------|:--------|
     |    *     | `web-driver` | String  |
 
+
+### Example
+
+=== "Kotlin"
+``` kotlin
+```
+
+# Scroll to
+
+Scroll the page to make the element visible and align to the top.  
+See [Element.scrollIntoView()](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView){:target="_blank"} for further details.
+
+=== "Inputs"
+
+    | Required | Name         | Type    | Default |  Note   |
+    |:--------:|:-------------|:--------|:-------:|:-------:|
+    |    *     | `web-driver` | String  |         |         |
+    |    *     | `selector`   | String  |         |         |
+    |    *     | `by`         | String  |         |         |
+    |          | `wait`       | Integer |   1     | seconds |
 
 ### Example
 

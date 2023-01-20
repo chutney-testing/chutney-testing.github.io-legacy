@@ -342,3 +342,24 @@ See [Element.scrollIntoView()](https://developer.mozilla.org/en-US/docs/Web/API/
 === "Kotlin"
 ``` kotlin
 ```
+
+# SendKeys
+
+This action simulate typing into an element, which may set its value.  
+See [WebElement.sendKeys()](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/WebElement.html#sendKeys(java.lang.CharSequence...)){:target="_blank"}
+
+=== "Inputs"
+
+    | Required | Name         | Type    | Default |  Note   |
+    |:--------:|:-------------|:--------|:-------:|:-------:|
+    |    *     | `web-driver` | String  |         |         |
+    |    *     | `selector`   | String  |         |         |
+    |    *     | `by`         | String  |         |         |
+    |    *     | `value`      | String  |         |         |
+    |          | `wait`       | Integer |    1    | seconds |
+
+### Example
+
+=== "Kotlin"
+``` kotlin
+```

@@ -117,3 +117,34 @@ Performs the action [Quit](#quit) when the scenario ends.
     ``` kotlin
     ```
 
+
+# Get
+
+This action load a new web page in the current browser window.  
+See [WebDriver.get(String url)](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/WebDriver.html#get(java.lang.String)){:target="_blank"} for further details.
+
+
+=== "Inputs"
+    
+    // TODO explain selector input
+
+    | Required | Name         | Type    | Note                                           |
+    |:--------:|:-------------|:--------|:----------------------------------------------:|
+    |    *     | `web-driver` | String  |                                                |
+    |          | `selector`   | String  |                                                |
+    |    *     | `value`      | String  | The URL to load. Must be a fully qualified URL |
+
+=== "Outputs"
+
+    |     Name    | Type   | Note                                                                                                                                                                                                                                                                    |
+    |:-----------:|:-------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | `outputGet` | String | This value can be used to switch to this window using action [SwitchTo](#switch-to).<br> See [WebDriver.getWindowHandle()](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/WebDriver.html#getWindowHandle()){:target="_blank"} for further details. |
+
+
+
+### Example
+
+=== "Kotlin"
+``` kotlin
+```
+

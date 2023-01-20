@@ -66,7 +66,7 @@ See [WebDriver.close()](https://www.selenium.dev/selenium/docs/api/java/org/open
     ``` kotlin
     ```
 
-# Driver Init
+# DriverInit
 
 This action instantiate a webdriver
 
@@ -343,7 +343,7 @@ See [Element.scrollIntoView()](https://developer.mozilla.org/en-US/docs/Web/API/
 ``` kotlin
 ```
 
-# SendKeys
+# Send keys
 
 This action simulate typing into an element, which may set its value.  
 See [WebElement.sendKeys()](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/WebElement.html#sendKeys(java.lang.CharSequence...)){:target="_blank"}
@@ -412,6 +412,42 @@ See [WebDriver.Window.setSize()](https://www.selenium.dev/selenium/docs/api/java
     |        Name      | Type                                                    |
     |:----------------:|:--------------------------------------------------------|
     | `outputSwitchTo` | This value can be used to switch to this element later. |
+
+### Example
+
+=== "Kotlin"
+``` kotlin
+```
+
+# Wait
+
+This action waits N seconds or until the expected conditions are met.
+
+!!! note "About `value` input"
+    Expected conditions can be combined.  
+    Available values are :
+
+    - "elementToBeSelected"
+    - "elementToBeClickable"
+    - "frameToBeAvailableAndSwitchToIt"
+    - "invisibilityOfElementLocated"
+    - "visibilityOfElementLocated"
+    - "visibilityOfAllElementLocated"
+    - "presenceOfElementLocated"
+    - "presenceOfAllElementLocated"
+    - "and"
+    - "or"
+    - "not"
+
+=== "Inputs"
+
+| Required | Name         | Type    | Default |  Note   |
+|:--------:|:-------------|:--------|:-------:|:-------:|
+|    *     | `web-driver` | String  |         |         |
+|    *     | `selector`   | String  |         |         |
+|    *     | `by`         | String  |         |         |
+|          | `wait`       | Integer |    1    | seconds |
+|          | `value`      | String  |         |         |
 
 ### Example
 

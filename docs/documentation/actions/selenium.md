@@ -39,7 +39,7 @@ It takes a screenshot in case of error.
     |    *     | `web-driver` | String  |         |         |
     |    *     | `selector`   | String  |         |         |
     |    *     | `by`         | String  |         |         |
-    |          | `wait`       | Integer |   1s    | seconds |
+    |          | `wait`       | Integer |   1     | seconds |
 
 
 ### Example
@@ -161,7 +161,7 @@ See [WebElement.getAttribute()](https://www.selenium.dev/selenium/docs/api/java/
     |    *     | `web-driver` | String  |         |         |
     |    *     | `selector`   | String  |         |         |
     |    *     | `by`         | String  |         |         |
-    |          | `wait`       | Integer |   1s    | seconds |
+    |          | `wait`       | Integer |   1     | seconds |
     |          | `attribute`  | String  | "value" |         |
 
 === "Outputs"
@@ -169,6 +169,52 @@ See [WebElement.getAttribute()](https://www.selenium.dev/selenium/docs/api/java/
     |         Name           | Type   |
     |:----------------------:|:-------|
     | `outputAttributeValue` | String |
+
+### Example
+
+=== "Kotlin"
+``` kotlin
+```
+
+# GetText
+
+This action returns the visible (i.e. not hidden by CSS) text of an element, including sub-elements.  
+See [WebElement.getText()](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/WebElement.html#getText()){:target="_blank"} for further details.
+
+=== "Inputs"
+
+    | Required | Name         | Type    | Default |  Note   |
+    |:--------:|:-------------|:--------|:-------:|:-------:|
+    |    *     | `web-driver` | String  |         |         |
+    |    *     | `selector`   | String  |         |         |
+    |    *     | `by`         | String  |         |         |
+    |          | `wait`       | Integer |   1     | seconds |
+
+=== "Outputs"
+
+    |      Name       | Type   | Note                                                      |
+    |:---------------:|:-------|-----------------------------------------------------------|
+    | `outputGetText` | String | Returns the value of attribute "value" when text is empty |
+
+### Example
+
+=== "Kotlin"
+``` kotlin
+```
+
+# Hover and click
+
+Moves the mouse to the middle of the element then performs a click.  
+See [Actions.moveToElement()](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/interactions/Actions.html#moveToElement(org.openqa.selenium.WebElement)){:target="_blank"} and [Click](#click) for further details.
+
+=== "Inputs"
+
+    | Required | Name         | Type    | Default |  Note   |
+    |:--------:|:-------------|:--------|:-------:|:-------:|
+    |    *     | `web-driver` | String  |         |         |
+    |    *     | `selector`   | String  |         |         |
+    |    *     | `by`         | String  |         |         |
+    |          | `wait`       | Integer |   1     | seconds |
 
 ### Example
 

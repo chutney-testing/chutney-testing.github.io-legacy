@@ -19,6 +19,10 @@
         So, Chutney provides it for you.
 
 
+!!! important "About the webdriver"
+
+    webdriver comes from the one started by the action ...
+
 # Click
 
 Performs a click on an element. Element is expected to be clickable.  
@@ -35,6 +39,24 @@ It takes a screenshot in case of error.
     |    *     | `selector`   | String  |         |      |
     |    *     | `by`         | String  |         |      |
     |          | `wait`       | Integer |   1s    |  1s  |
+
+
+### Example
+
+=== "Kotlin"
+    ``` kotlin
+    ```
+
+# Close
+
+This action close the current window, quitting the browser if it's the last window currently open.  
+See [WebDriver.close()](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/WebDriver.html#close()){:target="_blank"} for further details.
+
+=== "Inputs"
+
+    | Required | Name         | Type   | Default |
+    |:--------:|:-------------|:-------|:-------:|
+    |    *     | `web-driver` | String |         |
 
 
 ### Example

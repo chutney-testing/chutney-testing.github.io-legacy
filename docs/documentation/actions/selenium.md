@@ -135,13 +135,11 @@ This action load a new web page in the current browser window.
 See [WebDriver.get(String url)](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/WebDriver.html#get(java.lang.String)){:target="_blank"} for further details.
 
 === "Inputs"
-    
-    // TODO explain selector input
 
     | Required | Name         | Type    | Note                                           |
     |:--------:|:-------------|:--------|:----------------------------------------------:|
     |    *     | `web-driver` | String  |                                                |
-    |          | `selector`   | String  |                                                |
+    |          | `selector`   | String  | (Weird implemention) Used as a boolean. If null, the page is opened in current window. If not the page is opened in a new window |
     |    *     | `value`      | String  | The URL to load. Must be a fully qualified URL |
 
 === "Outputs"

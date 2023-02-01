@@ -47,12 +47,12 @@ Then, create a file `environment.json` with the following content :
 
 ``` json
 {
-    "name" = "World Wide Web",
-    "description" = "The World Wide Web",
+    "name" : "World Wide Web",
+    "description" : "The World Wide Web",
     "targets": [
         {
-            "name" = "search_engine",
-            "url" = "https://www.google.fr"
+            "name" : "search_engine",
+            "url" : "https://www.google.fr"
         }
     ]
 }

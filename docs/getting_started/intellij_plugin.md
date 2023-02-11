@@ -16,14 +16,14 @@ An environment named `GLOBAL` must be created in `intellij_config_folder/conf/GL
 You can get access to this file directly from your IDE
 ![config file](../img/idea_plugin/config_file.png)
 
-You can find [here](/getting_started/write/#declare-an-environment) an example of how to declare an environment using JSON.
+You can find [here](/getting_started/write/#define-your-test-environment-alternative) an example of how to declare an environment using JSON.
 
 # Features
 !!! important
     To be recognized by the plugin, a scenario's json file must be suffixed with `.chutney.json`.
     This file can be generated automatically by the [synchronize](/installation/ci_cd/scenario_sync/) feature.
 
-### Completion
+## Completion
 The plugin use custom [Chutney JSON Schemas](https://github.com/chutney-testing/chutney-idea-plugin/blob/2.1/src/main/resources/chutney-v2.schema.json){:target=_blank} to enable code completion and validation in JSON Scenarios files.
 
 Examples:
@@ -33,30 +33,31 @@ Examples:
 === "Missing required attribute"
     ![required attribute](../img/idea_plugin/required_attribute.png)
 
-### Execution
-=== "from Kotlin"
-    Function annotated with `@KChutney` can be executed and synchronized
-    ![run from Kotlin](../img/idea_plugin/run_kotlin.png)
+## Execution
+### Kotlin
+Function annotated with `@KChutney` can be executed and synchronized
+![run from Kotlin](../img/idea_plugin/run_kotlin.png)
 
-=== "from json"
-    You can run your scenario from the json file by clicking on:
-
-   * run icon. Scenario will be executed on the embedded Chutney Instance.
-     The embedded server will run on a toolWindow where you can see the logs
-      ![embedded Chutney](../img/idea_plugin/local_server.png)
-   * run menu item in the contextual menu when right-click:
-     * in scenario json file.
-       ![run scenario](../img/idea_plugin/run_scenario.png)
-     * on a folder.
-       ![run all](../img/idea_plugin/run_scenarios.png)
+### Json
+You can run your scenario from the json file by clicking on:
+ 
+* run icon. Scenario will be executed on the embedded Chutney Instance.
+ The embedded server will run on a toolWindow where you can see the logs
+  ![embedded Chutney](../img/idea_plugin/local_server.png)
+* run menu item in the contextual menu when right-click:
   
-     You can also define a run configuration and choose if execution will be done on the embedded or the remote Chutney instance.
+    - on scenario json file.
+      ![run scenario](../img/idea_plugin/run_scenario.png)
+    - on a folder.
+      ![run all](../img/idea_plugin/run_scenarios.png)
 
-### Report
+ You can also define a run configuration and choose if execution will be done on the embedded or the remote Chutney instance.
+
+## Report
 In Services view, you can run, stop and view execution report
-![execution report](../img/idea_plugin/exec_report.gif)![](../img/idea_plugin/run_kotlin.png)
+![execution report](../img/idea_plugin/exec_report.gif)
 
-### Synchronize with remote Chutney
+## Synchronize with remote Chutney
 !!! note
     In order to get access to a remote Chutney instance, some properties are required. </br>
     Go to File -> Settings -> tools -> Chutney and fill-in your Chutney remote instance properties
@@ -91,6 +92,8 @@ Synchronization actions are available in right-click contextual menu.
   On an empty directory call the action Get scenarios from Campaign.
   ![get campaign scenarios](../img/idea_plugin/get_campaign_scenarios.png)
 
-### Convert from HJSON to JSON
-If you copy/paste HJSON content, the IDE will automatically transform it to json.
+## Convert from HJSON to JSON
+This can be useful when copying scenario [HJSON](https://hjson.github.io/){:target=_blank} content from Chutney UI.</br>
+If you copy/paste HJSON content, the IDE will automatically transform it to json.</br>
 If you want to paste without transformation click the cancel Button.
+

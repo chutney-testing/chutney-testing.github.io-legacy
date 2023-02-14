@@ -45,13 +45,13 @@ You can run your scenario from the json file by clicking on:
  The embedded server will run on a toolWindow where you can see the logs
   ![embedded Chutney](../img/idea_plugin/local_server.png)
 * run menu item in the contextual menu when right-click:
-  
+
     - on scenario json file.
       ![run scenario](../img/idea_plugin/run_scenario.png)
-    - on a folder.
+    - on a folder. <br>
       ![run all](../img/idea_plugin/run_scenarios.png)
 
- You can also define a run configuration and choose if execution will be done on the embedded or the remote Chutney instance.
+You can also define a run configuration and choose if execution will be done on the embedded or the remote Chutney instance.
 
 ## Report
 In Services view, you can run, stop and view execution report

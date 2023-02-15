@@ -117,3 +117,6 @@ success { }
 4. Information about which action was performed and with which parameters
 5. Information about the target on which the action was performed
 
+
+# Chutney Idea plugin
+You can run scenarios using our [IntelliJ Idea plugin](/getting_started/intellij_plugin).

@@ -1,3 +1,13 @@
+??? info "Browse implementations"
+
+    - [GET](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/http/HttpGetAction.java){:target="_blank"}
+    - [POST](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/http/HttpPostAction.java){:target="_blank"}
+    - [PUT](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/http/HttpPutAction.java){:target="_blank"}
+    - [DELETE](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/http/HttpDeleteAction.java){:target="_blank"}
+    - [PATCH](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/http/HttpPatchAction.java){:target="_blank"}
+    - [Start mock server](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/http/HttpsServerStartAction.java){:target="_blank"}
+    - [Listened routes](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/http/HttpsListenerAction.java){:target="_blank"}
+
 !!! note "How to request a secured service"
 
     For all HTTP actions, authentication or secured connexion to a service is configured by setting properties on the **target**.
@@ -39,6 +49,7 @@
 2. `userPassword` or `password` to define password for basic authentification
 
 # Get
+!!! info "[Browse implementation](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/http/HttpGetAction.java){:target="_blank"}"
 
 === "Inputs"
 
@@ -72,6 +83,7 @@
     ```
 
 # Post
+!!! info "[Browse implementation](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/http/HttpPostAction.java){:target="_blank"}"
 
 === "Inputs"
 
@@ -106,6 +118,7 @@
     ```
 
 # Put
+!!! info "[Browse implementation](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/http/HttpPutAction.java){:target="_blank"}"
 
 === "Inputs"
 
@@ -140,6 +153,7 @@
     ```
 
 # Delete
+!!! info "[Browse implementation](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/http/HttpDeleteAction.java){:target="_blank"}"
 
 === "Inputs"
 
@@ -173,6 +187,7 @@
     ```
 
 # Patch
+!!! info "[Browse implementation](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/http/HttpPatchAction.java){:target="_blank"}"
 
 === "Inputs"
 
@@ -208,6 +223,7 @@
 # Mocking an HTTP Server
 
 ## Start
+!!! info "[Browse implementation](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/http/HttpsServerStartAction.java){:target="_blank"}"
 
 === "Inputs"
 
@@ -242,7 +258,8 @@
 !!! note
     This action automatically registers a teardown to stop the server at the end of the scenario.
 
-## Listen routes
+## Listened routes
+!!! info "[Browse implementation](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/http/HttpsListenerAction.java){:target="_blank"}"
 
 This actions allows you to check which requests have been received by a wiremock server.  
 Available verbs are : `GET`, `POST`, `PUT`, `DELETE`, `PATCH`, `OPTIONS`, `HEAD`, `TRACE`, `ANY`
@@ -252,18 +269,18 @@ Available verbs are : `GET`, `POST`, `PUT`, `DELETE`, `PATCH`, `OPTIONS`, `HEAD`
 
 === "Inputs"
 
-    | Required | Name                     | Type                                                                                                                                    | Default |
-    |:--------:|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------|:-------:|
-    |    *     | `https-server`           | [WireMockServer](https://www.javadoc.io/doc/com.github.tomakehurst/wiremock/latest/com/github/tomakehurst/wiremock/WireMockServer.html) |         |
-    |    *     | `uri`                    | String ([regex](https://wiremock.org/docs/request-matching/#:~:text=strategy%20in%20detail.-,URL%20matching,-URLs%20can%20be){:target=_blank})                                                                                                                          |         |
-    |    *     | `verb`                   | String                                                                                                                                  |         |
-    |          | `expected-message-count` | String                                                                                                                                  |    1    |
+    | Required | Name                     | Type                                                                                                                                                      | Default |
+    |:--------:|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:-------:|
+    |    *     | `https-server`           | [WireMockServer](https://www.javadoc.io/doc/com.github.tomakehurst/wiremock/latest/com/github/tomakehurst/wiremock/WireMockServer.html){:target="_blank"} |         |
+    |    *     | `uri`                    | String ([regex](https://wiremock.org/docs/request-matching/#:~:text=strategy%20in%20detail.-,URL%20matching,-URLs%20can%20be){:target=_blank})            |         |
+    |    *     | `verb`                   | String                                                                                                                                                    |         |
+    |          | `expected-message-count` | String                                                                                                                                                    |    1    |
 
 === "Outputs"
 
-    |      Name | Type                                                                                                                                                      |
-    |----------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | requests  | List<[LoggedRequest](https://www.javadoc.io/doc/com.github.tomakehurst/wiremock/latest/com/github/tomakehurst/wiremock/verification/LoggedRequest.html)\> |    
+    |      Name | Type                                                                                                                                                                        |
+    |----------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | requests  | List<[LoggedRequest](https://www.javadoc.io/doc/com.github.tomakehurst/wiremock/latest/com/github/tomakehurst/wiremock/verification/LoggedRequest.html){:target="_blank"}\> |
 
 ### Example
 

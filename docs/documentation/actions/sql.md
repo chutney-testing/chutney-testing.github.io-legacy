@@ -39,8 +39,9 @@
     ```
 
 !!! note "Logging results"
-    You can configure the maximum number of results to print in the execution report.  
-    
+
+    You can configure the maximum number of results to print in the execution report.
+
     - For a global project scope, set the property `chutney.actions.sql.max-logged-rows`.    
     - For a local step scope, use input value `nbLoggedRow`. This will override the value set by configuration.
 
@@ -103,22 +104,6 @@ A `Row` provides you access to a record values.
 * `get(int index)`: Get the actual value (Object) by column's index  
   -> `${#firstRow.get(4)}` or `${#rows.get(0).get(4)}`
 
-* `get(Column column)`: Get the actual value (Object) by a given [`column`](#column). (_only useful if you are using the [`Column`](#column) type_)  
-  -> `${#firstRow.get(#myColumn)}` or `${#rows.get(0).get(#myColumn)}`
-
-## Column
-
-!!! info "[Browse implementation](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/sql/core/Column.java){:target="_blank"}"
-
-A `Column` represents the request result headers, with a name and an index.  
-The following attributes can be used in SpEL :
-
-* `name`: Get a header's name (String)  
-  -> `${#column.name}`
-
-* `index`: Get a column index (int)  
-  -> `${#column.index}`
-
 ## Example
 
 Here is an example based one the following table :
@@ -165,7 +150,7 @@ When you provide more than one statement in input, you get a [`Records`](#record
 !!! info "[Browse implementation](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/sql/core/Records.java){:target="_blank"}"
 
 One `Records` instance contains results for **one statement** and provides methods to retrieve and search them.  
-Results are structured by [`Column`](#column) and [`Row`](#row). (**Not the [`Rows`](#rows)** type, but you can convert it using the `rows()` method)  
+`Records` is different from [`Rows`](#rows) type, but you can convert it using the `rows()` method.  
 
 Following attributes and methods are available in SpEL :
 
@@ -177,9 +162,6 @@ Following attributes and methods are available in SpEL :
 
 * `headers`: Returns the list of columns names (List< String >)  
 -> `${#recordResult.get(42).headers}`
-
-* `columns`: Returns a list of [`Columns`](#column) (List< Column >).  
--> `${#recordResult.get(42).columns}`
 
 * `rows()`: Converts this `Records` to the wrapper type [`Rows`](#rows). **This may be recommended for easier use**  
 -> `${#recordResult.get(42).rows()}`

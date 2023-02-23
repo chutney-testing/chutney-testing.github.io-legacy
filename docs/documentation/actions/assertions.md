@@ -108,7 +108,7 @@ placeholders used by [xml-assert](/documentation/actions/assertions/#xml-assert)
 # Validations
 !!! Step validation 
     For functional validations, it's recommended to use above actions.
-    For technical validations, it's possible to do them on scenario step [validation](/documentation/actions/introduction/#validation).
+    For technical validations, it's possible to do them on scenario step [validation](/documentation/actions/#validation).
 
 ## Json validation
 validate json structure using a given schema.

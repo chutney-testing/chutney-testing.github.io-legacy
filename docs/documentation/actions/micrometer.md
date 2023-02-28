@@ -1,6 +1,17 @@
+??? info "Browse implementations"
+
+    - [Counter](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/micrometer/MicrometerCounterAction.java){:target="_blank"}
+    - [Gauge](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/micrometer/MicrometerGaugeAction.java){:target="_blank"}
+    - [Timer](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/micrometer/MicrometerTimerAction.java){:target="_blank"}
+    - [Timer Start](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/micrometer/MicrometerTimerStartAction.java){:target="_blank"}
+    - [Timer Stop](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/micrometer/MicrometerTimerStopAction.java){:target="_blank"}
+    - [Summary](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/micrometer/MicrometerSummaryAction.java){:target="_blank"}
+
 !!! note
     Micrometer provides a static [global registry](https://micrometer.io/docs/concepts#_global_registry){:target=_blank}. This registry is used as default if no registry is given in action's inputs.
 # Counter
+
+!!! info "[Browse Implementation](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/micrometer/MicrometerCounterAction.java){:target="_blank"}"
 
 Use this action to report
 a [count](https://micrometer.io/docs/concepts#_counters:~:text=9.-,Counters,-Counters%20report%20a){:target=_blank}
@@ -41,6 +52,8 @@ MicrometerCounterAction(
 ```
 
 # Gauge
+
+!!! info "[Browse Implementation](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/micrometer/MicrometerGaugeAction.java){:target="_blank"}"
 
 Use this action to report a [gauge](https://micrometer.io/docs/concepts#_gauges){:target=_blank} metric.
 
@@ -147,6 +160,8 @@ Use this action to report a [gauge](https://micrometer.io/docs/concepts#_gauges)
 
 # Timer
 
+!!! info "[Browse Implementation](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/micrometer/MicrometerTimerAction.java){:target="_blank"}"
+
 Use this action to report
 a [timer](https://micrometer.io/docs/concepts#_gauges:~:text=11.-,Timers,-Timers%20are%20intended){:target=_blank}
 metric.
@@ -191,6 +206,8 @@ MicrometerTimerAction(
 
 # Timer start
 
+!!! info "[Browse Implementation](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/micrometer/MicrometerTimerStartAction.java){:target="_blank"}"
+
 Use this action to start a [Timer.Sample](https://www.javadoc.io/doc/io.micrometer/micrometer-core/latest/io/micrometer/core/instrument/Timer.Sample.html){:target=_blank}.
 
 === "Inputs"
@@ -214,6 +231,8 @@ MicrometerTimerStartAction()
 ```
 
 # Timer stop
+
+!!! info "[Browse Implementation](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/micrometer/MicrometerTimerStopAction.java){:target="_blank"}"
 
 Use this action to stop a [Timer.Sample](https://www.javadoc.io/doc/io.micrometer/micrometer-core/latest/io/micrometer/core/instrument/Timer.Sample.html){:target=_blank} and record its duration into timer.
 
@@ -243,9 +262,9 @@ MicrometerTimerStopTask(
 
 # Summary
 
-Use this action to report
-a [distribution summary](https://micrometer.io/docs/concepts#_distribution_summaries){:target=_blank}
-metric.
+!!! info "[Browse Implementation](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/micrometer/MicrometerSummaryAction.java){:target="_blank"}"
+
+Use this action to report a [distribution summary](https://micrometer.io/docs/concepts#_distribution_summaries){:target=_blank} metric.
 
 === "Inputs"
 

@@ -1,3 +1,5 @@
+!!! info "[Browse implementation](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/function/ClasspathFunctions.java){:target="_blank"}"
+
 # resourceContent
 
 !!! note "String resourceContent(String name, String charset)"

@@ -1,3 +1,5 @@
+!!! info "[Browse implementation](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/function/Generate.java){:target="_blank"}"
+
 Following functions help you generate random values.
 
 # File

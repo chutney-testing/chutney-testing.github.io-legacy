@@ -1,3 +1,5 @@
+!!! info "[Browse implementation](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/function/StringFunction.java){:target="_blank"}"
+
 This function helps you modify strings.
 
 !!! note "String stringReplace(String input, String regularExpression, String replacement)"

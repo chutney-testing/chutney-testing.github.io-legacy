@@ -1,6 +1,22 @@
+??? info "Browse implementations"
+
+    - Assertions
+        - [Assert](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/assertion/AssertAction.java){:target="_blank"}
+        - [JSON Assert](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/assertion/JsonAssertAction.java){:target="_blank"}
+        - [XML Assert](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/assertion/XmlAssertAction.java){:target="_blank"}
+    - Validations
+        - [JSON](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/assertion/JsonValidationAction.java){:target="_blank"}
+        - [XML](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/assertion/XsdValidationAction.java){:target="_blank"}
+    - Comparison
+        - [Compare](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/assertion/CompareAction.java){:target="_blank"}
+        - [JSON Compare](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/assertion/JsonCompareAction.java){:target="_blank"}
+
 # Assertions
 
 ## Assert
+
+!!! info "[Browse implementation](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/assertion/AssertAction.java){:target="_blank"}"
+
 This action takes a list of assertions written using [SpEL](https://docs.spring.io/spring-framework/docs/5.3.23/reference/html/core.html#expressions-language-ref){:target="_blank"} and validates they are all true.
 === "Inputs"
 
@@ -22,7 +38,10 @@ This action takes a list of assertions written using [SpEL](https://docs.spring.
     ```
 
 ## Json assert
-assert that json nodes have expected values.
+
+!!! info "[Browse implementation](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/assertion/JsonAssertAction.java){:target="_blank"}"
+
+Asserts that JSON nodes have expected values.
 
 === "Inputs"
 
@@ -52,7 +71,10 @@ assert that json nodes have expected values.
     ```
 
 ## Xml assert
-assert that xml nodes have expected values.
+
+!!! info "[Browse implementation](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/assertion/XmlAssertAction.java){:target="_blank"}"
+
+Asserts that XML nodes have expected values.
 
 === "Inputs"
 
@@ -86,32 +108,37 @@ assert that xml nodes have expected values.
     )
     ```
 ## Assertions functions
-placeholders used by [xml-assert](/documentation/actions/assertions/#xml-assert) and [json-assert](/documentation/actions/assertions/#json-assert) actions to assert actual values.
 
-| Placeholder      | Description                                            | Example                                             |
-|:-----------------|:-------------------------------------------------------|:----------------------------------------------------|
-| `$isNull`        | must be null                                           | `"$isNull"`                                         |
-| `$isNotNull`     | must be not null                                       | `"$isNotNull"`                                      |
-| `$contains`      | must contains given value                              | `"$contains:abcde"`                                 |
-| `$isBeforeDate`  | must be before given date                              | `"$isBeforeDate:2010-01-01T11:12:13.1230Z"`         |
-| `$isAfterDate`   | must be after given date                               | `"$isAfterDate:1998-07-14T02:03:04.456Z"`           |
-| `$isEqualDate`   | must be equal to given date                            | `"$isEqualDate:2000-01-01T11:11:12.123+01:00"`      |
-| `$matches`       | must match given regex                                 | `"$matches:\\d{4}-\\d{2}-\\d{2}"`                   |
-| `$isLessThan`    | must be less than given number                         | `$isLessThan:42000`                                 |
-| `$isGreaterThan` | must be greater than given number                      | `$isGreaterThan:45`                                 |
-| `$isEmpty`       | string or array must be empty                          | `"$isEmpty"`                                        |
-| `$lenientEqual`  | must be equal to given json using lenient compare mode | `"$lenientEqual:{\"object\": {\"att\": \"val\"}}"`  |
-| `$value[index]`  | array's element at index must have expected value      | `"$value[0]:three"`                                 |
+Placeholders used by [xml-assert](/documentation/actions/assertions/#xml-assert) and [json-assert](/documentation/actions/assertions/#json-assert) actions to assert actual values.
 
+| Placeholder                                                                                                                                                                                     | Description                                            | Example                                            |
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------|:---------------------------------------------------|
+| [`$isNull`](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/assertion/placeholder/IsNullAsserter.java){:target="_blank"}             | must be null                                           | `"$isNull"`                                        |
+| [`$isNotNull`](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/assertion/placeholder/NotNullAsserter.java){:target="_blank"}         | must be not null                                       | `"$isNotNull"`                                     |
+| [`$contains`](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/assertion/placeholder/ContainsAsserter.java){:target="_blank"}         | must contains given value                              | `"$contains:abcde"`                                |
+| [`$isBeforeDate`](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/assertion/placeholder/BeforeDateAsserter.java){:target="_blank"}   | must be before given date                              | `"$isBeforeDate:2010-01-01T11:12:13.1230Z"`        |
+| [`$isAfterDate`](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/assertion/placeholder/AfterDateAsserter.java){:target="_blank"}     | must be after given date                               | `"$isAfterDate:1998-07-14T02:03:04.456Z"`          |
+| [`$isEqualDate`](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/assertion/placeholder/EqualDateAsserter.java){:target="_blank"}     | must be equal to given date                            | `"$isEqualDate:2000-01-01T11:11:12.123+01:00"`     |
+| [`$matches`](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/assertion/placeholder/MatchesStringAsserter.java){:target="_blank"}     | must match given regex                                 | `"$matches:\\d{4}-\\d{2}-\\d{2}"`                  |
+| [`$isLessThan`](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/assertion/placeholder/LessThanAsserter.java){:target="_blank"}       | must be less than given number                         | `$isLessThan:42000`                                |
+| [`$isGreaterThan`](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/assertion/placeholder/GreaterThanAsserter.java){:target="_blank"} | must be greater than given number                      | `$isGreaterThan:45`                                |
+| [`$isEmpty`](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/assertion/placeholder/IsEmptyAsserter.java){:target="_blank"}           | string or array must be empty                          | `"$isEmpty"`                                       |
+| [`$lenientEqual`](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/assertion/placeholder/LenientEqualAsserter.java){:target="_blank"} | must be equal to given json using lenient compare mode | `"$lenientEqual:{\"object\": {\"att\": \"val\"}}"` |
+| [`$value[index]`](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/assertion/placeholder/ValueArrayAsserter.java){:target="_blank"}   | array's element at index must have expected value      | `"$value[0]:three"`                                |
 
 
 # Validations
+
 !!! Step validation 
     For functional validations, it's recommended to use above actions.
     For technical validations, it's possible to do them on scenario step [validation](/documentation/actions/#validation).
 
 ## Json validation
-validate json structure using a given schema.
+
+!!! info "[Browse implementation](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/assertion/JsonValidationAction.java){:target="_blank"}"
+
+Validates JSON structure using a given schema.
+
 === "Inputs"
 
     | Required | Name            | Type        |     Default     |                 Description          |
@@ -159,8 +186,12 @@ validate json structure using a given schema.
                 """
     )
     ```
+
 ## Xml validation
-validate xml structure using a given schema.
+
+!!! info "[Browse implementation](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/assertion/XsdValidationAction.java){:target="_blank"}"
+
+Validates XML structure using a given schema.
 
 === "Inputs"
 
@@ -190,7 +221,7 @@ validate xml structure using a given schema.
     )
     ```
 
-??? note "xsd files content:"
+??? note "XSD files example"
 
     === "employee.xsd"
 
@@ -232,7 +263,7 @@ validate xml structure using a given schema.
         ```
 
 
-!!! note "xsd schema can be loaded from different paths"
+!!! note "XSD schema can be loaded from different paths"
 
     | prefix          | description                                                      | example                                               |
     |:----------------|:-----------------------------------------------------------------|:------------------------------------------------------|
@@ -244,7 +275,10 @@ validate xml structure using a given schema.
 
 # Comparison
 ## Compare
-compare two strings using a comparison mode.
+
+!!! info "[Browse implementation](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/assertion/CompareAction.java){:target="_blank"}"
+
+Compares two strings using a comparison mode.
 
 === "Inputs"
 
@@ -267,7 +301,7 @@ compare two strings using a comparison mode.
         mode = "EQUALS" // case insensitive
     ) 
     ```
-!!! note "mode can be"
+!!! note "Available modes"
 
     | mode                             |          description                   |
     |:---------------------------------|:---------------------------------------|
@@ -279,7 +313,10 @@ compare two strings using a comparison mode.
     | `less-than` / `less than`        | actual is less than expected           |
 
 ## Json compare
-compare two json inputs(the whole content or only some nodes) using a comparison mode.
+
+!!! info "[Browse implementation](https://github.com/chutney-testing/chutney/blob/master/action-impl/src/main/java/com/chutneytesting/action/assertion/JsonCompareAction.java){:target="_blank"}"
+
+Compares two JSON inputs (the whole content or only some nodes) using a comparison mode.
 
 === "Inputs"
 
@@ -328,7 +365,7 @@ compare two json inputs(the whole content or only some nodes) using a comparison
             mode = JsonCompareMode.STRICT
         )
     ```
-!!! note "available modes"
+!!! note "Available modes"
 
     | mode       |          description                                                                                     |
     |:-----------|:---------------------------------------------------------------------------------------------------------|

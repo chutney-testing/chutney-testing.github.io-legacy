@@ -118,4 +118,4 @@ val search_scenario = Scenario(title = "Search documents") {
 
 !!! tip "Et voilà !"
     You have successfully setup and written your first scenario using Chutney.  
-    Now, you will see how to run it ! :material-rocket-launch:
+    Now, you will see how to [run it ! :material-rocket-launch:](/getting_started/run "🏃")

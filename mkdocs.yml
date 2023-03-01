@@ -24,7 +24,7 @@ nav:
       - CI/CD integration:
           - synchronize: installation/ci_cd/scenario_sync.md
   - Documentation:
-      - Write a scenario: getting_started/write.md
+      - Write a scenario: documentation/write.md
       - Actions:
           - documentation/actions/index.md
           - AMQP: documentation/actions/amqp.md

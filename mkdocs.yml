@@ -97,16 +97,6 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/chutney-testing
-  alternate:
-    - name: English
-      link: /en/
-      lang: en
-    - name: Français
-      link: /fr/
-      lang: fr
-    - name: 中文
-      link: /zh/
-      lang: zh
 
 markdown_extensions:
   - toc:

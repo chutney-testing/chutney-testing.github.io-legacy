@@ -1,6 +1,6 @@
 # Database
 
-[Liquidbase](https://www.liquibase.org/){:target="_blank"} is used to manage Chutney RDBMS schema.  
+[Liquibase](https://www.liquibase.org/){:target="_blank"} is used to manage Chutney RDBMS schema.  
 You can find corresponding changelog [here](https://github.com/chutney-testing/chutney/blob/master/server/src/main/resources/changelog/db.changelog-master.xml){:target="_blank"}.
 
 !!! note

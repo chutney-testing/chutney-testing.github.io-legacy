@@ -13,6 +13,10 @@
         * `connection.ConnectionFactory.keyStoreKeyPassword` with `keyPassword` property
         * `connection.ConnectionFactory.trustStore` with `trustStore` property
         * `connection.ConnectionFactory.trustStorePassword` with `trustStorePassword` property
+    * All configuration beginning with java.naming.* are added to the context 
+    * Other configuration:  
+    In order to provide more configuration, you should prefix all other target properties with `jndi.`.  
+    By example, if you want to add `com.specific.vendor.properties` key, the key should be `jndi.com.specific.vendor.properties`
 
 ```json title="Jms target example"
 {

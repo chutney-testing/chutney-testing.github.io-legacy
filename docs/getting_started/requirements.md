@@ -13,7 +13,7 @@ and run them with JUnit5.
 
 !!! important "Requirements"
 
-    * `java` 11 or later and Kotlin
+    * `java` 17 or later and Kotlin
     * your preferred build tool (ex. `maven`, `gradle`, etc.)
     * your preferred test engine (ex. `Junit 5.x`, `TestNG`, etc.)
 
@@ -68,7 +68,7 @@ Create a Kotlin project with the following dependencies :
         <dependency>
             <groupId>com.chutneytesting</groupId>
             <artifactId>chutney-kotlin-dsl</artifactId> <!--(1)-->
-            <version>0.1.18</version>
+            <version>1.7.0</version>
         </dependency>
        <dependency>
             <groupId>org.jetbrains.kotlin</groupId>

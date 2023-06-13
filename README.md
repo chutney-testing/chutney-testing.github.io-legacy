@@ -1,4 +1,4 @@
-# Developper setup
+# Developer setup
 
 Follow [https://www.mkdocs.org/getting-started/](https://www.mkdocs.org/getting-started/) 
 & [https://squidfunk.github.io/mkdocs-material/getting-started/](https://squidfunk.github.io/mkdocs-material/getting-started/)

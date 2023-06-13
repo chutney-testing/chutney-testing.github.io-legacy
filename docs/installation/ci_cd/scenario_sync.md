@@ -10,14 +10,18 @@ To create your scenario on a Chutney server from your IDE,
 1. Annotate with @Scenario
     In order to be included in the synchronization, a scenario must be annotated with [@Scenario](https://github.com/chutney-testing/chutney-kotlin-dsl/blob/master/dsl/src/main/kotlin/com/chutneytesting/kotlin/annotations/Scenario.kt){:target=_blank}.
 2. Configure your server info
-``` kotlin 
-import com.chutneytesting.kotlin.synchronize.synchronise
-import com.chutneytesting.kotlin.util.ChutneyServerInfo
-
-val chutneyLocalServer = ChutneyServerInfo(
-    remoteServerUrl = "http://localhost:8081", remoteUserName = "admin", remoteUserPassword = "admin"
-)
-```
+    ``` kotlin 
+    import com.chutneytesting.kotlin.synchronize.synchronise
+    import com.chutneytesting.kotlin.util.ChutneyServerInfo
+    
+    val chutneyLocalServer = ChutneyServerInfo(
+        url = "http://localhost:8081", user = "admin", password = "admin",
+        proxyUrl = "http://my.proxy.host:3128", proxyUser = "user", proxyPassword = "pwd" // (1)!
+    )
+    ```
+    1. **Proxy connection configuration is not mandatory**.  
+       It can be also set with corresponding Java System properties.  
+       `[ http | https ].[ proxyHost | proxyPort | proxyUser | proxyPassword ]`
 
 3. Execute a main to call synchronise function on your scenario
     ``` kotlin

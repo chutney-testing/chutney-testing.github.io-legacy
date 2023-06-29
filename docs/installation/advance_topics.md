@@ -80,7 +80,7 @@ If you want to add another authentication mechanism, you should follow the [Spri
 
 User roles and permissions are configured either with Web app form or by editing the file.
 
-One could use the existing [AuthenticationService](https://github.com/chutney-testing/chutney/blob/master/server/src/main/java/com/chutneytesting/security/domain/AuthenticationService.java) Chutney Spring Bean to retrieve Chutney roles by user id and grant associated authorities. // I don't understand what you mean, is it useful ? provide a real use case for showing why and how it could be done
+One could use the existing [AuthenticationService](https://github.com/chutney-testing/chutney/blob/master/server/src/main/java/com/chutneytesting/security/domain/AuthenticationService.java) Chutney Spring Bean to retrieve Chutney roles by user id and grant associated authorities. <!-- TODO : I don't understand what you mean, is it useful ? provide a real use case for showing why and how it could be done -->
 
 !!! note "How to manage permissions"
     * A user can only have one role

@@ -101,14 +101,14 @@ There are 2 types of dataset :
 The code below show how to use constants in your scenario
 
 ``` kotlin
-data class Data(
+data class Dataset(
     val firstname: String,
     val lastname: String
 )
 
 @Scenario
 fun test() = withData(
-    Data(
+    Dataset(
         firstname = "firstname".spEL(),
         lastname = "lastname".spEL()
     )
@@ -130,7 +130,7 @@ fun test() = withData(
     }
 }
 ```
-In this example the "withData" will be useful to declare the template of the dataset (defined in the data class CustomerData) in your Kotlin code. The "ContextPutAction" allow you to add your constants in the context of your scenario
+In this example the "withData" will be useful to declare the template of the dataset (defined in the data class CustomerDataset ) in your Kotlin code. The "ContextPutAction" allow you to add your constants in the context of your scenario
 
 Now you can declare constants like this in the dataset panel of the IHM
 
@@ -148,7 +148,7 @@ To use an array dataset you need to iterate over it with the "for strategy" of t
 fun <T> withData(vararg elements: T, transform: (T) -> ChutneyScenario): List<ChutneyScenario> =
     if (elements.size > 0) elements.asList().map { transform.invoke(it) } else emptyList()
 
-data class CustomerData(
+data class CustomerDataset (
     val firstname: String,
     val lastname: String
 )
